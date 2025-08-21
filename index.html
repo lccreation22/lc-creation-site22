@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr" class="theme-amenagement">
+<head>
+  <meta charset="utf-8">
+  <title>LC Creation — Aménagements extérieurs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand"><img src="assets/logo-amenagement.png" alt="logo"></div>
+      <nav>
+        <a href="index.html">Aménagements</a>
+        <a href="renovation.html">Rénovation</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero grid grid-2">
+      <div>
+        <h1>Aménagements extérieurs durables et bien pensés</h1>
+        <p class="muted">Création de jardins, terrasses, allées et plantations avec finitions soignées.</p>
+        <div class="badges">
+          <span>✔ Devis sous 48h</span>
+          <span>✔ Assuré & garanti</span>
+          <span>✔ Déplacements régionaux</span>
+        </div>
+        <div style="margin-top:14px">
+          <a class="btn" href="#contact">Demander un devis</a>
+          <a class="btn secondary" href="renovation.html">Voir l'autre page</a>
+        </div>
+      </div>
+      <div>
+        <div class="carousel" id="carousel">
+          
+        <div class="slide" style="display:block">
+          <img src="photos/IMG_20250722_075234.jpg" alt="Pavage">
+        </div>
+        
+        <div class="slide" style="display:none">
+          <img src="photos/FB_IMG_1750392955462.jpg" alt="Plantations">
+        </div>
+        
+        <div class="slide" style="display:none">
+          <img src="photos/IMG_20241101_121859868_MP~2.jpg" alt="Terrasse">
+        </div>
+        
+        <div class="slide" style="display:none">
+          <img src="photos/IMG_20250420_082002156_HDR.jpg" alt="Chemin">
+        </div>
+        
+        <div class="slide" style="display:none">
+          <img src="photos/IMG_20250611_094747.jpg" alt="Allée">
+        </div>
+        
+        <div class="slide" style="display:none">
+          <img src="photos/IMG_20250820_092216.jpg" alt="Entretien">
+        </div>
+        
+          <div class="controls">
+            <button class="ctrl prev">◀</button>
+            <button class="ctrl next">▶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Nos services</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:12px">
+        <div class="card"><strong>Conception</strong><br><span class="muted">Plans, conseils, choix des matériaux.</span></div>
+        <div class="card"><strong>Création</strong><br><span class="muted">Terrasses, allées, plantations, bordures.</span></div>
+        <div class="card"><strong>Entretien</strong><br><span class="muted">Tonte, taille, remise en état saisonnière.</span></div>
+        <div class="card"><strong>Petite maçonnerie</strong><br><span class="muted">Murets, clôtures, gabions.</span></div>
+      </div>
+    </section>
+    <section id="contact" class="section card">
+      <h2>Contact & devis</h2>
+      <p class="muted">Décrivez votre besoin, on vous rappelle rapidement.</p>
+      <div style="margin-top:8px">
+        <div><strong>Tél.</strong> 0474/69.38.00</div>
+        <div><strong>Email</strong> lecocqcedric@outlook.be</div>
+        <div><strong>TVA</strong> BE 1015.582.575</div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">© <span id="y"></span> LC Creation SRL — Bruxelles, Brabant Wallon, Brabant Flamand</div>
+  </footer>
+  <script type="module">
+    import { initCarousel } from './js/carousel.js';
+    document.getElementById('y').textContent = new Date().getFullYear();
+    initCarousel('carousel', 4000);
+  </script>
+</body>
+</html>
