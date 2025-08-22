@@ -122,5 +122,11 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
     document.getElementById('y').textContent = new Date().getFullYear();
     initCarousel('carousel', 4000);
   </script>
+<script type="module">
+  import('./js/carousel.js').then(m => m.initCarousel('carousel', 4000));
+</script>
+<script type="module">
+  import('./js/carousel.js').then(m => m.initCarousel('carousel', 4000));
+</script>
 </body>
 </html>
