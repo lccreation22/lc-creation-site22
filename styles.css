@@ -30,7 +30,7 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 .theme-reno .btn{background:var(--accent2)}
 /* Patch visibilité logo (temporaire) */
 
-}/* Ajustement affichage logo */
+/* Ajustement affichage logo */
 .brand img {
   height: 120px;      /* taille plus grande */
   max-height: 120px;
