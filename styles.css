@@ -40,7 +40,7 @@ header .brand img {
   padding: 0;
   filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
 }
-body{ outline: 4px solid magenta !important; }
+
 
 <style>
 :root{--accent:#10b981;--accent2:#f59e0b;--text:#0b0f10;--muted:#6b7280;--border:#e5e7eb}
