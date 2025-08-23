@@ -25,6 +25,25 @@
   setInterval(()=>{ i=(i+1)%slides.length; show(i); }, 4000);
 })();
 </script>
+<script>
+(function(){
+  const root = document.getElementById('carousel');
+  if(!root) return;
+  const slides = Array.from(root.querySelectorAll('.slide'));
+  if(!slides.length) return;
+
+  let i = 0;
+  const show = n => slides.forEach((s,k)=> s.style.display = (k===n)?'block':'none');
+  show(0);
+
+  const prev = root.querySelector('.prev');
+  const next = root.querySelector('.next');
+  prev && prev.addEventListener('click', ()=>{ i=(i-1+slides.length)%slides.length; show(i); });
+  next && next.addEventListener('click', ()=>{ i=(i+1)%slides.length; show(i); });
+
+  setInterval(()=>{ i=(i+1)%slides.length; show(i); }, 4000);
+})();
+</script>
 <body>
   <header>
     <div class="container topbar">
