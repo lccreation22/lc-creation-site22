@@ -30,15 +30,17 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 .theme-reno .btn{background:var(--accent2)}
 
 /* FORCER la taille des logos (spécificité + !important) */
-header .brand img{
-  height: 200px !important;
-  max-height: none !important;
+header .brand img {
+  max-height: 220px;
+  height: auto;
+  width: auto;
   object-fit: contain;
-  padding: 6px;
-  border-radius: 10px;
-  background: transparent; /* ou #111 si logo blanc sur fond clair */
+  display: block;
+  background: transparent !important; /* plus de carré noir */
+  padding: 0;
   filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
 }
+
 
 /* Option : règles différentes par page */
 .theme-amenagement header .brand img { background: transparent; }
