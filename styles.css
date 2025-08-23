@@ -29,10 +29,14 @@ p.muted{color:var(--muted)}
 footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:var(--muted);font-size:13px}
 .theme-reno .btn{background:var(--accent2)}
 /* Patch visibilité logo (temporaire) */
-.brand img{
-  height:80px;
-  object-fit:contain;
-  background:#111;     /* fond sombre pour rendre un logo blanc visible */
-  padding:6px;
-  border-radius:8px;
+
+}/* Ajustement affichage logo */
+.brand img {
+  height: 120px;      /* taille plus grande */
+  max-height: 120px;
+  object-fit: contain;
+  background: #222;   /* fond sombre pour rendre visible un logo blanc */
+  padding: 8px;
+  border-radius: 10px;
 }
+
