@@ -6,7 +6,52 @@
   <title>LC Création — Rénovation intérieure</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="LC Création SRL — Aménagements extérieurs et rénovation intérieure en Brabant Wallon et Bruxelles. Devis rapide.">
- <link rel="stylesheet" href="./styles.css?v=4">
+ 
+<style>
+:root{--accent:#10b981;--accent2:#f59e0b;--text:#0b0f10;--muted:#6b7280;--border:#e5e7eb}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:#fff}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:0;background:#ffffffcc;backdrop-filter:blur(8px);border-bottom:1px solid var(--border);overflow:visible}
+.topbar{min-height:72px;height:auto;padding:8px 0;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center}
+nav a{padding:8px 10px;border-radius:10px}
+nav a:hover{background:#f3f4f6}
+h1{font-size:clamp(30px,4.6vw,48px);margin:18px 0 8px}
+h2{font-size:clamp(22px,3vw,34px);margin:0}
+p.muted{color:var(--muted)}
+.section{padding:26px 0}
+.hero{padding:28px 0}
+.badges{display:flex;gap:14px;color:var(--muted);font-size:14px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:14px;border:1px solid transparent}
+.btn.secondary{background:#f3f4f6;color:#0f172a}
+.card{border:1px solid var(--border);border-radius:16px;padding:16px;background:#fff}
+.grid{display:grid;gap:16px}
+@media(min-width:900px){.grid-2{grid-template-columns:1.1fr .9fr}}
+/* --- PATCH HEADER / LOGO --- */
+header .brand img{
+  max-height:260px !important;
+  height:auto !important;
+  width:auto !important;
+  object-fit:contain;
+  display:block;
+  background:transparent !important;
+  padding:0;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.25));
+}
+@media (max-width:640px){
+  header .brand img{ max-height:150px !important; }
+}
+/* Carousel */
+.carousel{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border)}
+.carousel .slide{position:relative}
+.carousel img{width:100%;height:520px;object-fit:cover;display:block}
+.controls{display:flex;gap:8px;position:absolute;inset:0;align-items:center;justify-content:space-between;padding:0 8px}
+.ctrl{background:#ffffffcc;border:1px solid var(--border);border-radius:10px;padding:8px 10px;cursor:pointer}
+footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:var(--muted);font-size:13px}
+</style>
 
 </head>
 <body>
