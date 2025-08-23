@@ -42,17 +42,6 @@ header .brand img {
 }
 
 
-/* Option : règles différentes par page */
-.theme-amenagement header .brand img { background: transparent; }
-.theme-reno header .brand img { background: #111; }  /* logo blanc lisible */
 
-
-/* Sur mobile, un peu plus petit pour éviter de prendre toute la place */
-@media (max-width: 640px) {
-  .brand img {
-    height: 110px;
-    max-height: 110px;
-  }
-}
 
 
