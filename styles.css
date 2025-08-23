@@ -28,3 +28,11 @@ p.muted{color:var(--muted)}
 .ctrl{background:#ffffffcc;border:1px solid var(--border);border-radius:10px;padding:8px 10px;cursor:pointer}
 footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:var(--muted);font-size:13px}
 .theme-reno .btn{background:var(--accent2)}
+/* Patch visibilité logo (temporaire) */
+.brand img{
+  height:80px;
+  object-fit:contain;
+  background:#111;     /* fond sombre pour rendre un logo blanc visible */
+  padding:6px;
+  border-radius:8px;
+}
