@@ -30,13 +30,25 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 .theme-reno .btn{background:var(--accent2)}
 /* Patch visibilité logo (temporaire) */
 
-/* Ajustement affichage logo */
+/* Logos plus grands et lisibles */
 .brand img {
-  height: 120px;      /* taille plus grande */
-  max-height: 120px;
+  height: 160px;         /* augmente la taille du logo */
+  max-height: 160px;
   object-fit: contain;
-  background: #222;   /* fond sombre pour rendre visible un logo blanc */
-  padding: 8px;
+  padding: 6px;
   border-radius: 10px;
+  /* enlève le fond sombre si tu n'en veux pas */
+  background: transparent;    /* ou #111 si logo blanc sur fond blanc */
+  /* petit effet propre si besoin : */
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
 }
+
+/* Sur mobile, un peu plus petit pour éviter de prendre toute la place */
+@media (max-width: 640px) {
+  .brand img {
+    height: 110px;
+    max-height: 110px;
+  }
+}
+
 
