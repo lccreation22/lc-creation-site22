@@ -87,6 +87,29 @@ header .brand img{
 .ctrl{background:#ffffffcc;border:1px solid var(--border);border-radius:10px;padding:8px 10px;cursor:pointer}
 footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:var(--muted);font-size:13px}
 </style>
+/* Logo adaptatif */
+header .brand img {
+  max-height: 180px;    /* sur PC, taille confortable */
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
+}
+
+/* Sur tablette et smartphone : plus petit */
+@media (max-width: 1024px) {
+  header .brand img {
+    max-height: 140px;
+  }
+}
+
+@media (max-width: 640px) {
+  header .brand img {
+    max-height: 100px;
+  }
+}
 
 
 
