@@ -115,52 +115,22 @@ header .brand img {
   background: #ffffff;   /* blanc */
 }
 /* Icônes SVG dans les cartes */
-.card svg {
-  display:block;
-  width:36px;
-  height:36px;
-  margin-bottom:8px;
-  /* vert du thème */
+.card svg{
+  display: block;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 8px;
   color: var(--accent);
   stroke: currentColor;
   stroke-width: 2;
   fill: none;
 }
 
-/* Sections alternées (rythme visuel) */
+/* Sections alternées pour donner du rythme */
 .section.alt:nth-of-type(even){ background:#f9fafb; }  /* gris clair */
-.section.alt:nth-of-type(odd){ background:#ffffff; }   /* blanc */
+.section.alt:nth-of-type(odd){  background:#ffffff; }  /* blanc */
 
-/* Un peu d’air dans les sections */
+/* Un peu d’air */
 .section{ padding:26px 0; }
-?v=10
-/* Icônes dans les cartes */
-.card svg{
-  display:block;width:36px;height:36px;margin-bottom:8px;
-  color:var(--accent);stroke:currentColor;stroke-width:2;fill:none;
-}
-/* Sections alternées (rythme visuel) */
-.section.alt:nth-of-type(even){background:#f9fafb;}
-.section.alt:nth-of-type(odd){background:#ffffff;}
-
-/* Icônes SVG dans les cartes */
-.card svg{display:block;width:36px;height:36px;margin-bottom:8px;color:var(--accent);stroke:currentColor;stroke-width:2;fill:none}
-/* Sections alternées pour donner du rythme */
-.section.alt:nth-of-type(even){background:#f9fafb}
-.section.alt:nth-of-type(odd){background:#ffffff}
-/* Icônes SVG dans les cartes */
-.card svg{
-  display:block;
-  width:36px;
-  height:36px;
-  margin-bottom:8px;
-  color:var(--accent);
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
-}
-
-/* Sections alternées pour donner du rythme */
-.section.alt:nth-of-type(even){ background:#f9fafb; }  /* gris clair */
-.section.alt:nth-of-type(odd){ background:#ffffff; }   /* blanc */
-
+.card{ padding:18px; border-radius:16px; }
+.grid{ gap:16px; }
