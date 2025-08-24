@@ -134,5 +134,13 @@ header .brand img {
 /* Un peu d’air dans les sections */
 .section{ padding:26px 0; }
 ?v=10
+/* Icônes dans les cartes */
+.card svg{
+  display:block;width:36px;height:36px;margin-bottom:8px;
+  color:var(--accent);stroke:currentColor;stroke-width:2;fill:none;
+}
+/* Sections alternées (rythme visuel) */
+.section.alt:nth-of-type(even){background:#f9fafb;}
+.section.alt:nth-of-type(odd){background:#ffffff;}
 
 
