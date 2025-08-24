@@ -78,3 +78,11 @@ header .brand img{
   nav a{ padding:8px; } /* resserre un peu le menu sur mobile */
 }
 
+@media (max-width: 640px){
+  .call-float{
+    position: fixed; right: 16px; bottom: 16px;
+    width: 56px; height: 56px; line-height: 56px; text-align: center;
+    border-radius: 50%; background: var(--accent); color:#fff; 
+    box-shadow: 0 4px 14px rgba(0,0,0,.18); font-size: 22px; z-index: 50;
+  }
+}
