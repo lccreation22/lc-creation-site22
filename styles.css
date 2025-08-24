@@ -143,4 +143,9 @@ header .brand img {
 .section.alt:nth-of-type(even){background:#f9fafb;}
 .section.alt:nth-of-type(odd){background:#ffffff;}
 
+/* Icônes SVG dans les cartes */
+.card svg{display:block;width:36px;height:36px;margin-bottom:8px;color:var(--accent);stroke:currentColor;stroke-width:2;fill:none}
+/* Sections alternées pour donner du rythme */
+.section.alt:nth-of-type(even){background:#f9fafb}
+.section.alt:nth-of-type(odd){background:#ffffff}
 
