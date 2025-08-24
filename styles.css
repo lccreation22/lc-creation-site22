@@ -66,3 +66,4 @@ header .brand img{
   nav a{ padding:8px } /* resserre un peu le menu */
 }
 body{ outline: 5px solid magenta !important; }
+body{ outline: 3px solid magenta !important; }
