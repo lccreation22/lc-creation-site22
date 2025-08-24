@@ -65,3 +65,4 @@ header .brand img{
   .call-mobile{ display:inline-block; padding:8px 12px; }
   nav a{ padding:8px } /* resserre un peu le menu */
 }
+body{ outline: 5px solid magenta !important; }
