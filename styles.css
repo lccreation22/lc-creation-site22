@@ -65,4 +65,16 @@ header .brand img{
   .call-mobile{ display:inline-block; padding:8px 12px; }
   nav a{ padding:8px } /* resserre un peu le menu */
 }
+/* Bouton d’appel dans le menu : visible surtout sur mobile */
+.call-mobile{ display:none; }
+@media (max-width: 640px){
+  .call-mobile{ display:inline-block; padding:8px 12px; }
+  nav a{ padding:8px; } /* resserre un peu le menu sur mobile */
+}
+/* Bouton d’appel dans le menu : visible surtout sur mobile */
+.call-mobile{ display:none; }
+@media (max-width: 640px){
+  .call-mobile{ display:inline-block; padding:8px 12px; }
+  nav a{ padding:8px; } /* resserre un peu le menu sur mobile */
+}
 
