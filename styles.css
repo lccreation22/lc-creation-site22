@@ -114,6 +114,25 @@ header .brand img {
 .section:nth-child(odd) {
   background: #ffffff;   /* blanc */
 }
+/* Icônes SVG dans les cartes */
+.card svg {
+  display:block;
+  width:36px;
+  height:36px;
+  margin-bottom:8px;
+  /* vert du thème */
+  color: var(--accent);
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Sections alternées (rythme visuel) */
+.section.alt:nth-of-type(even){ background:#f9fafb; }  /* gris clair */
+.section.alt:nth-of-type(odd){ background:#ffffff; }   /* blanc */
+
+/* Un peu d’air dans les sections */
+.section{ padding:26px 0; }
 
 
 
