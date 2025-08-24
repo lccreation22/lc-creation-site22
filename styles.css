@@ -99,6 +99,14 @@ header .brand img {
   }
 }
 
+/* Sections alternées */
+.section:nth-child(even) {
+  background: #f9fafb;   /* gris clair */
+}
+
+.section:nth-child(odd) {
+  background: #ffffff;   /* blanc */
+}
 
 
 
