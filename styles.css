@@ -98,7 +98,7 @@ header .brand img{
 /* Hero de présentation avec photo + voile vert */
 .hero-intro{
   position: relative;
-  background: url("./photos/presentation.jpg") center/cover no-repeat;
+  background: url("fondecran1.jpg") center/cover no-repeat;
   color: #fff;
   text-align: center;
   padding: 88px 20px;
