@@ -254,15 +254,21 @@ body::before{
 }
 .hero-intro {
   text-align: center;
-  color: #0b0f10 !important;   /* texte noir lisible */
+  color: #0b0f10;        /* texte sombre */
   padding: 80px 20px;
-  background: rgba(255,255,255,0.85); /* blanc semi-opaque par-dessus la photo */
-  border-radius: 12px;
   margin: 40px auto;
   max-width: 900px;
 }
+
 .hero-intro h1 {
   font-size: clamp(28px, 5vw, 42px);
   margin-bottom: 16px;
-  color: var(--accent);   /* vert */
+  color: var(--accent);  /* titre en vert */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.15); /* petite ombre pour lisibilité */
+}
+
+.hero-intro p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.5); /* subtil contour clair */
 }
