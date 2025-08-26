@@ -333,3 +333,25 @@ body::before{
     box-shadow: 0 14px 34px rgba(16,185,129,.10);
   }
 }
+/* ===== Boost Réalisations / Carrousel (mobile) ===== */
+@media (max-width: 760px){
+  .carousel img{
+    height: 70vh;           /* occupe 70% de la hauteur écran */
+    max-height: 520px;      /* limite haute pour éviter trop grand */
+    object-fit: cover;
+  }
+  .controls{
+    gap: 12px;
+    padding: 0 12px;
+  }
+  .ctrl{
+    padding: 10px 12px;     /* boutons + gros = + faciles à toucher */
+    font-size: 18px;
+  }
+}
+
+/* Option : bords arrondis + halo pour ressortir sur fond photo */
+.carousel{
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+}
