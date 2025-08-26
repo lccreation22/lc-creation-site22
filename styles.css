@@ -237,3 +237,18 @@ nav a:hover{
 @media (max-width: 700px){
   .service-card{ border-left: 5px solid var(--accent); }
 }
+/* Photo de fond sur toute la page */
+body{
+  background: url("fondecran1.jpg") center/cover fixed no-repeat;
+  color: var(--text);
+  position: relative;
+}
+
+/* Voile léger pour garder lisibilité */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.75); /* blanc translucide par dessus la photo */
+  z-index: -1;
+}
