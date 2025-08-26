@@ -86,3 +86,28 @@ header .brand img{
     box-shadow: 0 4px 14px rgba(0,0,0,.18); font-size: 22px; z-index: 50;
   }
 }
+.hero-intro {
+  position: relative;
+  background: url(".fondecran1.jpg") center/cover no-repeat; /* 👉 mets ici ta photo */
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero-intro .overlay {
+  background: rgba(0,0,0,0.55); /* couche semi-transparente noire */
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.hero-intro h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  margin-bottom: 12px;
+}
+
+.hero-intro p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.5;
+}
