@@ -88,7 +88,7 @@ header .brand img{
 }
 .hero-intro {
   position: relative;
-  background: url(".fondecran1.jpg") center/cover no-repeat; /* 👉 mets ici ta photo */
+  background: url("fondecran1.jpg") center/cover no-repeat; /* 👉 mets ici ta photo */
   color: white;
   text-align: center;
   padding: 80px 20px;
