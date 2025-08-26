@@ -107,8 +107,8 @@ header .brand img{
   /* dégradé vert + fondu sombre pour lisibilité */
   background: linear-gradient(
     to bottom,
-    rgba(16,185,129,0.35),      /* vert 35% en haut */
-    rgba(0,0,0,0.45)            /* sombre 45% en bas */
+    rgba(16,185,129,0.45),      /* vert 35% en haut */
+    rgba(0,0,0,0.35)            /* sombre 45% en bas */
   );
   padding: 40px;
   border-radius: 12px;
