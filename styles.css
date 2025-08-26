@@ -355,3 +355,16 @@ body::before{
   border-radius: 18px;
   box-shadow: 0 16px 40px rgba(0,0,0,.12);
 }
+/* Corrige l'effet "gros bloc blanc" entre sections */
+.section.alt {
+  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+  padding: 40px 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Les sections normales (pas alt) laissent apparaître le fond de page */
+.section {
+  padding: 40px 0;
+  background: transparent;
+}
