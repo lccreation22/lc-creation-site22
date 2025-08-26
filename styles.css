@@ -160,3 +160,43 @@ header .brand img{
     height: 180px;
   }
 }
+/* Alternance plus vivante (blanc / très clair vert) */
+.section.alt { background: linear-gradient(180deg,#f0fdf4 0%, #ffffff 100%); }
+
+/* Souligner les H2 d’un petit liseré vert */
+.section h2{
+  position: relative;
+  padding-bottom: 8px;
+}
+.section h2::after{
+  content:"";
+  position:absolute; left:0; bottom:0;
+  width:80px; height:3px; border-radius:3px;
+  background: var(--accent);
+}
+
+/* Service : petite barre verte à gauche + hover doux */
+.service-card{
+  border-left: 4px solid var(--accent);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.service-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(16,185,129,.08);
+}
+
+/* Boutons : effet focus/hover plus “vert” */
+.btn:hover{ filter: brightness(0.95); }
+.btn.secondary{
+  border-color: var(--accent);
+}
+.btn.secondary:hover{
+  background: #e7f9f1;
+  color: #065f46;
+}
+
+/* Liens du menu au survol : petit liseré vert */
+nav a:hover{
+  background: #e7f9f1;
+  border: 1px solid rgba(16,185,129,.35);
+}
