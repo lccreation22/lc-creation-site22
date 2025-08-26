@@ -284,3 +284,52 @@ body::before{
 /* Cartes: léger hover */
 .card{ transition:transform .15s ease, box-shadow .2s ease; }
 .card:hover{ transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.06); }
+/* ===== Boost Services (mobile) ===== */
+@media (max-width: 760px){
+  .section h2{
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .service-card{
+    position: relative;
+    flex-direction: column;               /* pile = + lisible */
+    align-items: stretch;
+    gap: 14px;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(16,185,129,.25); /* liseré vert */
+    background: #ffffffee;                 /* léger fond blanc */
+    box-shadow: 0 10px 28px rgba(16,185,129,.10); /* halo vert doux */
+    transform: translateZ(0);
+  }
+  .service-card img{
+    width: 100%;
+    height: 240px;                         /* + grand visuel */
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  .service-card h3{
+    font-size: 22px;
+    margin: 0 0 6px 0;
+    line-height: 1.2;
+  }
+  .service-card p{
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  /* Tap area confortable : toute la carte cliquable si tu ajoutes un lien autour */
+  .service-card:active{ transform: scale(.99); }
+}
+
+/* Légère mise en avant sur desktop aussi (discret) */
+@media (min-width: 761px){
+  .service-card{
+    transition: transform .15s ease, box-shadow .2s ease;
+  }
+  .service-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(16,185,129,.10);
+  }
+}
