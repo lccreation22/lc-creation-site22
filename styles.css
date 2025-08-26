@@ -239,7 +239,7 @@ nav a:hover{
 }
 /* Photo de fond sur toute la page */
 body{
-  background: url("fondecran1.jpg") center/cover fixed no-repeat;
+  background: url("fondecran22.jpg") center/cover fixed no-repeat;
   color: var(--text);
   position: relative;
 }
