@@ -95,19 +95,25 @@ header .brand img{
     box-shadow: 0 4px 14px rgba(0,0,0,.18); font-size: 22px; z-index: 50;
   }
 }
-.hero-intro {
+/* Hero de présentation avec photo + voile vert */
+.hero-intro{
   position: relative;
-  background: url("fondecran1.jpg") center/cover no-repeat; /* 👉 mets ici ta photo */
-  color: white;
+  background: url("./photos/presentation.jpg") center/cover no-repeat;
+  color: #fff;
   text-align: center;
-  padding: 80px 20px;
+  padding: 88px 20px;
 }
-
-.hero-intro .overlay {
-  background: rgba(0,0,0,0.55); /* couche semi-transparente noire */
+.hero-intro .overlay{
+  /* dégradé vert + fondu sombre pour lisibilité */
+  background: linear-gradient(
+    to bottom,
+    rgba(16,185,129,0.35),      /* vert 35% en haut */
+    rgba(0,0,0,0.45)            /* sombre 45% en bas */
+  );
   padding: 40px;
   border-radius: 12px;
 }
+
 
 .hero-intro h1 {
   font-size: clamp(28px, 5vw, 42px);
