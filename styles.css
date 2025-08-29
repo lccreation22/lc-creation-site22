@@ -1,427 +1,93 @@
-
 :root{--accent:#10b981;--accent2:#f59e0b;--text:#0b0f10;--muted:#6b7280;--border:#e5e7eb}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:#fff}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text)}
+
+/* ---------- Layout de base ---------- */
 a{color:inherit;text-decoration:none}
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
+.grid{display:grid;gap:16px}
+.card{border:1px solid var(--border);border-radius:16px;padding:18px;background:#fff}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:14px;border:1px solid transparent}
+.btn.secondary{background:#f3f4f6;color:#0f172a}
 
-/* Header */
-/* Header non-collant (plus de position: sticky) */
+/* ---------- Header (non sticky) ---------- */
 header{
-  position: static;              /* <-- change ici */
-  top: auto;
-  background:#ffffff;            /* fond uni (sans blur) */
-  border-bottom:1px solid var(--border);
-  /* supprime le blur si tu l'avais */
-  backdrop-filter: none;
+  position:static; top:auto; background:#fff; border-bottom:1px solid var(--border); backdrop-filter:none;
 }
-
 .topbar{min-height:72px;height:auto;display:flex;align-items:center;justify-content:space-between;padding:8px 0}
 .brand{display:flex;align-items:center}
+header .brand img{max-height:180px;height:auto;width:auto;object-fit:contain;display:block;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
+@media (max-width:1024px){ header .brand img{ max-height:140px } }
+@media (max-width:640px){  header .brand img{ max-height:100px } }
 nav a{padding:8px 10px;border-radius:10px}
-nav a:hover{background:#f3f4f6}
+nav a:hover{background:#e7f9f1;border:1px solid rgba(16,185,129,.35)}
+.call-mobile{display:none}
+@media (max-width:640px){ .call-mobile{display:inline-block;padding:8px 12px} nav a{padding:8px} }
 
-/* Titres, textes */
+/* ---------- Titres & sections ---------- */
 h1{font-size:clamp(30px,4.6vw,48px);margin:18px 0 8px}
 h2{font-size:clamp(22px,3vw,34px);margin:0}
 p.muted{color:var(--muted)}
+.section{padding:40px 0;background:transparent}
+.section.alt{background:linear-gradient(180deg,#f0fdf4 0%, #ffffff 100%);padding:40px 0;border-top:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05)}
+.section h2{position:relative;padding-bottom:8px}
+.section h2::after{content:"";position:absolute;left:0;bottom:0;width:80px;height:3px;border-radius:3px;background:var(--accent)}
 
-/* Layout sections & cartes */
-.section{padding:26px 0}
-.hero{padding:28px 0}
-.badges{display:flex;gap:14px;color:var(--muted);font-size:14px;flex-wrap:wrap}
-.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:14px;border:1px solid transparent}
-.btn.secondary{background:#f3f4f6;color:#0f172a}
-.card{border:1px solid var(--border);border-radius:16px;padding:18px;background:#fff}
-.grid{display:grid;gap:16px}
-@media(min-width:900px){.grid-2{grid-template-columns:1.1fr .9fr}}
+/* ---------- Photo de fond globale ---------- */
+body{
+  background:url("fondecran22.jpg") center/cover fixed no-repeat;
+  position:relative;
+}
+body::before{
+  content:""; position:fixed; inset:0;
+  background:rgba(255,255,255,.75); /* lisibilité globale */
+  z-index:-1;
+}
 
-/* Carousel */
-.carousel{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border)}
+/* ---------- Bloc Bienvenue (sans fond blanc) ---------- */
+.hero-intro{
+  text-align:center; color:#0b0f10; padding:80px 20px; margin:40px auto; max-width:900px;
+}
+.hero-intro h1{font-size:clamp(28px,5vw,42px);margin-bottom:16px;color:var(--accent);text-shadow:0 2px 4px rgba(0,0,0,.15)}
+.hero-intro p{font-size:18px;line-height:1.6;text-shadow:0 1px 3px rgba(255,255,255,.5)}
+
+/* ---------- Services (vertical + photo) ---------- */
+.service-card{
+  display:flex; align-items:center; gap:20px; margin:20px 0;
+  border:1px solid var(--border); border-radius:12px; background:#fff; padding:16px;
+  border-left:4px solid var(--accent); transition:transform .15s ease, box-shadow .15s ease;
+}
+.service-card:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(16,185,129,.08)}
+.service-card img{width:120px;height:90px;object-fit:cover;border-radius:8px;flex-shrink:0}
+.service-card h3{margin:0;font-size:20px}
+@media(max-width:700px){
+  .service-card{flex-direction:column;text-align:center;gap:16px;padding:20px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .service-card img{width:100%;height:220px;border-radius:10px}
+  .service-card h3{font-size:22px;line-height:1.2;margin:0 0 6px}
+  .service-card p{font-size:16px;line-height:1.55}
+  .section .service-card + .service-card{margin-top:18px}
+  .btn{padding:12px 16px;border-radius:16px} nav a{padding:10px 12px}
+}
+
+/* ---------- Carousel Réalisations ---------- */
+.carousel{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--border);box-shadow:0 16px 40px rgba(0,0,0,.12)}
 .carousel .slide{position:relative}
 .carousel img{width:100%;height:520px;object-fit:cover;display:block}
 .controls{display:flex;gap:8px;position:absolute;inset:0;align-items:center;justify-content:space-between;padding:0 8px}
 .ctrl{background:#ffffffcc;border:1px solid var(--border);border-radius:10px;padding:8px 10px;cursor:pointer}
+@media (max-width:760px){
+  .carousel img{height:70vh;max-height:520px}
+  .controls{gap:12px;padding:0 12px}
+  .ctrl{padding:10px 12px;font-size:18px}
+}
 
-/* Footer */
+/* ---------- Cartes hover générique ---------- */
+.card{transition:transform .15s ease, box-shadow .2s ease}
+.card:hover{transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.06)}
+
+/* ---------- Footer ---------- */
 footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:var(--muted);font-size:13px}
 
-/* Thème rénovation (bouton ambre) */
+/* ---------- Thème rénovation ---------- */
 .theme-reno .btn{background:var(--accent2)}
-
-/* Logo adaptatif (propre et responsif) */
-header .brand img{
-  max-height:180px;
-  height:auto; width:auto; object-fit:contain; display:block;
-  background:transparent;
-  filter:drop-shadow(0 1px 1px rgba(0,0,0,.25));
-}
-@media (max-width:1024px){ header .brand img{ max-height:140px; } }
-@media (max-width:640px){  header .brand img{ max-height:100px; } }
-
-/* Icônes SVG pro dans les cartes (services) */
-.card svg{
-  display:block; width:36px; height:36px; margin-bottom:8px;
-  color:var(--accent); stroke:currentColor; stroke-width:2; fill:none;
-}
-
-/* Sections alternées pour donner du rythme (ajoute class="section alt" dans le HTML) */
-.section.alt:nth-of-type(even){ background:#f9fafb; }
-.section.alt:nth-of-type(odd){  background:#ffffff; }
-.call-mobile{ display:none; }
-@media (max-width:640px){
-  .call-mobile{ display:inline-block; padding:8px 12px; }
-  nav a{ padding:8px } /* resserre un peu le menu */
-}
-/* Bouton d’appel dans le menu : visible surtout sur mobile */
-.call-mobile{ display:none; }
-@media (max-width: 640px){
-  .call-mobile{ display:inline-block; padding:8px 12px; }
-  nav a{ padding:8px; } /* resserre un peu le menu sur mobile */
-}
-/* Bouton d’appel dans le menu : visible surtout sur mobile */
-.call-mobile{ display:none; }
-@media (max-width: 640px){
-  .call-mobile{ display:inline-block; padding:8px 12px; }
-  nav a{ padding:8px; } /* resserre un peu le menu sur mobile */
-}
-
-@media (max-width: 640px){
-  .call-float{
-    position: fixed; right: 16px; bottom: 16px;
-    width: 56px; height: 56px; line-height: 56px; text-align: center;
-    border-radius: 50%; background: var(--accent); color:#fff; 
-    box-shadow: 0 4px 14px rgba(0,0,0,.18); font-size: 22px; z-index: 50;
-  }
-}
-/* Hero de présentation avec photo + voile vert */
-.hero-intro{
-  position: relative;
-  background: url("fondecran1.jpg") center/cover no-repeat;
-  color: #fff;
-  text-align: center;
-  padding: 88px 20px;
-}
-.hero-intro .overlay{
-  /* dégradé vert + fondu sombre pour lisibilité */
-  background: linear-gradient(
-    to bottom,
-    rgba(16,185,129,0.45),      /* vert 35% en haut */
-    rgba(0,0,0,0.35)            /* sombre 45% en bas */
-  );
-  padding: 40px;
-  border-radius: 12px;
-}
-
-
-.hero-intro h1 {
-  font-size: clamp(28px, 5vw, 42px);
-  margin-bottom: 12px;
-}
-
-.hero-intro p {
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 18px;
-  line-height: 1.5;
-}
-.service-card {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin: 20px 0;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: #fff;
-  padding: 16px;
-}
-
-.service-card img {
-  width: 120px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.service-card h3 {
-  margin: 0;
-  font-size: 20px;
-}
-
-@media(max-width:700px){
-  .service-card {
-    flex-direction: column;
-    text-align: center;
-  }
-  .service-card img {
-    width: 100%;
-    height: 180px;
-  }
-}
-/* Alternance plus vivante (blanc / très clair vert) */
-.section.alt { background: linear-gradient(180deg,#f0fdf4 0%, #ffffff 100%); }
-
-/* Souligner les H2 d’un petit liseré vert */
-.section h2{
-  position: relative;
-  padding-bottom: 8px;
-}
-.section h2::after{
-  content:"";
-  position:absolute; left:0; bottom:0;
-  width:80px; height:3px; border-radius:3px;
-  background: var(--accent);
-}
-
-/* Service : petite barre verte à gauche + hover doux */
-.service-card{
-  border-left: 4px solid var(--accent);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.service-card:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(16,185,129,.08);
-}
-
-/* Boutons : effet focus/hover plus “vert” */
-.btn:hover{ filter: brightness(0.95); }
-.btn.secondary{
-  border-color: var(--accent);
-}
-.btn.secondary:hover{
-  background: #e7f9f1;
-  color: #065f46;
-}
-
-/* Liens du menu au survol : petit liseré vert */
-nav a:hover{
-  background: #e7f9f1;
-  border: 1px solid rgba(16,185,129,.35);
-}
-/* --- Boost lisibilité services sur mobile --- */
-@media (max-width: 700px){
-  .service-card{
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-    padding: 20px;                 /* + d'air */
-    border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,.06);
-  }
-  .service-card img{
-    width: 100%;
-    height: 220px;                 /* image plus grande */
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  .service-card h3{
-    font-size: 22px;               /* titre plus grand */
-    line-height: 1.2;
-    margin: 0 0 6px 0;
-  }
-  .service-card p{
-    font-size: 16px;               /* texte plus grand */
-    line-height: 1.55;
-  }
-  /* espacements entre services */
-  .section .service-card + .service-card{ margin-top: 18px; }
-
-  /* boutons/tap targets un peu plus gros */
-  .btn{ padding: 12px 16px; border-radius: 16px; }
-  nav a{ padding: 10px 12px; }
-}
-
-/* Option visuelle : liseré vert plus visible sur mobile */
-@media (max-width: 700px){
-  .service-card{ border-left: 5px solid var(--accent); }
-}
-/* Photo de fond sur toute la page */
-body{
-  background: url("fondecran22.jpg") center/cover fixed no-repeat;
-  color: var(--text);
-  position: relative;
-}
-
-/* Voile léger pour garder lisibilité */
-body::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background: rgba(255,255,255,0.75); /* blanc translucide par dessus la photo */
-  z-index: -1;
-}
-.hero-intro {
-  text-align: center;
-  color: #0b0f10;        /* texte sombre */
-  padding: 80px 20px;
-  margin: 40px auto;
-  max-width: 900px;
-}
-
-.hero-intro h1 {
-  font-size: clamp(28px, 5vw, 42px);
-  margin-bottom: 16px;
-  color: var(--accent);  /* titre en vert */
-  text-shadow: 0 2px 4px rgba(0,0,0,0.15); /* petite ombre pour lisibilité */
-}
-
-.hero-intro p {
-  font-size: 18px;
-  line-height: 1.6;
-  text-shadow: 0 1px 3px rgba(255,255,255,0.5); /* subtil contour clair */
-}
-/* Soulignement vert discret sous les titres */
-.section h2{
-  position:relative; padding-bottom:8px;
-}
-.section h2::after{
-  content:""; position:absolute; left:0; bottom:0;
-  width:80px; height:3px; border-radius:3px; background:var(--accent);
-}
-
-/* Cartes: léger hover */
-.card{ transition:transform .15s ease, box-shadow .2s ease; }
-.card:hover{ transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.06); }
-/* ===== Boost Services (mobile) ===== */
-@media (max-width: 760px){
-  .section h2{
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  .service-card{
-    position: relative;
-    flex-direction: column;               /* pile = + lisible */
-    align-items: stretch;
-    gap: 14px;
-    padding: 20px;
-    border-radius: 16px;
-    border: 1px solid rgba(16,185,129,.25); /* liseré vert */
-    background: #ffffffee;                 /* léger fond blanc */
-    box-shadow: 0 10px 28px rgba(16,185,129,.10); /* halo vert doux */
-    transform: translateZ(0);
-  }
-  .service-card img{
-    width: 100%;
-    height: 240px;                         /* + grand visuel */
-    object-fit: cover;
-    border-radius: 12px;
-  }
-  .service-card h3{
-    font-size: 22px;
-    margin: 0 0 6px 0;
-    line-height: 1.2;
-  }
-  .service-card p{
-    font-size: 16px;
-    line-height: 1.55;
-  }
-
-  /* Tap area confortable : toute la carte cliquable si tu ajoutes un lien autour */
-  .service-card:active{ transform: scale(.99); }
-}
-
-/* Légère mise en avant sur desktop aussi (discret) */
-@media (min-width: 761px){
-  .service-card{
-    transition: transform .15s ease, box-shadow .2s ease;
-  }
-  .service-card:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 14px 34px rgba(16,185,129,.10);
-  }
-}
-/* ===== Boost Réalisations / Carrousel (mobile) ===== */
-@media (max-width: 760px){
-  .carousel img{
-    height: 70vh;           /* occupe 70% de la hauteur écran */
-    max-height: 520px;      /* limite haute pour éviter trop grand */
-    object-fit: cover;
-  }
-  .controls{
-    gap: 12px;
-    padding: 0 12px;
-  }
-  .ctrl{
-    padding: 10px 12px;     /* boutons + gros = + faciles à toucher */
-    font-size: 18px;
-  }
-}
-
-/* Option : bords arrondis + halo pour ressortir sur fond photo */
-.carousel{
-  border-radius: 18px;
-  box-shadow: 0 16px 40px rgba(0,0,0,.12);
-}
-/* Corrige l'effet "gros bloc blanc" entre sections */
-.section.alt {
-  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
-  padding: 40px 0;
-  border-top: 1px solid rgba(0,0,0,0.05);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-/* Les sections normales (pas alt) laissent apparaître le fond de page */
-.section {
-  padding: 40px 0;
-  background: transparent;
-}
-/* Cartes: léger hover */
-.card{ transition: transform .15s ease, box-shadow .2s ease; }
-.card:hover{ transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.06); }
-
-/* Option : bords arrondis + halo pour ressortir sur fond photo */
-.carousel{
-  border-radius: 18px;
-  box-shadow: 0 16px 40px rgba(0,0,0,.12);
-}
-
-/* Corrige l'effet "gros bloc blanc" entre sections */
-.section.alt{ background: linear-gradient(180deg,#f0fdf4 0%, #ffffff 100%); }
-
-  padding: 40px 0;
-  border-top: 1px solid rgba(0,0,0,.05);
-  border-bottom: 1px solid rgba(0,0,0,.05);
-}
-.section{ padding: 40px 0; background: transparent; }
-
-/* ===== BOOST MOBILE (≤760px) — regroupe TOUT en un seul @media ===== */
-@media (max-width: 760px){
-  .section h2{ font-size:24px; margin-bottom:10px; }
-
-  /* Services très visibles */
-  .service-card{
-    position: relative;
-    display: flex; flex-direction: column; align-items: stretch;
-    gap: 14px; padding: 20px; border-radius: 16px;
-    border: 1px solid rgba(16,185,129,.25);            /* liseré vert */
-    background: #ffffffee;                              /* fond léger */
-    box-shadow: 0 10px 28px rgba(16,185,129,.10);       /* halo vert */
-    transform: translateZ(0);
-  }
-  .service-card img{
-    width: 100%; height: 240px; object-fit: cover; border-radius: 12px;
-  }
-  .service-card h3{ font-size:22px; margin:0 0 6px 0; line-height:1.2; }
-  .service-card p{ font-size:16px; line-height:1.55; }
-  .service-card:active{ transform: scale(.99); }        /* tap feedback */
-
-  /* Carrousel plus grand + contrôles accessibles */
-  .carousel img{
-    height: 70vh; max-height: 520px; object-fit: cover;
-  }
-  .controls{ gap: 12px; padding: 0 12px; }
-  .ctrl{ padding: 10px 12px; font-size: 18px; }
-
-  /* Tap targets un peu plus gros globalement */
-  .btn{ padding: 12px 16px; border-radius: 16px; }
-  nav a{ padding: 10px 12px; }
-}
-
-/* Légère mise en avant desktop */
-@media (min-width: 761px){
-  .service-card{ transition: transform .15s ease, box-shadow .2s ease; }
-  .service-card:hover{ transform: translateY(-3px); box-shadow: 0 14px 34px rgba(16,185,129,.10); }
-}
