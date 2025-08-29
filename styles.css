@@ -222,3 +222,13 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
     object-fit: contain;
   }
 }
+/* >>> RÉNO : logo très grand sur PC */
+@media (min-width: 1024px){
+  html.theme-reno header .brand img{
+    max-height: 280px !important;   /* hauteur plus grande */
+    max-width: 1000px !important;   /* largeur plus large */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+}
