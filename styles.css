@@ -197,3 +197,11 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   display: inline-block;
   margin: 0 6px;
 }
+/* Logo rénovation plus allongé */
+.theme-reno header .brand img {
+  max-height: 120px;   /* un peu moins haut */
+  max-width: 420px;    /* beaucoup plus large */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
