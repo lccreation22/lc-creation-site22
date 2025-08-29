@@ -205,3 +205,10 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   height: auto;
   object-fit: contain;
 }
+/* Logo rénovation plus grand sur PC */
+@media (min-width: 900px) {
+  .theme-reno header .brand img {
+    max-height: 160px;   /* plus haut */
+    max-width: 600px;    /* plus large */
+  }
+}
