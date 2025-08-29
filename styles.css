@@ -168,3 +168,32 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   height: auto;
   object-fit: contain;
 }
+/* --- Header spécifique à la page Rénovation --- */
+.theme-reno header .topbar {
+  flex-direction: column;   /* empile logo + menu */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;                /* espace entre logo et menu */
+  padding: 16px 0;
+}
+
+.theme-reno header .brand {
+  margin: 0 auto;
+}
+
+.theme-reno header .brand img {
+  max-height: 140px;   /* hauteur contrôlée */
+  max-width: 320px;    /* largeur un peu allongée */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Navigation centrée sous le logo */
+.theme-reno nav {
+  text-align: center;
+}
+.theme-reno nav a {
+  display: inline-block;
+  margin: 0 6px;
+}
