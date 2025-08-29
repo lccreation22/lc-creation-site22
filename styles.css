@@ -139,3 +139,16 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
     line-height: 1.6;
   }
 }
+/* Fond différent pour la page Rénovation */
+.theme-reno body {
+  background: url("fondecranreno.jpg") center/cover fixed no-repeat;
+  position: relative;
+}
+
+.theme-reno body::before {
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.8); /* voile blanc pour lisibilité */
+  z-index: -1;
+}
