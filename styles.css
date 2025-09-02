@@ -232,3 +232,8 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
     object-fit: contain;
   }
 }
+/* En mode rénovation : header transparent */
+.theme-reno header {
+  background: transparent !important;  /* enlève le fond blanc */
+  border-bottom: none;                 /* option : pas de trait sous le logo */
+}
