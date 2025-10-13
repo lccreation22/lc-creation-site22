@@ -467,3 +467,15 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
     max-width: 420px;
   }
 }
+.promo {
+  background: url("./fondpromo1.png") center/cover no-repeat !important;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-top: 40px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  min-height: 360px;
+}
