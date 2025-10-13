@@ -266,3 +266,6 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(0,153,204,0.15);
 }
+.theme-piscine .section.alt {
+  background: linear-gradient(180deg, #fdfcfb 0%, #f2ede6 100%);
+}
