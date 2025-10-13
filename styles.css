@@ -299,3 +299,63 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 @media (min-width: 900px){
   .topbar{ padding-top: 8px; padding-bottom: 8px; }
 }
+/* ===== Bloc mise en avant Piscine ===== */
+.highlight-piscine {
+  background: linear-gradient(135deg, #e6f7ff 0%, #ffffff 100%);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 60px 0;
+}
+
+.promo-piscine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.promo-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.promo-text h2 {
+  color: #0099cc; /* bleu piscine */
+  font-size: clamp(24px, 3vw, 36px);
+  margin-bottom: 12px;
+}
+
+.promo-text p {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #0b0f10;
+}
+
+.promo-img {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.promo-img img {
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+}
+
+/* version mobile : pile + recentrée */
+@media(max-width: 700px){
+  .promo-piscine {
+    flex-direction: column;
+    text-align: center;
+  }
+  .promo-text h2 {
+    font-size: 24px;
+  }
+  .promo-img img {
+    width: 100%;
+    max-width: 420px;
+  }
+}
