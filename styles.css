@@ -140,16 +140,17 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   text-align: center;
   padding: 100px 20px;
   position: relative;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   margin-top: 40px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 }
 
 .promo::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* voile sombre léger */
+  background: rgba(0, 0, 0, 0.45); /* voile sombre */
   z-index: 0;
 }
 
@@ -161,10 +162,58 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 }
 
 .promo h2 {
-  font-size: clamp(26px, 4vw, 38px);
-  margin-bottom: 16px;
+  font-size: clamp(30px, 4.8vw, 46px);
+  font-weight: 700;
   color: #fff;
+  margin-bottom: 8px;
 }
+
+.promo .price {
+  font-size: clamp(28px, 4vw, 38px);
+  color: #00c2ff;
+  font-weight: 700;
+  margin: 6px 0 16px 0;
+}
+
+.promo .desc {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.promo .btn {
+  background: #00a3d7;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 14px;
+  transition: background 0.3s;
+}
+.promo .btn:hover {
+  background: #008cb8;
+}
+
+/* ===== Version mobile ===== */
+@media (max-width: 700px) {
+  .promo {
+    padding: 70px 16px;
+    border-radius: 0;
+  }
+  .promo h2 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .promo .price {
+    font-size: 22px;
+    color: #00c2ff;
+  }
+  .promo .desc {
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+}
+
 
 .promo p {
   font-size: 18px;
