@@ -147,14 +147,14 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 }
 
 /* === Version photo claire : voile doux pour lisibilité === */
-.promo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.3); /* léger voile blanc translucide */
-  backdrop-filter: brightness(1.1);
-  z-index: 0;
+.promo::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.10)); /* voile sombre léger */
+  backdrop-filter: none; /* retire l’éclaircissement */
+  z-index:0;
 }
+
 
 
 .promo-text {
