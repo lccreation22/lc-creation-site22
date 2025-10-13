@@ -156,39 +156,30 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   .pack .price{ font-size:20px; }
 }
 /* ==================== THEME PISCINE ==================== */
+
 /* ==== Thème piscine avec fond semi-transparent ==== */
 .theme-piscine body {
   background: url("fondpiscine.jpg") center/cover fixed no-repeat;
   position: relative;
 }
 
-/* Ajout du voile translucide par-dessus la photo */
+/* Ajout du voile translucide bleu clair par-dessus la photo */
 .theme-piscine body::before {
   content:"";
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.7); /* blanc semi-transparent */
+  background: rgba(240, 248, 255, 0.75); /* bleu très clair */
   backdrop-filter: brightness(1.05);     /* adoucit un peu la photo */
   z-index: -1;
 }
 
-
-/* voile léger bleuté */
-.theme-piscine body::before {
-  content:"";
-  position: fixed;
-  inset: 0;
-  background: rgba(240,248,255,0.75); /* bleu très clair */
-  z-index: -1;
-}
-
-/* couleurs spécifiques piscine */
+/* Couleurs spécifiques piscine */
 .theme-piscine {
   --accent: #0099cc;   /* bleu eau */
   --accent2: #c49a6c;  /* brun bois */
 }
 
-/* boutons bleus */
+/* Boutons bleus */
 .theme-piscine .btn {
   background: var(--accent);
   color: #fff;
@@ -201,10 +192,11 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   filter: brightness(0.95);
 }
 
-/* titres soulignés bleu */
+/* Titres soulignés bleu */
 .theme-piscine .section h2::after {
   background: var(--accent);
 }
+
 
 /* Pack piscine : liseré bleu + ombre douce */
 .theme-piscine .pack {
