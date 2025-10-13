@@ -133,6 +133,62 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   background:#e8fff6; color:#065f46; border:1px solid rgba(16,185,129,.35);
   margin-top:8px;
 }
+/* ===== Bloc promo piscine (accueil) ===== */
+.promo {
+  background: url("promo-piscine.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.promo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* voile sombre léger */
+  z-index: 0;
+}
+
+.promo-text {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.promo h2 {
+  font-size: clamp(26px, 4vw, 38px);
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.promo p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.promo .btn {
+  background: #00a3d7;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 14px;
+  transition: background 0.3s;
+}
+.promo .btn:hover {
+  background: #007fa8;
+}
+
+/* Sur mobile : moins haut mais lisible */
+@media (max-width: 700px) {
+  .promo { padding: 60px 16px; }
+  .promo p { font-size: 16px; }
+}
 
 /* ----- MOBILE : cartes pleine largeur, visuel GRAND, texte + gros ----- */
 @media (max-width: 740px){
