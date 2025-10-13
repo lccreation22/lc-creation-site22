@@ -269,3 +269,33 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 .theme-piscine .section.alt {
   background: linear-gradient(180deg, #fdfcfb 0%, #f2ede6 100%);
 }
+/* ===== Enlever la bande blanche du header sur desktop seulement ===== */
+@media (min-width: 900px){
+  /* header & barre du haut transparents */
+  header,
+  .topbar{
+    background: transparent !important;
+    border-bottom: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* s'assure que rien n'injecte un fond blanc autour du logo */
+  header .brand,
+  header .brand img{
+    background: transparent !important;
+  }
+
+  /* nav propre sur fond photo */
+  nav a{
+    background: transparent;
+  }
+  nav a:hover{
+    background: rgba(255,255,255,0.12);         /* hover discret sur fond image */
+    border: 1px solid rgba(255,255,255,0.18);   /* optionnel : petit liseré */
+  }
+}
+
+/* (optionnel) petit espacements plus compacts sur desktop */
+@media (min-width: 900px){
+  .topbar{ padding-top: 8px; padding-bottom: 8px; }
+}
