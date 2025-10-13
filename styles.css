@@ -283,11 +283,22 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   .pack .price{ font-size:20px; }
 }
 /* ==================== THEME PISCINE ==================== */
+/* ==== Thème piscine avec fond semi-transparent ==== */
 .theme-piscine body {
   background: url("fondpiscine.jpg") center/cover fixed no-repeat;
-  color: var(--text);
   position: relative;
 }
+
+/* Ajout du voile translucide par-dessus la photo */
+.theme-piscine body::before {
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7); /* blanc semi-transparent */
+  backdrop-filter: brightness(1.05);     /* adoucit un peu la photo */
+  z-index: -1;
+}
+
 
 /* voile léger bleuté */
 .theme-piscine body::before {
