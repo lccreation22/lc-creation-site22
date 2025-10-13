@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr" class="theme-amenagement">
+<head>
+  <meta charset="utf-8">
+  <title>Piscines bois Brabant Wallon — Installation & pose | LC Création</title>
+  <meta name="description" content="LC Création installe votre piscine en bois sur mesure en Brabant Wallon et Bruxelles. Formules Essentiel, Confort, Luxe. Devis gratuit et rapide.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles.css?v=36">
+  <style>
+    /* Petits styles locaux pour la page piscines (optionnels) */
+    .hero-piscine{
+      position:relative;
+      background: url("./photos/piscine-hero.jpg") center/cover no-repeat;
+      color:#fff; text-align:center; padding:80px 18px; border-radius:16px;
+      box-shadow:0 16px 40px rgba(0,0,0,.12);
+    }
+    .hero-piscine::before{
+      content:""; position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.25));
+      border-radius:16px;
+    }
+    .hero-piscine > *{ position:relative; z-index:1; }
+    .hero-piscine h1{ margin:0 0 10px; }
+    .packs{ display:grid; gap:16px; }
+    @media(min-width:900px){ .packs{ grid-template-columns: repeat(3, 1fr); } }
+    .pack{ border:1px solid var(--border); border-radius:16px; padding:18px; background:#fff; }
+    .pack h3{ margin:0 0 8px; font-size:22px; }
+    .pack .price{ font-weight:700; font-size:22px; color:var(--accent); margin-top:8px; }
+    .pack ul{ margin:10px 0 0; padding-left:18px; }
+    .gallery{display:grid; gap:12px;}
+    @media(min-width:800px){ .gallery{grid-template-columns:repeat(3,1fr);} }
+    .gallery img{ width:100%; height:240px; object-fit:cover; border-radius:12px; border:1px solid var(--border); }
+
+    /* Bouton principal */
+    .cta{ display:inline-block; margin-top:12px; background:var(--accent); color:#fff;
+      padding:12px 18px; border-radius:14px; text-decoration:none; }
+
+    /* Bandeau “atouts” */
+    .atouts{ display:grid; gap:12px; }
+    @media(min-width:900px){ .atouts{ grid-template-columns:repeat(4,1fr);} }
+    .chip{ background:#f0fdf4; border:1px solid rgba(16,185,129,.35); color:#065f46;
+      padding:10px 12px; border-radius:12px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="topbar container">
+    <div class="brand">
+      <!-- Utilise ton logo existant -->
+      <img src="./logo-amenagement-cropped.png" alt="LC Création">
+    </div>
+    <nav>
+      <a href="./index.html">Aménagements extérieurs</a>
+      <a href="./piscines.html">Piscines bois</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="section">
+    <div class="hero-piscine">
+      <h1>Piscines bois sur mesure – Brabant Wallon & Bruxelles</h1>
+      <p class="muted" style="color:#e8fff6">
+        Élégantes, durables et installées clé en main par LC Création.
+      </p>
+      <a class="cta" href="./contact.html">Demander un devis gratuit</a>
+    </div>
+  </section>
+
+  <!-- Présentation -->
+  <section class="section alt">
+    <h2>Pourquoi choisir LC Création</h2>
+    <p class="muted">
+      Avec plus de 20 ans d’expérience en aménagements extérieurs, nous proposons désormais
+      la pose complète de piscines en bois : structure robuste, filtration adaptée, finitions soignées
+      et mise en service. Nous intervenons partout en Brabant Wallon et à Bruxelles.
+    </p>
+    <div class="atouts" style="margin-top:12px">
+      <div class="chip">Bois autoclave classe IV</div>
+      <div class="chip">Installation complète & rapide</div>
+      <div class="chip">SAV et conseils locaux</div>
+      <div class="chip">Options & finitions sur mesure</div>
+    </div>
+  </section>
+
+  <!-- Packs -->
+  <section class="section">
+    <h2>Nos formules</h2>
+    <div class="packs" style="margin-top:12px">
+
+      <div class="pack">
+        <h3>Essentiel — 5 × 3 × 1,24 m</h3>
+        <p class="muted">Piscine familiale simple, prête à plonger.</p>
+        <ul>
+          <li>Structure pin autoclave 45&nbsp;mm</li>
+          <li>Liner bleu 75/100</li>
+          <li>Filtration sable 9&nbsp;m³/h + pompe</li>
+          <li>Margelles bois + échelle inox</li>
+          <li>Mise en service incluse</li>
+        </ul>
+        <div class="price">11 900 € HTVA (pose incluse)</div>
+      </div>
+
+      <div class="pack">
+        <h3>Confort — 6 × 3 × 1,24 m</h3>
+        <p class="muted">Le meilleur rapport qualité/prix.</p>
+        <ul>
+          <li>Structure pin autoclave 45&nbsp;mm</li>
+          <li>Liner bleu ou gris au choix</li>
+          <li>Filtration sable 11&nbsp;m³/h + coffret</li>
+          <li>Projecteur LED + margelles bois</li>
+          <li>Mise en service incluse</li>
+        </ul>
+        <div class="price">13 900 € HTVA (pose incluse)</div>
+      </div>
+
+      <div class="pack">
+        <h3>Luxe — 6 × 3,5 × 1,39 m</h3>
+        <p class="muted">Finitions premium et équipements complets.</p>
+        <ul>
+          <li>Structure pin/douglas 45&nbsp;mm</li>
+          <li>Liner gris perle / sable</li>
+          <li>Filtration 11&nbsp;m³/h + coffret</li>
+          <li>Margelles composites, LED, bâches été/hiver</li>
+          <li>Mise en service incluse</li>
+        </ul>
+        <div class="price">16 900 € HTVA (pose incluse)</div>
+      </div>
+
+    </div>
+    <p style="margin-top:8px" class="muted">
+      Prix indicatifs susceptibles d’évoluer selon les contraintes de terrain et options choisies.
+    </p>
+  </section>
+
+  <!-- Galerie -->
+  <section class="section alt">
+    <h2>Réalisations</h2>
+    <div class="gallery" style="margin-top:12px">
+      <img src="./photos/piscine-g1.jpg" alt="Piscine bois 1">
+      <img src="./photos/piscine-g2.jpg" alt="Piscine bois 2">
+      <img src="./photos/piscine-g3.jpg" alt="Piscine bois 3">
+    </div>
+  </section>
+
+  <!-- CTA finale -->
+  <section class="section">
+    <h2>Vous avez un projet ?</h2>
+    <p class="muted">Parlons de votre terrain, de vos envies et de votre budget. Réponse rapide.</p>
+    <a class="cta" href="./contact.html">Demander un devis</a>
+  </section>
+
+</main>
+
+<footer class="container">
+  © <span id="y"></span> LC Création SRL — 0474/69.38.00 — lecocqcedric@outlook.be
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
