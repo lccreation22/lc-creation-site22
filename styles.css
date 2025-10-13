@@ -146,13 +146,16 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 }
 
+/* === Version photo claire : voile doux pour lisibilité === */
 .promo::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* voile sombre */
+  background: rgba(255,255,255,0.3); /* léger voile blanc translucide */
+  backdrop-filter: brightness(1.1);
   z-index: 0;
 }
+
 
 .promo-text {
   position: relative;
