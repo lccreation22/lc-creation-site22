@@ -231,3 +231,38 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   z-index:1;
   font-size:18px;
 }
+/* ==================== SECTION POURQUOI - THEME PISCINE ==================== */
+
+/* Titre principal et sous-ligne en bleu */
+.theme-piscine .section h2 {
+  color: #004d66; /* bleu profond */
+}
+
+.theme-piscine .section h2::after {
+  background: var(--accent); /* bleu eau */
+}
+
+/* Icônes ou SVG */
+.theme-piscine .card svg,
+.theme-piscine .icon {
+  color: var(--accent);
+  stroke: currentColor;
+}
+
+/* Texte ou petits éléments d’accentuation */
+.theme-piscine strong,
+.theme-piscine a:hover {
+  color: var(--accent2); /* brun bois */
+}
+
+/* Bordures des cartes / encadrés */
+.theme-piscine .card {
+  border-left: 4px solid var(--accent2); /* brun bois */
+  box-shadow: 0 6px 18px rgba(0,153,204,0.08); /* halo bleu doux */
+}
+
+/* Survol */
+.theme-piscine .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,153,204,0.15);
+}
