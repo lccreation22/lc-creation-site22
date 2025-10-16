@@ -479,3 +479,19 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   box-shadow: 0 10px 40px rgba(0,0,0,0.2);
   min-height: 360px;
 }
+/* ===== Options piscines ===== */
+.options-grid{
+  display:grid; gap:16px;
+}
+@media(min-width:900px){
+  .options-grid{ grid-template-columns: repeat(4,1fr); }
+}
+.option-card{
+  background:#fff; border:1px solid var(--border); border-left:5px solid var(--accent);
+  border-radius:16px; padding:16px; box-shadow:0 8px 22px rgba(0,0,0,.05);
+  transition:transform .15s ease, box-shadow .2s ease;
+}
+.option-card:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(0,0,0,.08); }
+.option-card h3{ margin:0 0 6px; font-size:18px; }
+.option-card ul{ margin:0; padding-left:18px; line-height:1.55; }
+.option-card li{ margin:6px 0; }
