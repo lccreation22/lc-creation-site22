@@ -495,3 +495,42 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 .option-card h3{ margin:0 0 6px; font-size:18px; }
 .option-card ul{ margin:0; padding-left:18px; line-height:1.55; }
 .option-card li{ margin:6px 0; }
+/* ===== Bloc Réassurance Piscines ===== */
+.reassurance {
+  background: linear-gradient(180deg, #eaf9ff 0%, #ffffff 100%);
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+}
+
+.reassurance h2 {
+  font-size: clamp(26px, 4vw, 32px);
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.reassure-grid {
+  display: grid;
+  gap: 20px;
+}
+@media(min-width: 900px) {
+  .reassure-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.reassure-item {
+  background: #ffffff;
+  border: 1px solid rgba(0, 153, 204, 0.2);
+  padding: 18px;
+  border-radius: 14px;
+  font-size: 16px;
+  line-height: 1.45;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.reassure-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+}
