@@ -573,3 +573,29 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   .pack .price { font-size:18px; margin-top:10px; }
   .pack ul { font-size:16px; line-height:1.55; }
 }
+/* Mini pop-up estimation */
+#popup-estimation.hidden { display:none; }
+#popup-estimation{
+  position: fixed; inset: 0; z-index: 80;
+  background: rgba(0,0,0,.35); backdrop-filter: blur(2px);
+  display: grid; place-items: center; padding: 18px;
+}
+#popup-estimation .popup-card{
+  width: 100%; max-width: 520px;
+  background:#fff; border:1px solid var(--border);
+  border-radius:16px; padding:20px 18px 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  text-align: center;
+}
+#popup-estimation .popup-card h3{ margin: 0 0 6px; }
+#popup-estimation .popup-card p{ margin: 0 0 14px; }
+#popup-estimation .popup-close{
+  position:absolute; right: 10px; top: 6px;
+  border:0; background:transparent; font-size: 26px; cursor:pointer; line-height:1;
+}
+@media (max-width: 640px){
+  #popup-estimation .popup-card{ padding:18px 14px; border-radius:14px; }
+  #popup-estimation .popup-card h3{ font-size: 18px; }
+  #popup-estimation .popup-card p{ font-size: 15px; }
+  #popup-estimation .btn{ display:block; width:100%; }
+}
