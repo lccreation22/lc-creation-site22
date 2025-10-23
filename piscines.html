@@ -332,6 +332,40 @@
     </a>
   </div>
 </div>
+<script>
+(function(){
+  const POP_ID = 'lc_popup_seen_date';
+  const delayMs = 12000; // ⏱ délai d’apparition (12 s). Modifie si besoin.
+
+  const popup = document.getElementById('popup-estimation');
+  if(!popup) return;
+
+  // 1×/jour max
+  const last = localStorage.getItem(POP_ID);
+  const today = new Date().toISOString().slice(0,10);
+  if(last === today) return;
+
+  // afficher après délai
+  const timer = setTimeout(()=> popup.classList.remove('hidden'), delayMs);
+
+  // Fermer (croix, clic fond, Escape)
+  const close = () => {
+    popup.classList.add('hidden');
+    localStorage.setItem(POP_ID, today);
+    clearTimeout(timer);
+  };
+  popup.addEventListener('click', (e)=>{
+    if(e.target.id === 'popup-estimation') close(); // clic sur le fond
+  });
+  popup.querySelector('.popup-close')?.addEventListener('click', close);
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
+
+  // Si la personne clique sur le CTA -> on log la vue du jour pour ne pas réafficher
+  document.getElementById('popup-cta')?.addEventListener('click', () => {
+    localStorage.setItem(POP_ID, today);
+  });
+})();
+</script>
 
 
 </body>
