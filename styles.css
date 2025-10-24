@@ -641,3 +641,38 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 .hero-piscine__cta .btn.secondary:hover {
   background: rgba(255,255,255,0.3);
 }
+/* ===== MOBILE FIX: centrage + pleine largeur (≤700px) ===== */
+@media (max-width:700px){
+  /* Conteneur confortable */
+  .container{ max-width:100%; padding:0 14px; }
+
+  /* Hero piscine centré */
+  .hero-piscine .hero-piscine__inner{ text-align:center; }
+
+  /* Titres & paragraphes centrés par défaut en mobile */
+  .section h1, .section h2, .section p{ text-align:center; }
+
+  /* Cartes/blocs en pleine largeur et centrés visuellement */
+  .pack, .card, .cta-wrap, .promo, .option-card, .reassurance, .faq .faq-list{
+    width:100%;
+    margin-left:auto; margin-right:auto;
+  }
+
+  /* Grilles en une colonne */
+  .grid, .packs, .options-grid, .reassure-grid{ 
+    display:grid; grid-template-columns:1fr; gap:16px; 
+  }
+
+  /* Listes: lisibilité => reste aligné à gauche à l'intérieur */
+  .pack ul, .option-card ul, .faq .faq-list{ 
+    text-align:left; 
+    margin-left:auto; margin-right:auto;
+  }
+
+  /* Boutons CTA côte à côte puis plein écran si besoin */
+  .cta-actions{ justify-content:center; }
+  .cta-actions .btn{ flex:1 1 auto; min-width:170px; }
+
+  /* Nav centrée (si utile) */
+  nav{ display:flex; justify-content:center; gap:8px; flex-wrap:wrap; }
+}
