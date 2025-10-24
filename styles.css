@@ -621,3 +621,23 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   .hero-piscine .hero-piscine__inner{ padding: 64px 14px 56px; }
   .hero-piscine__cta .btn{ flex:1 1 auto; }
 }
+/* ===== HERO PISCINE — bascule en texte BLANC ===== */
+.hero-piscine h1,
+.hero-piscine p {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4); /* renforce la lisibilité */
+}
+
+/* Boutons CTA sur fond image : version contrastée */
+.hero-piscine__cta .btn.primary {
+  background: #00a3d7;
+  color: #ffffff;
+}
+.hero-piscine__cta .btn.secondary {
+  background: rgba(255,255,255,0.2);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+}
+.hero-piscine__cta .btn.secondary:hover {
+  background: rgba(255,255,255,0.3);
+}
