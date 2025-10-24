@@ -602,7 +602,7 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 /* HERO Piscine lumineux (texte noir) */
 .hero-piscine{
   position: relative;
-  background: url("fond-hero-piscine.jpg") center/cover no-repeat;
+  background: url("fond-hero-piscine.jpg.png") center/cover no-repeat;
   /* voile très léger pour uniformiser et garder le texte lisible en NOIR */
   isolation: isolate;
 }
