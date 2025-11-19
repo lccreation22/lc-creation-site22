@@ -991,6 +991,14 @@
         document.getElementById('summary-loisir').textContent =
           'Loisirs : ' + labels.join(', ');
       }
+      // Délai & contact préférés
+      const delai = document.getElementById('config-delai')?.value || 'à préciser';
+      document.getElementById('summary-delai').textContent =
+        'Délai souhaité : ' + delai;
+
+      const contactPref = document.getElementById('config-contact-pref')?.value || 'à préciser';
+      document.getElementById('summary-contact-pref').textContent =
+        'Contact : ' + contactPref;
 
       // Estimation simple (on mettra tes vrais chiffres plus tard)
            const basePrices = {
