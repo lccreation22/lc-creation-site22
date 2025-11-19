@@ -457,6 +457,40 @@
     white-space: nowrap; /* ils restent lisibles, mais peuvent aller à la ligne grâce au flex-wrap */
   }
 }
+/* CTA configurateur sur la page piscines */
+.piscines-config-cta {
+  text-align: center;
+  margin: 2.5rem auto 0;
+}
+
+.piscines-config-cta .btn-config {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.6rem;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--lc-gold), #f6e1a4);
+  color: #111827;
+  border: none;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+  transition: all 0.18s ease-out;
+}
+
+.piscines-config-cta .btn-config:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+}
+
+/* Sur smartphone : bouton pleine largeur */
+@media (max-width: 640px) {
+  .piscines-config-cta .btn-config {
+    width: 100%;
+  }
+}
 
   </style>
 </head>
