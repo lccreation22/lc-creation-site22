@@ -1254,3 +1254,52 @@ header .brand img {
   border: none;
   box-shadow: none;
 }
+:root {
+  --lc-navy: #020617;
+}
+
+/* Barre du haut sur tout le site */
+header {
+  background: var(--lc-navy);
+  color: #e5e7eb;
+}
+
+/* Aligne bien le contenu du header */
+header .topbar {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.6rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header nav a {
+  color: #f9fafb;              /* blanc cassé bien lisible sur bleu nuit */
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-left: 1.4rem;
+}
+
+header nav a:hover {
+  opacity: 0.85;               /* léger effet au survol, sans changer de couleur */
+}
+header .brand {
+  background: var(--lc-navy);
+  padding: 0.35rem 0.8rem;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Logo à taille confortable */
+header .brand img {
+  display: block;
+  max-height: 70px;
+  height: auto;
+  width: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
