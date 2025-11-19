@@ -467,16 +467,40 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2.6rem;
+
+  /* GROSSE TAILLE */
+  padding: 1.25rem 3.2rem;
   border-radius: 999px;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.18rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
   text-decoration: none;
   background: linear-gradient(135deg, var(--lc-gold), #f6e1a4);
   color: #111827;
   border: none;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
   transition: all 0.18s ease-out;
+  min-width: 280px;
+}
+
+.piscines-config-cta .btn-config:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* Sur smartphone : pleine largeur + encore plus présent visuellement */
+@media (max-width: 640px) {
+  .piscines-config-cta .btn-config {
+    width: 100%;
+    font-size: 1.22rem;
+    padding: 1.3rem 3rem;
+  }
+}
+
 }
 
 .piscines-config-cta .btn-config:hover {
