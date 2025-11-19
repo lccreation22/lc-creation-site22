@@ -459,6 +459,21 @@
 .piscines-config-cta .btn-config {
   animation: config-pulse 2.6s ease-in-out infinite;
 }
+/* Logo plus grand sur la page piscines uniquement */
+html.theme-piscine .brand img {
+  max-height: 90px;   /* augmente si tu veux encore plus grand : 100 ou 110 */
+  height: auto;
+  width: auto;
+}
+
+/* Sur mobile : large mais contrôlé */
+@media (max-width: 640px) {
+  html.theme-piscine .brand img {
+    max-width: 260px;
+    width: 85%;
+    height: auto;
+  }
+}
 
 </style>
 
