@@ -782,31 +782,53 @@
 
       <!-- ETAPE 4 : COORDONNÉES -->
       <div class="config-step" data-step="4">
-        <div class="config-group">
-          <label for="config-prenom">Prénom *</label>
-          <input type="text" id="config-prenom" class="config-input" placeholder="Votre prénom">
-        </div>
-        <div class="config-group">
-          <label for="config-nom">Nom *</label>
-          <input type="text" id="config-nom" class="config-input" placeholder="Votre nom">
-        </div>
-        <div class="config-group">
-          <label for="config-email">E-mail *</label>
-          <input type="email" id="config-email" class="config-input" placeholder="exemple@domaine.be">
-          <small>Nous vous envoyons votre configuration détaillée par e-mail et affichons l’estimation à l’écran.</small>
-        </div>
-        <div class="config-group">
-          <label for="config-tel">Téléphone</label>
-          <input type="text" id="config-tel" class="config-input" placeholder="Optionnel, mais pratique pour vous rappeler.">
-        </div>
-        <div class="config-group">
-          <label for="config-message">Précisions sur votre projet</label>
-          <textarea id="config-message" class="config-input" rows="3" placeholder="Ex. : accès par le côté, terrain légèrement en pente, envie de plage autour de la piscine…"></textarea>
-        </div>
-        <div class="config-group">
-          <small>* Champs obligatoires pour afficher l’estimation.</small>
-        </div>
-      </div>
+  <div class="config-group">
+    <label for="config-prenom">Prénom *</label>
+    <input type="text" id="config-prenom" class="config-input" placeholder="Votre prénom">
+  </div>
+  <div class="config-group">
+    <label for="config-nom">Nom *</label>
+    <input type="text" id="config-nom" class="config-input" placeholder="Votre nom">
+  </div>
+  <div class="config-group">
+    <label for="config-email">E-mail *</label>
+    <input type="email" id="config-email" class="config-input" placeholder="exemple@domaine.be">
+    <small>Nous vous envoyons votre configuration détaillée par e-mail et affichons l’estimation à l’écran.</small>
+  </div>
+  <div class="config-group">
+    <label for="config-tel">Téléphone</label>
+    <input type="text" id="config-tel" class="config-input" placeholder="Optionnel, mais pratique pour vous rappeler.">
+  </div>
+
+  <div class="config-group">
+    <label for="config-delai">Quand souhaitez-vous réaliser votre projet&nbsp;?</label>
+    <select id="config-delai" class="config-select">
+      <option value="Je découvre les prix pour l’instant">Je découvre les prix pour l’instant</option>
+      <option value="Dans les 3 à 6 mois">Dans les 3 à 6 mois</option>
+      <option value="Dans les 6 à 12 mois">Dans les 6 à 12 mois</option>
+      <option value="Pour la saison suivante">Pour la saison suivante</option>
+    </select>
+  </div>
+
+  <div class="config-group">
+    <label for="config-contact-pref">Comment préférez-vous que l’on vous contacte&nbsp;?</label>
+    <select id="config-contact-pref" class="config-select">
+      <option value="E-mail uniquement">E-mail uniquement</option>
+      <option value="Téléphone (en journée)">Téléphone (en journée)</option>
+      <option value="Téléphone (en soirée)">Téléphone (en soirée)</option>
+      <option value="E-mail + téléphone si besoin">E-mail + téléphone si besoin</option>
+    </select>
+  </div>
+
+  <div class="config-group">
+    <label for="config-message">Précisions sur votre projet</label>
+    <textarea id="config-message" class="config-input" rows="3" placeholder="Ex. : accès par le côté, terrain légèrement en pente, envie de plage autour de la piscine…"></textarea>
+  </div>
+  <div class="config-group">
+    <small>* Champs obligatoires pour afficher l’estimation.</small>
+  </div>
+</div>
+
 
       <!-- NAVIGATION ENTRE ETAPES -->
       <div class="config-nav">
