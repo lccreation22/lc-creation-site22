@@ -952,6 +952,16 @@
 
       const entretien = document.querySelector('input[name="entretien"]:checked')?.value || 'Sans robot';
       document.getElementById('summary-entretien').textContent = 'Entretien : ' + entretien.toLowerCase();
+      // Loisirs
+      const loisirChecked = Array.from(document.querySelectorAll('input[name="loisir"]:checked'));
+      if (loisirChecked.length === 0) {
+        document.getElementById('summary-loisir').textContent =
+          'Loisirs : aucun équipement spécifique';
+      } else {
+        const labels = loisirChecked.map(i => i.value);
+        document.getElementById('summary-loisir').textContent =
+          'Loisirs : ' + labels.join(', ');
+      }
 
       // Estimation simple (on mettra tes vrais chiffres plus tard)
       const basePrices = {
