@@ -986,3 +986,48 @@ html.theme-piscine .topbar nav a[href="./piscines.html"]::after {
     transition: all 0.18s ease-out;
   }
 }
+/* --- Amélioration lisibilité smartphone (home) --- */
+@media (max-width: 640px) {
+  /* Base texte plus grand */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p,
+  li {
+    font-size: 1rem;
+  }
+
+  /* Logo plus visible */
+  header .brand img {
+    max-height: 54px;
+  }
+
+  /* Sections qui respirent un peu plus */
+  main section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Images de contenus plus larges et lisibles */
+  main img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+  }
+}
