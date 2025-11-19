@@ -438,7 +438,28 @@
       font-size: 1.22rem;
       padding: 1.3rem 3rem;
     }
+
+    /* Animation douce du bouton configurateur */
+@keyframes config-pulse {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
   }
+  50% {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.38);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+  }
+}
+
+/* On applique l’animation au bouton doré */
+.piscines-config-cta .btn-config {
+  animation: config-pulse 2.6s ease-in-out infinite;
+}
+
 </style>
 
 </head>
