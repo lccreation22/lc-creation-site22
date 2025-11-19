@@ -905,9 +905,11 @@
 
 <script>
   // Petit script pour gérer les étapes + mise à jour du récap + estimation simple
-  (function() {
+   (function() {
     const totalSteps = 4;
     let currentStep = 1;
+    let estimationUnlocked = false; // tant que c’est false, on NE montre PAS le prix
+
 
     const stepEls = document.querySelectorAll('.config-step');
     const pillEls = document.querySelectorAll('.config-step-pill');
