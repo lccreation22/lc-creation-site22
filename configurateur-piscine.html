@@ -1062,14 +1062,29 @@
       }
     });
 
+        function validateStep4() {
+      const prenom = document.getElementById('config-prenom').value.trim();
+      const nom = document.getElementById('config-nom').value.trim();
+      const email = document.getElementById('config-email').value.trim();
+      if (!prenom || !nom || !email) {
+        alert("Merci de compléter au minimum votre prénom, nom et e-mail pour afficher votre estimation.");
+        return false;
+      }
+      return true;
+    }
+
     nextBtn.addEventListener('click', () => {
       if (currentStep < totalSteps) {
         showStep(currentStep + 1);
       } else {
-        // Dernière étape : on affiche déjà l'estimation (elle est mise à jour en direct)
-        // Ici tu pourras plus tard ajouter un envoi automatique par e-mail via un script côté serveur.
-        alert("Votre estimation a été mise à jour dans le panneau à droite. Nous vous contacterons rapidement pour affiner votre projet.");
+        // Dernière étape : on vérifie les coordonnées puis on débloque l'estimation
+        if (!validateStep4()) return;
+        estimationUnlocked = true;
+        updateSummary(); // recalcul et affichage du prix maintenant déverrouillé
+        alert("Votre estimation est maintenant affichée dans le panneau à droite. Nous vous contacterons rapidement pour affiner votre projet.");
       }
+    });
+
     });
 
     cancelBtn.addEventListener('click', () => {
