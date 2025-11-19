@@ -822,3 +822,51 @@ html.theme-piscine header {
 html.theme-piscine .topbar {
   background: transparent !important;
 }
+/* ---- PALETTE LUXE LC CREATION ---- */
+
+:root {
+  --lc-gold: #d4af37;               /* doré principal */
+  --lc-gold-soft: rgba(212,175,55,0.22);
+  --lc-night: #020617;
+}
+
+/* Fond général propre pour le thème piscine */
+html.theme-piscine,
+html.theme-piscine body {
+  background: #f4f4f5 !important;
+}
+
+/* Header propre + léger soulignement doré */
+html.theme-piscine header {
+  background: #ffffff !important;
+  background-image: none !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+html.theme-piscine .topbar {
+  background: transparent !important;
+}
+
+/* Lien "Piscines bois" mis en avant en doré dans le menu */
+html.theme-piscine .topbar nav a[href="./piscines.html"] {
+  position: relative;
+  color: var(--lc-gold) !important;
+  font-weight: 600;
+}
+
+html.theme-piscine .topbar nav a[href="./piscines.html"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(212,175,55,0.05),
+    var(--lc-gold),
+    rgba(212,175,55,0.05)
+  );
+}
