@@ -904,3 +904,27 @@ html.theme-piscine .topbar nav a[href="./piscines.html"]::after {
 .link-inline:hover {
   text-decoration: underline;
 }
+/* TITRES DE SECTIONS */
+
+.piscines-section-header h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+}
+
+.piscines-section-header h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(212,175,55,0.05),
+    var(--lc-gold),
+    rgba(212,175,55,0.05)
+  );
+}
