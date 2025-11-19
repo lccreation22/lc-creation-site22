@@ -572,7 +572,7 @@
                 <div class="config-radio-title">Essentiel</div>
                 <div class="config-radio-desc">
                   5,20 × 3,20 × 1,33 m — accès intelligent à la piscine bois, idéal pour un premier projet.
-                  Base indicative : ~16 500 € TVAC.
+                  Base indicative : ~16 490 € TVAC.
                 </div>
               </div>
             </label>
@@ -592,7 +592,7 @@
                 <div class="config-radio-title">Luxe</div>
                 <div class="config-radio-desc">
                   8,15 × 4,20 × 1,46 m — expérience haut de gamme, confort maximal et équipements complets.
-                  Base indicative : ~24 000 € TVAC.
+                  Base indicative : 23 990 € TVAC.
                 </div>
               </div>
             </label>
@@ -886,10 +886,6 @@
         'Luxe': 23990
       };
       let price = basePrices[pack] || 0;
-
-      // Majoration terrain
-      if (terrain === 'Légèrement en pente') price *= 1.05;
-      if (terrain === 'Fortement en pente / accès complexe') price *= 1.12;
 
       // Options
       if (chauffage === 'Pompe à chaleur') price += 3500;
