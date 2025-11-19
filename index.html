@@ -1,260 +1,256 @@
  
 <!doctype html>
-<html lang="fr" class="theme-amenagement">
-
-
-<head><meta name="robots" content="index,follow">
-<link rel="canonical" href="https://www.lc-creation.be/index.html">
-
+<html lang="fr">
+<head>
   <meta charset="utf-8">
   <title>Paysagiste Brabant Wallon — LC Création | Aménagements extérieurs</title>
-<meta name="description" content="LC Création SRL, paysagiste en Brabant Wallon et Bruxelles : pavage, terrasses, allées, plantations, entretien de jardin. Devis gratuit et rapide.">
+  <meta name="description" content="LC Création, paysagiste en Brabant Wallon et Bruxelles. Aménagements extérieurs, pavage, terrasses, plantations, clôtures, piscines bois. Devis gratuit.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- CSS global existant -->
+  <link rel="stylesheet" href="./styles.css?v=36">
 
+  <!-- Styles spécifiques HOME -->
+  <style>
+    :root {
+      --lc-gold: #d4af37;
+      --lc-gold-soft: rgba(212,175,55,0.22);
+      --lc-night: #020617;
+    }
 
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #0f172a;
+      background: #f4f4f5;
+      margin: 0;
+    }
 
+    .page-home {
+      background: #f4f4f5;
+    }
 
+    header {
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+    }
 
-<link rel="stylesheet" href="./styles.css?v=34">
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.9rem 0;
+    }
 
-<a href="tel:+32474693800" class="call-float">📞</a>
-<body>
+    .brand img {
+      display: block;
+      max-height: 64px;
+      height: auto;
+    }
 
+    nav a {
+      margin-left: 1.2rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      color: #0f172a;
+    }
 
+    nav a:hover {
+      color: var(--lc-gold);
+    }
 
-  <header>
+    nav a[href="./piscines.html"] {
+      position: relative;
+      color: var(--lc-gold);
+      font-weight: 600;
+    }
 
-  <div class="topbar container" style="flex-direction:column;gap:8px;justify-content:center;text-align:center">
-    <div class="brand">
-      <img src="./logo-amenagement-cropped.png" alt="Logo LC Création">
-    </div>
-    <nav style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-    <nav>
-  <a href="./index.html">Aménagements extérieurs</a>
-  <a href="./piscines.html">Piscines bois</a>
-  <a href="./contact.html">Contact</a>
- <a class="btn call-mobile" href="tel:+32474693800">📞 Appeler</a>
-    </nav>
-  </div>
-</header>
+    nav a[href="./piscines.html"]::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(212,175,55,0.05), var(--lc-gold), rgba(212,175,55,0.05));
+    }
 
-   <section class="hero hero-intro">
-  <h1>Bienvenue chez LC Création</h1>
-  <p>
-    Avec plus de <strong>20 ans d’expérience</strong> dans l’aménagement extérieur et 
-    la rénovation intérieure, LC Création SRL vous accompagne pour donner vie à vos projets.  
-    Basés en <strong>Brabant Wallon</strong>, nous intervenons également sur <strong>Bruxelles</strong>, 
-    en alliant savoir-faire, fiabilité et souci du détail.
-  </p>
-</section>
+    /* HERO */
 
-</section>
-  <main class="container">
-    <section class="hero">
-      <h1>LC Création — Aménagements extérieurs en Brabant Wallon & Bruxelles</h1>
-      <p class="muted">Pavage, terrasses, plantations, entretien de jardin.</p>
-   <div class="badges" style="margin-top:10px">
-  <a class="btn" href="tel:+32474693800">📞 Appeler</a>
-  <a class="btn secondary" href="mailto:lecocqcedric@outlook.be?subject=Devis%20LC%20Création">✉️ Devis par email</a>
-</div>
- </section>
+    .home-hero {
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 55%);
+      color: #f9fafb;
+      padding: 4.2rem 1.5rem 3.5rem;
+    }
 
-    <!-- ✅ Nouvelle section Services avec icônes -->
-    
-<section class="section alt">
-  <!-- ... tes cartes service avec <svg> ... -->
-</section>
+    .home-hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
 
- <section class="section alt services">
-  <h2>Nos services</h2>
-  <!-- 💦 Bloc promo piscine -->
-<section class="section promo alt">
-  <div class="promo-text">
-    <h2>☀️ Votre rêve devient réalité</h2>
-    <p class="price">Dès <strong>12 490 €htva</strong></p>
-    <p class="desc">
-      Élégance du bois, pureté de l’eau, plaisir à domicile.<br>
-      Conçues pour durer, installées avec passion.
-    </p>
-    <a href="./piscines.html" class="btn">Découvrir nos piscines</a>
-  </div>
-</section>
+    .home-hero-text h1 {
+      font-size: 2.7rem;
+      line-height: 1.2;
+      margin: 0 0 1rem;
+    }
 
+    .home-hero-text p {
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 34rem;
+      opacity: 0.95;
+      margin: 0 0 1.6rem;
+    }
 
-  <div class="service-card">
-    <img src="plantation1.jpg" alt="Aménagement paysager — plantations, pelouses, haies">
-    <div>
-      <h3>Aménagement paysager</h3>
-      <p class="muted">Plantations, pelouses, haies, massifs.</p>
-      <span class="badge">Devis gratuit</span>
-    </div>
-  </div>
+    .home-hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.8rem;
+      font-size: 0.95rem;
+    }
 
-  <div class="service-card">
-    <img src="terrasse dalle.jpg" alt="Pavage et terrasses — pierre, klinkers, bordures">
-    <div>
-      <h3>Pavage & terrasses</h3>
-      <p class="muted">Allées, terrasses, bordures en pierre.</p>
-      <span class="badge">Résultat durable</span>
-    </div>
-  </div>
+    .home-hero-list li + li {
+      margin-top: 0.3rem;
+    }
 
-  <div class="service-card">
-    <img src="entretien.jpg" alt="Entretien de jardin — tonte, taille, remise en état">
-    <div>
-      <h3>Entretien de jardin</h3>
-      <p class="muted">Tonte, taille, remise en état saisonnière.</p>
-      <span class="badge">Forfaits possibles</span>
-    </div>
-  </div>
+    .home-hero-list strong {
+      font-weight: 600;
+    }
 
-  <div class="service-card">
-    <img src="cloture.jpg" alt="clotures — clôtures métalliques,chataigniers, gabions">
-    <div>
-      <h3>Clotures</h3>
-      <p class="muted">Clôtures, murets, gabions.</p>
-      <span class="badge">Finitions soignées</span>
-    </div>
-  </div>
-</section>
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
 
+    .btn-primary,
+    .btn-secondary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      font-size: 0.98rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
 
+    .btn-primary {
+      background: linear-gradient(135deg, var(--lc-gold), #f6e1a4);
+      color: #111827;
+      font-weight: 600;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+    }
 
+    .btn-primary:hover {
+      filter: brightness(1.03);
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.25);
+    }
 
-    <!-- Exemple carrousel (tes photos) -->
-    <section class="section">
-      <h2>Réalisations</h2>
-      <div class="carousel" id="carousel">
-        <div class="slide" style="display:block"><img src="./rea1.jpg" alt="Pavage"></div>
-        <div class="slide" style="display:none"><img src="./rea2.jpg" alt="Plantations"></div>
-        <div class="slide" style="display:none"><img src="./rea3.jpg" alt="Terrasse"></div>
-        <div class="controls">
-          <button class="ctrl prev">◀</button>
-          <button class="ctrl next">▶</button>
-        </div>
-      </div>
-    </section>
- <!-- ====== À coller SOUS le carrousel ====== -->
+    .btn-secondary {
+      background: transparent;
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.7);
+    }
 
-<section class="section alt">
-  <h2>Pourquoi choisir LC Création ?</h2>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:12px">
-    <div class="card">
-      <strong>✔ Expérience locale</strong><br>
-      <span class="muted">Basés en Brabant Wallon, nous intervenons rapidement sur Bruxelles et alentours.</span>
-    </div>
-    <div class="card">
-      <strong>✔ Travail soigné</strong><br>
-      <span class="muted">Chantiers propres, finitions de qualité, respect des délais.</span>
-    </div>
-    <div class="card">
-      <strong>✔ Devis rapide</strong><br>
-      <span class="muted">Réponse claire et sans surprise, accompagnement sur le choix des matériaux.</span>
-    </div>
-  </div>
-</section>
+    .btn-secondary:hover {
+      background: rgba(15, 23, 42, 0.8);
+    }
 
-<section class="section alt">
-  <div class="card grid" style="grid-template-columns:1fr auto;align-items:center">
-    <div>
-      <h2>Demande de devis gratuit</h2>
-      <p class="muted">Réponse rapide — Brabant Wallon & Bruxelles</p>
-    </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn" href="mailto:lecocqcedric@outlook.be?subject=Devis%20LC%20Cr%C3%A9ation">✉️ Par e-mail</a>
-      <a class="btn secondary" href="tel:+32474693800">📞 Appeler</a>
-    </div>
-  </div>
-</section>
-<section class="section alt">
-  <h2>Nos zones d’intervention</h2>
-  <p>
-    Basés en <strong>Brabant Wallon</strong>, nous intervenons à Nivelles, Waterloo,
-    Braine-l’Alleud, Wavre, Ottignies, Rixensart et sur <strong>Bruxelles</strong>.
-    Déplacements possibles dans les communes voisines pour vos projets d’aménagement extérieur.
-  </p>
-</section>
-<section class="section">
-  <h2>Avis de nos clients</h2>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:12px">
-    <div class="card">
-      <div>⭐⭐⭐⭐⭐</div>
-      <p>“Terrasse refaite à neuf, travail soigné et délais tenus. Je recommande.”</p>
-      <p class="muted">— Marc, Nivelles</p>
-    </div>
-    <div class="card">
-      <div>⭐⭐⭐⭐⭐</div>
-      <p>“Aménagement complet du jardin, résultat impeccable. Équipe professionnelle.”</p>
-      <p class="muted">— Sophie, Waterloo</p>
-    </div>
-    <div class="card">
-      <div>⭐⭐⭐⭐⭐</div>
-      <p>“Devis clair et chantier propre. Très satisfait du pavage de l’allée.”</p>
-      <p class="muted">— Julien, Wavre</p>
-    </div>
-  </div>
-</section>
-<section class="section alt">
-  <h2>Notre façon de travailler</h2>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:12px">
-    <div class="card"><strong>1. Contact</strong><br><span class="muted">Vous nous expliquez votre projet.</span></div>
-    <div class="card"><strong>2. Devis gratuit</strong><br><span class="muted">Un devis clair et rapide.</span></div>
-    <div class="card"><strong>3. Réalisation</strong><br><span class="muted">Travaux soignés, délais respectés.</span></div>
-    <div class="card"><strong>4. Suivi</strong><br><span class="muted">Nous restons disponibles après chantier.</span></div>
-  </div>
-</section>
- </main>
-<section class="section highlight-piscine">
-  <div class="container">
-    <div class="promo-piscine">
-     <div class="promo-text">
-  <h2>☀️ Et si cet été, le bonheur était dans votre jardin ?</h2>
-  <p>
-    Imaginez… le bleu de l’eau qui scintille, le bois chaud sous vos pieds,  
-    le calme d’une fin d’après-midi au bord de votre propre piscine.  
-    LC Création conçoit et installe des piscines en bois sur mesure,  
-    alliant élégance naturelle et savoir-faire artisanal.  
-    <strong>Votre rêve devient réalité, dès 12 490 € htva.</strong>
-  </p>
-  <a href="./piscines.html" class="btn">Découvrir l’univers des piscines LC Création</a>
-</div>
+    .btn-ghost {
+      background: transparent;
+      color: #f9fafb;
+      border-color: rgba(248, 250, 252, 0.3);
+      font-size: 0.9rem;
+    }
 
-      
-      <div class="promo-img">
-        <img src="./photos/promo-piscine.jpg" alt="Piscine en bois LC Création">
-      </div>
-    </div>
-  </div>
-</section>
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.7);
+    }
 
-  <footer class="container">
-    © <span id="y"></span> LC Création SRL — 0474/69.38.00 — lecocqcedric@outlook.be
-  </footer>
+    .home-hero-side {
+      display: flex;
+      justify-content: center;
+    }
 
-  <!-- Script carrousel + activation icônes -->
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    .home-hero-card {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 24px;
+      padding: 1.6rem 1.4rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      max-width: 360px;
+      width: 100%;
+    }
 
-    (function(){
-      const root = document.getElementById('carousel');
-      if(!root) return;
-      const slides = Array.from(root.querySelectorAll('.slide'));
-      if(!slides.length) return;
+    .home-hero-card h2 {
+      font-size: 1.15rem;
+      margin: 0 0 0.4rem;
+    }
 
-      let i = 0;
-      const show = n => slides.forEach((s,k)=> s.style.display = (k===n)?'block':'none');
-      show(0);
+    .home-hero-card p {
+      font-size: 0.94rem;
+      margin: 0 0 0.8rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
 
-      const prev = root.querySelector('.prev');
-      const next = root.querySelector('.next');
-      prev && prev.addEventListener('click', ()=>{ i=(i-1+slides.length)%slides.length; show(i); });
-      next && next.addEventListener('click', ()=>{ i=(i+1)%slides.length; show(i); });
+    .home-hero-card-price {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
 
-      setInterval(()=>{ i=(i+1)%slides.length; show(i); }, 4000);
-    })();
+    .home-hero-card-price strong {
+      color: var(--lc-gold);
+    }
 
-   
-  </script>
-</body>
-</html>
+    .home-hero-card small {
+      font-size: 0.8rem;
+      opacity: 0.75;
+    }
+
+    /* SECTIONS GENERALES */
+
+    .home-section {
+      padding: 3.2rem 1.5rem;
+    }
+
+    .home-section:nth-of-type(even) {
+      background: #ffffff;
+    }
+
+    .home-section:nth-of-type(odd) {
+      background: #f4f4f5;
+    }
+
+    .home-section-header {
+      max-width: 1120px;
+      margin: 0 auto 2.4rem;
+      text-align: center;
+    }
+
+    .home-section-header h2 {
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.4rem;
+    }
+
+    .home-section-header h2::after {
