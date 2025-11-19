@@ -676,3 +676,86 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   /* Nav centrée (si utile) */
   nav{ display:flex; justify-content:center; gap:8px; flex-wrap:wrap; }
 }
+.section-formules {
+  padding: 4rem 0;
+  background: #f7f7f7;
+}
+
+.section-formules h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-formules .section-intro {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.formules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.formule-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.formule-header h3 {
+  font-size: 1.6rem;
+  margin: 0.4rem 0;
+}
+
+.formule-size {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.formule-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.formule-badge-highlight {
+  border: none;
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+}
+
+.formule-list {
+  margin: 1.4rem 0 1.6rem;
+  padding-left: 1.2rem;
+  line-height: 1.7;
+}
+
+.formule-price {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.formule-price-htva {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 0.1rem;
+}
+
+.formule-note {
+  margin-top: 2.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0.75;
+}
