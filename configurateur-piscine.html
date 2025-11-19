@@ -964,20 +964,34 @@
       }
 
       // Estimation simple (on mettra tes vrais chiffres plus tard)
-      const basePrices = {
+           const basePrices = {
         'Essentiel': 16490,
         'Confort': 19750,
         'Luxe': 23990
       };
       let price = basePrices[pack] || 0;
 
-      // Options
+      // Options principales
       if (chauffage === 'Pompe à chaleur') price += 3500;
+
       if (traitement === 'Électrolyseur sel') price += 1800;
       if (traitement === 'Électrolyseur + régulation pH') price += 3200;
+      if (traitement === 'Pompe doseuse') price += 1200;
+
       if (couverture === 'Couverture à barres') price += 2000;
-      if (couverture === 'Volet (manuel ou motorisé)') price += 4500;
+      if (couverture === 'Volet à lamelles manuel') price += 3800;
+      if (couverture === 'Volet à lamelles motorisé') price += 4800;
+
       if (entretien === 'Avec robot nettoyeur') price += 1500;
+
+      // Confort & loisirs
+      let loisirTotal = 0;
+      loisirChecked.forEach(i => {
+        if (i.value === 'Éclairage LED couleur (RGB)') loisirTotal += 600;
+        if (i.value === 'Douche solaire extérieure') loisirTotal += 800;
+        if (i.value === 'Nage à contre-courant') loisirTotal += 6500;
+      });
+      price += loisirTotal;
 
       // On arrondit à la centaine la plus proche
       const rounded = Math.round(price / 100) * 100;
