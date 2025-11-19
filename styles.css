@@ -928,3 +928,43 @@ html.theme-piscine .topbar nav a[href="./piscines.html"]::after {
     rgba(212,175,55,0.05)
   );
 }
+/* PACKS / FORMULES : ACCENT DORE */
+
+.formule-card {
+  position: relative;
+}
+
+/* Liseré fin sur le haut des cartes */
+.formule-card::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(212,175,55,0),
+    var(--lc-gold-soft),
+    rgba(212,175,55,0)
+  );
+}
+
+/* Badge "Best-seller" plus premium */
+.formule-badge-highlight {
+  background: #111827;
+  color: #f9fafb;
+  border: 1px solid var(--lc-gold-soft);
+  box-shadow: 0 0 0 1px rgba(15,23,42,0.6);
+}
+
+/* Prix mis légèrement en avant */
+.formule-price strong {
+  color: var(--lc-gold);
+  letter-spacing: 0.02em;
+}
+
+.formule-price-htva {
+  font-style: italic;
+}
