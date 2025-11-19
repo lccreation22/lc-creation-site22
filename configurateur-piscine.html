@@ -535,4 +535,425 @@
               </div>
             </label>
             <label class="config-radio-option">
+ <input type="radio" name="type_projet" value="Piscine + réaménagement complet du jardin">
+              <div>
+                <div class="config-radio-title">Piscine + réaménagement complet du jardin</div>
+                <div class="config-radio-desc">Projet global : piscine, circulations, plantations, éclairage, etc.</div>
+              </div>
+            </label>
+          </div>
+        </div>
 
+        <div class="config-group">
+          <label for="config-terrain">Votre terrain est plutôt…</label>
+          <select id="config-terrain" class="config-select">
+            <option value="Plat" selected>Plat</option>
+            <option value="Légèrement en pente">Légèrement en pente</option>
+            <option value="Fortement en pente / accès complexe">Fortement en pente / accès complexe</option>
+          </select>
+          <small>Cette information nous aide à estimer la complexité du terrassement.</small>
+        </div>
+
+        <div class="config-group">
+          <label for="config-code-postal">Code postal du chantier</label>
+          <input type="text" id="config-code-postal" class="config-input" placeholder="Ex. 1400 Nivelles">
+          <small>Nous intervenons en Brabant Wallon et sur Bruxelles. Indiquez la ville du projet.</small>
+        </div>
+      </div>
+
+      <!-- ETAPE 2 : PACK -->
+      <div class="config-step" data-step="2">
+        <div class="config-group">
+          <label>Choisissez votre pack</label>
+          <div class="config-radio-group" id="config-pack">
+            <label class="config-radio-option active">
+              <input type="radio" name="pack" value="Essentiel" checked>
+              <div>
+                <div class="config-radio-title">Essentiel</div>
+                <div class="config-radio-desc">
+                  5,20 × 3,20 × 1,33 m — accès intelligent à la piscine bois, idéal pour un premier projet.
+                  Base indicative : ~16 500 € TVAC.
+                </div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="pack" value="Confort">
+              <div>
+                <div class="config-radio-title">Confort</div>
+                <div class="config-radio-desc">
+                  6,20 × 4,20 × 1,33 m — format familial, options techniques plus évoluées.
+                  Base indicative : ~19 800 € TVAC.
+                </div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="pack" value="Luxe">
+              <div>
+                <div class="config-radio-title">Luxe</div>
+                <div class="config-radio-desc">
+                  8,15 × 4,20 × 1,46 m — expérience haut de gamme, confort maximal et équipements complets.
+                  Base indicative : ~24 000 € TVAC.
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <label for="config-budget">Budget global envisagé</label>
+          <select id="config-budget" class="config-select">
+            <option value="15-20k">15 000 – 20 000 €</option>
+            <option value="20-30k" selected>20 000 – 30 000 €</option>
+            <option value="30-40k">30 000 – 40 000 €</option>
+            <option value="40k+">Plus de 40 000 €</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ETAPE 3 : OPTIONS -->
+      <div class="config-step" data-step="3">
+        <div class="config-group">
+          <label>Chauffage de l’eau</label>
+          <div class="config-radio-group" id="config-chauffage">
+            <label class="config-radio-option active">
+              <input type="radio" name="chauffage" value="Pas de chauffage" checked>
+              <div>
+                <div class="config-radio-title">Pas de chauffage</div>
+                <div class="config-radio-desc">Usage surtout en été, sans pompe à chaleur.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="chauffage" value="Pompe à chaleur">
+              <div>
+                <div class="config-radio-title">Pompe à chaleur</div>
+                <div class="config-radio-desc">Pour prolonger la saison de baignade et stabiliser la température.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <label>Traitement / automatisation</label>
+          <div class="config-radio-group" id="config-traitement">
+            <label class="config-radio-option active">
+              <input type="radio" name="traitement" value="Traitement manuel" checked>
+              <div>
+                <div class="config-radio-title">Traitement manuel</div>
+                <div class="config-radio-desc">Contrôle manuel du chlore et du pH, solution la plus simple.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="traitement" value="Électrolyseur sel">
+              <div>
+                <div class="config-radio-title">Électrolyseur au sel</div>
+                <div class="config-radio-desc">Plus de confort au quotidien, moins de produits à manipuler.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="traitement" value="Électrolyseur + régulation pH">
+              <div>
+                <div class="config-radio-title">Électrolyseur + régulation pH</div>
+                <div class="config-radio-desc">Pilotage plus automatisé, confort d’entretien maximal.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <label>Couverture / sécurité</label>
+          <div class="config-radio-group" id="config-couverture">
+            <label class="config-radio-option active">
+              <input type="radio" name="couverture" value="Bâche été + hiver" checked>
+              <div>
+                <div class="config-radio-title">Bâche été + hiver</div>
+                <div class="config-radio-desc">Solution simple pour protéger l’eau selon les saisons.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="couverture" value="Couverture à barres">
+              <div>
+                <div class="config-radio-title">Couverture à barres</div>
+                <div class="config-radio-desc">Sécurité renforcée et meilleure isolation.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="couverture" value="Volet (manuel ou motorisé)">
+              <div>
+                <div class="config-radio-title">Volet (manuel ou motorisé)</div>
+                <div class="config-radio-desc">Solution haut de gamme, pratique et esthétique.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <label>Entretien</label>
+          <div class="config-radio-group" id="config-entretien">
+            <label class="config-radio-option active">
+              <input type="radio" name="entretien" value="Sans robot" checked>
+              <div>
+                <div class="config-radio-title">Sans robot</div>
+                <div class="config-radio-desc">Entretien manuel classique.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="entretien" value="Avec robot nettoyeur">
+              <div>
+                <div class="config-radio-title">Avec robot nettoyeur</div>
+                <div class="config-radio-desc">Robot autonome pour faciliter l’entretien du bassin.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPE 4 : COORDONNÉES -->
+      <div class="config-step" data-step="4">
+        <div class="config-group">
+          <label for="config-prenom">Prénom *</label>
+          <input type="text" id="config-prenom" class="config-input" placeholder="Votre prénom">
+        </div>
+        <div class="config-group">
+          <label for="config-nom">Nom *</label>
+          <input type="text" id="config-nom" class="config-input" placeholder="Votre nom">
+        </div>
+        <div class="config-group">
+          <label for="config-email">E-mail *</label>
+          <input type="email" id="config-email" class="config-input" placeholder="exemple@domaine.be">
+          <small>Nous vous envoyons votre configuration détaillée par e-mail et affichons l’estimation à l’écran.</small>
+        </div>
+        <div class="config-group">
+          <label for="config-tel">Téléphone</label>
+          <input type="text" id="config-tel" class="config-input" placeholder="Optionnel, mais pratique pour vous rappeler.">
+        </div>
+        <div class="config-group">
+          <label for="config-message">Précisions sur votre projet</label>
+          <textarea id="config-message" class="config-input" rows="3" placeholder="Ex. : accès par le côté, terrain légèrement en pente, envie de plage autour de la piscine…"></textarea>
+        </div>
+        <div class="config-group">
+          <small>* Champs obligatoires pour afficher l’estimation.</small>
+        </div>
+      </div>
+
+      <!-- NAVIGATION ENTRE ETAPES -->
+      <div class="config-nav">
+        <div class="config-nav-left">
+          <button type="button" class="btn-text" id="config-back" disabled>&larr; Étape précédente</button>
+        </div>
+        <div class="config-nav-right">
+          <button type="button" class="btn-secondary" id="config-cancel">Réinitialiser</button>
+          <button type="button" class="btn-primary" id="config-next">Étape suivante</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLONNE DROITE : RÉCAP & ESTIMATION -->
+    <aside class="config-summary-card" id="config-summary">
+      <h2>Récapitulatif & estimation</h2>
+      <p>
+        À chaque étape, nous mettons à jour ce récapitulatif pour vous donner une vision claire de votre projet.
+        L’estimation reste indicative et sera validée après visite sur place.
+      </p>
+
+      <div class="config-summary-section">
+        <strong>Projet :</strong>
+        <ul class="config-summary-list">
+          <li id="summary-type-projet">Piscine seule</li>
+          <li id="summary-terrain">Terrain : plat</li>
+          <li id="summary-code-postal">Code postal : à préciser</li>
+        </ul>
+      </div>
+
+      <div class="config-summary-section">
+        <strong>Pack choisi :</strong>
+        <ul class="config-summary-list">
+          <li id="summary-pack">Essentiel</li>
+          <li id="summary-budget">Budget envisagé : 20 000 – 30 000 €</li>
+        </ul>
+      </div>
+
+      <div class="config-summary-section">
+        <strong>Options :</strong>
+        <ul class="config-summary-list">
+          <li id="summary-chauffage">Chauffage : pas de chauffage</li>
+          <li id="summary-traitement">Traitement : manuel</li>
+          <li id="summary-couverture">Couverture : bâche été + hiver</li>
+          <li id="summary-entretien">Entretien : sans robot</li>
+        </ul>
+      </div>
+
+      <div class="config-price-zone">
+        <div class="config-price-label">Estimation indicative TVAC</div>
+        <div class="config-price-value" id="summary-price">–</div>
+        <div class="config-price-note">
+          Estimation basée sur le pack et les options sélectionnées, hors contraintes spécifiques de terrain
+          (accès, niveau de terrassement, particularités techniques).
+        </div>
+      </div>
+
+      <div class="config-legal">
+        En validant votre configuration, vous acceptez que LC Création vous contacte au sujet de votre projet.
+        Aucun spam, aucun engagement : uniquement lié à votre demande de piscine bois.
+      </div>
+    </aside>
+  </section>
+
+</main>
+
+<script>
+  // Petit script pour gérer les étapes + mise à jour du récap + estimation simple
+  (function() {
+    const totalSteps = 4;
+    let currentStep = 1;
+
+    const stepEls = document.querySelectorAll('.config-step');
+    const pillEls = document.querySelectorAll('.config-step-pill');
+    const stepCurrentEl = document.getElementById('config-step-current');
+    const stepTotalEl = document.getElementById('config-step-total');
+    const backBtn = document.getElementById('config-back');
+    const nextBtn = document.getElementById('config-next');
+    const cancelBtn = document.getElementById('config-cancel');
+
+    stepTotalEl.textContent = totalSteps;
+
+    function showStep(step) {
+      currentStep = step;
+      stepEls.forEach(el => {
+        el.classList.toggle('active', Number(el.dataset.step) === step);
+      });
+      pillEls.forEach(el => {
+        el.classList.toggle('active', Number(el.dataset.stepPill) === step);
+      });
+      stepCurrentEl.textContent = step;
+      backBtn.disabled = (step === 1);
+      nextBtn.textContent = (step === totalSteps) ? 'Voir mon estimation' : 'Étape suivante';
+    }
+
+    // Radio cards visuelles
+    document.querySelectorAll('.config-radio-option').forEach(option => {
+      option.addEventListener('click', (e) => {
+        const input = option.querySelector('input[type="radio"]');
+        if (!input) return;
+        const name = input.name;
+        document.querySelectorAll('.config-radio-option input[name="' + name + '"]').forEach(r => {
+          r.closest('.config-radio-option').classList.remove('active');
+        });
+        option.classList.add('active');
+        input.checked = true;
+        updateSummary();
+      });
+    });
+
+    function updateSummary() {
+      // Projet
+      const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || 'Piscine seule';
+      document.getElementById('summary-type-projet').textContent = typeProjet;
+
+      const terrain = document.getElementById('config-terrain').value;
+      document.getElementById('summary-terrain').textContent = 'Terrain : ' + terrain.toLowerCase();
+
+      const cp = document.getElementById('config-code-postal').value || 'à préciser';
+      document.getElementById('summary-code-postal').textContent = 'Code postal : ' + cp;
+
+      // Pack
+      const pack = document.querySelector('input[name="pack"]:checked')?.value || 'Essentiel';
+      document.getElementById('summary-pack').textContent = pack;
+
+      const budget = document.getElementById('config-budget').value;
+      let budgetLabel = '20 000 – 30 000 €';
+      if (budget === '15-20k') budgetLabel = '15 000 – 20 000 €';
+      if (budget === '30-40k') budgetLabel = '30 000 – 40 000 €';
+      if (budget === '40k+') budgetLabel = 'Plus de 40 000 €';
+      document.getElementById('summary-budget').textContent = 'Budget envisagé : ' + budgetLabel;
+
+      // Options
+      const chauffage = document.querySelector('input[name="chauffage"]:checked')?.value || 'Pas de chauffage';
+      document.getElementById('summary-chauffage').textContent = 'Chauffage : ' + chauffage.toLowerCase();
+
+      const traitement = document.querySelector('input[name="traitement"]:checked')?.value || 'Traitement manuel';
+      document.getElementById('summary-traitement').textContent = 'Traitement : ' + traitement;
+
+      const couverture = document.querySelector('input[name="couverture"]:checked')?.value || 'Bâche été + hiver';
+      document.getElementById('summary-couverture').textContent = 'Couverture : ' + couverture;
+
+      const entretien = document.querySelector('input[name="entretien"]:checked')?.value || 'Sans robot';
+      document.getElementById('summary-entretien').textContent = 'Entretien : ' + entretien.toLowerCase();
+
+      // Estimation simple (on mettra tes vrais chiffres plus tard)
+      const basePrices = {
+        'Essentiel': 16490,
+        'Confort': 19750,
+        'Luxe': 23990
+      };
+      let price = basePrices[pack] || 0;
+
+      // Majoration terrain
+      if (terrain === 'Légèrement en pente') price *= 1.05;
+      if (terrain === 'Fortement en pente / accès complexe') price *= 1.12;
+
+      // Options
+      if (chauffage === 'Pompe à chaleur') price += 3500;
+      if (traitement === 'Électrolyseur sel') price += 1800;
+      if (traitement === 'Électrolyseur + régulation pH') price += 3200;
+      if (couverture === 'Couverture à barres') price += 2000;
+      if (couverture === 'Volet (manuel ou motorisé)') price += 4500;
+      if (entretien === 'Avec robot nettoyeur') price += 1500;
+
+      // On arrondit à la centaine la plus proche
+      const rounded = Math.round(price / 100) * 100;
+      const display = new Intl.NumberFormat('fr-BE', {
+        style: 'currency',
+        currency: 'EUR',
+        maximumFractionDigits: 0
+      }).format(rounded);
+
+      document.getElementById('summary-price').textContent = display;
+    }
+
+    function validateStep(step) {
+      if (step === 4) {
+        const prenom = document.getElementById('config-prenom').value.trim();
+        const nom = document.getElementById('config-nom').value.trim();
+        const email = document.getElementById('config-email').value.trim();
+        if (!prenom || !nom || !email) {
+          alert('Merci de compléter au minimum votre prénom, nom et e-mail pour afficher votre estimation.');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    backBtn.addEventListener('click', () => {
+      if (currentStep > 1) {
+        showStep(currentStep - 1);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentStep < totalSteps) {
+        showStep(currentStep + 1);
+      } else {
+        // Dernière étape : on affiche déjà l'estimation (elle est mise à jour en direct)
+        // Ici tu pourras plus tard ajouter un envoi automatique par e-mail via un script côté serveur.
+        alert("Votre estimation a été mise à jour dans le panneau à droite. Nous vous contacterons rapidement pour affiner votre projet.");
+      }
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      window.location.reload();
+    });
+
+    // Listeners pour mettre à jour le résumé dès que ça change
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+      el.addEventListener('change', updateSummary);
+      el.addEventListener('input', updateSummary);
+    });
+
+    // Initial
+    showStep(1);
+    updateSummary();
+  })();
+</script>
+
+</body>
+</html>
