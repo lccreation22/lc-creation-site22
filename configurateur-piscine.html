@@ -1032,16 +1032,28 @@
       });
       price += loisirTotal;
 
-      // On arrondit à la centaine la plus proche
+           // On arrondit à la centaine la plus proche
       const rounded = Math.round(price / 100) * 100;
-      const display = new Intl.NumberFormat('fr-BE', {
+      const min = Math.round(rounded * 0.95 / 100) * 100;
+      const max = Math.round(rounded * 1.05 / 100) * 100;
+
+      const nf = new Intl.NumberFormat('fr-BE', {
         style: 'currency',
         currency: 'EUR',
         maximumFractionDigits: 0
-      }).format(rounded);
+      });
 
-      document.getElementById('summary-price').textContent = display;
-    }
+      const priceEl = document.getElementById('summary-price');
+
+      // Tant que la dernière étape n'est pas validée, on NE montre pas le prix
+      if (!estimationUnlocked) {
+        priceEl.textContent = "—";
+        return;
+      }
+
+      // Une fois débloqué, on affiche la fourchette
+      priceEl.textContent = nf.format(min) + " – " + nf.format(max);
+
 
     function validateStep(step) {
       if (step === 4) {
