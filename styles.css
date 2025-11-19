@@ -1138,3 +1138,107 @@ main a[href$="piscines.html"]:hover {
   .btn,
   .btn-primary,
   .btn-secondary,
+/* =========================================
+   SUPER BOOST MOBILE POUR TOUT SAUF PISCINES
+   ========================================= */
+@media (max-width: 640px) {
+
+  /* On cible toutes les pages QUI NE SONT PAS la page piscine */
+  html:not(.theme-piscine) body {
+    font-size: 18px;           /* gros boost */
+    line-height: 1.8;
+  }
+
+  html:not(.theme-piscine) h1 {
+    font-size: 2.9rem;
+    line-height: 1.2;
+  }
+
+  html:not(.theme-piscine) h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  html:not(.theme-piscine) h3 {
+    font-size: 1.5rem;
+  }
+
+  html:not(.theme-piscine) p,
+  html:not(.theme-piscine) li {
+    font-size: 1.1rem;
+  }
+
+  /* Logo plus gros sur toutes les pages sauf piscines */
+  html:not(.theme-piscine) header .brand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  html:not(.theme-piscine) header .brand img {
+    max-width: 320px;
+    width: 90%;
+    height: auto;
+  }
+
+  /* Sections de contenu qui respirent un peu plus */
+  html:not(.theme-piscine) main section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  /* Hero de la page d'accueil (et autres si tu as .hero/.hero-main) */
+  html:not(.theme-piscine) .hero,
+  html:not(.theme-piscine) .hero-main,
+  html:not(.theme-piscine) .hero-home {
+    padding: 3rem 1.8rem 2.6rem;
+    text-align: center;
+  }
+
+  html:not(.theme-piscine) .hero h1,
+  html:not(.theme-piscine) .hero-main h1,
+  html:not(.theme-piscine) .hero-home h1 {
+    font-size: 3rem;
+  }
+
+  html:not(.theme-piscine) .hero p,
+  html:not(.theme-piscine) .hero-main p,
+  html:not(.theme-piscine) .hero-home p {
+    font-size: 1.15rem;
+    max-width: 34rem;
+    margin-inline: auto;
+  }
+
+  /* Boutons plus massifs (dont bouton vers piscines sur la home) */
+  html:not(.theme-piscine) .btn,
+  html:not(.theme-piscine) .btn-primary,
+  html:not(.theme-piscine) .btn-secondary,
+  html:not(.theme-piscine) main a[href$="piscines.html"] {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+  }
+
+  /* Et sur smartphone : bouton piscines en pleine largeur */
+  html:not(.theme-piscine) main a[href$="piscines.html"] {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Cartes / blocs plus confortables */
+  html:not(.theme-piscine) .card,
+  html:not(.theme-piscine) .service-card,
+  html:not(.theme-piscine) .bloc,
+  html:not(.theme-piscine) .section-box {
+    padding: 1.6rem 1.4rem;
+  }
+
+  /* Images de réalisations / galerie bien visibles */
+  html:not(.theme-piscine) .gallery img,
+  html:not(.theme-piscine) .realisations img,
+  html:not(.theme-piscine) .realisation img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+}
