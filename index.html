@@ -369,20 +369,28 @@
     /* REALISATIONS */
 
     .realisations-grid {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.4rem;
-    }
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+  justify-items: center;   /* centre chaque carte pour éviter qu'elle s'étale trop */
+}
 
-    .realisation-card img {
-      width: 100%;
-      border-radius: 16px;
-      object-fit: cover;
-      max-height: 210px;
-      display: block;
-    }
+.realisation-card {
+  max-width: 340px;        /* on limite la largeur pour ne pas trop étirer la photo */
+  width: 100%;
+}
+
+.realisation-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;     /* format propre, évite la déformation */
+  object-fit: cover;       /* on remplit le cadre en recadrant, pas en étirant */
+  border-radius: 16px;
+}
+
 
     .realisation-caption {
       margin-top: 0.5rem;
