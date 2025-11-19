@@ -1063,3 +1063,78 @@ main a[href$="piscines.html"]:hover {
     padding: 0.95rem 1.8rem;
   }
 }
+/* ===========================
+   BOOST MOBILE (HOME & GLOBAL)
+   =========================== */
+@media (max-width: 640px) {
+
+  /* Base : texte plus grand partout */
+  body {
+    font-size: 17px;        /* avant 14–15px : on monte clairement */
+    line-height: 1.7;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  p,
+  li {
+    font-size: 1.05rem;
+  }
+
+  /* Logo plus visible en haut de page */
+  header .brand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  header .brand img {
+    max-width: 280px;   /* tu peux monter à 320 si tu veux encore plus grand */
+    width: 80%;
+    height: auto;
+  }
+
+  /* Sections qui respirent */
+  main section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  /* Hero de la page principale (titre + texte d’intro) */
+  .hero,
+  .hero-main,
+  .hero-home {
+    padding: 2.8rem 1.8rem 2.4rem;
+    text-align: center;
+  }
+
+  .hero h1,
+  .hero-main h1,
+  .hero-home h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero p,
+  .hero-main p,
+  .hero-home p {
+    font-size: 1.1rem;
+    max-width: 34rem;
+    margin-inline: auto;
+  }
+
+  /* Boutons (dont celui vers les piscines) bien larges et lisibles */
+  .btn,
+  .btn-primary,
+  .btn-secondary,
