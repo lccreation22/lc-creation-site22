@@ -254,3 +254,630 @@
     }
 
     .home-section-header h2::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 68px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(212,175,55,0.05), var(--lc-gold), rgba(212,175,55,0.05));
+    }
+
+    .home-section-header p {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.6rem 1.5rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .service-card p {
+      font-size: 0.94rem;
+      margin: 0 0 0.6rem;
+      line-height: 1.6;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 0.2rem;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #ecfdf5;
+      color: #166534;
+      border: 1px solid rgba(34, 197, 94, 0.35);
+    }
+
+    .service-image {
+      margin-bottom: 0.8rem;
+    }
+
+    .service-image img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      object-fit: cover;
+      max-height: 190px;
+    }
+
+    /* BLOC PISCINES TEASER */
+
+    .home-piscine-teaser-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .home-piscine-text h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .home-piscine-text p {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+
+    .home-piscine-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--lc-gold-soft);
+      color: #78350f;
+      background: rgba(254, 249, 195, 0.7);
+      margin-bottom: 0.3rem;
+    }
+
+    .home-piscine-photo img {
+      width: 100%;
+      border-radius: 22px;
+      object-fit: cover;
+      max-height: 260px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+    }
+
+    /* REALISATIONS */
+
+    .realisations-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .realisation-card img {
+      width: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+      max-height: 210px;
+      display: block;
+    }
+
+    .realisation-caption {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* POURQUOI LC */
+
+    .why-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .why-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.5rem 1.4rem;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .why-card h3 {
+      font-size: 1.1rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .why-card p {
+      font-size: 0.94rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* AVIS CLIENTS */
+
+    .avis-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .avis-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.4rem 1.3rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    .avis-stars {
+      color: #eab308;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .avis-auteur {
+      margin-top: 0.4rem;
+      font-size: 0.88rem;
+      opacity: 0.85;
+    }
+
+    /* ETAPES */
+
+    .steps-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      counter-reset: step;
+    }
+
+    .step-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.2rem 1.1rem 1.3rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+      font-size: 0.94rem;
+    }
+
+    .step-card h3::before {
+      counter-increment: step;
+      content: counter(step) ". ";
+      color: var(--lc-gold);
+    }
+
+    .step-card h3 {
+      font-size: 1rem;
+      margin: 0 0 0.3rem;
+    }
+
+    /* CTA FINAL */
+
+    .home-cta-final {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    .home-cta-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .home-cta-inner h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .home-cta-inner p {
+      font-size: 0.98rem;
+      margin-bottom: 1.4rem;
+      opacity: 0.9;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      font-size: 0.86rem;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+      border-top: 1px solid rgba(55, 65, 81, 0.8);
+    }
+
+    .footer-inner a {
+      color: #e5e7eb;
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover {
+      text-decoration: underline;
+    }
+
+    /* HOVER CARDS */
+
+    @media (hover:hover) {
+      .service-card:hover,
+      .why-card:hover,
+      .avis-card:hover,
+      .step-card:hover,
+      .realisation-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+        transition: all 0.18s ease-out;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .home-hero-inner,
+      .home-piscine-teaser-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .home-hero {
+        padding: 3.3rem 1.3rem 2.8rem;
+      }
+
+      .home-hero-text h1 {
+        font-size: 2.3rem;
+      }
+
+      .home-hero-text p {
+        font-size: 1.02rem;
+      }
+
+      .home-hero-side {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      header .topbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        padding-inline: 1rem;
+      }
+
+      header .brand {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      header .brand img {
+        max-width: 300px;
+        width: 90%;
+        height: auto;
+      }
+
+      header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 0.9rem;
+      }
+
+      header nav a {
+        margin: 0;
+        font-size: 0.98rem;
+      }
+
+      body {
+        font-size: 17px;
+        line-height: 1.8;
+      }
+
+      .home-hero-text h1 {
+        font-size: 2.4rem;
+      }
+
+      .home-section {
+        padding-inline: 1.3rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-cta .btn-primary,
+      .hero-cta .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .home-hero-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="topbar container">
+    <div class="brand">
+      <img src="./logo-amenagement-cropped.png" alt="LC Création">
+    </div>
+    <nav>
+      <a href="./index.html">Aménagements extérieurs</a>
+      <a href="./piscines.html">Piscines bois</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-home">
+
+  <!-- HERO -->
+  <section class="home-hero">
+    <div class="home-hero-inner">
+      <div class="home-hero-text">
+        <h1>LC Création — Aménagements extérieurs & piscines bois</h1>
+        <p>
+          Paysagiste en Brabant Wallon et Bruxelles, LC Création réalise vos pavages, terrasses,
+          plantations, clôtures et piscines bois haut de gamme. Un seul interlocuteur, du devis à la finition.
+        </p>
+        <ul class="home-hero-list">
+          <li><strong>Aménagements extérieurs complets</strong> : pavage, terrasses, plantations, clôtures.</li>
+          <li><strong>Piscines en bois clés en main</strong> : intégration paysagère et pose soignée.</li>
+          <li><strong>Chantiers maîtrisés</strong> : travail propre, délais respectés, suivi après travaux.</li>
+        </ul>
+        <div class="hero-cta">
+          <a href="./contact.html" class="btn-primary">Demander un devis</a>
+          <a href="tel:0474693800" class="btn-secondary">Appeler maintenant</a>
+        </div>
+      </div>
+
+      <div class="home-hero-side">
+        <div class="home-hero-card">
+          <span class="home-piscine-badge">Piscines bois LC Création</span>
+          <h2>Votre piscine en bois, posée avec soin</h2>
+          <p>
+            Élégance du bois, pureté de l’eau, plaisir à domicile. Fabrication européenne, installation
+            complète par LC Création.
+          </p>
+          <p class="home-hero-card-price">
+            À partir de <strong>dès 12&nbsp;490&nbsp;€ HTVA</strong><br>
+            <small>Formules Essentiel, Confort, Luxe.</small>
+          </p>
+          <a href="./piscines.html" class="btn-ghost">Découvrir nos piscines bois</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="home-section" id="services">
+    <div class="home-section-header">
+      <h2>Nos services d’aménagement extérieur</h2>
+      <p>
+        Nous intervenons pour des projets complets ou ciblés : terrasses, allées, plantations,
+        clôtures, entretien de jardin et piscines en bois.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-image">
+          <img src="./service-amenagement.jpg" alt="Aménagement paysager LC Création">
+        </div>
+        <h3>Aménagement paysager</h3>
+        <p>Plantations, pelouses, haies, massifs. Création ou remise à neuf de votre jardin.</p>
+        <span class="service-tag">Devis gratuit</span>
+      </article>
+
+      <article class="service-card">
+        <div class="service-image">
+          <img src="./service-pavage.jpg" alt="Pavage et terrasses LC Création">
+        </div>
+        <h3>Pavage & terrasses</h3>
+        <p>Allées, terrasses, bordures en pierre ou béton. Résultats durables et esthétiques.</p>
+        <span class="service-tag">Résultat durable</span>
+      </article>
+
+      <article class="service-card">
+        <div class="service-image">
+          <img src="./service-entretien.jpg" alt="Entretien de jardin LC Création">
+        </div>
+        <h3>Entretien de jardin</h3>
+        <p>Tonte, taille, remise en état saisonnière. Formules à la carte ou entretien régulier.</p>
+        <span class="service-tag">Forfaits possibles</span>
+      </article>
+
+      <article class="service-card">
+        <div class="service-image">
+          <img src="./service-clotures.jpg" alt="Clôtures et gabions LC Création">
+        </div>
+        <h3>Clôtures & gabions</h3>
+        <p>Clôtures, murets, gabions et occultations. Sécurité et finitions soignées.</p>
+        <span class="service-tag">Finitions soignées</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- PISCINES TEASER -->
+  <section class="home-section">
+    <div class="home-piscine-teaser-inner">
+      <div class="home-piscine-text">
+        <span class="home-piscine-badge">Nouveau • Piscines bois</span>
+        <h3>Piscines en bois haut de gamme, posées clé en main</h3>
+        <p>
+          LC Création conçoit et installe vos piscines en bois avec la même exigence que vos
+          aménagements extérieurs : intégration dans le jardin, matériaux durables, chantier suivi.
+        </p>
+        <p>
+          Trois collections étudiées pour répondre à vos besoins : <strong>Essentiel</strong>,
+          <strong>Confort</strong> et <strong>Luxe</strong>, avec une structure garantie 10 ans et
+          une installation complète.
+        </p>
+        <a href="./piscines.html" class="btn-primary">Découvrir les piscines bois</a>
+      </div>
+      <div class="home-piscine-photo">
+        <img src="./home-piscine-apercu.jpg" alt="Piscine en bois LC Création dans un jardin aménagé">
+      </div>
+    </div>
+  </section>
+
+  <!-- REALISATIONS -->
+  <section class="home-section">
+    <div class="home-section-header">
+      <h2>Réalisations</h2>
+      <p>Quelques exemples de chantiers réalisés en Brabant Wallon et à Bruxelles.</p>
+    </div>
+
+    <div class="realisations-grid">
+      <div class="realisation-card">
+        <img src="./realisation-pavage.jpg" alt="Pavage d’allée par LC Création">
+        <div class="realisation-caption">Allée pavée et bordures — Nivelles</div>
+      </div>
+      <div class="realisation-card">
+        <img src="./realisation-plantations.jpg" alt="Plantations et massifs par LC Création">
+        <div class="realisation-caption">Aménagement complet de jardin — Waterloo</div>
+      </div>
+      <div class="realisation-card">
+        <img src="./realisation-terrasse.jpg" alt="Terrasse extérieure par LC Création">
+        <div class="realisation-caption">Terrasse et clôture — Braine-l’Alleud</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI LC -->
+  <section class="home-section">
+    <div class="home-section-header">
+      <h2>Pourquoi choisir LC Création&nbsp;?</h2>
+    </div>
+
+    <div class="why-grid">
+      <article class="why-card">
+        <h3>Expérience locale</h3>
+        <p>
+          Basés en Brabant Wallon, nous connaissons parfaitement les contraintes de terrain et
+          intervenons rapidement sur Bruxelles et alentours.
+        </p>
+      </article>
+      <article class="why-card">
+        <h3>Travail soigné</h3>
+        <p>
+          Chantiers propres, respect des délais, finitions de qualité. Chaque projet est suivi par le
+          même interlocuteur.
+        </p>
+      </article>
+      <article class="why-card">
+        <h3>Devis clair & accompagnement</h3>
+        <p>
+          Devis détaillé, conseils sur les matériaux et les solutions techniques, transparence sur les
+          délais et les étapes.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- AVIS CLIENTS -->
+  <section class="home-section">
+    <div class="home-section-header">
+      <h2>Avis de nos clients</h2>
+    </div>
+
+    <div class="avis-grid">
+      <article class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        “Terrasse refaite à neuf, travail soigné et délais tenus. Je recommande.”
+        <div class="avis-auteur">— Marc, Nivelles</div>
+      </article>
+
+      <article class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        “Aménagement complet du jardin, résultat impeccable. Équipe professionnelle.”
+        <div class="avis-auteur">— Sophie, Waterloo</div>
+      </article>
+
+      <article class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        “Devis clair et chantier propre. Très satisfait du pavage de l’allée.”
+        <div class="avis-auteur">— Julien, Wavre</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ZONES & ETAPES -->
+  <section class="home-section">
+    <div class="home-section-header">
+      <h2>Zones d’intervention & façon de travailler</h2>
+      <p>
+        Basés en Brabant Wallon, nous intervenons à Nivelles, Waterloo, Braine-l’Alleud, Wavre,
+        Ottignies, Rixensart et sur Bruxelles. Déplacements possibles dans les communes voisines
+        pour vos projets d’aménagement extérieur.
+      </p>
+    </div>
+
+    <div class="steps-grid">
+      <article class="step-card">
+        <h3>Contact</h3>
+        <p>Vous nous expliquez votre projet et vos attentes. Premier échange par téléphone ou e-mail.</p>
+      </article>
+      <article class="step-card">
+        <h3>Devis gratuit</h3>
+        <p>Visite si nécessaire, devis clair et détaillé, conseils sur les matériaux et options.</p>
+      </article>
+      <article class="step-card">
+        <h3>Réalisation</h3>
+        <p>Travaux soignés, coordination du chantier, respect du planning et de votre environnement.</p>
+      </article>
+      <article class="step-card">
+        <h3>Suivi</h3>
+        <p>Nous restons disponibles après le chantier pour le suivi, les ajustements et les futurs projets.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="home-section home-cta-final">
+    <div class="home-cta-inner">
+      <h2>Un projet d’aménagement extérieur ou de piscine bois&nbsp;?</h2>
+      <p>
+        Parlon
