@@ -984,7 +984,7 @@
     });
   });
 
-  function updateSummary() {
+   function updateSummary() {
     // Projet
     const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || 'Piscine seule';
     document.getElementById('summary-type-projet').textContent = typeProjet;
@@ -1006,18 +1006,31 @@
     if (budget === '40k+') budgetLabel = 'Plus de 40 000 €';
     document.getElementById('summary-budget').textContent = 'Budget envisagé : ' + budgetLabel;
 
-    // Options
+    // Options principales
     const chauffage = document.querySelector('input[name="chauffage"]:checked')?.value || 'Pas de chauffage';
     document.getElementById('summary-chauffage').textContent = 'Chauffage : ' + chauffage.toLowerCase();
 
     const traitement = document.querySelector('input[name="traitement"]:checked')?.value || 'Traitement manuel';
     document.getElementById('summary-traitement').textContent = 'Traitement : ' + traitement;
 
-    const couverture = document.querySelector('input[name="couverture"]:checked')?.value || 'Bâche été + hiver';
-    document.getElementById('summary-couverture').textContent = 'Couverture : ' + couverture;
+    const couverture = document.querySelector('input[name="couverture"]:checked')?.value || 'Aucune couverture spécifique';
+    document.getElementById('summary-couverture').textContent =
+      'Couverture : ' + (couverture === 'Aucune couverture spécifique' ? 'à définir ensemble' : couverture);
 
-    const entretien = document.querySelector('input[name="entretien"]:checked')?.value || 'Sans robot';
-    document.getElementById('summary-entretien').textContent = 'Entretien : ' + entretien.toLowerCase();
+    const entretienValue = document.querySelector('input[name="entretien"]:checked')?.value || 'Sans robot';
+    const entretienLabel = entretienValue.toLowerCase();
+    document.getElementById('summary-entretien').textContent = 'Entretien : ' + entretienLabel;
+
+    // Bâches & enrouleur
+    const bacheChecked = Array.from(document.querySelectorAll('input[name="bache"]:checked'));
+    if (bacheChecked.length === 0) {
+      document.getElementById('summary-baches').textContent =
+        'Bâches : aucune sélection';
+    } else {
+      const labelsBaches = bacheChecked.map(i => i.value);
+      document.getElementById('summary-baches').textContent =
+        'Bâches : ' + labelsBaches.join(', ');
+    }
 
     // Loisirs
     const loisirChecked = Array.from(document.querySelectorAll('input[name="loisir"]:checked'));
@@ -1039,7 +1052,8 @@
     document.getElementById('summary-contact-pref').textContent =
       'Contact : ' + contactPref;
 
-    // Estimation simple (base Essentiel / Confort / Luxe)
+    // --- Estimation simple ---
+
     const basePrices = {
       'Essentiel': 16490,
       'Confort': 19750,
@@ -1051,17 +1065,26 @@
     if (chauffage === 'Pompe à chaleur') price += 3500;
 
     // Traitement
-    if (traitement === 'Électrolyseur sel') price += 1800;
+    if (traitement === 'Électrolyseur au sel') price += 1800;
     if (traitement === 'Électrolyseur + régulation pH') price += 3200;
     if (traitement === 'Pompe doseuse') price += 1200;
 
-    // Couverture
+    // Couverture “haut de gamme”
     if (couverture === 'Couverture à barres') price += 2000;
     if (couverture === 'Volet à lamelles manuel') price += 3800;
     if (couverture === 'Volet à lamelles motorisé') price += 4800;
 
+    // Bâches & enrouleur
+    let bachesTotal = 0;
+    bacheChecked.forEach(i => {
+      if (i.value === 'Bâche été') bachesTotal += 600;
+      if (i.value === 'Bâche hiver') bachesTotal += 700;
+      if (i.value === 'Enrouleur inox') bachesTotal += 450;
+    });
+    price += bachesTotal;
+
     // Entretien
-    if (entretien === 'avec robot nettoyeur') price += 1500; // attention à la casse → toLowerCase plus haut
+    if (entretienValue === 'Avec robot nettoyeur') price += 1500;
 
     // Confort & loisirs
     let loisirTotal = 0;
@@ -1072,7 +1095,7 @@
     });
     price += loisirTotal;
 
-    // Arrondi et fourchette
+    // Arrondi + fourchette
     const rounded = Math.round(price / 100) * 100;
     const min = Math.round(rounded * 0.95 / 100) * 100;
     const max = Math.round(rounded * 1.05 / 100) * 100;
@@ -1083,13 +1106,16 @@
       maximumFractionDigits: 0
     });
 
+    // Tant que la dernière étape n'est pas validée, on ne montre pas le prix
     if (!estimationUnlocked) {
       priceEl.textContent = '—';
       return;
     }
 
+    // Une fois débloqué, on affiche la fourchette
     priceEl.textContent = nf.format(min) + ' – ' + nf.format(max);
   }
+
 
   function validateStep4() {
     const prenom = document.getElementById('config-prenom').value.trim();
