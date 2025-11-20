@@ -474,6 +474,22 @@ html.theme-piscine .brand img {
     height: auto;
   }
 }
+/* Fix header + logo uniquement sur la page piscines en MOBILE */
+@media (max-width: 640px) {
+
+  /* Bandeau du header en blanc, plus de bleu nuit */
+  html.theme-piscine header,
+  html.theme-piscine .topbar {
+    background: #ffffff !important;
+  }
+
+  /* Logo plus grand sur smartphone */
+  html.theme-piscine .brand img {
+    max-height: 90px !important;  /* teste 100 si tu le veux encore plus gros */
+    height: auto;
+    width: auto;
+  }
+}
 
 </style>
 
