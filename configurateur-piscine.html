@@ -792,7 +792,11 @@
               <input type="checkbox" name="loisir" value="Éclairage LED couleur (RGB)">
               <div>
                 <div class="config-check-option-title">Éclairage LED couleur</div>
-                <div class="config-check-option-desc">Spots LED RGB pour changer l’ambiance du bassin.</div>
+                        <div class="config-check-option-desc">
+          Spots LED RGB pour changer l’ambiance du bassin.
+          Dans les packs Confort et Luxe, un éclairage LED blanc est déjà inclus&nbsp;: cette option permet de passer en couleur.
+        </div>
+
               </div>
             </label>
             <label class="config-check-option">
@@ -1057,15 +1061,29 @@
     }
 
     // Loisirs
+        // Loisirs (LED blanc inclus dans Confort / Luxe, LED couleur en option pour tous)
     const loisirChecked = Array.from(document.querySelectorAll('input[name="loisir"]:checked'));
+    const summaryLoisirEl = document.getElementById('summary-loisir');
+
     if (loisirChecked.length === 0) {
-      document.getElementById('summary-loisir').textContent =
-        'Loisirs : aucun équipement spécifique';
+      if (pack === 'Essentiel') {
+        summaryLoisirEl.textContent = 'Loisirs : aucun équipement spécifique';
+      } else if (pack === 'Confort' || pack === 'Luxe') {
+        summaryLoisirEl.textContent = 'Loisirs : éclairage LED blanc inclus dans le pack';
+      }
     } else {
       const labels = loisirChecked.map(i => i.value);
-      document.getElementById('summary-loisir').textContent =
-        'Loisirs : ' + labels.join(', ');
+      let baseText = '';
+
+      if (pack === 'Confort' || pack === 'Luxe') {
+        baseText = 'éclairage LED blanc inclus, options : ';
+      } else {
+        baseText = '';
+      }
+
+      summaryLoisirEl.textContent = 'Loisirs : ' + baseText + labels.join(', ');
     }
+
 
     // Délai & contact préférés
     const delai = document.getElementById('config-delai')?.value || 'à préciser';
