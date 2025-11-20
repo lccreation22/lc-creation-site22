@@ -984,7 +984,8 @@
     });
   });
 
-   function updateSummary() {
+   
+     function updateSummary() {
     // Projet
     const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || 'Piscine seule';
     document.getElementById('summary-type-projet').textContent = typeProjet;
@@ -1023,13 +1024,24 @@
 
     // Bâches & enrouleur
     const bacheChecked = Array.from(document.querySelectorAll('input[name="bache"]:checked'));
-    if (bacheChecked.length === 0) {
-      document.getElementById('summary-baches').textContent =
-        'Bâches : aucune sélection';
-    } else {
-      const labelsBaches = bacheChecked.map(i => i.value);
-      document.getElementById('summary-baches').textContent =
-        'Bâches : ' + labelsBaches.join(', ');
+    const summaryBachesEl = document.getElementById('summary-baches');
+
+    if (pack === 'Essentiel') {
+      if (bacheChecked.length === 0) {
+        summaryBachesEl.textContent = 'Bâches : aucune sélection';
+      } else {
+        const labelsBaches = bacheChecked.map(i => i.value);
+        summaryBachesEl.textContent = 'Bâches : ' + labelsBaches.join(', ');
+      }
+    } else if (pack === 'Confort') {
+      let txt = 'Bâches : été + hiver incluses dans le pack Confort';
+      const hasEnrouleur = bacheChecked.some(i => i.value === 'Enrouleur inox');
+      if (hasEnrouleur) {
+        txt += ', enrouleur inox en option';
+      }
+      summaryBachesEl.textContent = txt;
+    } else if (pack === 'Luxe') {
+      summaryBachesEl.textContent = 'Bâches : été + hiver + enrouleur inox inclus dans le pack Luxe';
     }
 
     // Loisirs
@@ -1074,13 +1086,20 @@
     if (couverture === 'Volet à lamelles manuel') price += 3800;
     if (couverture === 'Volet à lamelles motorisé') price += 4800;
 
-    // Bâches & enrouleur
+    // Bâches & enrouleur : logique par pack
     let bachesTotal = 0;
-    bacheChecked.forEach(i => {
-      if (i.value === 'Bâche été') bachesTotal += 600;
-      if (i.value === 'Bâche hiver') bachesTotal += 700;
-      if (i.value === 'Enrouleur inox') bachesTotal += 450;
-    });
+    if (pack === 'Essentiel') {
+      bacheChecked.forEach(i => {
+        if (i.value === 'Bâche été') bachesTotal += 600;
+        if (i.value === 'Bâche hiver') bachesTotal += 700;
+        if (i.value === 'Enrouleur inox') bachesTotal += 450;
+      });
+    } else if (pack === 'Confort') {
+      const hasEnrouleur = bacheChecked.some(i => i.value === 'Enrouleur inox');
+      if (hasEnrouleur) bachesTotal += 450; // enrouleur en supplément
+    } else if (pack === 'Luxe') {
+      bachesTotal = 0; // tout inclus
+    }
     price += bachesTotal;
 
     // Entretien
@@ -1115,6 +1134,7 @@
     // Une fois débloqué, on affiche la fourchette
     priceEl.textContent = nf.format(min) + ' – ' + nf.format(max);
   }
+
 
 
   function validateStep4() {
