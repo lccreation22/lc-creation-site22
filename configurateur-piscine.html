@@ -1115,7 +1115,11 @@
     price += bachesTotal;
 
     // Entretien
-    if (entretienValue === 'Avec robot nettoyeur') price += 1500;
+        // Entretien : robot en supplément uniquement pour Essentiel / Confort
+    if (pack !== 'Luxe' && entretienValue === 'Avec robot nettoyeur') {
+      price += 1500;
+    }
+
 
     // Confort & loisirs
     let loisirTotal = 0;
