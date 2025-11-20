@@ -1273,10 +1273,8 @@ if (plageMateriau !== 'Aucune' && plageSurface > 0) {
     
     // Arrondi + fourchette
    
-// Arrondi + fourchette plus serrée (±2%)
+// Prix unique arrondi au 100€
 const rounded = Math.round(price / 100) * 100;
-const min = Math.round(rounded * 0.98 / 100) * 100;
-const max = Math.round(rounded * 1.02 / 100) * 100;
 
 const nf = new Intl.NumberFormat('fr-BE', {
   style: 'currency',
@@ -1289,7 +1287,8 @@ if (!estimationUnlocked) {
   return;
 }
 
-priceEl.textContent = nf.format(min) + ' – ' + nf.format(max);
+priceEl.textContent = nf.format(rounded);
+
      }
 
 
