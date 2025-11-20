@@ -1018,9 +1018,21 @@
     document.getElementById('summary-couverture').textContent =
       'Couverture : ' + (couverture === 'Aucune couverture spécifique' ? 'à définir ensemble' : couverture);
 
-    const entretienValue = document.querySelector('input[name="entretien"]:checked')?.value || 'Sans robot';
-    const entretienLabel = entretienValue.toLowerCase();
-    document.getElementById('summary-entretien').textContent = 'Entretien : ' + entretienLabel;
+       // Entretien (avec robot inclus dans Luxe)
+    let entretienValue = document.querySelector('input[name="entretien"]:checked')?.value || 'Sans robot';
+    let entretienText = '';
+
+    if (pack === 'Luxe') {
+      // Dans le pack Luxe, le robot est inclus d’office
+      entretienValue = 'Avec robot nettoyeur';
+      entretienText = 'avec robot nettoyeur (inclus dans le pack Luxe)';
+    } else {
+      entretienText = entretienValue.toLowerCase();
+    }
+
+    document.getElementById('summary-entretien').textContent =
+      'Entretien : ' + entretienText;
+
 
     // Bâches & enrouleur
     const bacheChecked = Array.from(document.querySelectorAll('input[name="bache"]:checked'));
