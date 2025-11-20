@@ -996,6 +996,9 @@
   let estimationUnlocked = false; // tant que false, on NE montre PAS le prix
 
   const stepEls = document.querySelectorAll('.config-step');
+  const plageBlock = document.getElementById('config-plage-block');
+const plageSurfaceInput = document.getElementById('config-plage-surface');
+
   const pillEls = document.querySelectorAll('.config-step-pill');
   const stepCurrentEl = document.getElementById('config-step-current');
   const stepTotalEl = document.getElementById('config-step-total');
@@ -1033,6 +1036,39 @@
       updateSummary();
     });
   });
+// --- Afficher / cacher la plage selon le type de projet ---
+function togglePlageVisibility() {
+  const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || '';
+
+  const needsPlage =
+    typeProjet === 'Piscine + terrasse / plage' ||
+    typeProjet === 'Piscine + réaménagement complet du jardin';
+
+  if (plageBlock) {
+    plageBlock.style.display = needsPlage ? 'block' : 'none';
+  }
+
+  // Si on cache => on remet à zéro pour ne pas impacter le prix
+  if (!needsPlage) {
+    // reset choix matériau
+    const radioAucune = document.querySelector('input[name="plage_materiau"][value="Aucune"]');
+    if (radioAucune) radioAucune.checked = true;
+
+    // reset surface
+    if (plageSurfaceInput) plageSurfaceInput.value = 0;
+  }
+}
+
+// écouter le changement du type projet
+document.querySelectorAll('input[name="type_projet"]').forEach(radio => {
+  radio.addEventListener('change', () => {
+    togglePlageVisibility();
+    updateSummary();
+  });
+});
+
+// appel initial au chargement
+togglePlageVisibility();
 
    
      function updateSummary() {
