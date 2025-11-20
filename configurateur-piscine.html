@@ -816,6 +816,50 @@
           </div>
         </div>
       </div>
+<!-- Terrasse / plage autour -->
+<div class="config-group" id="config-plage-block">
+  <label>Plage / terrasse autour de la piscine</label>
+
+  <div class="config-radio-group" id="config-plage-materiau">
+    <label class="config-radio-option active">
+      <input type="radio" name="plage_materiau" value="Aucune" checked>
+      <div>
+        <div class="config-radio-title">Pas de plage / terrasse</div>
+        <div class="config-radio-desc">Je souhaite uniquement la piscine.</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="plage_materiau" value="Bois">
+      <div>
+        <div class="config-radio-title">Terrasse en bois</div>
+        <div class="config-radio-desc">Bois traité classe IV, rendu naturel et chaleureux.</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="plage_materiau" value="Composite">
+      <div>
+        <div class="config-radio-title">Composite imitation bois</div>
+        <div class="config-radio-desc">Zéro entretien, look bois haut de gamme.</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="plage_materiau" value="Gres cerame">
+      <div>
+        <div class="config-radio-title">Grès cérame imitation pierre bleue</div>
+        <div class="config-radio-desc">Style contemporain, durable, antidérapant.</div>
+      </div>
+    </label>
+  </div>
+
+  <div class="config-group" style="margin-top:12px;">
+    <label for="config-plage-surface">Surface estimée de la terrasse (m²)</label>
+    <input type="number" id="config-plage-surface" class="config-input" min="0" step="0.5" value="0">
+    <small>Par défaut, nous calculons un pourtour de ±1 m autour du bassin, ajustable selon votre projet.</small>
+  </div>
+</div>
 
 
       <!-- ETAPE 4 : COORDONNÉES -->
@@ -914,6 +958,8 @@
           <li id="summary-couverture">Couverture : à définir</li>
           <li id="summary-entretien">Entretien : sans robot</li>
           <li id="summary-loisir">Loisirs : aucun équipement spécifique</li>
+          <li id="summary-plage">Plage/terrasse : aucune</li>
+
         </ul>
       </div>
 
@@ -957,7 +1003,7 @@
   const nextBtn = document.getElementById('config-next');
   const cancelBtn = document.getElementById('config-cancel');
   const priceEl = document.getElementById('summary-price');
-
+   
   if (stepTotalEl) stepTotalEl.textContent = totalSteps;
 
   function showStep(step) {
@@ -1003,6 +1049,22 @@
     // Pack
     const pack = document.querySelector('input[name="pack"]:checked')?.value || 'Essentiel';
     document.getElementById('summary-pack').textContent = pack;
+    // --- Surface auto terrasse (pourtour 1 m) selon pack ---
+    const packSizes = {
+      'Essentiel': { L: 5.2, W: 3.2 },
+      'Confort':   { L: 6.2, W: 4.2 },
+      'Luxe':      { L: 8.15, W: 4.2 }
+    };
+    const b = 1; // pourtour 1m
+    const size = packSizes[pack];
+    if (size) {
+      const autoSurface = (size.L + 2*b) * (size.W + 2*b) - size.L * size.W;
+      const surfaceInput = document.getElementById('config-plage-surface');
+      // On ne force que si surface = 0 ou vide (pour laisser l'utilisateur ajuster)
+      if (surfaceInput && (!surfaceInput.value || Number(surfaceInput.value) === 0)) {
+        surfaceInput.value = autoSurface.toFixed(1);
+      }
+    }
 
     const budget = document.getElementById('config-budget').value;
     let budgetLabel = '20 000 – 30 000 €';
@@ -1093,6 +1155,21 @@
     const contactPref = document.getElementById('config-contact-pref')?.value || 'à préciser';
     document.getElementById('summary-contact-pref').textContent =
       'Contact : ' + contactPref;
+// --- Plage / terrasse ---
+const plageMateriau = document.querySelector('input[name="plage_materiau"]:checked')?.value || 'Aucune';
+const plageSurface = Number(document.getElementById('config-plage-surface')?.value || 0);
+
+let plageLabel = 'aucune';
+if (plageMateriau !== 'Aucune' && plageSurface > 0) {
+  const labelNice =
+    (plageMateriau === 'Gres cerame')
+      ? 'grès cérame imitation pierre bleue'
+      : plageMateriau.toLowerCase();
+  plageLabel = `${labelNice} — ${plageSurface.toFixed(1)} m²`;
+}
+
+document.getElementById('summary-plage').textContent =
+  'Plage/terrasse : ' + plageLabel;
 
     // --- Estimation simple ---
 
@@ -1131,6 +1208,16 @@
       bachesTotal = 0; // tout inclus
     }
     price += bachesTotal;
+// Prix au m² terrasse (TVAC)
+const plagePricesPerM2 = {
+  'Bois': 140,
+  'Composite': 190,
+  'Gres cerame': 220
+};
+
+if (plageMateriau !== 'Aucune' && plageSurface > 0) {
+  price += plageSurface * (plagePricesPerM2[plageMateriau] || 0);
+}
 
     // Entretien
         // Entretien : robot en supplément uniquement pour Essentiel / Confort
@@ -1147,7 +1234,7 @@
       if (i.value === 'Nage à contre-courant') loisirTotal += 6500;
     });
     price += loisirTotal;
-
+    
     // Arrondi + fourchette
     const rounded = Math.round(price / 100) * 100;
     const min = Math.round(rounded * 0.95 / 100) * 100;
