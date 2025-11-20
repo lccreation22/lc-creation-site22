@@ -700,14 +700,43 @@
         </div>
 
         <!-- Couverture / sécurité -->
+               <!-- Bâches & enrouleur -->
+        <div class="config-group">
+          <label>Bâches & enrouleur</label>
+          <div class="config-check-group" id="config-baches">
+            <label class="config-check-option">
+              <input type="checkbox" name="bache" value="Bâche été">
+              <div>
+                <div class="config-check-option-title">Bâche été</div>
+                <div class="config-check-option-desc">Bâche à bulles pour limiter l’évaporation et garder la chaleur.</div>
+              </div>
+            </label>
+            <label class="config-check-option">
+              <input type="checkbox" name="bache" value="Bâche hiver">
+              <div>
+                <div class="config-check-option-title">Bâche hiver</div>
+                <div class="config-check-option-desc">Bâche opaque pour la mise en hivernage du bassin.</div>
+              </div>
+            </label>
+            <label class="config-check-option">
+              <input type="checkbox" name="bache" value="Enrouleur inox">
+              <div>
+                <div class="config-check-option-title">Enrouleur inox</div>
+                <div class="config-check-option-desc">Enrouleur inox pour manipuler facilement la bâche été.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Couverture / sécurité “haut de gamme” -->
         <div class="config-group">
           <label>Couverture / sécurité</label>
           <div class="config-radio-group" id="config-couverture">
             <label class="config-radio-option active">
-              <input type="radio" name="couverture" value="Bâche été + hiver" checked>
+              <input type="radio" name="couverture" value="Aucune couverture spécifique" checked>
               <div>
-                <div class="config-radio-title">Bâche été + hiver</div>
-                <div class="config-radio-desc">Solution simple pour protéger l’eau selon les saisons.</div>
+                <div class="config-radio-title">À définir ensemble</div>
+                <div class="config-radio-desc">Nous verrons ensemble la solution la plus adaptée à votre projet.</div>
               </div>
             </label>
             <label class="config-radio-option">
@@ -728,7 +757,7 @@
               <input type="radio" name="couverture" value="Volet à lamelles motorisé">
               <div>
                 <div class="config-radio-title">Volet à lamelles motorisé</div>
-                <div class="config-radio-desc">Volet à lamelles motorisé, confort d’usage maximal et esthétique soignée.</div>
+                <div class="config-radio-desc">Volet motorisé, confort d’usage maximal et esthétique soignée.</div>
               </div>
             </label>
           </div>
@@ -872,16 +901,18 @@
         </ul>
       </div>
 
-      <div class="config-summary-section">
+            <div class="config-summary-section">
         <strong>Options :</strong>
         <ul class="config-summary-list">
           <li id="summary-chauffage">Chauffage : pas de chauffage</li>
           <li id="summary-traitement">Traitement : manuel</li>
-          <li id="summary-couverture">Couverture : bâche été + hiver</li>
+          <li id="summary-baches">Bâches : aucune sélection</li>
+          <li id="summary-couverture">Couverture : à définir</li>
           <li id="summary-entretien">Entretien : sans robot</li>
           <li id="summary-loisir">Loisirs : aucun équipement spécifique</li>
         </ul>
       </div>
+
 <div class="config-summary-section">
   <strong>Coordonnées & projet :</strong>
   <ul class="config-summary-list">
