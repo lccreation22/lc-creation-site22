@@ -816,6 +816,36 @@
           </div>
         </div>
       </div>
+      <!-- Évacuation des terres (cas par cas) -->
+<div class="config-group" id="config-evac-block" style="margin-top:1.5rem;">
+  <label>Évacuation des terres</label>
+
+  <div class="config-radio-group" id="config-evac">
+    <label class="config-radio-option active">
+      <input type="radio" name="evacuation" value="Non" checked>
+      <div>
+        <div class="config-radio-title">Pas d’évacuation</div>
+        <div class="config-radio-desc">Les terres peuvent être étalées sur place.</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="evacuation" value="Oui">
+      <div>
+        <div class="config-radio-title">Évacuation nécessaire</div>
+        <div class="config-radio-desc">Selon le terrain et l’accès, un volume peut être évacué.</div>
+      </div>
+    </label>
+  </div>
+
+  <div id="config-evac-volume-row" style="display:none; margin-top:0.8rem;">
+    <label for="config-evac-m3">Volume estimé (m³)</label>
+    <input type="number" id="config-evac-m3" class="config-input"
+           min="0" step="1" value="0">
+    <small>Estimation automatique selon pack, ajustable après visite si besoin.</small>
+  </div>
+</div>
+
 <!-- Terrasse / plage autour -->
 <div class="config-group" id="config-plage-block">
   <label>Plage / terrasse autour de la piscine</label>
