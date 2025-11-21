@@ -1134,6 +1134,7 @@ document.querySelectorAll('input[name="type_projet"]').forEach(radio => {
 
 // appel initial au chargement
 togglePlageVisibility();
+const priceEl = document.getElementById('summary-price');
 
    
      function updateSummary() {
@@ -1269,15 +1270,7 @@ if (evacChoice === 'Oui') {
 
       summaryLoisirEl.textContent = 'Loisirs : ' + baseText + labels.join(', ');
     }
-// --- COEFF POSE (hors évacuation) ---
-const pose = document.querySelector('input[name="pose"]:checked')?.value || 'Hors-sol';
 
-let coeffPose = 1.0;
-if (pose === 'Semi-enterrée') coeffPose = 1.10;
-if (pose === 'Enterrée') coeffPose = 1.20;
-
-// On applique le coeff sur le total pack + options (hors évacuation, déjà gérée à part)
-price = price * coeffPose;
 
 // Récap pose à droite
 document.getElementById('summary-pose').textContent =
@@ -1380,11 +1373,36 @@ if (plageMateriau !== 'Aucune' && plageSurface > 0) {
       if (i.value === 'Nage à contre-courant') loisirTotal += 6500;
     });
     price += loisirTotal;
+       // --- COEFF POSE (hors évacuation) ---
+const pose = document.querySelector('input[name="pose"]:checked')?.value || 'Hors-sol';
+
+let coeffPose = 1.0;
+if (pose === 'Semi-enterrée') coeffPose = 1.10;
+if (pose === 'Enterrée') coeffPose = 1.20;
+
+// On applique le coeff sur le total pack + options (sans évacuation)
+price = price * coeffPose;
+
+// Récap pose à droite
+document.getElementById('summary-pose').textContent =
+  'Pose : ' + pose.toLowerCase();
+
     // --- Prix évacuation ---
 if (evacChoice === 'Oui' && evacM3 > 0) {
   const evacPricePerM3HTVA = 80; // ta base
   const evacPriceTVAC = evacPricePerM3HTVA * 1.21; // 96,8 TVAC/m³
   price += evacM3 * evacPriceTVAC;
+}
+// si l’utilisateur n’a pas modifié le champ à la main, on suit le pack
+const lastAuto = defaultEvacM3[pack] || 0;
+const currentVal = Number(evacM3Input?.value || 0);
+const isAutoLike = Object.values(defaultEvacM3).includes(currentVal);
+
+if (evacChoice === 'Oui') {
+  if (evacVolumeRow) evacVolumeRow.style.display = 'block';
+  if (evacM3Input && (currentVal === 0 || isAutoLike)) {
+    evacM3Input.value = lastAuto;
+  }
 }
 
     // Arrondi + fourchette
