@@ -1308,45 +1308,62 @@ if (plageMateriau !== 'Aucune' && plageSurface > 0) {
 document.getElementById('summary-plage').textContent =
   'Plage/terrasse : ' + plageLabel;
 
-    // --- Estimation simple ---
+   // --- ESTIMATION SIMPLE (coeff pose uniquement sur le pack) ---
 
-   const basePrices = {
+const basePrices = {
   'Essentiel': 15490,
   'Confort': 19490,
   'Luxe': 23990
+};
 
-  };
-    let price = basePrices[pack] || 0;
+const packBase = basePrices[pack] || 0;
 
-    // Chauffage
-    if (chauffage === 'Pompe à chaleur') price += 3500;
+// 1) Options (hors plage + hors évacuation)
+let optionsTotal = 0;
 
-    // Traitement
-    if (traitement === 'Électrolyseur au sel') price += 1800;
-    if (traitement === 'Électrolyseur + régulation pH') price += 3200;
-    if (traitement === 'Pompe doseuse') price += 1200;
+// Chauffage
+if (chauffage === 'Pompe à chaleur') optionsTotal += 3500;
 
-    // Couverture “haut de gamme”
-    if (couverture === 'Couverture à barres') price += 2000;
-    if (couverture === 'Volet à lamelles manuel') price += 3800;
-    if (couverture === 'Volet à lamelles motorisé') price += 4800;
+// Traitement
+if (traitement === 'Électrolyseur au sel') optionsTotal += 1800;
+if (traitement === 'Électrolyseur + régulation pH') optionsTotal += 3200;
+if (traitement === 'Pompe doseuse') optionsTotal += 1200;
 
-    // Bâches & enrouleur : logique par pack
-    let bachesTotal = 0;
-    if (pack === 'Essentiel') {
-      bacheChecked.forEach(i => {
-        if (i.value === 'Bâche été') bachesTotal += 600;
-        if (i.value === 'Bâche hiver') bachesTotal += 700;
-        if (i.value === 'Enrouleur inox') bachesTotal += 450;
-      });
-    } else if (pack === 'Confort') {
-      const hasEnrouleur = bacheChecked.some(i => i.value === 'Enrouleur inox');
-      if (hasEnrouleur) bachesTotal += 450; // enrouleur en supplément
-    } else if (pack === 'Luxe') {
-      bachesTotal = 0; // tout inclus
-    }
-    price += bachesTotal;
-// Prix au m² terrasse (TVAC)
+// Couverture “haut de gamme”
+if (couverture === 'Couverture à barres') optionsTotal += 2000;
+if (couverture === 'Volet à lamelles manuel') optionsTotal += 3800;
+if (couverture === 'Volet à lamelles motorisé') optionsTotal += 4800;
+
+// Bâches & enrouleur : logique par pack
+let bachesTotal = 0;
+if (pack === 'Essentiel') {
+  bacheChecked.forEach(i => {
+    if (i.value === 'Bâche été') bachesTotal += 600;
+    if (i.value === 'Bâche hiver') bachesTotal += 700;
+    if (i.value === 'Enrouleur inox') bachesTotal += 450;
+  });
+} else if (pack === 'Confort') {
+  const hasEnrouleur = bacheChecked.some(i => i.value === 'Enrouleur inox');
+  if (hasEnrouleur) bachesTotal += 450; // enrouleur en supplément
+}
+// Luxe : tout inclus → 0
+optionsTotal += bachesTotal;
+
+// Entretien : robot en supplément uniquement pour Essentiel / Confort
+if (pack !== 'Luxe' && entretienValue === 'Avec robot nettoyeur') {
+  optionsTotal += 1500;
+}
+
+// Loisirs (LED blanc inclus Confort/Luxe, RGB payant pour tous)
+loisirChecked.forEach(i => {
+  if (i.value === 'Éclairage LED couleur (RGB)') optionsTotal += 600;
+  if (i.value === 'Douche solaire extérieure') optionsTotal += 800;
+  if (i.value === 'Nage à contre-courant') optionsTotal += 6500;
+});
+
+
+// 2) Plage / terrasse (NE SUBIT PAS le coeff pose)
+let plageTotal = 0;
 const plagePricesPerM2 = {
   'Bois': 140,
   'Composite': 190,
@@ -1354,49 +1371,34 @@ const plagePricesPerM2 = {
 };
 
 if (plageMateriau !== 'Aucune' && plageSurface > 0) {
-  price += plageSurface * (plagePricesPerM2[plageMateriau] || 0);
+  plageTotal = plageSurface * (plagePricesPerM2[plageMateriau] || 0);
 }
 
-    // Entretien
-        // Entretien : robot en supplément uniquement pour Essentiel / Confort
-    if (pack !== 'Luxe' && entretienValue === 'Avec robot nettoyeur') {
-      price += 1500;
-    }
 
-
-    // Confort & loisirs
-    let loisirTotal = 0;
-    loisirChecked.forEach(i => {
-      if (i.value === 'Éclairage LED couleur (RGB)') loisirTotal += 600;
-      if (i.value === 'Douche solaire extérieure') loisirTotal += 800;
-      if (i.value === 'Nage à contre-courant') loisirTotal += 6500;
-    });
-    price += loisirTotal;
-       // --- COEFF POSE (hors évacuation) ---
+// 3) Coeff pose appliqué UNIQUEMENT sur le pack
 const pose = document.querySelector('input[name="pose"]:checked')?.value || 'Hors-sol';
 
 let coeffPose = 1.0;
 if (pose === 'Semi-enterrée') coeffPose = 1.10;
 if (pose === 'Enterrée') coeffPose = 1.20;
 
-// On applique le coeff sur le total pack + options (sans évacuation)
-price = price * coeffPose;
+const packAvecPose = packBase * coeffPose;
 
-// Récap pose à droite
-document.getElementById('summary-pose').textContent =
-  'Pose : ' + pose.toLowerCase();
 
-   // --- Prix évacuation ---
+// 4) Évacuation (à part, après tout)
+let evacTotal = 0;
 if (evacChoice === 'Oui' && evacM3 > 0) {
   const evacPricePerM3HTVA = 80;
   const evacPriceTVAC = evacPricePerM3HTVA * 1.21;
-  price += evacM3 * evacPriceTVAC;
+  evacTotal = evacM3 * evacPriceTVAC;
 }
 
 
-    // Arrondi + fourchette
-   
-// Prix unique arrondi au 100€
+// 5) Total final
+let price = packAvecPose + optionsTotal + plageTotal + evacTotal;
+
+
+// Arrondi final au 100€
 const rounded = Math.round(price / 100) * 100;
 
 const nf = new Intl.NumberFormat('fr-BE', {
@@ -1411,6 +1413,11 @@ if (!estimationUnlocked) {
 }
 
 priceEl.textContent = nf.format(rounded);
+
+
+// Récap pose (inchangé)
+document.getElementById('summary-pose').textContent =
+  'Pose : ' + pose.toLowerCase();
 
      }
 
