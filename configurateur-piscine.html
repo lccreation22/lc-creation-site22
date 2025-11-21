@@ -1164,14 +1164,26 @@ const evacChoice = document.querySelector('input[name="evacuation"]:checked')?.v
 if (evacChoice === 'Oui') {
   if (evacVolumeRow) evacVolumeRow.style.display = 'block';
 
-  // si volume à 0 ou vide -> on met la valeur pack
+  const lastAuto = defaultEvacM3[pack] || 0;
   const currentVal = Number(evacM3Input?.value || 0);
-  if (evacM3Input && (!currentVal || currentVal === 0)) {
-    evacM3Input.value = defaultEvacM3[pack] || 0;
+  const isAutoLike = Object.values(defaultEvacM3).includes(currentVal);
+
+  // si 0 OU si valeur auto → on recolle l’auto du pack
+  if (evacM3Input && (currentVal === 0 || isAutoLike)) {
+    evacM3Input.value = lastAuto;
   }
 } else {
   if (evacVolumeRow) evacVolumeRow.style.display = 'none';
   if (evacM3Input) evacM3Input.value = 0;
+}
+
+// Récap évacuation
+const evacM3 = Number(evacM3Input?.value || 0);
+if (evacChoice === 'Oui' && evacM3 > 0) {
+  document.getElementById('summary-evac').textContent =
+    'Évacuation : oui (' + evacM3 + ' m³)';
+} else {
+  document.getElementById('summary-evac').textContent = 'Évacuation : non';
 }
 
     // --- Surface auto terrasse (pourtour 1 m) selon pack ---
@@ -1271,19 +1283,6 @@ if (evacChoice === 'Oui') {
       summaryLoisirEl.textContent = 'Loisirs : ' + baseText + labels.join(', ');
     }
 
-
-// Récap pose à droite
-document.getElementById('summary-pose').textContent =
-  'Pose : ' + pose.toLowerCase();
-
-// Récap évacuation
-const evacM3 = Number(evacM3Input?.value || 0);
-if (evacChoice === 'Oui' && evacM3 > 0) {
-  document.getElementById('summary-evac').textContent =
-    'Évacuation : oui (' + evacM3 + ' m³)';
-} else {
-  document.getElementById('summary-evac').textContent = 'Évacuation : non';
-}
 
     // Délai & contact préférés
     const delai = document.getElementById('config-delai')?.value || 'à préciser';
@@ -1387,23 +1386,13 @@ price = price * coeffPose;
 document.getElementById('summary-pose').textContent =
   'Pose : ' + pose.toLowerCase();
 
-    // --- Prix évacuation ---
+   // --- Prix évacuation ---
 if (evacChoice === 'Oui' && evacM3 > 0) {
-  const evacPricePerM3HTVA = 80; // ta base
-  const evacPriceTVAC = evacPricePerM3HTVA * 1.21; // 96,8 TVAC/m³
+  const evacPricePerM3HTVA = 80;
+  const evacPriceTVAC = evacPricePerM3HTVA * 1.21;
   price += evacM3 * evacPriceTVAC;
 }
-// si l’utilisateur n’a pas modifié le champ à la main, on suit le pack
-const lastAuto = defaultEvacM3[pack] || 0;
-const currentVal = Number(evacM3Input?.value || 0);
-const isAutoLike = Object.values(defaultEvacM3).includes(currentVal);
 
-if (evacChoice === 'Oui') {
-  if (evacVolumeRow) evacVolumeRow.style.display = 'block';
-  if (evacM3Input && (currentVal === 0 || isAutoLike)) {
-    evacM3Input.value = lastAuto;
-  }
-}
 
     // Arrondi + fourchette
    
