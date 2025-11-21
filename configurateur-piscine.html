@@ -591,6 +591,35 @@
           <small>Nous intervenons en Brabant Wallon et sur Bruxelles. Indiquez la ville du projet.</small>
         </div>
       </div>
+<div class="config-group">
+  <label>Pose souhaitée</label>
+  <div class="config-radio-group" id="config-pose">
+    <label class="config-radio-option active">
+      <input type="radio" name="pose" value="Hors-sol" checked>
+      <div>
+        <div class="config-radio-title">Hors-sol</div>
+        <div class="config-radio-desc">Pose rapide, chantier léger.</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="pose" value="Semi-enterrée">
+      <div>
+        <div class="config-radio-title">Semi-enterrée</div>
+        <div class="config-radio-desc">Terrassement partiel, rendu plus intégré.</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="pose" value="Enterrée">
+      <div>
+        <div class="config-radio-title">Enterrée</div>
+        <div class="config-radio-desc">Terrassement complet et drainage.</div>
+      </div>
+    </label>
+  </div>
+  <small>Les prix semi-enterrés et enterrés s’entendent hors évacuation des terres.</small>
+</div>
 
            <!-- ETAPE 2 : PACK -->
       <div class="config-step" data-step="2">
@@ -968,6 +997,8 @@
           <li id="summary-type-projet">Piscine seule</li>
           <li id="summary-terrain">Terrain : plat</li>
           <li id="summary-code-postal">Code postal : à préciser</li>
+          <li id="summary-pose">Pose : hors-sol</li>
+
         </ul>
       </div>
 
@@ -1238,6 +1269,19 @@ if (evacChoice === 'Oui') {
 
       summaryLoisirEl.textContent = 'Loisirs : ' + baseText + labels.join(', ');
     }
+// --- COEFF POSE (hors évacuation) ---
+const pose = document.querySelector('input[name="pose"]:checked')?.value || 'Hors-sol';
+
+let coeffPose = 1.0;
+if (pose === 'Semi-enterrée') coeffPose = 1.10;
+if (pose === 'Enterrée') coeffPose = 1.20;
+
+// On applique le coeff sur le total pack + options (hors évacuation, déjà gérée à part)
+price = price * coeffPose;
+
+// Récap pose à droite
+document.getElementById('summary-pose').textContent =
+  'Pose : ' + pose.toLowerCase();
 
 // Récap évacuation
 const evacM3 = Number(evacM3Input?.value || 0);
@@ -1274,11 +1318,12 @@ document.getElementById('summary-plage').textContent =
 
     // --- Estimation simple ---
 
-    const basePrices = {
-      'Essentiel': 16490,
-      'Confort': 19750,
-      'Luxe': 23990
-    };
+   const basePrices = {
+  'Essentiel': 15490,
+  'Confort': 19490,
+  'Luxe': 23990
+
+  };
     let price = basePrices[pack] || 0;
 
     // Chauffage
