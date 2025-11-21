@@ -988,6 +988,8 @@
           <li id="summary-couverture">Couverture : à définir</li>
           <li id="summary-entretien">Entretien : sans robot</li>
           <li id="summary-loisir">Loisirs : aucun équipement spécifique</li>
+          <li id="summary-evac">Évacuation : non</li>
+
           <li id="summary-plage">Plage/terrasse : aucune</li>
 
         </ul>
@@ -1024,6 +1026,8 @@
   const totalSteps = 4;
   let currentStep = 1;
   let estimationUnlocked = false; // tant que false, on NE montre PAS le prix
+const evacVolumeRow = document.getElementById('config-evac-volume-row');
+const evacM3Input = document.getElementById('config-evac-m3');
 
   const stepEls = document.querySelectorAll('.config-step');
   const plageBlock = document.getElementById('config-plage-block');
@@ -1115,6 +1119,29 @@ togglePlageVisibility();
     // Pack
     const pack = document.querySelector('input[name="pack"]:checked')?.value || 'Essentiel';
     document.getElementById('summary-pack').textContent = pack;
+       // --- ÉVACUATION : volume auto par pack ---
+const defaultEvacM3 = {
+  'Essentiel': 30,
+  'Confort': 46,
+  'Luxe': 60
+};
+
+// Si l’évacuation est cochée, on propose un volume auto (modifiable)
+const evacChoice = document.querySelector('input[name="evacuation"]:checked')?.value || 'Non';
+
+if (evacChoice === 'Oui') {
+  if (evacVolumeRow) evacVolumeRow.style.display = 'block';
+
+  // si volume à 0 ou vide -> on met la valeur pack
+  const currentVal = Number(evacM3Input?.value || 0);
+  if (evacM3Input && (!currentVal || currentVal === 0)) {
+    evacM3Input.value = defaultEvacM3[pack] || 0;
+  }
+} else {
+  if (evacVolumeRow) evacVolumeRow.style.display = 'none';
+  if (evacM3Input) evacM3Input.value = 0;
+}
+
     // --- Surface auto terrasse (pourtour 1 m) selon pack ---
     const packSizes = {
       'Essentiel': { L: 5.2, W: 3.2 },
@@ -1212,6 +1239,14 @@ togglePlageVisibility();
       summaryLoisirEl.textContent = 'Loisirs : ' + baseText + labels.join(', ');
     }
 
+// Récap évacuation
+const evacM3 = Number(evacM3Input?.value || 0);
+if (evacChoice === 'Oui' && evacM3 > 0) {
+  document.getElementById('summary-evac').textContent =
+    'Évacuation : oui (' + evacM3 + ' m³)';
+} else {
+  document.getElementById('summary-evac').textContent = 'Évacuation : non';
+}
 
     // Délai & contact préférés
     const delai = document.getElementById('config-delai')?.value || 'à préciser';
@@ -1300,7 +1335,13 @@ if (plageMateriau !== 'Aucune' && plageSurface > 0) {
       if (i.value === 'Nage à contre-courant') loisirTotal += 6500;
     });
     price += loisirTotal;
-    
+    // --- Prix évacuation ---
+if (evacChoice === 'Oui' && evacM3 > 0) {
+  const evacPricePerM3HTVA = 80; // ta base
+  const evacPriceTVAC = evacPricePerM3HTVA * 1.21; // 96,8 TVAC/m³
+  price += evacM3 * evacPriceTVAC;
+}
+
     // Arrondi + fourchette
    
 // Prix unique arrondi au 100€
