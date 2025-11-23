@@ -1614,21 +1614,25 @@ const payload = {
   website: ""
 };
 
-// 4) Envoi automatique vers OVH (PHP)
+// 4) Envoi automatique vers Vercel (API)
 fetch("/api/send-lead", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(payload)
 })
+  .then(res => res.json())
+  .then(data => {
+    if (!data.ok) throw new Error(data.error || "Erreur inconnue");
 
-  alert("Merci ! Votre demande a bien été envoyée. Nous vous recontactons rapidement.");
-  nextBtn.disabled = true;
-  nextBtn.textContent = "Demande envoyée ✅";
-})
-.catch(err => {
-  console.error(err);
-  alert("Oups, problème d’envoi. Merci de réessayer ou de nous appeler.");
-});
+    alert("Merci ! Votre demande a bien été envoyée. Nous vous recontactons rapidement.");
+    nextBtn.disabled = true;
+    nextBtn.textContent = "Demande envoyée ✅";
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Oups, problème d’envoi. Merci de réessayer ou de nous appeler.");
+  });
+
 
 
   if (cancelBtn) {
