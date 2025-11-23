@@ -1105,6 +1105,37 @@ const plageSurfaceInput = document.getElementById('config-plage-surface');
   const priceEl = document.getElementById('summary-price');
    
   if (stepTotalEl) stepTotalEl.textContent = totalSteps;
+function scrollToConfigTop() {
+  const form = document.getElementById('config-form');
+  if (!form) return;
+
+  const headerOffset = 90;
+  const y = form.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+  window.scrollTo({
+    top: y,
+    behavior: 'smooth'
+  });
+}
+
+function showStep(step) {
+  currentStep = step;
+
+  stepEls.forEach(el => {
+    el.classList.toggle('active', Number(el.dataset.step) === step);
+  });
+
+  pillEls.forEach(el => {
+    el.classList.toggle('active', Number(el.dataset.stepPill) === step);
+  });
+
+  if (stepCurrentEl) stepCurrentEl.textContent = step;
+  if (backBtn) backBtn.disabled = (step === 1);
+  if (nextBtn) nextBtn.textContent = (step === totalSteps) ? 'Voir mon estimation' : 'Étape suivante';
+
+  // 👉 scroll en haut du configurateur à chaque changement d’étape
+  requestAnimationFrame(scrollToConfigTop);
+}
 
   function showStep(step) {
     currentStep = step;
