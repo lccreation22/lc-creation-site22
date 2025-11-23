@@ -546,80 +546,108 @@
         <div class="config-step-pill" data-step-pill="4">Coordonnées</div>
       </div>
 
-      <!-- ETAPE 1 : PROFIL & TERRAIN -->
-      <div class="config-step active" data-step="1">
-        <div class="config-group">
-          <label for="config-type-projet">Type de projet</label>
-          <div class="config-radio-group" id="config-type-projet">
-            <label class="config-radio-option active">
-              <input type="radio" name="type_projet" value="Piscine seule" checked>
-              <div>
-                <div class="config-radio-title">Piscine seule</div>
-                <div class="config-radio-desc">Vous voulez d’abord installer la piscine, le reste pourra suivre plus tard.</div>
-              </div>
-            </label>
-            <label class="config-radio-option">
-              <input type="radio" name="type_projet" value="Piscine + terrasse / plage">
-              <div>
-                <div class="config-radio-title">Piscine + terrasse / plage</div>
-                <div class="config-radio-desc">Nous réfléchissons aussi à l’espace autour (terrasse, plage, margelles).</div>
-              </div>
-            </label>
-            <label class="config-radio-option">
- <input type="radio" name="type_projet" value="Piscine + réaménagement complet du jardin">
-              <div>
-                <div class="config-radio-title">Piscine + réaménagement complet du jardin</div>
-                <div class="config-radio-desc">Projet global : piscine, circulations, plantations, éclairage, etc.</div>
-              </div>
-            </label>
+   <!-- ETAPE 1 : PROFIL & TERRAIN -->
+<div class="config-step active" data-step="1">
+
+  <!-- Type de projet -->
+  <div class="config-group">
+    <label for="config-type-projet">Type de projet</label>
+    <div class="config-radio-group" id="config-type-projet">
+
+      <label class="config-radio-option active">
+        <input type="radio" name="type_projet" value="Piscine seule" checked>
+        <div>
+          <div class="config-radio-title">Piscine seule</div>
+          <div class="config-radio-desc">
+            Vous voulez d’abord installer la piscine, le reste pourra suivre plus tard.
           </div>
         </div>
+      </label>
 
-        <div class="config-group">
-          <label for="config-terrain">Votre terrain est plutôt…</label>
-          <select id="config-terrain" class="config-select">
-            <option value="Plat" selected>Plat</option>
-            <option value="Légèrement en pente">Légèrement en pente</option>
-            <option value="Fortement en pente / accès complexe">Fortement en pente / accès complexe</option>
-          </select>
-          <small>Cette information nous aide à estimer la complexité du terrassement.</small>
+      <label class="config-radio-option">
+        <input type="radio" name="type_projet" value="Piscine + terrasse / plage">
+        <div>
+          <div class="config-radio-title">Piscine + terrasse / plage</div>
+          <div class="config-radio-desc">
+            Nous réfléchissons aussi à l’espace autour (terrasse, plage, margelles).
+          </div>
         </div>
+      </label>
 
-        <div class="config-group">
-          <label for="config-code-postal">Code postal du chantier</label>
-          <input type="text" id="config-code-postal" class="config-input" placeholder="Ex. 1400 Nivelles">
-          <small>Nous intervenons en Brabant Wallon et sur Bruxelles. Indiquez la ville du projet.</small>
+      <label class="config-radio-option">
+        <input type="radio" name="type_projet" value="Piscine + réaménagement complet du jardin">
+        <div>
+          <div class="config-radio-title">Piscine + réaménagement complet du jardin</div>
+          <div class="config-radio-desc">
+            Projet global : piscine, circulations, plantations, éclairage, etc.
+          </div>
         </div>
-      </div>
-<div class="config-group">
-  <label>Pose souhaitée</label>
-  <div class="config-radio-group" id="config-pose">
-    <label class="config-radio-option active">
-      <input type="radio" name="pose" value="Hors-sol" checked>
-      <div>
-        <div class="config-radio-title">Hors-sol</div>
-        <div class="config-radio-desc">Pose rapide, chantier léger.</div>
-      </div>
-    </label>
+      </label>
 
-    <label class="config-radio-option">
-      <input type="radio" name="pose" value="Semi-enterrée">
-      <div>
-        <div class="config-radio-title">Semi-enterrée</div>
-        <div class="config-radio-desc">Terrassement partiel, rendu plus intégré.</div>
-      </div>
-    </label>
-
-    <label class="config-radio-option">
-      <input type="radio" name="pose" value="Enterrée">
-      <div>
-        <div class="config-radio-title">Enterrée</div>
-        <div class="config-radio-desc">Terrassement complet et drainage.</div>
-      </div>
-    </label>
+    </div>
   </div>
-  <small>Les prix semi-enterrés et enterrés s’entendent hors évacuation des terres.</small>
+
+  <!-- Terrain -->
+  <div class="config-group">
+    <label for="config-terrain">Votre terrain est plutôt…</label>
+    <select id="config-terrain" class="config-select">
+      <option value="Plat" selected>Plat</option>
+      <option value="Légèrement en pente">Légèrement en pente</option>
+      <option value="Fortement en pente / accès complexe">Fortement en pente / accès complexe</option>
+    </select>
+    <small>Cette information nous aide à estimer la complexité du terrassement.</small>
+  </div>
+
+  <!-- Code postal -->
+  <div class="config-group">
+    <label for="config-code-postal">Code postal du chantier</label>
+    <input
+      type="text"
+      id="config-code-postal"
+      class="config-input"
+      placeholder="Ex. 1400 Nivelles"
+    >
+    <small>Nous intervenons en Brabant Wallon et sur Bruxelles. Indiquez la ville du projet.</small>
+  </div>
+
+  <!-- Pose souhaitée (BIEN DANS STEP 1) -->
+  <div class="config-group">
+    <label>Pose souhaitée</label>
+    <div class="config-radio-group" id="config-pose">
+
+      <label class="config-radio-option active">
+        <input type="radio" name="pose" value="Hors-sol" checked>
+        <div>
+          <div class="config-radio-title">Hors-sol</div>
+          <div class="config-radio-desc">Pose rapide, chantier léger.</div>
+        </div>
+      </label>
+
+      <label class="config-radio-option">
+        <input type="radio" name="pose" value="Semi-enterrée">
+        <div>
+          <div class="config-radio-title">Semi-enterrée</div>
+          <div class="config-radio-desc">Terrassement partiel, rendu plus intégré.</div>
+        </div>
+      </label>
+
+      <label class="config-radio-option">
+        <input type="radio" name="pose" value="Enterrée">
+        <div>
+          <div class="config-radio-title">Enterrée</div>
+          <div class="config-radio-desc">Terrassement complet et drainage.</div>
+        </div>
+      </label>
+
+    </div>
+
+    <small>Les prix semi-enterrés et enterrés s’entendent hors évacuation des terres.</small>
+  </div>
+
 </div>
+<!-- FIN ETAPE 1 -->
+
+    
 
            <!-- ETAPE 2 : PACK -->
       <div class="config-step" data-step="2">
@@ -1134,9 +1162,7 @@ document.querySelectorAll('input[name="type_projet"]').forEach(radio => {
 
 // appel initial au chargement
 togglePlageVisibility();
-const priceEl = document.getElementById('summary-price');
-
-   
+  
      function updateSummary() {
     // Projet
     const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || 'Piscine seule';
