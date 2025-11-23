@@ -1,6 +1,7 @@
 {
   "name": "lc-creation-site",
   "private": true,
+  "type": "module",
   "dependencies": {
     "resend": "^4.0.0"
   }
