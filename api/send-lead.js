@@ -1,8 +1,7 @@
-import { Resend } from "resend";
+const { Resend } = require("resend");
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
+  // Autorise uniquement POST
   if (req.method !== "POST") {
     return res.status(405).json({ ok: false, error: "Method not allowed" });
   }
@@ -10,31 +9,51 @@ export default async function handler(req, res) {
   try {
     const data = req.body || {};
 
-    // Validation minimum
-    if (!data.prenom || !data.nom || !data.emailClient) {
-      return res.status(422).json({ ok: false, error: "Missing required fields" });
+    // Sécurité : clé présente ?
+    if (!process.env.RESEND_API_KEY) {
+      return res.status(500).json({ ok: false, error: "RESEND_API_KEY manquante" });
     }
 
-    const subject = `Demande estimation piscine bois – ${data.prenom} ${data.nom}`;
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    // Mail lisible (reprend tout ton payload)
-    const lines = [
-      "Nouvelle configuration piscine via le site LC Création",
-      "",
-      ...Object.entries(data).map(([k, v]) => `${k.toUpperCase()} : ${v}`)
-    ];
+    const subject = `Demande estimation piscine bois – ${data.prenom || ""} ${data.nom || ""}`;
 
-    await resend.emails.send({
-      from: "LC Création <contact@lc-creation.be>",
+    const html = `
+      <h2>Nouvelle configuration piscine via le site</h2>
+      <p><b>Prénom:</b> ${data.prenom || "-"}</p>
+      <p><b>Nom:</b> ${data.nom || "-"}</p>
+      <p><b>Email:</b> ${data.emailClient || "-"}</p>
+      <p><b>Téléphone:</b> ${data.tel || "-"}</p>
+      <p><b>Code postal:</b> ${data.codePostal || "-"}</p>
+      <p><b>Terrain:</b> ${data.terrain || "-"}</p>
+      <p><b>Projet:</b> ${data.typeProjet || "-"}</p>
+      <p><b>Pack:</b> ${data.pack || "-"}</p>
+      <p><b>Budget:</b> ${data.budgetText || "-"}</p>
+      <p><b>Chauffage:</b> ${data.chauffageTxt || "-"}</p>
+      <p><b>Traitement:</b> ${data.traitementTxt || "-"}</p>
+      <p><b>Couverture:</b> ${data.couvertureTxt || "-"}</p>
+      <p><b>Entretien:</b> ${data.entretienTxt || "-"}</p>
+      <p><b>Loisirs:</b> ${data.loisirsTxt || "-"}</p>
+      <p><b>Délai:</b> ${data.delaiTxt || "-"}</p>
+      <p><b>Contact préféré:</b> ${data.contactPrefTxt || "-"}</p>
+      <p><b>Estimation:</b> ${data.estimationText || "-"}</p>
+      <p><b>Message:</b><br/>${(data.message || "").replace(/\n/g, "<br/>")}</p>
+    `;
+
+    const result = await resend.emails.send({
+      from: "LC Création <contact@lc-creation.be>",   // ton domaine doit être vérifié Resend
       to: "lecocqcedric@outlook.be",
-      replyTo: data.emailClient,
+      reply_to: data.emailClient || undefined,
       subject,
-      text: lines.join("\n"),
+      html
     });
 
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, id: result?.data?.id });
   } catch (err) {
-    console.error(err);
-    return res.status(500).json({ ok: false, error: "Send failed" });
+    console.error("SEND-LEAD ERROR:", err);
+    return res.status(500).json({
+      ok: false,
+      error: err?.message || "Erreur serveur"
+    });
   }
-}
+};
