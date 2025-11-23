@@ -14,6 +14,10 @@
       --lc-gold-soft: rgba(212,175,55,0.22);
       --lc-night: #020617;
     }
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -48,10 +52,11 @@
     }
 
     .brand img {
-      display: block;
-      max-height: 58px;
-      height: auto;
-    }
+  display: block;
+  max-height: 58px;
+  max-width: 100%;
+  height: auto;
+}
 
     nav a {
       margin-left: 1.2rem;
@@ -495,7 +500,28 @@
       .config-steps {
         flex-direction: column;
       }
-    }
+      @media (max-width: 640px) {
+  .config-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .config-nav-left {
+    width: 100%;
+  }
+
+  .config-nav-right {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
   </style>
 </head>
 <body class="page-config">
