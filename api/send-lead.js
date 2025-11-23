@@ -41,7 +41,7 @@ module.exports = async (req, res) => {
     `;
 
     const result = await resend.emails.send({
-      from: "LC Création <contact@lc-creation.be>",   // ton domaine doit être vérifié Resend
+   from: "LC Création <onboarding@resend.dev>" ,   // ton domaine doit être vérifié Resend
       to: "lecocqcedric@outlook.be",
       reply_to: data.emailClient || undefined,
       subject,
