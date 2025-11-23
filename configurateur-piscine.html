@@ -1589,48 +1589,50 @@ document.getElementById('summary-pose').textContent =
 
       const estimationText = document.getElementById('summary-price')?.textContent || '—';
 
-      // 3) Corps du mail
-      const lignes = [
-        'Nouvelle configuration piscine via le site LC Création',
-        '',
-        'Coordonnées client :',
-        'Prénom : ' + prenom,
-        'Nom : ' + nom,
-        'E-mail : ' + emailClient,
-        'Téléphone : ' + (tel || 'non renseigné'),
-        '',
-        'Localisation :',
-        'Code postal / Ville : ' + (codePostal || 'non renseigné'),
-        'Terrain : ' + terrain,
-        '',
-        'Projet : ' + typeProjet,
-        'Pack choisi : ' + pack,
-        budgetText,
-        '',
-        chauffageTxt,
-        traitementTxt,
-        couvertureTxt,
-        entretienTxt,
-        loisirsTxt,
-        '',
-        delaiTxt,
-        contactPrefTxt,
-        '',
-        'Estimation indicative affichée au client : ' + estimationText + ' TVAC',
-        '',
-        'Message du client :',
-        message || '(aucun message complémentaire)'
-      ];
+     // 3) Payload à envoyer au serveur (envoi auto, pas de mailto)
+const payload = {
+  prenom,
+  nom,
+  emailClient,
+  tel,
+  message,
+  codePostal,
+  terrain,
+  typeProjet,
+  pack,
+  budgetText,
+  chauffageTxt,
+  traitementTxt,
+  couvertureTxt,
+  entretienTxt,
+  loisirsTxt,
+  delaiTxt,
+  contactPrefTxt,
+  estimationText,
 
-      const subject = encodeURIComponent('Demande estimation piscine bois – ' + prenom + ' ' + nom);
-      const body = encodeURIComponent(lignes.join('\n'));
+  // honeypot anti-bots (champ vide)
+  website: ""
+};
 
-      window.location.href =
-        'mailto:lecocqcedric@outlook.be?subject=' + subject + '&body=' + body;
+// 4) Envoi automatique vers OVH (PHP)
+fetch("./send-lead.php", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload)
+})
+.then(res => res.json())
+.then(data => {
+  if (!data.ok) throw new Error(data.error || "Erreur inconnue");
 
-      alert("Votre estimation est affichée à droite et un e-mail prérempli vers LC Création va s'ouvrir. Il vous suffira de l'envoyer.");
-    });
-  }
+  alert("Merci ! Votre demande a bien été envoyée. Nous vous recontactons rapidement.");
+  nextBtn.disabled = true;
+  nextBtn.textContent = "Demande envoyée ✅";
+})
+.catch(err => {
+  console.error(err);
+  alert("Oups, problème d’envoi. Merci de réessayer ou de nous appeler.");
+});
+
 
   if (cancelBtn) {
     cancelBtn.addEventListener('click', () => {
