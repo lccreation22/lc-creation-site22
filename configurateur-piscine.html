@@ -1549,89 +1549,94 @@ document.getElementById('summary-pose').textContent =
     });
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      // Étapes 1 à 3 : on avance
-      if (currentStep < totalSteps) {
-        showStep(currentStep + 1);
-        return;
-      }
+if (nextBtn) {
+  nextBtn.addEventListener('click', () => {
+    // Étapes 1 à 3 : on avance simplement
+    if (currentStep < totalSteps) {
+      showStep(currentStep + 1);
+      return;
+    }
 
-      // Dernière étape : coordonnées + mail
-      if (!validateStep4()) return;
+    // Dernière étape : on vérifie les champs obligatoires
+    if (!validateStep4()) return;
 
-      // 1) On débloque l'estimation et on met à jour le récap
-      estimationUnlocked = true;
-      updateSummary();
+    // On débloque l’estimation et on met à jour le récap
+    estimationUnlocked = true;
+    updateSummary();
 
-      // 2) On récupère les infos principales
-      const prenom = document.getElementById('config-prenom').value.trim();
-      const nom = document.getElementById('config-nom').value.trim();
-      const emailClient = document.getElementById('config-email').value.trim();
-      const tel = document.getElementById('config-tel').value.trim();
-      const message = document.getElementById('config-message').value.trim();
-      const codePostal = document.getElementById('config-code-postal').value.trim();
+    // --- Récup des infos principales ---
+    const prenom = document.getElementById('config-prenom').value.trim();
+    const nom = document.getElementById('config-nom').value.trim();
+    const emailClient = document.getElementById('config-email').value.trim();
+    const tel = document.getElementById('config-tel').value.trim();
+    const message = document.getElementById('config-message').value.trim();
+    const codePostal = document.getElementById('config-code-postal').value.trim();
 
-      const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || '';
-      const terrain = document.getElementById('config-terrain').value;
+    const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || '';
+    const terrain = document.getElementById('config-terrain').value;
 
-      const pack = document.querySelector('input[name="pack"]:checked')?.value || '';
-      const budgetText = document.getElementById('summary-budget')?.textContent || '';
+    const pack = document.querySelector('input[name="pack"]:checked')?.value || '';
+    const budgetText = document.getElementById('summary-budget')?.textContent || '';
 
-      const chauffageTxt = document.getElementById('summary-chauffage')?.textContent || '';
-      const traitementTxt = document.getElementById('summary-traitement')?.textContent || '';
-      const couvertureTxt = document.getElementById('summary-couverture')?.textContent || '';
-      const entretienTxt = document.getElementById('summary-entretien')?.textContent || '';
-      const loisirsTxt = document.getElementById('summary-loisir')?.textContent || '';
+    const chauffageTxt = document.getElementById('summary-chauffage')?.textContent || '';
+    const traitementTxt = document.getElementById('summary-traitement')?.textContent || '';
+    const couvertureTxt = document.getElementById('summary-couverture')?.textContent || '';
+    const entretienTxt = document.getElementById('summary-entretien')?.textContent || '';
+    const loisirsTxt = document.getElementById('summary-loisir')?.textContent || '';
 
-      const delaiTxt = document.getElementById('summary-delai')?.textContent || '';
-      const contactPrefTxt = document.getElementById('summary-contact-pref')?.textContent || '';
+    const delaiTxt = document.getElementById('summary-delai')?.textContent || '';
+    const contactPrefTxt = document.getElementById('summary-contact-pref')?.textContent || '';
 
-      const estimationText = document.getElementById('summary-price')?.textContent || '—';
+    const estimationText = document.getElementById('summary-price')?.textContent || '—';
 
-     // 3) Payload à envoyer au serveur (envoi auto, pas de mailto)
-const payload = {
-  prenom,
-  nom,
-  emailClient,
-  tel,
-  message,
-  codePostal,
-  terrain,
-  typeProjet,
-  pack,
-  budgetText,
-  chauffageTxt,
-  traitementTxt,
-  couvertureTxt,
-  entretienTxt,
-  loisirsTxt,
-  delaiTxt,
-  contactPrefTxt,
-  estimationText,
+    // --- Payload envoyé à l’API Vercel ---
+    const payload = {
+      prenom,
+      nom,
+      emailClient,
+      tel,
+      message,
+      codePostal,
+      terrain,
+      typeProjet,
+      pack,
+      budgetText,
+      chauffageTxt,
+      traitementTxt,
+      couvertureTxt,
+      entretienTxt,
+      loisirsTxt,
+      delaiTxt,
+      contactPrefTxt,
+      estimationText,
 
-  // honeypot anti-bots (champ vide)
-  website: ""
-};
+      // honeypot anti-bots (champ vide)
+      website: ""
+    };
 
-// 4) Envoi automatique vers Vercel (API)
-fetch("/api/send-lead", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(payload)
-})
-  .then(res => res.json())
-  .then(data => {
-    if (!data.ok) throw new Error(data.error || "Erreur inconnue");
+    // --- Envoi automatique vers l’API /api/send-lead ---
+    fetch("/api/send-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.ok) {
+          throw new Error(data.error || "Erreur inconnue");
+        }
 
-    alert("Merci ! Votre demande a bien été envoyée. Nous vous recontactons rapidement.");
-    nextBtn.disabled = true;
-    nextBtn.textContent = "Demande envoyée ✅";
-  })
-  .catch(err => {
-    console.error(err);
-    alert("Oups, problème d’envoi. Merci de réessayer ou de nous appeler.");
+        alert("Merci ! Votre demande a bien été envoyée. Nous vous recontactons rapidement.");
+        nextBtn.disabled = true;
+        nextBtn.textContent = "Demande envoyée ✅";
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Oups, problème d’envoi. Merci de réessayer ou de nous appeler.");
+      });
   });
+}
+
 
 
 
