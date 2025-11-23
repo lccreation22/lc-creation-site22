@@ -1114,21 +1114,53 @@ const plageSurfaceInput = document.getElementById('config-plage-surface');
     if (backBtn) backBtn.disabled = (step === 1);
     if (nextBtn) nextBtn.textContent = (step === totalSteps) ? 'Voir mon estimation' : 'Étape suivante';
   }
+// ====== RADIOS : cartes visuelles ======
+document.querySelectorAll('.config-radio-option').forEach(option => {
+  const input = option.querySelector('input[type="radio"]');
+  if (!input) return;
 
-  // Radio cards visuelles
-  document.querySelectorAll('.config-radio-option').forEach(option => {
-    option.addEventListener('click', () => {
-      const input = option.querySelector('input[type="radio"]');
-      if (!input) return;
-      const name = input.name;
-      document.querySelectorAll('.config-radio-option input[name="' + name + '"]').forEach(r => {
-        r.closest('.config-radio-option').classList.remove('active');
-      });
-      option.classList.add('active');
-      input.checked = true;
-      updateSummary();
-    });
+  // clic sur la carte = coche l'input
+  option.addEventListener('click', () => {
+    input.checked = true;
+    input.dispatchEvent(new Event('change', { bubbles: true }));
   });
+
+  // change = met à jour les classes
+  input.addEventListener('change', () => {
+    const name = input.name;
+    document
+      .querySelectorAll(`.config-radio-option input[name="${name}"]`)
+      .forEach(r => r.closest('.config-radio-option').classList.remove('active'));
+
+    option.classList.add('active');
+    updateSummary();
+  });
+});
+
+
+// ====== CHECKBOX : cartes visuelles ======
+document.querySelectorAll('.config-check-option').forEach(option => {
+  const input = option.querySelector('input[type="checkbox"]');
+  if (!input) return;
+
+  // clic sur la carte = toggle l'input
+  option.addEventListener('click', (e) => {
+    // si on clique sur l'input lui-même, on laisse faire le navigateur
+    if (e.target === input) return;
+
+    input.checked = !input.checked;
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+
+  // change = met à jour la classe active
+  input.addEventListener('change', () => {
+    option.classList.toggle('active', input.checked);
+    updateSummary();
+  });
+});
+
+ 
+
 // --- Afficher / cacher la plage selon le type de projet ---
 function togglePlageVisibility() {
   const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || '';
