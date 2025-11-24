@@ -25,12 +25,12 @@ export default async function handler(req, res) {
     }
 
     // --- Vérif variables d'env ---
-    const apiKey = process.env.RESEND_API_KEY;
+    const apiKey = process.env.RESEND_API;
     const from = process.env.RESEND_FROM; // ex: "LC Création <leads@lc-creation.be>"
     const to = process.env.RESEND_TO;     // ex: "lecocqcedric@outlook.be"
 
     if (!apiKey || !from || !to) {
-      throw new Error("Missing env vars: RESEND_API_KEY / RESEND_FROM / RESEND_TO");
+      throw new Error("Missing env vars: RESEND_API / RESEND_FROM / RESEND_TO");
     }
 
     // --- Construire le mail ---
