@@ -1,7 +1,6 @@
 
-// api/send-lead.js  (CommonJS, compatible Vercel direct)
-module.exports = async (req, res) => {
-  // Autorise seulement POST
+// api/send-lead.js  (ESM compatible "type":"module")
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ ok: false, error: "Method not allowed" });
   }
@@ -9,14 +8,14 @@ module.exports = async (req, res) => {
   try {
     const data = req.body || {};
 
-    // Honeypot anti-bot : si rempli => on ignore
+    // honeypot anti-bot
     if (data.website && String(data.website).trim() !== "") {
       return res.status(200).json({ ok: true });
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const from = process.env.FROM_EMAIL;   // ex: "LC Création <contact@lc-creation.be>"
-    const to = process.env.LEADS_TO;       // ex: "lecocqcedric@outlook.be"
+    const from = process.env.FROM_EMAIL;  // ex "LC Création <contact@lc-creation.be>"
+    const to = process.env.LEADS_TO;      // ex "lecocqcedric@outlook.be"
 
     if (!apiKey || !from || !to) {
       throw new Error("Env vars manquantes: RESEND_API_KEY / FROM_EMAIL / LEADS_TO");
@@ -59,7 +58,6 @@ module.exports = async (req, res) => {
 
     const text = lignes.join("\n");
 
-    // Appel direct API Resend (sans dépendance)
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -86,5 +84,4 @@ module.exports = async (req, res) => {
     console.error("send-lead error:", err);
     return res.status(500).json({ ok: false, error: err.message || "Erreur serveur" });
   }
-};
-
+}
