@@ -1,10 +1,7 @@
 
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export default async function handler(req, res) {
-  // On accepte uniquement le POST
+// api/send-lead.js  (CommonJS, compatible Vercel direct)
+module.exports = async (req, res) => {
+  // Autorise seulement POST
   if (req.method !== "POST") {
     return res.status(405).json({ ok: false, error: "Method not allowed" });
   }
@@ -12,32 +9,39 @@ export default async function handler(req, res) {
   try {
     const data = req.body || {};
 
-    // Champs minimum
-    if (!data.prenom || !data.nom || !data.emailClient) {
-      return res.status(422).json({ ok: false, error: "Missing required fields" });
+    // Honeypot anti-bot : si rempli => on ignore
+    if (data.website && String(data.website).trim() !== "") {
+      return res.status(200).json({ ok: true });
     }
 
-    const subject = `Demande estimation piscine bois – ${data.prenom} ${data.nom}`;
+    const apiKey = process.env.RESEND_API_KEY;
+    const from = process.env.FROM_EMAIL;   // ex: "LC Création <contact@lc-creation.be>"
+    const to = process.env.LEADS_TO;       // ex: "lecocqcedric@outlook.be"
 
-    const lines = [
+    if (!apiKey || !from || !to) {
+      throw new Error("Env vars manquantes: RESEND_API_KEY / FROM_EMAIL / LEADS_TO");
+    }
+
+    const subject =
+      `Demande estimation piscine bois – ${data.prenom || ""} ${data.nom || ""}`.trim();
+
+    const lignes = [
       "Nouvelle configuration piscine via le site LC Création",
       "",
       "Coordonnées client :",
-      `Prénom : ${data.prenom}`,
-      `Nom : ${data.nom}`,
-      `E-mail : ${data.emailClient}`,
+      `Prénom : ${data.prenom || "-"}`,
+      `Nom : ${data.nom || "-"}`,
+      `E-mail : ${data.emailClient || "-"}`,
       `Téléphone : ${data.tel || "non renseigné"}`,
       "",
       "Localisation :",
       `Code postal / Ville : ${data.codePostal || "non renseigné"}`,
-      `Terrain : ${data.terrain || "non renseigné"}`,
+      `Terrain : ${data.terrain || "-"}`,
       "",
-      "Projet :",
-      `Type de projet : ${data.typeProjet || "non renseigné"}`,
-      `Pack choisi : ${data.pack || "non renseigné"}`,
+      `Projet : ${data.typeProjet || "-"}`,
+      `Pack choisi : ${data.pack || "-"}`,
       data.budgetText || "",
       "",
-      "Options :",
       data.chauffageTxt || "",
       data.traitementTxt || "",
       data.couvertureTxt || "",
@@ -47,30 +51,40 @@ export default async function handler(req, res) {
       data.delaiTxt || "",
       data.contactPrefTxt || "",
       "",
-      `Estimation indicative affichée au client : ${data.estimationText || "–"} TVAC`,
+      `Estimation indicative affichée au client : ${data.estimationText || "-"} TVAC`,
       "",
       "Message du client :",
       data.message || "(aucun message complémentaire)"
-    ];
+    ].filter(Boolean);
 
-    console.log("SEND-LEAD payload:", data);
-    console.log("RESEND_API_KEY présent ?", !!process.env.RESEND_API_KEY);
+    const text = lignes.join("\n");
 
-    const emailResponse = await resend.emails.send({
-      from: "LC Création <contact@lc-creation.be>",  // doit être sur un domaine vérifié chez Resend
-      to: "lecocqcedric@outlook.be",
-      replyTo: data.emailClient,
-      subject,
-      text: lines.join("\n")
+    // Appel direct API Resend (sans dépendance)
+    const r = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        subject,
+        text,
+        reply_to: data.emailClient || undefined
+      })
     });
 
-    console.log("Resend response:", emailResponse);
+    const j = await r.json();
 
-    return res.status(200).json({ ok: true });
+    if (!r.ok) {
+      throw new Error(j?.message || JSON.stringify(j));
+    }
+
+    return res.status(200).json({ ok: true, id: j.id });
   } catch (err) {
-    console.error("SEND-LEAD error:", err);
-    return res.status(500).json({ ok: false, error: String(err) });
+    console.error("send-lead error:", err);
+    return res.status(500).json({ ok: false, error: err.message || "Erreur serveur" });
   }
-}
-
+};
 
