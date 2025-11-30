@@ -786,7 +786,7 @@ html, body {
           <!-- Preview visuelle de la couleur sélectionnée -->
           <div class="config-liner-preview">
             <img id="config-liner-image"
-                 src="./liner blue.jpg"
+                 src="liner blue.jpg"
                  alt="Liner blue"
                  loading="lazy">
           </div>
@@ -1332,9 +1332,9 @@ togglePlageVisibility();
 
     const linerImg = document.getElementById('config-liner-image');
     if (linerImg) {
-      let src = './images/liner-blue.jpg';
-      if (linerColor === 'Sand') src = './images/liner-sand.jpg';
-      if (linerColor === 'Grey') src = './images/liner-grey.jpg';
+      let src = 'liner-blue.jpg';
+      if (linerColor === 'Sand') src = 'liner-sand.jpg';
+      if (linerColor === 'Grey') src = 'liner-grey.jpg';
       linerImg.src = src;
       linerImg.alt = 'Liner ' + linerColor;
     }
