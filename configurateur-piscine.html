@@ -1311,7 +1311,7 @@ document.querySelectorAll('input[name="type_projet"]').forEach(radio => {
 togglePlageVisibility();
   
      function updateSummary() {
-    // Projet
+    // --- PROJET ---
     const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || 'Piscine seule';
     document.getElementById('summary-type-projet').textContent = typeProjet;
 
@@ -1321,80 +1321,76 @@ togglePlageVisibility();
     const cp = document.getElementById('config-code-postal').value || 'à préciser';
     document.getElementById('summary-code-postal').textContent = 'Code postal : ' + cp;
 
-    // Pack
+    // --- PACK ---
     const pack = document.querySelector('input[name="pack"]:checked')?.value || 'Essentiel';
     document.getElementById('summary-pack').textContent = pack;
-           // --- Couleur du liner ---
+
+    // --- COULEUR DU LINER ---
     const linerColor = document.querySelector('input[name="liner_color"]:checked')?.value || 'Blue';
 
     const summaryLinerEl = document.getElementById('summary-liner');
     if (summaryLinerEl) {
-      summaryLinerEl.textContent =
-        'Couleur du liner : ' + linerColor.toLowerCase();
+      summaryLinerEl.textContent = 'Couleur du liner : ' + linerColor.toLowerCase();
     }
 
-    // Mise à jour de la photo en fonction du choix
     const linerImg = document.getElementById('config-liner-image');
     if (linerImg) {
       let src = './images/liner-blue.jpg';
-      if (linerColor === 'Sand') src = './liner sand.jpg';
-      if (linerColor === 'Grey') src = './liner grey.jpg';
+      if (linerColor === 'Sand') src = './images/liner-sand.jpg';
+      if (linerColor === 'Grey') src = './images/liner-grey.jpg';
       linerImg.src = src;
       linerImg.alt = 'Liner ' + linerColor;
     }
 
-       // --- ÉVACUATION : volume auto par pack ---
-const defaultEvacM3 = {
-  'Essentiel': 30,
-  'Confort': 46,
-  'Luxe': 60
-};
+    // --- ÉVACUATION : volume auto par pack ---
+    const defaultEvacM3 = {
+      'Essentiel': 30,
+      'Confort': 46,
+      'Luxe': 60
+    };
 
-// Si l’évacuation est cochée, on propose un volume auto (modifiable)
-const evacChoice = document.querySelector('input[name="evacuation"]:checked')?.value || 'Non';
+    const evacChoice = document.querySelector('input[name="evacuation"]:checked')?.value || 'Non';
 
-if (evacChoice === 'Oui') {
-  if (evacVolumeRow) evacVolumeRow.style.display = 'block';
+    if (evacChoice === 'Oui') {
+      if (evacVolumeRow) evacVolumeRow.style.display = 'block';
 
-  const lastAuto = defaultEvacM3[pack] || 0;
-  const currentVal = Number(evacM3Input?.value || 0);
-  const isAutoLike = Object.values(defaultEvacM3).includes(currentVal);
+      const lastAuto = defaultEvacM3[pack] || 0;
+      const currentVal = Number(evacM3Input?.value || 0);
+      const isAutoLike = Object.values(defaultEvacM3).includes(currentVal);
 
-  // si 0 OU si valeur auto → on recolle l’auto du pack
-  if (evacM3Input && (currentVal === 0 || isAutoLike)) {
-    evacM3Input.value = lastAuto;
-  }
-} else {
-  if (evacVolumeRow) evacVolumeRow.style.display = 'none';
-  if (evacM3Input) evacM3Input.value = 0;
-}
+      if (evacM3Input && (currentVal === 0 || isAutoLike)) {
+        evacM3Input.value = lastAuto;
+      }
+    } else {
+      if (evacVolumeRow) evacVolumeRow.style.display = 'none';
+      if (evacM3Input) evacM3Input.value = 0;
+    }
 
-// Récap évacuation
-const evacM3 = Number(evacM3Input?.value || 0);
-if (evacChoice === 'Oui' && evacM3 > 0) {
-  document.getElementById('summary-evac').textContent =
-    'Évacuation : oui (' + evacM3 + ' m³)';
-} else {
-  document.getElementById('summary-evac').textContent = 'Évacuation : non';
-}
+    const evacM3 = Number(evacM3Input?.value || 0);
+    if (evacChoice === 'Oui' && evacM3 > 0) {
+      document.getElementById('summary-evac').textContent =
+        'Évacuation : oui (' + evacM3 + ' m³)';
+    } else {
+      document.getElementById('summary-evac').textContent = 'Évacuation : non';
+    }
 
-    // --- Surface auto terrasse (pourtour 1 m) selon pack ---
+    // --- SURFACE AUTO TERRASSE (pourtour 1 m) ---
     const packSizes = {
       'Essentiel': { L: 5.2, W: 3.2 },
       'Confort':   { L: 6.2, W: 4.2 },
       'Luxe':      { L: 8.15, W: 4.2 }
     };
-    const b = 1; // pourtour 1m
+    const b = 1;
     const size = packSizes[pack];
     if (size) {
-      const autoSurface = (size.L + 2*b) * (size.W + 2*b) - size.L * size.W;
+      const autoSurface = (size.L + 2 * b) * (size.W + 2 * b) - size.L * size.W;
       const surfaceInput = document.getElementById('config-plage-surface');
-      // On ne force que si surface = 0 ou vide (pour laisser l'utilisateur ajuster)
       if (surfaceInput && (!surfaceInput.value || Number(surfaceInput.value) === 0)) {
         surfaceInput.value = autoSurface.toFixed(1);
       }
     }
 
+    // --- BUDGET ---
     const budget = document.getElementById('config-budget').value;
     let budgetLabel = '20 000 – 30 000 €';
     if (budget === '15-20k') budgetLabel = '15 000 – 20 000 €';
@@ -1402,7 +1398,7 @@ if (evacChoice === 'Oui' && evacM3 > 0) {
     if (budget === '40k+') budgetLabel = 'Plus de 40 000 €';
     document.getElementById('summary-budget').textContent = 'Budget envisagé : ' + budgetLabel;
 
-    // Options principales
+    // --- OPTIONS PRINCIPALES ---
     const chauffage = document.querySelector('input[name="chauffage"]:checked')?.value || 'Pas de chauffage';
     document.getElementById('summary-chauffage').textContent = 'Chauffage : ' + chauffage.toLowerCase();
 
@@ -1413,21 +1409,17 @@ if (evacChoice === 'Oui' && evacM3 > 0) {
     document.getElementById('summary-couverture').textContent =
       'Couverture : ' + (couverture === 'Aucune couverture spécifique' ? 'à définir ensemble' : couverture);
 
-       // Entretien (avec robot inclus dans Luxe)
+    // Entretien (robot inclus d’office en Luxe)
     let entretienValue = document.querySelector('input[name="entretien"]:checked')?.value || 'Sans robot';
     let entretienText = '';
 
     if (pack === 'Luxe') {
-      // Dans le pack Luxe, le robot est inclus d’office
       entretienValue = 'Avec robot nettoyeur';
       entretienText = 'avec robot nettoyeur (inclus dans le pack Luxe)';
     } else {
       entretienText = entretienValue.toLowerCase();
     }
-
-    document.getElementById('summary-entretien').textContent =
-      'Entretien : ' + entretienText;
-
+    document.getElementById('summary-entretien').textContent = 'Entretien : ' + entretienText;
 
     // Bâches & enrouleur
     const bacheChecked = Array.from(document.querySelectorAll('input[name="bache"]:checked'));
@@ -1443,16 +1435,13 @@ if (evacChoice === 'Oui' && evacM3 > 0) {
     } else if (pack === 'Confort') {
       let txt = 'Bâches : été + hiver incluses dans le pack Confort';
       const hasEnrouleur = bacheChecked.some(i => i.value === 'Enrouleur inox');
-      if (hasEnrouleur) {
-        txt += ', enrouleur inox en option';
-      }
+      if (hasEnrouleur) txt += ', enrouleur inox en option';
       summaryBachesEl.textContent = txt;
     } else if (pack === 'Luxe') {
       summaryBachesEl.textContent = 'Bâches : été + hiver + enrouleur inox inclus dans le pack Luxe';
     }
 
     // Loisirs
-        // Loisirs (LED blanc inclus dans Confort / Luxe, LED couleur en option pour tous)
     const loisirChecked = Array.from(document.querySelectorAll('input[name="loisir"]:checked'));
     const summaryLoisirEl = document.getElementById('summary-loisir');
 
@@ -1465,160 +1454,138 @@ if (evacChoice === 'Oui' && evacM3 > 0) {
     } else {
       const labels = loisirChecked.map(i => i.value);
       let baseText = '';
-
-      if (pack === 'Confort' || pack === 'Luxe') {
-        baseText = 'éclairage LED blanc inclus, options : ';
-      } else {
-        baseText = '';
-      }
-
+      if (pack === 'Confort' || pack === 'Luxe') baseText = 'éclairage LED blanc inclus, options : ';
       summaryLoisirEl.textContent = 'Loisirs : ' + baseText + labels.join(', ');
     }
 
-
-    // Délai & contact préférés
+    // --- DÉLAI & CONTACT ---
     const delai = document.getElementById('config-delai')?.value || 'à préciser';
-    document.getElementById('summary-delai').textContent =
-      'Délai souhaité : ' + delai;
+    document.getElementById('summary-delai').textContent = 'Délai souhaité : ' + delai;
 
     const contactPref = document.getElementById('config-contact-pref')?.value || 'à préciser';
-    document.getElementById('summary-contact-pref').textContent =
-      'Contact : ' + contactPref;
-// --- Plage / terrasse ---
-const plageMateriau = document.querySelector('input[name="plage_materiau"]:checked')?.value || 'Aucune';
-const plageSurface = Number(document.getElementById('config-plage-surface')?.value || 0);
+    document.getElementById('summary-contact-pref').textContent = 'Contact : ' + contactPref;
 
-let plageLabel = 'aucune';
-if (plageMateriau !== 'Aucune' && plageSurface > 0) {
-  const labelNice =
-    (plageMateriau === 'Gres cerame')
-      ? 'grès cérame imitation pierre bleue'
-      : plageMateriau.toLowerCase();
-  plageLabel = `${labelNice} — ${plageSurface.toFixed(1)} m²`;
-}
+    // --- PLAGE / TERRASSE ---
+    const plageMateriau = document.querySelector('input[name="plage_materiau"]:checked')?.value || 'Aucune';
+    const plageSurface = Number(document.getElementById('config-plage-surface')?.value || 0);
 
-document.getElementById('summary-plage').textContent =
-  'Plage/terrasse : ' + plageLabel;
+    let plageLabel = 'aucune';
+    if (plageMateriau !== 'Aucune' && plageSurface > 0) {
+      const labelNice =
+        (plageMateriau === 'Gres cerame')
+          ? 'grès cérame imitation pierre bleue'
+          : plageMateriau.toLowerCase();
+      plageLabel = `${labelNice} — ${plageSurface.toFixed(1)} m²`;
+    }
+    document.getElementById('summary-plage').textContent = 'Plage/terrasse : ' + plageLabel;
 
-   // --- ESTIMATION SIMPLE (coeff pose uniquement sur le pack) ---
+    // ===================== CALCUL PRIX =====================
 
-const basePrices = {
-  'Essentiel': 15490,
-  'Confort': 19490,
-  'Luxe': 23990
-};
+    const basePrices = {
+      'Essentiel': 15490,
+      'Confort': 19490,
+      'Luxe': 23990
+    };
+    const packBase = basePrices[pack] || 0;
 
-const packBase = basePrices[pack] || 0;
+    // 1) Options (hors plage + hors évacuation)
+    let optionsTotal = 0;
 
-// 1) Options (hors plage + hors évacuation)
-let optionsTotal = 0;
-           // Liner : Sand / Grey = +175 €
+    // Liner : Sand / Grey = +175 €
     let linerExtra = 0;
     if (linerColor === 'Sand' || linerColor === 'Grey') {
-      linerExtra = 175; // TVAC
+      linerExtra = 175;
     }
     optionsTotal += linerExtra;
 
+    // Chauffage
+    if (chauffage === 'Pompe à chaleur') optionsTotal += 3500;
 
-// Chauffage
-if (chauffage === 'Pompe à chaleur') optionsTotal += 3500;
+    // Traitement
+    if (traitement === 'Électrolyseur au sel') optionsTotal += 1800;
+    if (traitement === 'Électrolyseur + régulation pH') optionsTotal += 3200;
+    if (traitement === 'Pompe doseuse') optionsTotal += 1200;
 
-// Traitement
-if (traitement === 'Électrolyseur au sel') optionsTotal += 1800;
-if (traitement === 'Électrolyseur + régulation pH') optionsTotal += 3200;
-if (traitement === 'Pompe doseuse') optionsTotal += 1200;
+    // Couverture “haut de gamme”
+    if (couverture === 'Couverture à barres') optionsTotal += 2000;
+    if (couverture === 'Volet à lamelles manuel') optionsTotal += 3800;
+    if (couverture === 'Volet à lamelles motorisé') optionsTotal += 4800;
 
-// Couverture “haut de gamme”
-if (couverture === 'Couverture à barres') optionsTotal += 2000;
-if (couverture === 'Volet à lamelles manuel') optionsTotal += 3800;
-if (couverture === 'Volet à lamelles motorisé') optionsTotal += 4800;
+    // Bâches & enrouleur
+    let bachesTotal = 0;
+    if (pack === 'Essentiel') {
+      bacheChecked.forEach(i => {
+        if (i.value === 'Bâche été') bachesTotal += 600;
+        if (i.value === 'Bâche hiver') bachesTotal += 700;
+        if (i.value === 'Enrouleur inox') bachesTotal += 450;
+      });
+    } else if (pack === 'Confort') {
+      const hasEnrouleur = bacheChecked.some(i => i.value === 'Enrouleur inox');
+      if (hasEnrouleur) bachesTotal += 450;
+    }
+    optionsTotal += bachesTotal;
 
-// Bâches & enrouleur : logique par pack
-let bachesTotal = 0;
-if (pack === 'Essentiel') {
-  bacheChecked.forEach(i => {
-    if (i.value === 'Bâche été') bachesTotal += 600;
-    if (i.value === 'Bâche hiver') bachesTotal += 700;
-    if (i.value === 'Enrouleur inox') bachesTotal += 450;
-  });
-} else if (pack === 'Confort') {
-  const hasEnrouleur = bacheChecked.some(i => i.value === 'Enrouleur inox');
-  if (hasEnrouleur) bachesTotal += 450; // enrouleur en supplément
-}
-// Luxe : tout inclus → 0
-optionsTotal += bachesTotal;
+    // Entretien : robot en supplément uniquement pour Essentiel / Confort
+    if (pack !== 'Luxe' && entretienValue === 'Avec robot nettoyeur') {
+      optionsTotal += 1500;
+    }
 
-// Entretien : robot en supplément uniquement pour Essentiel / Confort
-if (pack !== 'Luxe' && entretienValue === 'Avec robot nettoyeur') {
-  optionsTotal += 1500;
-}
+    // Loisirs
+    loisirChecked.forEach(i => {
+      if (i.value === 'Éclairage LED couleur (RGB)') optionsTotal += 600;
+      if (i.value === 'Douche solaire extérieure') optionsTotal += 800;
+      if (i.value === 'Nage à contre-courant') optionsTotal += 6500;
+    });
 
-// Loisirs (LED blanc inclus Confort/Luxe, RGB payant pour tous)
-loisirChecked.forEach(i => {
-  if (i.value === 'Éclairage LED couleur (RGB)') optionsTotal += 600;
-  if (i.value === 'Douche solaire extérieure') optionsTotal += 800;
-  if (i.value === 'Nage à contre-courant') optionsTotal += 6500;
-});
+    // 2) Plage / terrasse (NE subit PAS le coeff de pose)
+    let plageTotal = 0;
+    const plagePricesPerM2 = {
+      'Bois': 140,
+      'Composite': 190,
+      'Gres cerame': 220
+    };
+    if (plageMateriau !== 'Aucune' && plageSurface > 0) {
+      plageTotal = plageSurface * (plagePricesPerM2[plageMateriau] || 0);
+    }
 
+    // 3) Coeff pose appliqué UNIQUEMENT sur le pack
+    const pose = document.querySelector('input[name="pose"]:checked')?.value || 'Hors-sol';
+    let coeffPose = 1.0;
+    if (pose === 'Semi-enterrée') coeffPose = 1.10;
+    if (pose === 'Enterrée') coeffPose = 1.20;
+    const packAvecPose = packBase * coeffPose;
 
-// 2) Plage / terrasse (NE SUBIT PAS le coeff pose)
-let plageTotal = 0;
-const plagePricesPerM2 = {
-  'Bois': 140,
-  'Composite': 190,
-  'Gres cerame': 220
-};
+    // 4) Évacuation
+    let evacTotal = 0;
+    if (evacChoice === 'Oui' && evacM3 > 0) {
+      const evacPricePerM3HTVA = 80;
+      const evacPriceTVAC = evacPricePerM3HTVA * 1.21;
+      evacTotal = evacM3 * evacPriceTVAC;
+    }
 
-if (plageMateriau !== 'Aucune' && plageSurface > 0) {
-  plageTotal = plageSurface * (plagePricesPerM2[plageMateriau] || 0);
-}
+    // 5) Total final
+    let price = packAvecPose + optionsTotal + plageTotal + evacTotal;
 
+    const rounded = Math.round(price / 100) * 100;
 
-// 3) Coeff pose appliqué UNIQUEMENT sur le pack
-const pose = document.querySelector('input[name="pose"]:checked')?.value || 'Hors-sol';
+    const nf = new Intl.NumberFormat('fr-BE', {
+      style: 'currency',
+      currency: 'EUR',
+      maximumFractionDigits: 0
+    });
 
-let coeffPose = 1.0;
-if (pose === 'Semi-enterrée') coeffPose = 1.10;
-if (pose === 'Enterrée') coeffPose = 1.20;
+    if (!estimationUnlocked) {
+      priceEl.textContent = '—';
+      return;
+    }
 
-const packAvecPose = packBase * coeffPose;
+    priceEl.textContent = nf.format(rounded);
 
+    // Récap pose
+    document.getElementById('summary-pose').textContent =
+      'Pose : ' + pose.toLowerCase();
+  }
 
-// 4) Évacuation (à part, après tout)
-let evacTotal = 0;
-if (evacChoice === 'Oui' && evacM3 > 0) {
-  const evacPricePerM3HTVA = 80;
-  const evacPriceTVAC = evacPricePerM3HTVA * 1.21;
-  evacTotal = evacM3 * evacPriceTVAC;
-}
-
-
-// 5) Total final
-let price = packAvecPose + optionsTotal + plageTotal + evacTotal;
-
-
-// Arrondi final au 100€
-const rounded = Math.round(price / 100) * 100;
-
-const nf = new Intl.NumberFormat('fr-BE', {
-  style: 'currency',
-  currency: 'EUR',
-  maximumFractionDigits: 0
-});
-
-if (!estimationUnlocked) {
-  priceEl.textContent = '—';
-  return;
-}
-
-priceEl.textContent = nf.format(rounded);
-
-
-// Récap pose (inchangé)
-document.getElementById('summary-pose').textContent =
-  'Pose : ' + pose.toLowerCase();
-
-     }
 
 
   function validateStep4() {
