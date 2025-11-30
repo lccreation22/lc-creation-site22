@@ -730,6 +730,55 @@ html, body {
 
             <!-- ETAPE 3 : OPTIONS -->
       <div class="config-step" data-step="3">
+              <!-- ETAPE 3 : OPTIONS -->
+      <div class="config-step" data-step="3">
+
+        <!-- Couleur du liner -->
+        <div class="config-group">
+          <label>Couleur du liner</label>
+          <div class="config-radio-group" id="config-liner">
+            <label class="config-radio-option active">
+              <input type="radio" name="liner_color" value="Blue" checked>
+              <div>
+                <div class="config-radio-title">Blue</div>
+                <div class="config-radio-desc">
+                  Liner bleu classique, rendu lumineux de l’eau (inclus dans le prix de base).
+                </div>
+              </div>
+            </label>
+
+            <label class="config-radio-option">
+              <input type="radio" name="liner_color" value="Sand">
+              <div>
+                <div class="config-radio-title">Sand (+175&nbsp;€)</div>
+                <div class="config-radio-desc">
+                  Liner sable, ambiance « méditerranéenne » très douce.
+                </div>
+              </div>
+            </label>
+
+            <label class="config-radio-option">
+              <input type="radio" name="liner_color" value="Grey">
+              <div>
+                <div class="config-radio-title">Grey (+175&nbsp;€)</div>
+                <div class="config-radio-desc">
+                  Liner gris, rendu contemporain, eau plus profonde visuellement.
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <small>Les liners Sand et Grey entraînent un supplément de 175&nbsp;€ TVAC.</small>
+
+          <!-- Preview visuelle de la couleur sélectionnée -->
+          <div class="config-liner-preview">
+            <img id="config-liner-image"
+                 src="./images/liner-blue.jpg"
+                 alt="Liner blue"
+                 loading="lazy">
+          </div>
+        </div>
+
         <!-- Chauffage -->
         <div class="config-group">
           <label>Chauffage de l’eau</label>
