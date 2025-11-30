@@ -1141,6 +1141,7 @@ html, body {
           <li id="summary-couverture">Couverture : à définir</li>
           <li id="summary-entretien">Entretien : sans robot</li>
           <li id="summary-loisir">Loisirs : aucun équipement spécifique</li>
+          <li id="summary-liner">Couleur du liner : blue</li>
           <li id="summary-evac">Évacuation : non</li>
 
           <li id="summary-plage">Plage/terrasse : aucune</li>
@@ -1323,6 +1324,25 @@ togglePlageVisibility();
     // Pack
     const pack = document.querySelector('input[name="pack"]:checked')?.value || 'Essentiel';
     document.getElementById('summary-pack').textContent = pack;
+           // --- Couleur du liner ---
+    const linerColor = document.querySelector('input[name="liner_color"]:checked')?.value || 'Blue';
+
+    const summaryLinerEl = document.getElementById('summary-liner');
+    if (summaryLinerEl) {
+      summaryLinerEl.textContent =
+        'Couleur du liner : ' + linerColor.toLowerCase();
+    }
+
+    // Mise à jour de la photo en fonction du choix
+    const linerImg = document.getElementById('config-liner-image');
+    if (linerImg) {
+      let src = './images/liner-blue.jpg';
+      if (linerColor === 'Sand') src = './images/liner-sand.jpg';
+      if (linerColor === 'Grey') src = './images/liner-grey.jpg';
+      linerImg.src = src;
+      linerImg.alt = 'Liner ' + linerColor;
+    }
+
        // --- ÉVACUATION : volume auto par pack ---
 const defaultEvacM3 = {
   'Essentiel': 30,
@@ -1492,6 +1512,13 @@ const packBase = basePrices[pack] || 0;
 
 // 1) Options (hors plage + hors évacuation)
 let optionsTotal = 0;
+           // Liner : Sand / Grey = +175 €
+    let linerExtra = 0;
+    if (linerColor === 'Sand' || linerColor === 'Grey') {
+      linerExtra = 175; // TVAC
+    }
+    optionsTotal += linerExtra;
+
 
 // Chauffage
 if (chauffage === 'Pompe à chaleur') optionsTotal += 3500;
