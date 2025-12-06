@@ -704,7 +704,7 @@ html, body {
               <div>
                 <div class="config-radio-title">Essentiel</div>
                 <div class="config-radio-desc">
-                  5,20 × 3,20 × 1,33 m — accès intelligent à la piscine bois, idéal pour un premier projet.
+                  5,00 × 3,20 × 1,23 m — accès intelligent à la piscine bois, idéal pour un premier projet.
                   Base indicative : ~16 500 € TVAC.
                 </div>
               </div>
@@ -714,7 +714,7 @@ html, body {
               <div>
                 <div class="config-radio-title">Confort</div>
                 <div class="config-radio-desc">
-                  6,20 × 4,20 × 1,33 m — format familial, options techniques plus évoluées.
+                  6,00 × 4,20 × 1,30 m — format familial, options techniques plus évoluées.
                   Base indicative : ~19 800 € TVAC.
                 </div>
               </div>
@@ -724,7 +724,7 @@ html, body {
               <div>
                 <div class="config-radio-title">Luxe</div>
                 <div class="config-radio-desc">
-                  8,15 × 4,20 × 1,46 m — expérience haut de gamme, confort maximal et équipements complets.
+                  8,35 × 4,90 × 1,36 m — expérience haut de gamme, confort maximal et équipements complets.
                   Base indicative : ~24 000 € TVAC.
                 </div>
               </div>
@@ -1375,7 +1375,7 @@ togglePlageVisibility();
     const packSizes = {
       'Essentiel': { L: 5.2, W: 3.2 },
       'Confort':   { L: 6.2, W: 4.2 },
-      'Luxe':      { L: 8.15, W: 4.2 }
+      'Luxe':      { L: 8.35, W: 4.9 }
     };
     const b = 1;
     const size = packSizes[pack];
@@ -1501,12 +1501,12 @@ togglePlageVisibility();
     // Traitement
     if (traitement === 'Électrolyseur au sel') optionsTotal += 1800;
     if (traitement === 'Électrolyseur + régulation pH') optionsTotal += 3200;
-    if (traitement === 'Pompe doseuse') optionsTotal += 1200;
+    if (traitement === 'Pompe doseuse') optionsTotal += 1800;
 
     // Couverture “haut de gamme”
     if (couverture === 'Couverture à barres') optionsTotal += 2000;
     if (couverture === 'Volet à lamelles manuel') optionsTotal += 3800;
-    if (couverture === 'Volet à lamelles motorisé') optionsTotal += 4800;
+    if (couverture === 'Volet à lamelles motorisé') optionsTotal += 5800;
 
     // Bâches & enrouleur
     let bachesTotal = 0;
@@ -1524,7 +1524,7 @@ togglePlageVisibility();
 
     // Entretien : robot en supplément uniquement pour Essentiel / Confort
     if (pack !== 'Luxe' && entretienValue === 'Avec robot nettoyeur') {
-      optionsTotal += 1500;
+      optionsTotal += 1800;
     }
 
     // Loisirs
