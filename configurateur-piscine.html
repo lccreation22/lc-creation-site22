@@ -1226,12 +1226,9 @@ html, body {
     "essentiel": "Pack Piscine Bois ESSENTIEL",
     "confort": "Pack Piscine Bois CONFORT",
     "luxe": "Pack Piscine Bois LUXE",
-    "mini-urbaine-9m2": "Mini Piscine Bois URBAINE 9 m² – Gamme Premium"
+    
   };
 
-  var modelePrix = {
-    "mini-urbaine-9m2": "Pack URBAIN 9 m² : 9 990 € HTVA (≈ 12 100 € TVAC)"
-  };
 
   var modeleSelectionne = "";
   if (modeleParam && modeleLabels[modeleParam]) {
@@ -1554,7 +1551,7 @@ html, body {
     var bacheChecked = document.querySelectorAll('input[name="bache"]:checked');
     var summaryBachesEl = document.getElementById("summary-baches");
 
-    if (pack === "Essentiel" || pack === "Urbain") {
+    if (pack === "Essentiel" ) {
       if (bacheChecked.length === 0) {
         summaryBachesEl.textContent = "Bâches : aucune sélection";
       } else {
@@ -1581,7 +1578,7 @@ html, body {
     var loisirChecked = document.querySelectorAll('input[name="loisir"]:checked');
     var summaryLoisirEl = document.getElementById("summary-loisir");
     if (loisirChecked.length === 0) {
-      if (pack === "Essentiel" || pack === "Urbain") {
+      if (pack === "Essentiel" ) {
         summaryLoisirEl.textContent = "Loisirs : aucun équipement spécifique";
       } else {
         summaryLoisirEl.textContent = "Loisirs : éclairage LED blanc inclus dans le pack";
@@ -1626,7 +1623,7 @@ html, body {
 
     // === CALCUL PRIX ===
     var basePrices = {
-      Urbain: 12100,
+    
       Essentiel: 15490,
       Confort: 19490,
       Luxe: 23990
