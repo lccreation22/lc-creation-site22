@@ -582,6 +582,9 @@ html, body {
           <p id="config-modele-badge" class="config-note" style="display:none;">
       Modèle choisi : <strong id="config-modele-label"></strong>
     </p>
+    
+ <!-- 👇 NOUVEAU : ligne de prix du pack -->
+    <p id="config-modele-prix" class="config-note" style="display:none;"></p>
 
     </div>
   </section>
@@ -1189,7 +1192,7 @@ html, body {
 
   <script>
 (function () {
-  (function () {
+ 
   // === Gestion du paramètre ?modele= dans l'URL ===
   const urlParams = new URLSearchParams(window.location.search);
   const modeleParam = urlParams.get("modele") || "";
@@ -1211,7 +1214,48 @@ html, body {
       badge.style.display = "block";
       badgeLabel.textContent = modeleSelectionne;
     }
+  (function () {
+  // === Gestion du paramètre ?modele= dans l'URL ===
+  const urlParams = new URLSearchParams(window.location.search);
+  const modeleParam = urlParams.get("modele") || "";
+
+  const modeleLabels = {
+    "essentiel": "Pack Piscine Bois ESSENTIEL",
+    "confort": "Pack Piscine Bois CONFORT",
+    "luxe": "Pack Piscine Bois LUXE",
+    "mini-urbaine-9m2": "Mini Piscine Bois URBAINE 9 m² – Gamme Premium",
+  };
+
+  // 🔸 Prix texte par modèle (on ne remplit que le mini pour l’instant)
+  const modelePrix = {
+    "mini-urbaine-9m2": "Pack URBAIN 9 m² : 9 990 € HTVA (≈ 12 100 € TVAC)",
+  };
+
+  let modeleSelectionne = "";
+  if (modeleParam && modeleLabels[modeleParam]) {
+    modeleSelectionne = modeleLabels[modeleParam];
+
+    const badge = document.getElementById("config-modele-badge");
+    const badgeLabel = document.getElementById("config-modele-label");
+    if (badge && badgeLabel) {
+      badge.style.display = "block";
+      badgeLabel.textContent = modeleSelectionne;
+    }
+
+    // 🔹 Afficher la ligne de prix si on a un texte pour ce modèle
+    const prixLine = document.getElementById("config-modele-prix");
+    if (prixLine && modelePrix[modeleParam]) {
+      prixLine.textContent = modelePrix[modeleParam];
+      prixLine.style.display = "block";
+    }
   }
+
+  // === Code existant ensuite ===
+  const totalSteps = 4;
+  let currentStep = 1;
+  let estimationUnlocked = false;
+  // ...
+
 
   // === Code existant en dessous ===
   const totalSteps = 4;
