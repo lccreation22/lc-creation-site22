@@ -1189,10 +1189,8 @@ html, body {
   </section>
 
 </main>
-
-  <script>
+<script>
 (function () {
- 
   // === Gestion du paramètre ?modele= dans l'URL ===
   const urlParams = new URLSearchParams(window.location.search);
   const modeleParam = urlParams.get("modele") || "";
@@ -1204,29 +1202,6 @@ html, body {
     "mini-urbaine-9m2": "Mini Piscine Bois URBAINE 9 m² – Gamme Premium",
   };
 
-  let modeleSelectionne = "";
-  if (modeleParam && modeleLabels[modeleParam]) {
-    modeleSelectionne = modeleLabels[modeleParam];
-
-    const badge = document.getElementById("config-modele-badge");
-    const badgeLabel = document.getElementById("config-modele-label");
-    if (badge && badgeLabel) {
-      badge.style.display = "block";
-      badgeLabel.textContent = modeleSelectionne;
-    }
-  (function () {
-  // === Gestion du paramètre ?modele= dans l'URL ===
-  const urlParams = new URLSearchParams(window.location.search);
-  const modeleParam = urlParams.get("modele") || "";
-
-  const modeleLabels = {
-    "essentiel": "Pack Piscine Bois ESSENTIEL",
-    "confort": "Pack Piscine Bois CONFORT",
-    "luxe": "Pack Piscine Bois LUXE",
-    "mini-urbaine-9m2": "Mini Piscine Bois URBAINE 9 m² – Gamme Premium",
-  };
-
-  // 🔸 Prix texte par modèle (on ne remplit que le mini pour l’instant)
   const modelePrix = {
     "mini-urbaine-9m2": "Pack URBAIN 9 m² : 9 990 € HTVA (≈ 12 100 € TVAC)",
   };
@@ -1242,7 +1217,6 @@ html, body {
       badgeLabel.textContent = modeleSelectionne;
     }
 
-    // 🔹 Afficher la ligne de prix si on a un texte pour ce modèle
     const prixLine = document.getElementById("config-modele-prix");
     if (prixLine && modelePrix[modeleParam]) {
       prixLine.textContent = modelePrix[modeleParam];
@@ -1250,558 +1224,622 @@ html, body {
     }
   }
 
-  // === Code existant ensuite ===
+  // === Variables globales du configurateur ===
   const totalSteps = 4;
   let currentStep = 1;
-  let estimationUnlocked = false;
-  // ...
+  let estimationUnlocked = false; // tant que false, le prix reste "—"
 
+  const evacVolumeRow = document.getElementById("config-evac-volume-row");
+  const evacM3Input = document.getElementById("config-evac-m3");
 
-  // === Code existant en dessous ===
-  const totalSteps = 4;
-  let currentStep = 1;
-  let estimationUnlocked = false;
-  const evacVolumeRow = document.getElementById('config-evac-volume-row');
-  ...
+  const stepEls = document.querySelectorAll(".config-step");
+  const pillEls = document.querySelectorAll(".config-step-pill");
+  const stepCurrentEl = document.getElementById("config-step-current");
+  const stepTotalEl = document.getElementById("config-step-total");
+  const backBtn = document.getElementById("config-back");
+  const nextBtn = document.getElementById("config-next");
+  const cancelBtn = document.getElementById("config-cancel");
+  const priceEl = document.getElementById("summary-price");
 
-  const totalSteps = 4;
-  let currentStep = 1;
-  let estimationUnlocked = false; // tant que false, on NE montre PAS le prix
-const evacVolumeRow = document.getElementById('config-evac-volume-row');
-const evacM3Input = document.getElementById('config-evac-m3');
+  const plageBlock = document.getElementById("config-plage-block");
+  const plageSurfaceInput = document.getElementById("config-plage-surface");
 
-  const stepEls = document.querySelectorAll('.config-step');
-  const plageBlock = document.getElementById('config-plage-block');
-const plageSurfaceInput = document.getElementById('config-plage-surface');
-
-  const pillEls = document.querySelectorAll('.config-step-pill');
-  const stepCurrentEl = document.getElementById('config-step-current');
-  const stepTotalEl = document.getElementById('config-step-total');
-  const backBtn = document.getElementById('config-back');
-  const nextBtn = document.getElementById('config-next');
-  const cancelBtn = document.getElementById('config-cancel');
-  const priceEl = document.getElementById('summary-price');
-   
   if (stepTotalEl) stepTotalEl.textContent = totalSteps;
-function scrollToConfigTop() {
-  const form = document.getElementById('config-form');
-  if (!form) return;
 
-  const headerOffset = 90;
-  const y = form.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+  // === Scroll au début du formulaire à chaque changement d'étape ===
+  function scrollToConfigTop() {
+    const form = document.getElementById("config-form");
+    if (!form) return;
 
-  window.scrollTo({
-    top: y,
-    behavior: 'smooth'
-  });
-}
+    const headerOffset = 90;
+    const y = form.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
-function showStep(step) {
-  currentStep = step;
-
-  stepEls.forEach(el => {
-    el.classList.toggle('active', Number(el.dataset.step) === step);
-  });
-
-  pillEls.forEach(el => {
-    el.classList.toggle('active', Number(el.dataset.stepPill) === step);
-  });
-
-  if (stepCurrentEl) stepCurrentEl.textContent = step;
-  if (backBtn) backBtn.disabled = (step === 1);
-  if (nextBtn) nextBtn.textContent = (step === totalSteps) ? 'Voir mon estimation' : 'Étape suivante';
-
-  // 👉 scroll en haut du configurateur à chaque changement d’étape
-  requestAnimationFrame(scrollToConfigTop);
-}
-
- 
-// ====== RADIOS : cartes visuelles ======
-document.querySelectorAll('.config-radio-option').forEach(option => {
-  const input = option.querySelector('input[type="radio"]');
-  if (!input) return;
-
-  // clic sur la carte = coche l'input
-  option.addEventListener('click', () => {
-    input.checked = true;
-    input.dispatchEvent(new Event('change', { bubbles: true }));
-  });
-
-  // change = met à jour les classes
-  input.addEventListener('change', () => {
-    const name = input.name;
-    document
-      .querySelectorAll(`.config-radio-option input[name="${name}"]`)
-      .forEach(r => r.closest('.config-radio-option').classList.remove('active'));
-
-    option.classList.add('active');
-    updateSummary();
-  });
-});
-
-
-// ====== CHECKBOX : cartes visuelles ======
-document.querySelectorAll('.config-check-option').forEach(option => {
-  const input = option.querySelector('input[type="checkbox"]');
-  if (!input) return;
-
-  // clic sur la carte = toggle l'input
-  option.addEventListener('click', (e) => {
-    // si on clique sur l'input lui-même, on laisse faire le navigateur
-    if (e.target === input) return;
-
-    input.checked = !input.checked;
-    input.dispatchEvent(new Event('change', { bubbles: true }));
-  });
-
-  // change = met à jour la classe active
-  input.addEventListener('change', () => {
-    option.classList.toggle('active', input.checked);
-    updateSummary();
-  });
-});
-
- 
-
-// --- Afficher / cacher la plage selon le type de projet ---
-function togglePlageVisibility() {
-  const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || '';
-
-  const needsPlage =
-    typeProjet === 'Piscine + terrasse / plage' ||
-    typeProjet === 'Piscine + réaménagement complet du jardin';
-
-  if (plageBlock) {
-    plageBlock.style.display = needsPlage ? 'block' : 'none';
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
   }
 
-  // Si on cache => on remet à zéro pour ne pas impacter le prix
-  if (!needsPlage) {
-    // reset choix matériau
-    const radioAucune = document.querySelector('input[name="plage_materiau"][value="Aucune"]');
-    if (radioAucune) radioAucune.checked = true;
+  function showStep(step) {
+    currentStep = step;
 
-    // reset surface
-    if (plageSurfaceInput) plageSurfaceInput.value = 0;
+    stepEls.forEach((el) => {
+      el.classList.toggle("active", Number(el.dataset.step) === step);
+    });
+
+    pillEls.forEach((el) => {
+      el.classList.toggle("active", Number(el.dataset.stepPill) === step);
+    });
+
+    if (stepCurrentEl) stepCurrentEl.textContent = step;
+    if (backBtn) backBtn.disabled = step === 1;
+    if (nextBtn) nextBtn.textContent =
+      step === totalSteps ? "Voir mon estimation" : "Étape suivante";
+
+    requestAnimationFrame(scrollToConfigTop);
   }
-}
 
-// écouter le changement du type projet
-document.querySelectorAll('input[name="type_projet"]').forEach(radio => {
-  radio.addEventListener('change', () => {
-    togglePlageVisibility();
-    updateSummary();
+  // ====== Cartes radio (style "carte") ======
+  document.querySelectorAll(".config-radio-option").forEach((option) => {
+    const input = option.querySelector('input[type="radio"]');
+    if (!input) return;
+
+    option.addEventListener("click", () => {
+      input.checked = true;
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    input.addEventListener("change", () => {
+      const name = input.name;
+      document
+        .querySelectorAll('.config-radio-option input[name="' + name + '"]')
+        .forEach((r) =>
+          r.closest(".config-radio-option").classList.remove("active")
+        );
+
+      option.classList.add("active");
+      updateSummary();
+    });
   });
-});
 
-// appel initial au chargement
-togglePlageVisibility();
-  
-     function updateSummary() {
-    // --- PROJET ---
-    const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || 'Piscine seule';
-    document.getElementById('summary-type-projet').textContent = typeProjet;
+  // ====== Cartes checkbox ======
+  document.querySelectorAll(".config-check-option").forEach((option) => {
+    const input = option.querySelector('input[type="checkbox"]');
+    if (!input) return;
 
-    const terrain = document.getElementById('config-terrain').value;
-    document.getElementById('summary-terrain').textContent = 'Terrain : ' + terrain.toLowerCase();
+    option.addEventListener("click", (e) => {
+      if (e.target === input) return;
+      input.checked = !input.checked;
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+    });
 
-    const cp = document.getElementById('config-code-postal').value || 'à préciser';
-    document.getElementById('summary-code-postal').textContent = 'Code postal : ' + cp;
+    input.addEventListener("change", () => {
+      option.classList.toggle("active", input.checked);
+      updateSummary();
+    });
+  });
 
-    // --- PACK ---
-    const pack = document.querySelector('input[name="pack"]:checked')?.value || 'Essentiel';
-    document.getElementById('summary-pack').textContent = pack;
+  // --- Afficher / cacher la plage selon le type de projet ---
+  function togglePlageVisibility() {
+    const typeProjet =
+      document.querySelector('input[name="type_projet"]:checked')?.value || "";
 
-    // --- COULEUR DU LINER ---
-    const linerColor = document.querySelector('input[name="liner_color"]:checked')?.value || 'Blue';
+    const needsPlage =
+      typeProjet === "Piscine + terrasse / plage" ||
+      typeProjet === "Piscine + réaménagement complet du jardin";
 
-    const summaryLinerEl = document.getElementById('summary-liner');
-    if (summaryLinerEl) {
-      summaryLinerEl.textContent = 'Couleur du liner : ' + linerColor.toLowerCase();
+    if (plageBlock) {
+      plageBlock.style.display = needsPlage ? "block" : "none";
     }
 
-    const linerImg = document.getElementById('config-liner-image');
+    if (!needsPlage) {
+      const radioAucune = document.querySelector(
+        'input[name="plage_materiau"][value="Aucune"]'
+      );
+      if (radioAucune) radioAucune.checked = true;
+      if (plageSurfaceInput) plageSurfaceInput.value = 0;
+    }
+  }
+
+  document.querySelectorAll('input[name="type_projet"]').forEach((radio) => {
+    radio.addEventListener("change", () => {
+      togglePlageVisibility();
+      updateSummary();
+    });
+  });
+
+  togglePlageVisibility();
+
+  // === Mise à jour du récap + calcul du prix ===
+  function updateSummary() {
+    // --- PROJET ---
+    const typeProjet =
+      document.querySelector('input[name="type_projet"]:checked')?.value ||
+      "Piscine seule";
+    document.getElementById("summary-type-projet").textContent = typeProjet;
+
+    const terrainEl = document.getElementById("config-terrain");
+    const terrain = terrainEl ? terrainEl.value : "Plat";
+    document.getElementById("summary-terrain").textContent =
+      "Terrain : " + terrain.toLowerCase();
+
+    const cpEl = document.getElementById("config-code-postal");
+    const cp = cpEl && cpEl.value ? cpEl.value : "à préciser";
+    document.getElementById("summary-code-postal").textContent =
+      "Code postal : " + cp;
+
+    // --- PACK ---
+    const pack =
+      document.querySelector('input[name="pack"]:checked')?.value ||
+      "Essentiel";
+    document.getElementById("summary-pack").textContent = pack;
+
+    // --- COULEUR DU LINER ---
+    const linerColor =
+      document.querySelector('input[name="liner_color"]:checked')?.value ||
+      "Blue";
+
+    const summaryLinerEl = document.getElementById("summary-liner");
+    if (summaryLinerEl) {
+      summaryLinerEl.textContent =
+        "Couleur du liner : " + linerColor.toLowerCase();
+    }
+
+    const linerImg = document.getElementById("config-liner-image");
     if (linerImg) {
-      let src = './liner blue.jpg';
-      if (linerColor === 'Sand') src = './liner sand.jpg';
-      if (linerColor === 'Grey') src = './liner grey.jpg';
+      let src = "./liner blue.jpg";
+      if (linerColor === "Sand") src = "./liner sand.jpg";
+      if (linerColor === "Grey") src = "./liner grey.jpg";
       linerImg.src = src;
-      linerImg.alt = 'Liner ' + linerColor;
+      linerImg.alt = "Liner " + linerColor;
     }
 
     // --- ÉVACUATION : volume auto par pack ---
     const defaultEvacM3 = {
-      'Essentiel': 30,
-      'Confort': 46,
-      'Luxe': 60
+      Essentiel: 30,
+      Confort: 46,
+      Luxe: 60,
     };
 
-    const evacChoice = document.querySelector('input[name="evacuation"]:checked')?.value || 'Non';
+    const evacChoice =
+      document.querySelector('input[name="evacuation"]:checked')?.value ||
+      "Non";
 
-    if (evacChoice === 'Oui') {
-      if (evacVolumeRow) evacVolumeRow.style.display = 'block';
+    if (evacChoice === "Oui") {
+      if (evacVolumeRow) evacVolumeRow.style.display = "block";
 
-      const lastAuto = defaultEvacM3[pack] || 0;
+      const auto = defaultEvacM3[pack] || 0;
       const currentVal = Number(evacM3Input?.value || 0);
       const isAutoLike = Object.values(defaultEvacM3).includes(currentVal);
 
       if (evacM3Input && (currentVal === 0 || isAutoLike)) {
-        evacM3Input.value = lastAuto;
+        evacM3Input.value = auto;
       }
     } else {
-      if (evacVolumeRow) evacVolumeRow.style.display = 'none';
+      if (evacVolumeRow) evacVolumeRow.style.display = "none";
       if (evacM3Input) evacM3Input.value = 0;
     }
 
     const evacM3 = Number(evacM3Input?.value || 0);
-    if (evacChoice === 'Oui' && evacM3 > 0) {
-      document.getElementById('summary-evac').textContent =
-        'Évacuation : oui (' + evacM3 + ' m³)';
+    if (evacChoice === "Oui" && evacM3 > 0) {
+      document.getElementById("summary-evac").textContent =
+        "Évacuation : oui (" + evacM3 + " m³)";
     } else {
-      document.getElementById('summary-evac').textContent = 'Évacuation : non';
+      document.getElementById("summary-evac").textContent =
+        "Évacuation : non";
     }
 
     // --- SURFACE AUTO TERRASSE (pourtour 1 m) ---
     const packSizes = {
-      'Essentiel': { L: 5.2, W: 3.2 },
-      'Confort':   { L: 6.2, W: 4.2 },
-      'Luxe':      { L: 8.35, W: 4.9 }
+      Essentiel: { L: 5.2, W: 3.2 },
+      Confort: { L: 6.2, W: 4.2 },
+      Luxe: { L: 8.35, W: 4.9 },
     };
     const b = 1;
     const size = packSizes[pack];
-    if (size) {
-      const autoSurface = (size.L + 2 * b) * (size.W + 2 * b) - size.L * size.W;
-      const surfaceInput = document.getElementById('config-plage-surface');
-      if (surfaceInput && (!surfaceInput.value || Number(surfaceInput.value) === 0)) {
-        surfaceInput.value = autoSurface.toFixed(1);
+    if (size && plageSurfaceInput) {
+      const autoSurface =
+        (size.L + 2 * b) * (size.W + 2 * b) - size.L * size.W;
+      if (!plageSurfaceInput.value || Number(plageSurfaceInput.value) === 0) {
+        plageSurfaceInput.value = autoSurface.toFixed(1);
       }
     }
 
     // --- BUDGET ---
-    const budget = document.getElementById('config-budget').value;
-    let budgetLabel = '20 000 – 30 000 €';
-    if (budget === '15-20k') budgetLabel = '15 000 – 20 000 €';
-    if (budget === '30-40k') budgetLabel = '30 000 – 40 000 €';
-    if (budget === '40k+') budgetLabel = 'Plus de 40 000 €';
-    document.getElementById('summary-budget').textContent = 'Budget envisagé : ' + budgetLabel;
+    const budgetVal =
+      document.getElementById("config-budget")?.value || "20-30k";
+    let budgetLabel = "20 000 – 30 000 €";
+    if (budgetVal === "15-20k") budgetLabel = "15 000 – 20 000 €";
+    if (budgetVal === "30-40k") budgetLabel = "30 000 – 40 000 €";
+    if (budgetVal === "40k+") budgetLabel = "Plus de 40 000 €";
+    document.getElementById("summary-budget").textContent =
+      "Budget envisagé : " + budgetLabel;
 
     // --- OPTIONS PRINCIPALES ---
-    const chauffage = document.querySelector('input[name="chauffage"]:checked')?.value || 'Pas de chauffage';
-    document.getElementById('summary-chauffage').textContent = 'Chauffage : ' + chauffage.toLowerCase();
+    const chauffage =
+      document.querySelector('input[name="chauffage"]:checked')?.value ||
+      "Pas de chauffage";
+    document.getElementById("summary-chauffage").textContent =
+      "Chauffage : " + chauffage.toLowerCase();
 
-    const traitement = document.querySelector('input[name="traitement"]:checked')?.value || 'Traitement manuel';
-    document.getElementById('summary-traitement').textContent = 'Traitement : ' + traitement;
+    const traitement =
+      document.querySelector('input[name="traitement"]:checked')?.value ||
+      "Traitement manuel";
+    document.getElementById("summary-traitement").textContent =
+      "Traitement : " + traitement;
 
-    const couverture = document.querySelector('input[name="couverture"]:checked')?.value || 'Aucune couverture spécifique';
-    document.getElementById('summary-couverture').textContent =
-      'Couverture : ' + (couverture === 'Aucune couverture spécifique' ? 'à définir ensemble' : couverture);
+    const couvertureVal =
+      document.querySelector('input[name="couverture"]:checked')?.value ||
+      "Aucune couverture spécifique";
+    document.getElementById("summary-couverture").textContent =
+      "Couverture : " +
+      (couvertureVal === "Aucune couverture spécifique"
+        ? "à définir ensemble"
+        : couvertureVal);
 
     // Entretien (robot inclus d’office en Luxe)
-    let entretienValue = document.querySelector('input[name="entretien"]:checked')?.value || 'Sans robot';
-    let entretienText = '';
+    let entretienValue =
+      document.querySelector('input[name="entretien"]:checked')?.value ||
+      "Sans robot";
+    let entretienText = "";
 
-    if (pack === 'Luxe') {
-      entretienValue = 'Avec robot nettoyeur';
-      entretienText = 'avec robot nettoyeur (inclus dans le pack Luxe)';
+    if (pack === "Luxe") {
+      entretienValue = "Avec robot nettoyeur";
+      entretienText = "avec robot nettoyeur (inclus dans le pack Luxe)";
     } else {
       entretienText = entretienValue.toLowerCase();
     }
-    document.getElementById('summary-entretien').textContent = 'Entretien : ' + entretienText;
+    document.getElementById("summary-entretien").textContent =
+      "Entretien : " + entretienText;
 
     // Bâches & enrouleur
-    const bacheChecked = Array.from(document.querySelectorAll('input[name="bache"]:checked'));
-    const summaryBachesEl = document.getElementById('summary-baches');
+    const bacheChecked = Array.from(
+      document.querySelectorAll('input[name="bache"]:checked')
+    );
+    const summaryBachesEl = document.getElementById("summary-baches");
 
-    if (pack === 'Essentiel') {
+    if (pack === "Essentiel") {
       if (bacheChecked.length === 0) {
-        summaryBachesEl.textContent = 'Bâches : aucune sélection';
+        summaryBachesEl.textContent = "Bâches : aucune sélection";
       } else {
-        const labelsBaches = bacheChecked.map(i => i.value);
-        summaryBachesEl.textContent = 'Bâches : ' + labelsBaches.join(', ');
+        const labelsBaches = bacheChecked.map((i) => i.value);
+        summaryBachesEl.textContent = "Bâches : " + labelsBaches.join(", ");
       }
-    } else if (pack === 'Confort') {
-      let txt = 'Bâches : été + hiver incluses dans le pack Confort';
-      const hasEnrouleur = bacheChecked.some(i => i.value === 'Enrouleur inox');
-      if (hasEnrouleur) txt += ', enrouleur inox en option';
+    } else if (pack === "Confort") {
+      let txt =
+        "Bâches : été + hiver incluses dans le pack Confort";
+      const hasEnrouleur = bacheChecked.some(
+        (i) => i.value === "Enrouleur inox"
+      );
+      if (hasEnrouleur) txt += ", enrouleur inox en option";
       summaryBachesEl.textContent = txt;
-    } else if (pack === 'Luxe') {
-      summaryBachesEl.textContent = 'Bâches : été + hiver + enrouleur inox inclus dans le pack Luxe';
+    } else if (pack === "Luxe") {
+      summaryBachesEl.textContent =
+        "Bâches : été + hiver + enrouleur inox inclus dans le pack Luxe";
     }
 
     // Loisirs
-    const loisirChecked = Array.from(document.querySelectorAll('input[name="loisir"]:checked'));
-    const summaryLoisirEl = document.getElementById('summary-loisir');
+    const loisirChecked = Array.from(
+      document.querySelectorAll('input[name="loisir"]:checked')
+    );
+    const summaryLoisirEl = document.getElementById("summary-loisir");
 
     if (loisirChecked.length === 0) {
-      if (pack === 'Essentiel') {
-        summaryLoisirEl.textContent = 'Loisirs : aucun équipement spécifique';
-      } else if (pack === 'Confort' || pack === 'Luxe') {
-        summaryLoisirEl.textContent = 'Loisirs : éclairage LED blanc inclus dans le pack';
+      if (pack === "Essentiel") {
+        summaryLoisirEl.textContent =
+          "Loisirs : aucun équipement spécifique";
+      } else if (pack === "Confort" || pack === "Luxe") {
+        summaryLoisirEl.textContent =
+          "Loisirs : éclairage LED blanc inclus dans le pack";
       }
     } else {
-      const labels = loisirChecked.map(i => i.value);
-      let baseText = '';
-      if (pack === 'Confort' || pack === 'Luxe') baseText = 'éclairage LED blanc inclus, options : ';
-      summaryLoisirEl.textContent = 'Loisirs : ' + baseText + labels.join(', ');
+      const labels = loisirChecked.map((i) => i.value);
+      let baseText = "";
+      if (pack === "Confort" || pack === "Luxe")
+        baseText = "éclairage LED blanc inclus, options : ";
+      summaryLoisirEl.textContent =
+        "Loisirs : " + baseText + labels.join(", ");
     }
 
     // --- DÉLAI & CONTACT ---
-    const delai = document.getElementById('config-delai')?.value || 'à préciser';
-    document.getElementById('summary-delai').textContent = 'Délai souhaité : ' + delai;
+    const delai =
+      document.getElementById("config-delai")?.value || "à préciser";
+    document.getElementById("summary-delai").textContent =
+      "Délai souhaité : " + delai;
 
-    const contactPref = document.getElementById('config-contact-pref')?.value || 'à préciser';
-    document.getElementById('summary-contact-pref').textContent = 'Contact : ' + contactPref;
+    const contactPref =
+      document.getElementById("config-contact-pref")?.value ||
+      "à préciser";
+    document.getElementById("summary-contact-pref").textContent =
+      "Contact : " + contactPref;
 
     // --- PLAGE / TERRASSE ---
-    const plageMateriau = document.querySelector('input[name="plage_materiau"]:checked')?.value || 'Aucune';
-    const plageSurface = Number(document.getElementById('config-plage-surface')?.value || 0);
+    const plageMateriau =
+      document.querySelector('input[name="plage_materiau"]:checked')
+        ?.value || "Aucune";
+    const plageSurface = Number(plageSurfaceInput?.value || 0);
 
-    let plageLabel = 'aucune';
-    if (plageMateriau !== 'Aucune' && plageSurface > 0) {
+    let plageLabel = "aucune";
+    if (plageMateriau !== "Aucune" && plageSurface > 0) {
       const labelNice =
-        (plageMateriau === 'Gres cerame')
-          ? 'grès cérame imitation pierre bleue'
+        plageMateriau === "Gres cerame"
+          ? "grès cérame imitation pierre bleue"
           : plageMateriau.toLowerCase();
       plageLabel = `${labelNice} — ${plageSurface.toFixed(1)} m²`;
     }
-    document.getElementById('summary-plage').textContent = 'Plage/terrasse : ' + plageLabel;
+    document.getElementById("summary-plage").textContent =
+      "Plage/terrasse : " + plageLabel;
 
-    // ===================== CALCUL PRIX =====================
+    // ============= CALCUL PRIX =============
 
     const basePrices = {
-      'Essentiel': 15490,
-      'Confort': 19490,
-      'Luxe': 23990
+      Essentiel: 15490,
+      Confort: 19490,
+      Luxe: 23990,
     };
     const packBase = basePrices[pack] || 0;
 
-    // 1) Options (hors plage + hors évacuation)
     let optionsTotal = 0;
 
-    // Liner : Sand / Grey = +175 €
-    let linerExtra = 0;
-    if (linerColor === 'Sand' || linerColor === 'Grey') {
-      linerExtra = 175;
+    // Liner
+    if (linerColor === "Sand" || linerColor === "Grey") {
+      optionsTotal += 175;
     }
-    optionsTotal += linerExtra;
 
     // Chauffage
-    if (chauffage === 'Pompe à chaleur') optionsTotal += 3500;
+    if (chauffage === "Pompe à chaleur") optionsTotal += 3500;
 
     // Traitement
-    if (traitement === 'Électrolyseur au sel') optionsTotal += 1800;
-    if (traitement === 'Électrolyseur + régulation pH') optionsTotal += 3200;
-    if (traitement === 'Pompe doseuse') optionsTotal += 1800;
+    if (traitement === "Électrolyseur au sel") optionsTotal += 1800;
+    if (traitement === "Électrolyseur + régulation pH")
+      optionsTotal += 3200;
+    if (traitement === "Pompe doseuse") optionsTotal += 1800;
 
-    // Couverture “haut de gamme”
-    if (couverture === 'Couverture à barres') optionsTotal += 2000;
-    if (couverture === 'Volet à lamelles manuel') optionsTotal += 3800;
-    if (couverture === 'Volet à lamelles motorisé') optionsTotal += 5800;
+    // Couvertures
+    if (couvertureVal === "Couverture à barres") optionsTotal += 2000;
+    if (couvertureVal === "Volet à lamelles manuel")
+      optionsTotal += 3800;
+    if (couvertureVal === "Volet à lamelles motorisé")
+      optionsTotal += 5800;
 
-    // Bâches & enrouleur
+    // Bâches
     let bachesTotal = 0;
-    if (pack === 'Essentiel') {
-      bacheChecked.forEach(i => {
-        if (i.value === 'Bâche été') bachesTotal += 600;
-        if (i.value === 'Bâche hiver') bachesTotal += 700;
-        if (i.value === 'Enrouleur inox') bachesTotal += 450;
+    if (pack === "Essentiel") {
+      bacheChecked.forEach((i) => {
+        if (i.value === "Bâche été") bachesTotal += 600;
+        if (i.value === "Bâche hiver") bachesTotal += 700;
+        if (i.value === "Enrouleur inox") bachesTotal += 450;
       });
-    } else if (pack === 'Confort') {
-      const hasEnrouleur = bacheChecked.some(i => i.value === 'Enrouleur inox');
+    } else if (pack === "Confort") {
+      const hasEnrouleur = bacheChecked.some(
+        (i) => i.value === "Enrouleur inox"
+      );
       if (hasEnrouleur) bachesTotal += 450;
     }
     optionsTotal += bachesTotal;
 
-    // Entretien : robot en supplément uniquement pour Essentiel / Confort
-    if (pack !== 'Luxe' && entretienValue === 'Avec robot nettoyeur') {
+    // Entretien (robot) hors Luxe
+    if (pack !== "Luxe" && entretienValue === "Avec robot nettoyeur") {
       optionsTotal += 1800;
     }
 
     // Loisirs
-    loisirChecked.forEach(i => {
-      if (i.value === 'Éclairage LED couleur (RGB)') optionsTotal += 600;
-      if (i.value === 'Douche solaire extérieure') optionsTotal += 800;
-      if (i.value === 'Nage à contre-courant') optionsTotal += 6500;
+    loisirChecked.forEach((i) => {
+      if (i.value === "Éclairage LED couleur (RGB)") optionsTotal += 600;
+      if (i.value === "Douche solaire extérieure") optionsTotal += 800;
+      if (i.value === "Nage à contre-courant") optionsTotal += 6500;
     });
 
-    // 2) Plage / terrasse (NE subit PAS le coeff de pose)
+    // Plage / terrasse
     let plageTotal = 0;
     const plagePricesPerM2 = {
-      'Bois': 140,
-      'Composite': 190,
-      'Gres cerame': 220
+      Bois: 140,
+      Composite: 190,
+      Gres cerame: 220,
     };
-    if (plageMateriau !== 'Aucune' && plageSurface > 0) {
-      plageTotal = plageSurface * (plagePricesPerM2[plageMateriau] || 0);
+    if (plageMateriau !== "Aucune" && plageSurface > 0) {
+      plageTotal =
+        plageSurface * (plagePricesPerM2[plageMateriau] || 0);
     }
 
-    // 3) Coeff pose appliqué UNIQUEMENT sur le pack
-    const pose = document.querySelector('input[name="pose"]:checked')?.value || 'Hors-sol';
+    // Coeff pose sur le pack
+    const pose =
+      document.querySelector('input[name="pose"]:checked')?.value ||
+      "Hors-sol";
     let coeffPose = 1.0;
-    if (pose === 'Semi-enterrée') coeffPose = 1.10;
-    if (pose === 'Enterrée') coeffPose = 1.20;
+    if (pose === "Semi-enterrée") coeffPose = 1.1;
+    if (pose === "Enterrée") coeffPose = 1.2;
     const packAvecPose = packBase * coeffPose;
 
-    // 4) Évacuation
+    // Évacuation
     let evacTotal = 0;
-    if (evacChoice === 'Oui' && evacM3 > 0) {
+    if (evacChoice === "Oui" && evacM3 > 0) {
       const evacPricePerM3HTVA = 80;
       const evacPriceTVAC = evacPricePerM3HTVA * 1.21;
       evacTotal = evacM3 * evacPriceTVAC;
     }
 
-    // 5) Total final
+    // Total
     let price = packAvecPose + optionsTotal + plageTotal + evacTotal;
-
     const rounded = Math.round(price / 100) * 100;
 
-    const nf = new Intl.NumberFormat('fr-BE', {
-      style: 'currency',
-      currency: 'EUR',
-      maximumFractionDigits: 0
+    const nf = new Intl.NumberFormat("fr-BE", {
+      style: "currency",
+      currency: "EUR",
+      maximumFractionDigits: 0,
     });
 
     if (!estimationUnlocked) {
-      priceEl.textContent = '—';
-      return;
+      priceEl.textContent = "—";
+    } else {
+      priceEl.textContent = nf.format(rounded);
     }
 
-    priceEl.textContent = nf.format(rounded);
-
-    // Récap pose
-    document.getElementById('summary-pose').textContent =
-      'Pose : ' + pose.toLowerCase();
+    document.getElementById("summary-pose").textContent =
+      "Pose : " + pose.toLowerCase();
   }
 
-
-
+  // === Validation de la dernière étape ===
   function validateStep4() {
-    const prenom = document.getElementById('config-prenom').value.trim();
-    const nom = document.getElementById('config-nom').value.trim();
-    const email = document.getElementById('config-email').value.trim();
+    const prenom = document.getElementById("config-prenom").value.trim();
+    const nom = document.getElementById("config-nom").value.trim();
+    const email = document.getElementById("config-email").value.trim();
     if (!prenom || !nom || !email) {
-      alert('Merci de compléter au minimum votre prénom, nom et e-mail pour afficher votre estimation.');
+      alert(
+        "Merci de compléter au minimum votre prénom, nom et e-mail pour afficher votre estimation."
+      );
       return false;
     }
     return true;
   }
 
+  // === Navigation étapes ===
   if (backBtn) {
-    backBtn.addEventListener('click', () => {
+    backBtn.addEventListener("click", () => {
       if (currentStep > 1) {
         showStep(currentStep - 1);
       }
     });
   }
 
-if (nextBtn) {
-  nextBtn.addEventListener('click', () => {
-    // Étapes 1 à 3 : on avance simplement
-    if (currentStep < totalSteps) {
-      showStep(currentStep + 1);
-      return;
-    }
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      // Étapes 1 à 3 : on avance
+      if (currentStep < totalSteps) {
+        showStep(currentStep + 1);
+        return;
+      }
 
-    // Dernière étape : on vérifie les champs obligatoires
-    if (!validateStep4()) return;
+      // Étape 4 : validation + envoi
+      if (!validateStep4()) return;
 
-    // On débloque l’estimation et on met à jour le récap
-    estimationUnlocked = true;
-    updateSummary();
+      estimationUnlocked = true;
+      updateSummary();
 
-    // --- Récup des infos principales ---
-    const prenom = document.getElementById('config-prenom').value.trim();
-    const nom = document.getElementById('config-nom').value.trim();
-    const emailClient = document.getElementById('config-email').value.trim();
-    const tel = document.getElementById('config-tel').value.trim();
-    const message = document.getElementById('config-message').value.trim();
-    const codePostal = document.getElementById('config-code-postal').value.trim();
+      const prenom = document
+        .getElementById("config-prenom")
+        .value.trim();
+      const nom = document.getElementById("config-nom").value.trim();
+      const emailClient = document
+        .getElementById("config-email")
+        .value.trim();
+      const tel = document
+        .getElementById("config-tel")
+        .value.trim();
+      const message = document
+        .getElementById("config-message")
+        .value.trim();
+      const codePostal = document
+        .getElementById("config-code-postal")
+        .value.trim();
 
-    const typeProjet = document.querySelector('input[name="type_projet"]:checked')?.value || '';
-    const terrain = document.getElementById('config-terrain').value;
+      const typeProjet =
+        document.querySelector('input[name="type_projet"]:checked')
+          ?.value || "";
+      const terrain = document.getElementById("config-terrain").value;
 
-    const pack = document.querySelector('input[name="pack"]:checked')?.value || '';
-    const budgetText = document.getElementById('summary-budget')?.textContent || '';
+      const pack =
+        document.querySelector('input[name="pack"]:checked')?.value ||
+        "";
 
-    const chauffageTxt = document.getElementById('summary-chauffage')?.textContent || '';
-    const traitementTxt = document.getElementById('summary-traitement')?.textContent || '';
-    const couvertureTxt = document.getElementById('summary-couverture')?.textContent || '';
-    const entretienTxt = document.getElementById('summary-entretien')?.textContent || '';
-    const loisirsTxt = document.getElementById('summary-loisir')?.textContent || '';
+      const budgetText =
+        document.getElementById("summary-budget")?.textContent || "";
 
-    const delaiTxt = document.getElementById('summary-delai')?.textContent || '';
-    const contactPrefTxt = document.getElementById('summary-contact-pref')?.textContent || '';
+      const chauffageTxt =
+        document.getElementById("summary-chauffage")?.textContent ||
+        "";
+      const traitementTxt =
+        document.getElementById("summary-traitement")
+          ?.textContent || "";
+      const couvertureTxt =
+        document.getElementById("summary-couverture")
+          ?.textContent || "";
+      const entretienTxt =
+        document.getElementById("summary-entretien")?.textContent ||
+        "";
+      const loisirsTxt =
+        document.getElementById("summary-loisir")?.textContent ||
+        "";
 
-    const estimationText = document.getElementById('summary-price')?.textContent || '—';
+      const delaiTxt =
+        document.getElementById("summary-delai")?.textContent || "";
+      const contactPrefTxt =
+        document.getElementById("summary-contact-pref")
+          ?.textContent || "";
 
-    // --- Payload envoyé à l’API Vercel ---
-    const payload = {
-      prenom,
-      nom,
-      emailClient,
-      tel,
-      message,
-      codePostal,
-      terrain,
-      typeProjet,
-      pack,
-      budgetText,
-      chauffageTxt,
-      traitementTxt,
-      couvertureTxt,
-      entretienTxt,
-      loisirsTxt,
-      delaiTxt,
-      contactPrefTxt,
-      estimationText,
-modele: modeleSelectionne,
-      // honeypot anti-bots (champ vide)
-      website: ""
-    };
+      const estimationText =
+        document.getElementById("summary-price")?.textContent ||
+        "—";
 
-    // --- Envoi automatique vers l’API /api/send-lead ---
-    fetch("/api/send-piscine-lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.ok) {
-          throw new Error(data.error || "Erreur inconnue");
-        }
+      const payload = {
+        prenom,
+        nom,
+        emailClient,
+        tel,
+        message,
+        codePostal,
+        terrain,
+        typeProjet,
+        pack,
+        budgetText,
+        chauffageTxt,
+        traitementTxt,
+        couvertureTxt,
+        entretienTxt,
+        loisirsTxt,
+        delaiTxt,
+        contactPrefTxt,
+        estimationText,
+        modele: modeleSelectionne,
+        website: "",
+      };
 
-        alert("Merci ! Votre demande a bien été envoyée. Nous vous recontactons rapidement.");
-        nextBtn.disabled = true;
-        nextBtn.textContent = "Demande envoyée ✅";
+      fetch("/api/send-piscine-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       })
-      .catch(err => {
-        console.error(err);
-        alert("Oups, problème d’envoi. Merci de réessayer ou de nous appeler.");
-      });
-  });
-}
+        .then((res) => res.json())
+        .then((data) => {
+          if (!data.ok) {
+            throw new Error(data.error || "Erreur inconnue");
+          }
 
+          alert(
+            "Merci ! Votre demande a bien été envoyée. Nous vous recontactons rapidement."
+          );
+          nextBtn.disabled = true;
+          nextBtn.textContent = "Demande envoyée ✅";
+        })
+        .catch((err) => {
+          console.error(err);
+          alert(
+            "Oups, problème d’envoi. Merci de réessayer ou de nous appeler."
+          );
+        });
+    });
+  }
 
-
+  // Bouton réinitialiser
   if (cancelBtn) {
-    cancelBtn.addEventListener('click', () => {
+    cancelBtn.addEventListener("click", () => {
       estimationUnlocked = false;
       window.location.reload();
     });
   }
 
   // Mise à jour auto du résumé
-  document.querySelectorAll('input, select, textarea').forEach(el => {
-    el.addEventListener('change', updateSummary);
-    el.addEventListener('input', updateSummary);
+  document.querySelectorAll("input, select, textarea").forEach((el) => {
+    el.addEventListener("change", updateSummary);
+    el.addEventListener("input", updateSummary);
   });
 
-  // Initial
+  // Initialisation
   showStep(1);
   updateSummary();
 })();
 </script>
 
+ 
 </body>
 </html>
