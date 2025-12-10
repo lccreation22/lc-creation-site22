@@ -1250,9 +1250,7 @@ html, body {
       prixLine.style.display = "block";
     }
 
-   // 👉 Si on arrive depuis la piscine URBAINE, on force le pack "Urbain"
-if (modeleParam === "mini-urbaine-9m2") {
-  var urbainRadio = document.querySelector('input[name="pack"][value="Urbain"]');
+  
   if (urbainRadio) {
     urbainRadio.checked = true;
 
