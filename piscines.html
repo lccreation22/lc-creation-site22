@@ -393,9 +393,7 @@
     }
   }
 
-  
-
-  /* CTA CONFIGURATEUR SUR LA PAGE PISCINES */
+    /* CTA CONFIGURATEUR SUR LA PAGE PISCINES */
 
   .piscines-config-cta {
     margin: 2.5rem auto 0;
@@ -408,19 +406,16 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     padding: 1.25rem 3.2rem;
     border-radius: 999px;
     font-size: 1.18rem;
     font-weight: 650;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-
     text-decoration: none;
     background: linear-gradient(135deg, var(--lc-gold), #f6e1a4);
     color: #111827;
     border: none;
-
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
     transition: all 0.18s ease-out;
     min-width: 280px;
@@ -438,205 +433,192 @@
       font-size: 1.22rem;
       padding: 1.3rem 3rem;
     }
-
-    /* Animation douce du bouton configurateur */
-@keyframes config-pulse {
-  0% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
   }
-  50% {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.38);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
-  }
-}
 
-/* On applique l’animation au bouton doré */
-.piscines-config-cta .btn-config {
-  animation: config-pulse 2.6s ease-in-out infinite;
-}
-/* Logo plus grand sur la page piscines uniquement */
-html.theme-piscine .brand img {
-  max-height: 90px;   /* augmente si tu veux encore plus grand : 100 ou 110 */
-  height: auto;
-  width: auto;
-}
+  /* Animation douce du bouton configurateur */
+  @keyframes config-pulse {
+    0% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+    }
+    50% {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.38);
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+    }
+  }
 
-/* Sur mobile : large mais contrôlé */
-@media (max-width: 640px) {
+  .piscines-config-cta .btn-config {
+    animation: config-pulse 2.6s ease-in-out infinite;
+  }
+
+  /* Logo plus grand sur la page piscines uniquement */
   html.theme-piscine .brand img {
-    max-width: 260px;
-    width: 85%;
-    height: auto;
-  }
-}
-/* Fix header + logo uniquement sur la page piscines en MOBILE */
-@media (max-width: 640px) {
-
-  /* Bandeau du header en blanc, plus de bleu nuit */
-  html.theme-piscine header,
-  html.theme-piscine .topbar {
-    background: #ffffff !important;
-  }
-
-  /* Logo plus grand sur smartphone */
-  html.theme-piscine .brand img {
-    max-height: 90px !important;  /* teste 100 si tu le veux encore plus gros */
+    max-height: 90px;
     height: auto;
     width: auto;
   }
-}
-/* Bloc mini piscine URBAINE 9 m² */
 
-.pool-card {
-  max-width: 900px;
-  margin: 4rem auto 5rem;  /* espace au-dessus et en dessous */
-  padding: 2rem 1.5rem 2.5rem;
-  border-radius: 16px;
-  background: #f9fafb;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  text-align: center;
-}
+  @media (max-width: 640px) {
+    html.theme-piscine .brand img {
+      max-width: 260px;
+      width: 85%;
+      height: auto;
+    }
 
-.pool-card__image {
-  max-width: 650px;
-  margin: 0 auto 1.5rem;
-}
+    /* Bandeau du header en blanc sur mobile */
+    html.theme-piscine header,
+    html.theme-piscine .topbar {
+      background: #ffffff !important;
+    }
+  }
 
-.pool-card__image img {
-  width: 100%;
-  max-height: 280px;        /* 👉 photo plus petite */
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
-}
+  /* Bloc mini piscine URBAINE 9 m² */
 
-.pool-card__content {
-  margin-top: 1.5rem;
-}
-
-.pool-card__content h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.4rem;
-}
-
-.pool-card__subtitle {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1.1rem;
-}
-
-.pool-card__dimensions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;  /* 👉 centré */
-  gap: 0.7rem 1.2rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.pool-card__list {
-  max-width: 680px;
-  margin: 0 auto 1.4rem;
-  padding-left: 1.2rem;
-  text-align: left;         /* texte lisible mais bloc centré */
-}
-
-.pool-card__list li {
-  margin-bottom: 0.4rem;
-}
-
-.pool-card__price {
-  margin-bottom: 1.5rem;
-}
-
-.pool-card__price-note {
-  font-size: 0.85rem;
-  color: #666;
-}
-
-.pool-card__cta {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: center;   /* 👉 bouton centré */
-}
-
-/* Bouton doré, comme les autres */
-
-.pool-card .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.85rem 1.9rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--lc-gold), #f6e1a4);
-  color: #111827;
-  font-weight: 600;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
-}
-
-.pool-card .btn-primary:hover {
-  filter: brightness(1.04);
-  transform: translateY(-1px);
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.25);
-}
-
-/* Icônes carrées */
-
-.pool-card__icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.2rem;
-  border-top: 1px solid #e5e7eb;
-  padding-top: 1.2rem;
-  margin-top: 1rem;
-}
-
-.icon-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.icon-square {
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
-  border: 1px solid #0f766e;
-  background: #e5f3f1;
-  flex-shrink: 0;
-}
-
-/* Responsive mini piscine */
-
-@media (max-width: 768px) {
   .pool-card {
-    padding: 1.6rem 1.2rem 2rem;
-    margin: 3rem 1rem 4rem;
+    max-width: 900px;
+    margin: 4rem auto 5rem;
+    padding: 2rem 1.5rem 2.5rem;
+    border-radius: 16px;
+    background: #f9fafb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    text-align: center;
+  }
+
+  .pool-card__image {
+    max-width: 650px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .pool-card__image img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+  }
+
+  .pool-card__content {
+    margin-top: 1.5rem;
+  }
+
+  .pool-card__content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .pool-card__subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.1rem;
   }
 
   .pool-card__dimensions {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
   }
 
   .pool-card__list {
-    padding-left: 1.1rem;
+    max-width: 680px;
+    margin: 0 auto 1.4rem;
+    padding-left: 1.2rem;
+    text-align: left;
   }
 
-}
+  .pool-card__list li {
+    margin-bottom: 0.4rem;
+  }
+
+  .pool-card__price {
+    margin-bottom: 1.5rem;
+  }
+
+  .pool-card__price-note {
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  .pool-card__cta {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pool-card .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.9rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--lc-gold), #f6e1a4);
+    color: #111827;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  }
+
+  .pool-card .btn-primary:hover {
+    filter: brightness(1.04);
+    transform: translateY(-1px);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.25);
+  }
+
+  .pool-card__icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .icon-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .icon-square {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid #0f766e;
+    background: #e5f3f1;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .pool-card {
+      padding: 1.6rem 1.2rem 2rem;
+      margin: 3rem 1rem 4rem;
+    }
+
+    .pool-card__dimensions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pool-card__list {
+      padding-left: 1.1rem;
+    }
+  }
+
+
+ 
 </style>
  
  <!-- Google tag (gtag.js) -->
