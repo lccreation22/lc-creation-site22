@@ -579,6 +579,10 @@ html, body {
       <p class="config-note">
         Les montants restent indicatifs. Le prix final est confirmé après visite sur place et étude de votre terrain.
       </p>
+          <p id="config-modele-badge" class="config-note" style="display:none;">
+      Modèle choisi : <strong id="config-modele-label"></strong>
+    </p>
+
     </div>
   </section>
 
@@ -1185,6 +1189,37 @@ html, body {
 
   <script>
 (function () {
+  (function () {
+  // === Gestion du paramètre ?modele= dans l'URL ===
+  const urlParams = new URLSearchParams(window.location.search);
+  const modeleParam = urlParams.get("modele") || "";
+
+  const modeleLabels = {
+    "essentiel": "Pack Piscine Bois ESSENTIEL",
+    "confort": "Pack Piscine Bois CONFORT",
+    "luxe": "Pack Piscine Bois LUXE",
+    "mini-urbaine-9m2": "Mini Piscine Bois URBAINE 9 m² – Gamme Premium",
+  };
+
+  let modeleSelectionne = "";
+  if (modeleParam && modeleLabels[modeleParam]) {
+    modeleSelectionne = modeleLabels[modeleParam];
+
+    const badge = document.getElementById("config-modele-badge");
+    const badgeLabel = document.getElementById("config-modele-label");
+    if (badge && badgeLabel) {
+      badge.style.display = "block";
+      badgeLabel.textContent = modeleSelectionne;
+    }
+  }
+
+  // === Code existant en dessous ===
+  const totalSteps = 4;
+  let currentStep = 1;
+  let estimationUnlocked = false;
+  const evacVolumeRow = document.getElementById('config-evac-volume-row');
+  ...
+
   const totalSteps = 4;
   let currentStep = 1;
   let estimationUnlocked = false; // tant que false, on NE montre PAS le prix
@@ -1675,7 +1710,7 @@ if (nextBtn) {
       delaiTxt,
       contactPrefTxt,
       estimationText,
-
+modele: modeleSelectionne,
       // honeypot anti-bots (champ vide)
       website: ""
     };
