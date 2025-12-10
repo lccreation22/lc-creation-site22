@@ -1200,60 +1200,7 @@ html, body {
 
 <script>
 (function () {
-  // === 1. Lecture du paramètre ?modele= dans l'URL ===
-  var urlParams = new URLSearchParams(window.location.search);
-  var modeleParam = urlParams.get("modele") || "";
-
-  var modeleLabels = {
-    "essentiel": "Pack Piscine Bois ESSENTIEL",
-    "confort": "Pack Piscine Bois CONFORT",
-    "luxe": "Pack Piscine Bois LUXE",
-    
-  };
-
-
-  var modeleSelectionne = "";
-  if (modeleParam && modeleLabels[modeleParam]) {
-    modeleSelectionne = modeleLabels[modeleParam];
-
-    var badge = document.getElementById("config-modele-badge");
-    var badgeLabel = document.getElementById("config-modele-label");
-    if (badge && badgeLabel) {
-      badge.style.display = "block";
-      badgeLabel.textContent = modeleSelectionne;
-    }
-
-    var prixLine = document.getElementById("config-modele-prix");
-    if (prixLine && modelePrix[modeleParam]) {
-      prixLine.textContent = modelePrix[modeleParam];
-      prixLine.style.display = "block";
-    }
-
   
-  if (urbainRadio) {
-    urbainRadio.checked = true;
-
-    // on enlève la classe "active" sur toutes les cartes pack
-    var allPacks = document.querySelectorAll('#config-pack .config-radio-option');
-    for (var i = 0; i < allPacks.length; i++) {
-      allPacks[i].classList.remove("active");
-    }
-
-    // on remonte le DOM "à la main" jusqu'à la carte parente
-    var card = urbainRadio.parentNode;
-    while (card && !card.classList.contains("config-radio-option")) {
-      card = card.parentNode;
-    }
-    if (card) {
-      card.classList.add("active");
-    }
-  }
-}
-
-} 
-
-
-  // === 2. Variables globales ===
   var totalSteps = 4;
   var currentStep = 1;
   var estimationUnlocked = false;
