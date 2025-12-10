@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="fr" class="theme-piscine">
+<head>
+  <meta charset="utf-8">
+  <title>Piscine bois URBAINE 9 m² — Demande d’offre | LC Création</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Demande d’offre pour la piscine bois URBAINE 9 m². Pose enterrée, semi-enterrée ou hors-sol, avec ou sans évacuation des terres.">
+
+  <link rel="stylesheet" href="./styles.css?v=36">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    .page-urbaine {
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, #0b1220 0, #020617 55%);
+      color: #e5e7eb;
+    }
+
+    header {
+      background: transparent;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.9rem 0;
+    }
+
+    .brand img {
+      display: block;
+      max-height: 58px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    nav a {
+      margin-left: 1.2rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* HERO */
+
+    .urbaine-hero {
+      padding: 3rem 1.5rem 1rem;
+      text-align: center;
+    }
+
+    .urbaine-hero h1 {
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .urbaine-hero p {
+      font-size: 0.95rem;
+      max-width: 600px;
+      margin: 0.3rem auto 0;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    .urbaine-badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.22);
+      color: #fef9c3;
+      background: rgba(24,24,27,0.8);
+      margin-bottom: 0.6rem;
+    }
+
+    /* CARTE FORMULAIRE */
+
+    .urbaine-wrapper {
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem 2.5rem;
+    }
+
+    .urbaine-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 22px;
+      padding: 1.8rem 1.6rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .urbaine-card h2 {
+      margin-top: 0;
+      font-size: 1.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .urbaine-card p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    .urbaine-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      margin-top: 1.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .urbaine-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .config-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .config-group label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .config-group small {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    .config-input,
+    .config-select {
+      width: 100%;
+      padding: 0.75rem 0.8rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-size: 0.92rem;
+      box-sizing: border-box;
+    }
+
+    .config-input::placeholder {
+      color: #6b7280;
+    }
+
+    .config-radio-group {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .config-radio-option {
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 0.55rem 0.7rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.9rem;
+    }
+
+    .config-radio-option input {
+      margin-top: 0.2rem;
+    }
+
+    .config-radio-option.active {
+      border-color: #d4af37;
+      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.65);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.9rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #d4af37, #f6e1a4);
+      color: #111827;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+      transition: all 0.16s ease-out;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.35);
+    }
+
+    .form-footer-note {
+      font-size: 0.78rem;
+      opacity: 0.75;
+      margin-top: 0.5rem;
+    }
+
+    .success-msg {
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+      color: #bbf7d0;
+      display: none;
+    }
+
+    .error-msg {
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+      color: #fecaca;
+      display: none;
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YLJL7PN7V3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YLJL7PN7V3');
+  </script>
+</head>
+<body class="page-urbaine">
+
+<header>
+  <div class="topbar container">
+    <div class="brand">
+      <img src="./logo-amenagement-cropped.png" alt="LC Création">
+    </div>
+    <nav>
+      <a href="./index.html">Aménagements extérieurs</a>
+      <a href="./piscines.html">Piscines bois</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="urbaine-hero">
+    <div class="urbaine-badge">Piscine URBAINE 9 m²</div>
+    <h1>Demande d’offre pour la piscine bois URBAINE 9 m²</h1>
+    <p>
+      Indiquez le type de pose, l’évacuation éventuelle des terres et vos coordonnées.
+      Vous recevez une réponse personnalisée rapidement.
+    </p>
+  </section>
+
+  <section class="urbaine-wrapper">
+    <div class="urbaine-card">
+      <h2>Votre projet URBAIN 9 m²</h2>
+      <p>Les champs marqués d’un * sont obligatoires.</p>
+
+      <div class="urbaine-grid">
+        <!-- Colonne gauche : projet technique -->
+        <div>
+          <!-- Type de pose -->
+          <div class="config-group">
+            <label>Type de pose *</label>
+            <div class="config-radio-group" id="pose-group">
+              <label class="config-radio-option active">
+                <input type="radio" name="pose" value="Hors-sol" checked>
+                <div>Hors-sol — chantier léger, accès rapide à la piscine.</div>
+              </label>
+
+              <label class="config-radio-option">
+                <input type="radio" name="pose" value="Semi-enterrée">
+                <div>Semi-enterrée — intégration plus discrète, terrassement partiel.</div>
+              </label>
+
+              <label class="config-radio-option">
+                <input type="radio" name="pose" value="Enterrée">
+                <div>Enterrée — rendu le plus intégré, terrassement complet.</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Évacuation des terres -->
+          <div class="config-group">
+            <label>Évacuation des terres *</label>
+            <div class="config-radio-group" id="evac-group">
+              <label class="config-radio-option active">
+                <input type="radio" name="evacuation" value="Non" checked>
+                <div>Pas d’évacuation prévue, terres étalées sur place si possible.</div>
+              </label>
+
+              <label class="config-radio-option">
+                <input type="radio" name="evacuation" value="Oui">
+                <div>Évacuation à prévoir (volume à confirmer sur place).</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Code postal chantier -->
+          <div class="config-group">
+            <label for="code-postal">Code postal du chantier *</label>
+            <input type="text" id="code-postal" class="config-input" placeholder="Ex. 1400 Nivelles">
+            <small>Nous intervenons principalement en Brabant Wallon et à Bruxelles.</small>
+          </div>
+
+          <!-- Message projet -->
+          <div class="config-group">
+            <label for="message">Précisions sur votre projet</label>
+            <textarea id="message" class="config-input" rows="4"
+              placeholder="Ex. : accès par le côté de la maison, légère pente, envie d’une petite plage autour de la piscine…"></textarea>
+          </div>
+        </div>
+
+        <!-- Colonne droite : coordonnées -->
+        <div>
+          <div class="config-group">
+            <label for="prenom">Prénom *</label>
+            <input type="text" id="prenom" class="config-input" placeholder="Votre prénom">
+          </div>
+
+          <div class="config-group">
+            <label for="nom">Nom *</label>
+            <input type="text" id="nom" class="config-input" placeholder="Votre nom">
+          </div>
+
+          <div class="config-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" class="config-input" placeholder="exemple@domaine.be">
+          </div>
+
+          <div class="config-group">
+            <label for="tel">Téléphone</label>
+            <input type="text" id="tel" class="config-input" placeholder="Optionnel, mais pratique pour vous rappeler.">
+          </div>
+
+          <div class="config-group">
+            <label for="delai">Quand souhaitez-vous réaliser le projet&nbsp;?</label>
+            <select id="delai" class="config-select">
+              <option value="Je découvre les prix pour l’instant">Je découvre les prix pour l’instant</option>
+              <option value="Dans les 3 à 6 mois">Dans les 3 à 6 mois</option>
+              <option value="Dans les 6 à 12 mois">Dans les 6 à 12 mois</option>
+              <option value="Pour la saison suivante">Pour la saison suivante</option>
+            </select>
+          </div>
+
+          <div class="config-group">
+            <label for="contact-pref">Comment préférez-vous que l’on vous contacte&nbsp;?</label>
+            <select id="contact-pref" class="config-select">
+              <option value="E-mail uniquement">E-mail uniquement</option>
+              <option value="Téléphone (en journée)">Téléphone (en journée)</option>
+              <option value="Téléphone (en soirée)">Téléphone (en soirée)</option>
+              <option value="E-mail + téléphone si besoin">E-mail + téléphone si besoin</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bouton + messages -->
+      <div style="margin-top:1.6rem;">
+        <button type="button" id="btn-envoyer" class="btn-primary">
+          Envoyer ma demande d’offre
+        </button>
+        <div class="form-footer-note">
+          En validant, vous acceptez que LC Création vous contacte uniquement à propos de cette piscine.
+        </div>
+        <div id="success-msg" class="success-msg">
+          Merci ! Votre demande a bien été envoyée. Nous vous recontactons rapidement.
+        </div>
+        <div id="error-msg" class="error-msg">
+          Oups, problème d’envoi. Merci de réessayer ou de nous appeler au 0474/69.38.00.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function() {
+  // activer le style "active" sur les cartes radio
+  document.querySelectorAll('.config-radio-option').forEach(function(option) {
+    var input = option.querySelector('input[type="radio"]');
+    if (!input) return;
+
+    option.addEventListener('click', function(e) {
+      if (e.target === input) return;
+      input.checked = true;
+      var name = input.name;
+      document.querySelectorAll('input[name="' + name + '"]').forEach(function(radio) {
+        var card = radio.closest('.config-radio-option');
+        if (card) card.classList.remove('active');
+      });
+      option.classList.add('active');
+    });
+
+    input.addEventListener('change', function() {
+      var name = input.name;
+      document.querySelectorAll('input[name="' + name + '"]').forEach(function(radio) {
+        var card = radio.closest('.config-radio-option');
+        if (card) card.classList.remove('active');
+      });
+      option.classList.add('active');
+    });
+  });
+
+  var btn = document.getElementById('btn-envoyer');
+  var successMsg = document.getElementById('success-msg');
+  var errorMsg = document.getElementById('error-msg');
+
+  function validate() {
+    var prenom = document.getElementById('prenom').value.trim();
+    var nom = document.getElementById('nom').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var cp = document.getElementById('code-postal').value.trim();
+
+    if (!prenom || !nom || !email || !cp) {
+      alert("Merci de compléter au minimum vos prénom, nom, e-mail et code postal.");
+      return false;
+    }
+    return true;
+  }
+
+  btn.addEventListener('click', function() {
+    if (!validate()) return;
+
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = "Envoi en cours…";
+
+    var pose = (document.querySelector('input[name="pose"]:checked') || {}).value || "";
+    var evac = (document.querySelector('input[name="evacuation"]:checked') || {}).value || "";
+
+    var payload = {
+      prenom: document.getElementById('prenom').value.trim(),
+      nom: document.getElementById('nom').value.trim(),
+      emailClient: document.getElementById('email').value.trim(),
+      tel: document.getElementById('tel').value.trim(),
+      message: document.getElementById('message').value.trim(),
+      codePostal: document.getElementById('code-postal').value.trim(),
+      terrain: "À préciser",
+      typeProjet: "Piscine bois URBAINE 9 m²",
+      pack: "URBAIN 9 m²",
+      budgetText: "Piscine URBAINE 9 m² - demande directe",
+      chauffageTxt: "",
+      traitementTxt: "",
+      couvertureTxt: "",
+      entretienTxt: "",
+      loisirsTxt: "Options à définir",
+      delaiTxt: "Délai souhaité : " + (document.getElementById('delai').value || "à préciser"),
+      contactPrefTxt: "Contact : " + (document.getElementById('contact-pref').value || "à préciser"),
+      estimationText: "—",
+      modele: "Piscine URBAINE 9 m²",
+      website: "",
+      poseTxt: "Type de pose : " + pose,
+      evacTxt: "Évacuation des terres : " + evac
+    };
+
+    fetch("/api/send-piscine-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (!data.ok) {
+          throw new Error(data.error || "Erreur inconnue");
+        }
+        successMsg.style.display = 'block';
+        btn.textContent = "Demande envoyée ✅";
+      })
+      .catch(function(err) {
+        console.error(err);
+        errorMsg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = "Envoyer ma demande d’offre";
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
