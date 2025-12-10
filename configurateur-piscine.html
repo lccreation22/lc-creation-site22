@@ -1298,8 +1298,11 @@ html, body {
 
     if (stepCurrentEl) stepCurrentEl.textContent = step;
     if (backBtn) backBtn.disabled = step === 1;
-    if (nextBtn) nextBtn.textContent =
-      step === totalSteps ? "Voir mon estimation" : "Étape suivante";
+    if (nextBtn) {
+      nextBtn.textContent = step === totalSteps
+        ? "Voir mon estimation"
+        : "Étape suivante";
+    }
 
     requestAnimationFrame(scrollToConfigTop);
   }
@@ -1395,13 +1398,9 @@ html, body {
 
     // --- PACK ---
     const pack =
-  document.querySelector('input[name="pack"]:checked')?.value ||
-  "Essentiel";
-
-let packLabel = pack;
-if (pack === "Urbain") packLabel = "URBAIN 9 m²";
-
-document.getElementById("summary-pack").textContent = packLabel;
+      document.querySelector('input[name="pack"]:checked')?.value ||
+      "Essentiel";
+    document.getElementById("summary-pack").textContent = pack;
 
     // --- COULEUR DU LINER ---
     const linerColor =
@@ -1605,7 +1604,6 @@ document.getElementById("summary-pack").textContent = packLabel;
       Essentiel: 15490,
       Confort: 19490,
       Luxe: 23990,
-      Urbain: 12100, // mini piscine 9 m²
     };
     const packBase = basePrices[pack] || 0;
 
@@ -1660,14 +1658,13 @@ document.getElementById("summary-pack").textContent = packLabel;
       if (i.value === "Nage à contre-courant") optionsTotal += 6500;
     });
 
-   // Plage / terrasse
-let plageTotal = 0;
-const plagePricesPerM2 = {
-  Bois: 140,
-  Composite: 190,
-  "Gres cerame": 220,
-};
-
+    // Plage / terrasse
+    let plageTotal = 0;
+    const plagePricesPerM2 = {
+      Bois: 140,
+      Composite: 190,
+      Gres cerame: 220,
+    };
     if (plageMateriau !== "Aucune" && plageSurface > 0) {
       plageTotal =
         plageSurface * (plagePricesPerM2[plageMateriau] || 0);
@@ -1864,15 +1861,6 @@ const plagePricesPerM2 = {
     el.addEventListener("change", updateSummary);
     el.addEventListener("input", updateSummary);
   });
-
-  // Si on arrive depuis la mini piscine URBAINE, on pré-sélectionne le pack URBAIN
-if (modeleParam === "mini-urbaine-9m2") {
-  const urbainInput = document.querySelector('input[name="pack"][value="Urbain"]');
-  if (urbainInput) {
-    urbainInput.checked = true;
-    urbainInput.dispatchEvent(new Event("change", { bubbles: true }));
-  }
-}
 
   // Initialisation
   showStep(1);
