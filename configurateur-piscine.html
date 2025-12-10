@@ -1857,7 +1857,8 @@ const plagePricesPerM2 = {
     el.addEventListener("change", updateSummary);
     el.addEventListener("input", updateSummary);
   });
-// Si on arrive depuis la mini piscine URBAINE, on pré-sélectionne le pack URBAIN
+
+  // Si on arrive depuis la mini piscine URBAINE, on pré-sélectionne le pack URBAIN
 if (modeleParam === "mini-urbaine-9m2") {
   const urbainInput = document.querySelector('input[name="pack"][value="Urbain"]');
   if (urbainInput) {
