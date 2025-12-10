@@ -1249,20 +1249,29 @@ html, body {
       prixLine.style.display = "block";
     }
 
-    // 👉 Si on arrive depuis la mini piscine, on force le pack "Urbain"
-    if (modeleParam === "mini-urbaine-9m2") {
-      var urbainRadio = document.querySelector('input[name="pack"][value="Urbain"]');
-      if (urbainRadio) {
-        urbainRadio.checked = true;
-        // on enlève la classe "active" sur les autres cartes
-        var allPacks = document.querySelectorAll('#config-pack .config-radio-option');
-        for (var i = 0; i < allPacks.length; i++) {
-          allPacks[i].classList.remove("active");
-        }
-        urbainRadio.closest(".config-radio-option").classList.add("active");
-      }
+   // 👉 Si on arrive depuis la piscine URBAINE, on force le pack "Urbain"
+if (modeleParam === "mini-urbaine-9m2") {
+  var urbainRadio = document.querySelector('input[name="pack"][value="Urbain"]');
+  if (urbainRadio) {
+    urbainRadio.checked = true;
+
+    // on enlève la classe "active" sur toutes les cartes pack
+    var allPacks = document.querySelectorAll('#config-pack .config-radio-option');
+    for (var i = 0; i < allPacks.length; i++) {
+      allPacks[i].classList.remove("active");
+    }
+
+    // on remonte le DOM "à la main" jusqu'à la carte parente
+    var card = urbainRadio.parentNode;
+    while (card && !card.classList.contains("config-radio-option")) {
+      card = card.parentNode;
+    }
+    if (card) {
+      card.classList.add("active");
     }
   }
+}
+
 
   // === 2. Variables globales ===
   var totalSteps = 4;
