@@ -1631,13 +1631,14 @@ html, body {
       if (i.value === "Nage à contre-courant") optionsTotal += 6500;
     });
 
-    // Plage / terrasse
-    let plageTotal = 0;
-    const plagePricesPerM2 = {
-      Bois: 140,
-      Composite: 190,
-      Gres cerame: 220,
-    };
+   // Plage / terrasse
+let plageTotal = 0;
+const plagePricesPerM2 = {
+  Bois: 140,
+  Composite: 190,
+  "Gres cerame": 220,
+};
+
     if (plageMateriau !== "Aucune" && plageSurface > 0) {
       plageTotal =
         plageSurface * (plagePricesPerM2[plageMateriau] || 0);
