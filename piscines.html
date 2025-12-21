@@ -643,6 +643,56 @@
   margin: 0 auto 3rem;
   line-height: 1.6;
 }
+/* --- Header desktop --- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+.brand img {
+  max-height: 60px; /* tu peux laisser comme ça, pas besoin de plus petit */
+}
+
+.topbar nav a {
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+}
+
+/* lien actif (ici "Piscines bois") */
+.topbar nav a.active {
+  color: #d4af37;                /* ton doré */
+  border-bottom: 2px solid #d4af37;
+}
+
+/* --- Version smartphone --- */
+
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;      /* logo au-dessus, menu en dessous */
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .brand img {
+    max-height: 52px;            /* on garde un logo lisible */
+  }
+
+  .topbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;            /* espace entre les liens */
+  }
+
+  .topbar nav a {
+    margin-left: 0;              /* on annule le margin-left du desktop */
+    font-size: 0.9rem;           /* un poil plus petit pour bien tenir */
+  }
+}
 
  
 </style>
@@ -668,7 +718,7 @@
     </div>
     <nav>
       <a href="./index.html">Aménagements extérieurs</a>
-      <a href="./piscines.html">Piscines bois</a>
+      <a href="./piscines.html" class="active">Piscines bois</a>
       <a href="./contact.html">Contact</a>
     </nav>
   </div>
