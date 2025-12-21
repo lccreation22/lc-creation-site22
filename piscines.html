@@ -899,10 +899,7 @@
 
 </section>
 
-
-
-</main>
-<section class="bloc-lc-specialiste">
+<section class="piscines-section bloc-lc-specialiste">
   <h2>LC Création, spécialiste piscines bois en Brabant Wallon</h2>
 
   <p>
@@ -917,7 +914,7 @@
   </ul>
 </section>
 
-<section class="bloc-options">
+<section class="piscines-section bloc-options">
   <h2>Options &amp; finitions possibles</h2>
 
   <p>
@@ -965,7 +962,7 @@
   </p>
 </section>
 
-<section class="bloc-contact-piscine">
+<section class="piscines-section bloc-contact-piscine" id="bloc-devis-piscine">
   <h3>Vous avez un projet ?</h3>
 
   <p>
@@ -978,103 +975,17 @@
   </p>
 </section>
 
-  <!-- FAQ -->
-  <section class="piscines-section piscines-faq">
-    <div class="piscines-section-header">
-      <h2>Questions fréquentes</h2>
-    </div>
+<!-- FAQ -->
+<section class="piscines-section piscines-faq">
+  <div class="piscines-section-header">
+    <h2>Questions fréquentes</h2>
+  </div>
 
-    <div class="piscines-faq-list">
-      <article class="piscines-faq-item">
-        <h3>Est-ce vraiment durable dans le temps&nbsp;?</h3>
-        <p>
-          Oui. Structure en bois autoclave classe IV (usage extérieur permanent), garantie structure 10 ans,
-          et durée de vie constatée de 15 à 20 ans si l’entretien est respecté.
-        </p>
-      </article>
-
-      <article class="piscines-faq-item">
-        <h3>Bois vs béton&nbsp;: quelles différences&nbsp;?</h3>
-        <p>
-          Le bois est plus rapide à installer, moins intrusif pour le jardin, et offre un style naturel.
-          Côté longévité, on reste sur des standards élevés grâce à la classe IV et à la garantie structure.
-        </p>
-      </article>
-
-      <article class="piscines-faq-item">
-        <h3>Peut-on l’enterrer totalement&nbsp;?</h3>
-        <p>
-          Oui. Trois options sont possibles : hors sol, semi-enterrée ou totalement enterrée, selon
-          le terrain et le rendu souhaité.
-        </p>
-      </article>
-
-      <article class="piscines-faq-item">
-        <h3>Et l’entretien au quotidien&nbsp;?</h3>
-        <p>
-          Filtration à sable, traitement adapté (sel ou chlore) et contrôle régulier du pH.
-          En option, un système automatique (pompe doseuse) simplifie encore l’entretien.
-        </p>
-      </article>
-
-      <article class="piscines-faq-item">
-        <h3>Quel délai pour l’installation&nbsp;?</h3>
-        <p>
-          Après validation, il faut généralement compter de 3 à 6 semaines selon la saison et
-          la formule choisie.
-        </p>
-      </article>
-    </div>
-  </section>
+  <div class="piscines-faq-list">
+    ...
+  </div>
+</section>
 
 </main>
 
-<!-- Mini pop-up estimation (LC Création) -->
-<div id="popup-estimation" class="popup hidden" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-  <div class="popup-card">
-    <button class="popup-close" aria-label="Fermer">×</button>
-    <h3 id="popup-title">Vous souhaitez une estimation gratuite&nbsp;?</h3>
-    <p class="muted">
-      Réponse en <strong>24–48&nbsp;h</strong>, sans engagement.<br>
-      <em>Projet enterré, semi-enterré ou hors-sol&nbsp;?</em>
-    </p>
-    <a class="btn primary" id="popup-cta"
-       href="mailto:lecocqcedric@outlook.be?subject=Demande%20d%27estimation%20Piscine%20bois&body=Bonjour%2C%0AJe%20souhaite%20une%20estimation%20pour%20une%20piscine%20bois%20(enterr%C3%A9e%20/%20semi-enterr%C3%A9e%20/%20hors-sol).%0A%0ANom%20:%0AVille%20:%0AT%C3%A9l%C3%A9phone%20:%0AFormule%20:%20Essentiel%20/%20Confort%20/%20Luxe%0A%0AMerci.">
-      Oui, je suis intéressé
-    </a>
-  </div>
-</div>
 
-<script>
-(function(){
-  const POP_ID = 'lc_popup_seen_date';
-  const delayMs = 12000;
-
-  const popup = document.getElementById('popup-estimation');
-  if(!popup) return;
-
-  const last = localStorage.getItem(POP_ID);
-  const today = new Date().toISOString().slice(0,10);
-  if(last === today) return;
-
-  const timer = setTimeout(()=> popup.classList.remove('hidden'), delayMs);
-
-  const close = () => {
-    popup.classList.add('hidden');
-    localStorage.setItem(POP_ID, today);
-    clearTimeout(timer);
-  };
-  popup.addEventListener('click', (e)=>{
-    if(e.target.id === 'popup-estimation') close();
-  });
-  popup.querySelector('.popup-close')?.addEventListener('click', close);
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
-
-  document.getElementById('popup-cta')?.addEventListener('click', () => {
-    localStorage.setItem(POP_ID, today);
-  });
-})();
-</script>
-
-</body>
-</html>
