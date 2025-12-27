@@ -529,6 +529,28 @@ header{
   .piscines-hero{ display:block !important; }
   .piscines-intro-photo{ display:block !important; }
 }
+@media (min-width: 769px){
+  .piscines-hero{
+    padding: 36px 18px 32px; /* moins haut */
+  }
+
+  .piscines-hero h1{
+    font-size: clamp(26px, 2.6vw, 40px);
+    letter-spacing: .01em;
+  }
+
+  .piscines-hero p{
+    max-width: 920px;
+    font-size: 1rem;
+    opacity: .9;
+  }
+
+  /* la phrase urgence: plus fine, plus luxe */
+  .phrase-urgence{
+    font-size: 1rem;
+    font-weight: 800;
+  }
+}
 
 
 </style>
