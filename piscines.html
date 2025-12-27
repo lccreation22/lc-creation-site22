@@ -760,6 +760,36 @@
 .pool-hero h1{
   text-shadow: 0 12px 40px rgba(0,0,0,.60);
 }
+@media (max-width:768px){
+
+  /* Titre : blanc */
+  .pool-hero h1{
+    color:#fff;
+    text-shadow: 0 12px 40px rgba(0,0,0,.60);
+  }
+
+  /* Prix : fond clair pour avoir du noir lisible */
+  .pool-hero__price{
+    display:inline-block;
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.88);
+    color: #111827;                 /* noir */
+    font-weight: 800;
+    line-height: 1.15;
+    box-shadow: 0 14px 35px rgba(0,0,0,.22);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  /* Montant doré plus grand (on cible le <strong>) */
+  .pool-hero__price strong{
+    color: #d4af37;
+    font-size: 1.35em;              /* + grand */
+    font-weight: 950;
+  }
+}
 
 
 
@@ -821,8 +851,8 @@
 
     <div class="pool-hero__content">
   <h1>CHOISIR SANS COMPROMIS.</h1>
-  <p class="pool-hero__subtitle">Configurez votre piscine en 2 minutes.</p>
-  <p class="pool-hero__price">Piscines bois à partir de 15&nbsp;490&nbsp;€ TVAC.</p>
+<p class="pool-hero__price">Piscines bois à partir de <strong>15&nbsp;490&nbsp;€</strong> TVAC.</p>
+
 
   <div class="pool-hero__cta">
     <a class="btn-primary" href="/configurateur-piscine.html">Configurer ma piscine</a>
