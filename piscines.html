@@ -687,11 +687,11 @@
   .pool-hero--mobile{ display:block; }
 
   /* Hero sizing : ça DOIT changer la hauteur */
-  .pool-hero{ position:relative; min-height:70vh; overflow:hidden; }
+  .pool-hero{ position:relative; min-height:62vh; overflow:hidden; }
   .pool-hero__content{
     position:relative;
     z-index:2;
-    min-height:70vh;
+    min-height:62vh;
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
@@ -748,6 +748,20 @@
 
   /* IMPORTANT : on cache l'ancienne photo qui fait doublon sur mobile */
   .piscines-intro-photo{ display:none; }
+}
+.pool-hero h1{ color:#fff; }
+
+.pool-hero__subtitle,
+.pool-hero__price{
+  color: rgba(255,255,255,.95);
+  text-shadow: 0 12px 40px rgba(0,0,0,.55);
+}
+
+.pool-hero h1{
+  text-shadow: 0 12px 40px rgba(0,0,0,.60);
+}
+.pool-hero__price{
+  color:#f6e1a4;
 }
 
 
