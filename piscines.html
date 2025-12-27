@@ -655,307 +655,101 @@
   color: #d4af37;                /* ton doré */
   border-bottom: 2px solid #d4af37;
 }
+/* ===== MOBILE : HEADER + HERO (SINGLE SOURCE OF TRUTH) ===== */
 
-/* --- Version smartphone --- */
+/* desktop : hero mobile caché */
+.pool-hero--mobile{ display:none; }
 
-/* ===== MOBILE FIXES (HERO + HEADER) ===== */
+@media (max-width:768px){
 
-/* Sécurité anti-débordement */
-html, body { width: 100%; overflow-x: hidden; }
-*, *::before, *::after { box-sizing: border-box; }
-
-/* Par défaut (desktop) : hero mobile caché */
-.pool-hero--mobile { display: none; }
-
-@media (max-width: 768px){
-
-  /* ===== HEADER ===== */
-  header { padding: 0; background: #fff; }
-
+  /* Header compact sans réduire le logo */
+  header{ padding:0; background:#fff; }
   .topbar.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 12px;
-    gap: 8px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:6px 10px;
+    gap:4px;
+    max-width:100%;
+    margin:0;
   }
+  .brand{ display:flex; justify-content:center; width:100%; }
+  .brand img{ max-height:52px; width:auto; height:auto; }
 
-  /* LOGO : inchangé */
-  .brand { display: flex; justify-content: center; }
-  .brand img{
-    max-height: 52px;   /* <- comme tu veux */
-    width: auto;
-    height: auto;
-  }
+  nav{ display:flex; flex-wrap:wrap; justify-content:center; gap:6px 12px; width:100%; }
+  nav a{ margin:0; padding:4px 6px; font-size:.92rem; line-height:1.05; white-space:nowrap; }
 
-  /* MENU : je te conseille WRAP (plus propre que scroll) */
-  .topbar nav{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px 12px;
-    width: 100%;
-  }
+  /* Hero desktop caché */
+  .piscines-hero{ display:none; }
 
-  .topbar nav a{
-    margin: 0;              /* annule desktop */
-    padding: 6px 8px;
-    font-size: 0.95rem;
-    line-height: 1.1;
-    white-space: nowrap;
-  }
+  /* Hero mobile visible */
+  .pool-hero--mobile{ display:block; }
 
-  /* ===== HERO MOBILE ===== */
-  .piscines-hero{ display: none; }
-  .pool-hero--mobile{ display: block; }
-
-  .pool-hero{
-    position: relative;
-    min-height: 86vh;
-    overflow: hidden;
-  }
-
-  .pool-hero__img{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 35%;
-    transform: none;
-    filter: brightness(1.12) contrast(1.06) saturate(1.04);
-  }
-
-  .pool-hero__overlay{
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(0,0,0,.55) 0%,
-      rgba(0,0,0,.20) 45%,
-      rgba(0,0,0,.70) 100%
-    );
-  }
-
-  /* Support visuel pour texte = lisible + premium */
+  /* Hero sizing : ça DOIT changer la hauteur */
+  .pool-hero{ position:relative; min-height:70vh; overflow:hidden; }
   .pool-hero__content{
-    position: relative;
-    z-index: 2;
-    min-height: 86vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 12px;
-    padding: 22px 16px;
-    margin: 0 10px 14px;
-    border-radius: 18px;
-    background: linear-gradient(
-      180deg,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,.35) 35%,
-      rgba(0,0,0,.55) 100%
-    );
+    position:relative;
+    z-index:2;
+    min-height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    gap:12px;
+    padding:22px 16px;
   }
 
-  .pool-hero h1{
-    margin: 0;
-    color: #fff;
-    font-size: clamp(26px, 7vw, 44px);
-    line-height: 1.05;
-    text-transform: uppercase;
-    letter-spacing: .04em;
-    font-weight: 850;
-    text-shadow: 0 12px 40px rgba(0,0,0,.55);
+  /* Image : stop zoom + recadrage visible */
+  .pool-hero__img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 15%;
+    transform:none;
+    filter: brightness(1.10) contrast(1.05) saturate(1.03);
   }
 
-  .pool-hero__subtitle{
-    margin: 0;
-    color: rgba(255,255,255,.95);
-    font-size: 1.05rem;
-    font-weight: 650;
-    text-shadow: 0 12px 40px rgba(0,0,0,.55);
-  }
-
-  .pool-hero__price{
-    margin: 0;
-    color: rgba(255,255,255,.97);
-    font-size: 1.12rem;
-    font-weight: 900;
-    text-shadow: 0 12px 40px rgba(0,0,0,.55);
-  }
-
-  .pool-hero__cta{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    padding-bottom: 8px;
-  }
-
-  .pool-hero__cta a{ width: 100%; }
-
-  /* Bouton principal : doré LC */
-  .pool-hero__cta .btn-primary{
-    background: linear-gradient(135deg, #d4af37, #f6e1a4);
-    color: #111827;
-    font-weight: 900;
-    border-radius: 999px;
-    padding: 18px 18px;
-    text-decoration: none;
-    box-shadow: 0 18px 50px rgba(0,0,0,.35);
-  }
-
-  /* Bouton secondaire : sobre */
-  .pool-hero__cta .btn-ghost{
-    border: 1px solid rgba(255,255,255,.45);
-    color: #fff;
-    border-radius: 999px;
-    padding: 16px 18px;
-    text-decoration: none;
-    background: rgba(0,0,0,.18);
-    backdrop-filter: blur(6px);
-  }
-  /* ===== HEADER MOBILE CLEAN (LC Création) ===== */
-@media (max-width: 768px){
-
-  html.theme-piscine header{
-    background:#fff;
-    padding:0 !important;
-  }
-
-  /* Important: on cible EXACTEMENT .topbar.container */
-  html.theme-piscine .topbar.container{
-    display:flex !important;
-    flex-direction: column !important;
-    align-items:center !important;
-    justify-content:center !important;
-    gap: 8px !important;
-    padding: 8px 12px !important;
-
-    /* si ton .container met un max-width, on le neutralise ici */
-    max-width: 100% !important;
-    margin: 0 !important;
-  }
-
-  /* Logo inchangé */
-  html.theme-piscine .brand{
-    display:flex !important;
-    justify-content:center !important;
-    width:100% !important;
-  }
-  html.theme-piscine .brand img{
-    max-height: 52px !important; /* <- garde ton logo */
-    width:auto !important;
-    height:auto !important;
-  }
-
-  /* Menu centré, propre, pas de scroll horizontal */
-  html.theme-piscine .topbar nav{
-    display:flex !important;
-    flex-wrap: wrap !important;
-    justify-content:center !important;
-    gap: 8px 14px !important;
-    width:100% !important;
-  }
-
-  html.theme-piscine .topbar nav a{
-    margin:0 !important;
-    padding: 6px 8px !important;
-    font-size: 0.95rem !important;
-    line-height: 1.1 !important;
-    white-space: nowrap !important;
-  }
-/* ===== TUNING MOBILE (header + hero) ===== */
-@media (max-width: 768px){
-
-  /* 1) HEADER plus compact (logo inchangé) */
-  html.theme-piscine header{ padding:0 !important; background:#fff !important; }
-
-  html.theme-piscine .topbar.container{
-    padding: 6px 10px !important;   /* moins haut */
-    gap: 4px !important;            /* moins d’espace */
-  }
-
-  html.theme-piscine .brand img{
-    max-height: 52px !important;    /* LOGO inchangé */
-  }
-
-  /* nav plus compacte, sur 2 lignes si besoin */
-  html.theme-piscine .topbar nav{
-    gap: 6px 12px !important;
-    margin-top: 0 !important;
-  }
-  html.theme-piscine .topbar nav a{
-    padding: 4px 6px !important;
-    font-size: 0.92rem !important;
-    line-height: 1.05 !important;
-  }
-
-
-  /* 3) Bande sombre : on l’allège fortement */
-  html.theme-piscine .pool-hero__overlay{
-    background: linear-gradient(
+  /* Overlay plus léger (plus de bande sombre) */
+  .pool-hero__overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
       180deg,
       rgba(0,0,0,.28) 0%,
-      rgba(0,0,0,.08) 45%,
-      rgba(0,0,0,.30) 100%
-    ) !important;
+      rgba(0,0,0,.10) 55%,
+      rgba(0,0,0,.40) 100%
+    );
   }
 
-  /* si tu avais un "fond" sur le contenu, on le réduit */
-  html.theme-piscine .pool-hero__content{
-    background: linear-gradient(
-      180deg,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,.10) 45%,
-      rgba(0,0,0,.22) 100%
-    ) !important;
-    margin: 0 10px 12px !important;
-    border-radius: 16px !important;
- 
-  }
-    @media (max-width: 768px){
-  html.theme-piscine .pool-hero{ min-height: 78vh !important; }
-  html.theme-piscine .pool-hero__content{ min-height: 78vh !important; }
- 
-  }
- @media (max-width: 768px){
+  /* Boutons */
+  .pool-hero__cta{ display:flex; flex-direction:column; gap:10px; width:100%; padding-bottom:8px; }
+  .pool-hero__cta a{ width:100%; }
 
-  /* moins de recadrage = hero moins haut */
-  .pool-hero,
-  .pool-hero__content{
-    min-height: 76vh !important;
+  .pool-hero__cta .btn-primary{
+    background: linear-gradient(135deg, #d4af37, #f6e1a4);
+    color:#111827;
+    font-weight:900;
+    border-radius:999px;
+    padding:18px 18px;
+    box-shadow:0 18px 50px rgba(0,0,0,.35);
+    text-decoration:none;
+  }
+  .pool-hero__cta .btn-ghost{
+    border:1px solid rgba(255,255,255,.45);
+    color:#fff;
+    border-radius:999px;
+    padding:16px 18px;
+    text-decoration:none;
+    background:rgba(0,0,0,.12);
+    backdrop-filter: blur(6px);
   }
 
-  /* photo moins "zoom" */
-  .pool-hero__img{
-    transform: none !important;                 /* supprime scale */
-    object-position: center 25% !important;     /* montre plus de haut */
-    filter: brightness(1.10) contrast(1.05) saturate(1.03) !important;
-  }
- @media (max-width:768px){
-  .piscines-intro-photo{ display: none !important; }
- }
- @media (max-width:768px){
-
-  /* 1) on réduit la hauteur du hero = beaucoup moins recadré */
-  .pool-hero,
-  .pool-hero__content{
-    min-height: 70vh !important;
-  }
-
-  /* 2) on enlève le zoom et on remonte franchement le cadrage */
-  .pool-hero__img{
-    transform: none !important;
-    object-position: center 15% !important;
-  }
-
-  /* 3) on enlève la bordure test */
-  .pool-hero__img{ outline: none !important; }
+  /* IMPORTANT : on cache l'ancienne photo qui fait doublon sur mobile */
+  .piscines-intro-photo{ display:none; }
 }
-  
-}
+
 
 
 
