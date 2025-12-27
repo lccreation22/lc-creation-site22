@@ -855,6 +855,144 @@
     width: calc(50% - .45rem) !important;
     font-size: .88rem !important;
   }
+  /* ===== FORMULES STYLE "FICHE AUTO" ===== */
+.formules-grid--auto{ gap: 1.6rem; }
+
+.formule-card--auto{
+  padding: 0;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.formule-media{
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #0b1220;
+}
+
+.formule-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.formule-badges{
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.formule-body{
+  padding: 1.25rem 1.25rem 1.35rem;
+}
+
+.formule-body h3{
+  font-size: 1.35rem;
+  margin: 0 0 .65rem;
+}
+
+/* Pastilles finitions */
+.formule-pills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 1rem;
+}
+
+.pill{
+  appearance: none;
+  border: 1px solid rgba(15,23,42,.18);
+  background: #fff;
+  color: rgba(15,23,42,.85);
+  padding: .38rem .65rem;
+  border-radius: 999px;
+  font-size: .88rem;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.pill:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(15,23,42,.08); }
+.pill.is-active{
+  border-color: rgba(212,175,55,.75);
+  box-shadow: 0 14px 30px rgba(212,175,55,.12);
+}
+
+/* 4 specs fixes */
+.formule-specs{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .7rem .9rem;
+  margin-bottom: 1rem;
+}
+
+.spec{
+  background: rgba(15,23,42,.03);
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 16px;
+  padding: .7rem .75rem;
+}
+
+.spec span{
+  display: block;
+  font-size: .78rem;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  opacity: .7;
+  margin-bottom: .2rem;
+}
+
+.spec strong{
+  font-size: .95rem;
+  font-weight: 750;
+}
+
+/* Prix */
+.formule-pricebox .price{
+  font-size: 1.05rem;
+  font-weight: 650;
+  margin-bottom: .15rem;
+}
+.formule-pricebox .price strong{
+  color: #d4af37;
+  font-weight: 900;
+}
+.formule-pricebox .price-sub{
+  font-size: .86rem;
+  opacity: .7;
+}
+
+/* CTA pack */
+.formule-cta{ margin-top: 1rem; }
+.btn-pack{
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 850;
+  background: linear-gradient(135deg, #d4af37, #f6e1a4);
+  color: #111827;
+  box-shadow: 0 18px 50px rgba(0,0,0,.18);
+}
+
+/* Mobile: spec en 1 colonne + pastilles scroll si besoin */
+@media (max-width: 640px){
+  .formule-specs{ grid-template-columns: 1fr; }
+  .formule-body{ padding: 1.1rem 1.05rem 1.25rem; }
+  .formule-pills{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .pill{ white-space: nowrap; }
+}
+
 }
 
 
@@ -981,73 +1119,121 @@
     Demander une offre pour cette piscine
   </a>
 </div>
-  <div class="formules-grid">
-    <!-- ESSENTIEL -->
-    <article class="formule-card formule-essentiel">
-      <div class="formule-header">
+ <div class="formules-grid formules-grid--auto">
+
+  <!-- ESSENTIEL -->
+  <article class="formule-card formule-card--auto" data-pack="essentiel">
+    <div class="formule-media">
+      <img class="formule-img" src="/01-bois-naturel.png" alt="Piscine bois Essentiel — finition Bois naturel">
+      <div class="formule-badges">
         <span class="formule-badge">Accès à la gamme</span>
-        <h3>Essentiel</h3>
-        <p class="formule-size">5,00 m × 3,20 m × 1,25 m</p>
       </div>
-      <ul class="formule-list">
-        <li>Structure bois autoclave classe IV — garantie structure 8 ans.</li>
-        <li>Liner 75/100 (couleur au choix selon collection).</li>
-        <li>Filtration à sable dimensionnée pour un usage familial.</li>
-        <li>Échelle inox + margelles bois.</li>
-        <li>Installation hors sol, semi-enterrée ou enterrée.</li>
-      </ul>
-      <p class="formule-price">
-        À partir de <strong>15&nbsp;490&nbsp;€ TVAC</strong>
-      </p>
-      <p class="formule-price-htva">
-        Soit env. 12&nbsp;800&nbsp;€ HTVA (21&nbsp;% TVA)
-      </p>
-    </article>
+    </div>
 
-    <!-- CONFORT -->
-    <article class="formule-card formule-confort">
-      <div class="formule-header">
+    <div class="formule-body">
+      <h3>Essentiel</h3>
+
+      <div class="formule-pills" role="group" aria-label="Finitions Essentiel">
+        <button class="pill is-active" type="button" data-finish="bois" data-img="/01-bois-naturel.png">Bois naturel</button>
+        <button class="pill" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png">Blanc minéral</button>
+        <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png">Gris clair</button>
+        <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png">Anthracite</button>
+      </div>
+
+      <div class="formule-specs">
+        <div class="spec"><span>Dimensions</span><strong>5,00 × 3,20 × 1,25</strong></div>
+        <div class="spec"><span>Garantie</span><strong>Structure 8 ans</strong></div>
+        <div class="spec"><span>Filtration</span><strong>Sable (familial)</strong></div>
+        <div class="spec"><span>Pose</span><strong>Hors-sol / Semi / Enterrée</strong></div>
+      </div>
+
+      <div class="formule-pricebox">
+        <div class="price">À partir de <strong>15&nbsp;490&nbsp;€ TVAC</strong></div>
+        <div class="price-sub">Soit env. 12&nbsp;800&nbsp;€ HTVA (21&nbsp;% TVA)</div>
+      </div>
+
+      <div class="formule-cta">
+        <a class="btn-pack" href="./configurateur-piscine.html">Configurer Essentiel</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- CONFORT -->
+  <article class="formule-card formule-card--auto" data-pack="confort">
+    <div class="formule-media">
+      <img class="formule-img" src="/01-bois-naturel.png" alt="Piscine bois Confort — finition Bois naturel">
+      <div class="formule-badges">
         <span class="formule-badge formule-badge-highlight">Best-seller</span>
-        <h3>Confort</h3>
-        <p class="formule-size">6,00 m × 4,20 m × 1,30 m</p>
       </div>
-      <ul class="formule-list">
-        <li>Structure bois autoclave classe IV + renforts métal.</li>
-        <li>Liner 75/100 (bleu, gris perle ou sable).</li>
-        <li>Pompe à vitesse variable silencieuse &amp; économique.</li>
-        <li>Éclairage LED intégré.</li>
-        <li>Bâches été / hiver + local technique optimisé.</li>
-      </ul>
-      <p class="formule-price">
-        À partir de <strong>19&nbsp;490&nbsp;€ TVAC</strong>
-      </p>
-      <p class="formule-price-htva">
-        Soit env. 16&nbsp;100&nbsp;€ HTVA (21&nbsp;% TVA)
-      </p>
-    </article>
+    </div>
 
-    <!-- LUXE -->
-    <article class="formule-card formule-luxe">
-      <div class="formule-header">
-        <span class="formule-badge">Expérience luxe</span>
-        <h3>Luxe</h3>
-        <p class="formule-size">8,30 m × 4,90 m × 1,36 m</p>
+    <div class="formule-body">
+      <h3>Confort</h3>
+
+      <div class="formule-pills" role="group" aria-label="Finitions Confort">
+        <button class="pill is-active" type="button" data-finish="bois" data-img="/01-bois-naturel.png">Bois naturel</button>
+        <button class="pill" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png">Blanc minéral</button>
+        <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png">Gris clair</button>
+        <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png">Anthracite</button>
       </div>
-      <ul class="formule-list">
-        <li>Structure bois autoclave classe IV + renforts métal.</li>
-        <li>Liner 75/100 (bleu, sable ou gris).</li>
-        <li>Pompe variable + LED *2 (télécommande).</li>
-        <li>Couverture été + enrouleur inox.</li>
-        <li>Robot de nettoyage et gestion simplifiée par smartphone.</li>
-      </ul>
-      <p class="formule-price">
-        À partir de <strong>23&nbsp;990&nbsp;€ TVAC</strong>
-      </p>
-      <p class="formule-price-htva">
-        Soit env. 19&nbsp;800&nbsp;€ HTVA (21&nbsp;% TVA)
-      </p>
-    </article>
-  </div>
+
+      <div class="formule-specs">
+        <div class="spec"><span>Dimensions</span><strong>6,00 × 4,20 × 1,30</strong></div>
+        <div class="spec"><span>Garantie</span><strong>Structure 8 ans</strong></div>
+        <div class="spec"><span>Filtration</span><strong>Vitesse variable</strong></div>
+        <div class="spec"><span>Équipement</span><strong>LED + bâches</strong></div>
+      </div>
+
+      <div class="formule-pricebox">
+        <div class="price">À partir de <strong>19&nbsp;490&nbsp;€ TVAC</strong></div>
+        <div class="price-sub">Soit env. 16&nbsp;100&nbsp;€ HTVA (21&nbsp;% TVA)</div>
+      </div>
+
+      <div class="formule-cta">
+        <a class="btn-pack" href="./configurateur-piscine.html">Configurer Confort</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- LUXE -->
+  <article class="formule-card formule-card--auto" data-pack="luxe">
+    <div class="formule-media">
+      <img class="formule-img" src="/02-blanc-mineral-signature.png" alt="Piscine bois Luxe — finition Blanc minéral">
+      <div class="formule-badges">
+        <span class="formule-badge">Expérience luxe</span>
+      </div>
+    </div>
+
+    <div class="formule-body">
+      <h3>Luxe</h3>
+
+      <div class="formule-pills" role="group" aria-label="Finitions Luxe">
+        <button class="pill" type="button" data-finish="bois" data-img="/01-bois-naturel.png">Bois naturel</button>
+        <button class="pill is-active" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png">Blanc minéral</button>
+        <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png">Gris clair</button>
+        <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png">Anthracite</button>
+      </div>
+
+      <div class="formule-specs">
+        <div class="spec"><span>Dimensions</span><strong>8,30 × 4,90 × 1,36</strong></div>
+        <div class="spec"><span>Garantie</span><strong>Structure 8 ans</strong></div>
+        <div class="spec"><span>Équipement</span><strong>Robot + LED x2</strong></div>
+        <div class="spec"><span>Confort</span><strong>Gestion simplifiée</strong></div>
+      </div>
+
+      <div class="formule-pricebox">
+        <div class="price">À partir de <strong>23&nbsp;990&nbsp;€ TVAC</strong></div>
+        <div class="price-sub">Soit env. 19&nbsp;800&nbsp;€ HTVA (21&nbsp;% TVA)</div>
+      </div>
+
+      <div class="formule-cta">
+        <a class="btn-pack" href="./configurateur-piscine.html">Configurer Luxe</a>
+      </div>
+    </div>
+  </article>
+
+</div>
+
 
   <p class="formule-note">
   Prix indicatifs valables en pose hors-sol.  
@@ -1200,5 +1386,20 @@
 
 
 </main>
+<script>
+  document.addEventListener('click', (e) => {
+    const pill = e.target.closest('.pill');
+    if (!pill) return;
+
+    const card = pill.closest('.formule-card--auto');
+    const img = card.querySelector('.formule-img');
+    const src = pill.getAttribute('data-img');
+
+    card.querySelectorAll('.pill').forEach(p => p.classList.remove('is-active'));
+    pill.classList.add('is-active');
+
+    if (src) img.src = src;
+  });
+</script>
 
 
