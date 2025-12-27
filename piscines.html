@@ -762,34 +762,32 @@
 }
 @media (max-width:768px){
 
-  /* Titre : blanc */
+  /* Titre reste blanc */
   .pool-hero h1{
     color:#fff;
     text-shadow: 0 12px 40px rgba(0,0,0,.60);
   }
 
-  /* Prix : fond clair pour avoir du noir lisible */
+  /* Phrase de prix : noir lisible sans fond */
   .pool-hero__price{
-    display:inline-block;
     margin: 0;
-    padding: 10px 12px;
-    border-radius: 14px;
-    background: rgba(255,255,255,.88);
-    color: #111827;                 /* noir */
-    font-weight: 800;
-    line-height: 1.15;
-    box-shadow: 0 14px 35px rgba(0,0,0,.22);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    color: rgba(17,24,39,.95);   /* noir élégant */
+    font-size: 1.05rem;
+    font-weight: 650;
+    text-shadow: 
+      0 2px 8px rgba(255,255,255,.55),  /* halo clair */
+      0 12px 35px rgba(0,0,0,.35);      /* profondeur */
   }
 
-  /* Montant doré plus grand (on cible le <strong>) */
+  /* Montant doré, plus grand */
   .pool-hero__price strong{
     color: #d4af37;
-    font-size: 1.35em;              /* + grand */
+    font-size: 1.45em;
     font-weight: 950;
+    letter-spacing: .01em;
   }
 }
+
 
 
 
