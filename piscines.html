@@ -694,7 +694,31 @@
     margin-left: 0;              /* on annule le margin-left du desktop */
     font-size: 0.9rem;           /* un poil plus petit pour bien tenir */
   }
+  @media (max-width: 768px){
+  .pool-hero__img{
+    filter: brightness(1.12) contrast(1.03) saturate(1.02);
+  }
+    @media (max-width: 768px){
+  /* on garde un logo lisible */
+  html.theme-piscine .brand img{ max-height: 52px; }
+
+  /* on réduit la hauteur du header sans toucher au logo */
+  html.theme-piscine header{ padding: 0; }
+  html.theme-piscine .topbar{ padding: 6px 10px; gap: 6px; }
+
+  /* menu plus compact */
+  html.theme-piscine .topbar nav{
+    gap: 6px 10px;
+    margin-top: 2px;
+  }
+  html.theme-piscine .topbar nav a{
+    padding: 4px 6px;
+    line-height: 1.1;
+    font-size: 0.88rem;
+  }
 }
+
+
 /* ===== HERO MOBILE ONLY ===== */
 .pool-hero--mobile{ display:none; }
 
