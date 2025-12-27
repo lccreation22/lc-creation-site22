@@ -22,18 +22,17 @@
 
 /* --------- TOKENS --------- */
 :root{
-  --lc-night: #020617;
-  --lc-night-2:#0b1220;
-  --lc-ink:   #0f172a;
-  --lc-paper: #f7f7f8;
-  --lc-card:  #ffffff;
+  --lc-gold:#d4af37;
+  --lc-night:#020617;
+  --lc-ink:#0f172a;
 
-  --lc-gold:  #d4af37;
-  --lc-gold-2:#f6e1a4;
+  /* BLEU ROI (accent premium) */
+  --lc-royal:#1d4ed8;          /* bleu roi */
+  --lc-royal-soft: rgba(29,78,216,.14);
 
-  --lc-border: rgba(15,23,42,.12);
-  --lc-shadow: 0 24px 70px rgba(2,6,23,.10);
-  --radius-xl: 22px;
+  --lc-card:#ffffff;
+  --lc-border: rgba(15,23,42,.10);
+  --shadow: 0 18px 55px rgba(2,6,23,.10);
 }
 
 *{ box-sizing: border-box; }
@@ -142,105 +141,300 @@ header{
   color: var(--lc-gold);
 }
 
-/* --------- HERO MOBILE (photo + overlay) --------- */
-.pool-hero--mobile{ display:none; }
-
-.pool-hero{
-  position:relative;
-  overflow:hidden;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--lc-shadow);
+/* =========================
+   VARIABLES / BASE LUXE
+========================= */
+:root{
+  --lc-gold:#d4af37;
+  --lc-night:#020617;
+  --lc-ink:#0f172a;
+  --lc-muted:#64748b;
+  --lc-card:#ffffff;
+  --lc-border:rgba(15,23,42,.10);
+  --shadow: 0 18px 55px rgba(2,6,23,.10);
 }
 
-.pool-hero__img{
-  position:absolute;
-  inset:0;
+/* Sécurité layout */
+*{ box-sizing:border-box; }
+img{ max-width:100%; height:auto; display:block; }
+
+/* =========================
+   HEADER (desktop safe)
+========================= */
+.topbar{ display:flex; align-items:center; justify-content:space-between; padding:.75rem 1rem; }
+.topbar nav a{ text-decoration:none; margin-left:1.5rem; font-weight:500; color:var(--lc-ink); }
+.topbar nav a.active{ color:var(--lc-gold); border-bottom:2px solid var(--lc-gold); padding-bottom:2px; }
+
+/* =========================
+   HERO MOBILE (uniquement)
+========================= */
+.pool-hero--mobile{ display:none; } /* desktop */
+@media (max-width:768px){
+  /* header compact */
+  header{ padding:0; background:#fff; }
+  .topbar.container{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:6px 10px; gap:6px; max-width:100%; margin:0;
+  }
+  .brand img{ max-height:52px; width:auto; height:auto; }
+  .topbar nav{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:6px 12px; width:100%;
+  }
+  .topbar nav a{ margin:0; padding:4px 6px; font-size:.92rem; line-height:1.05; white-space:nowrap; }
+
+  /* hero desktop off / hero mobile on */
+  .piscines-hero{ display:none; }
+  .pool-hero--mobile{ display:block; }
+  .piscines-intro-photo{ display:none; } /* doublon photo */
+
+  .pool-hero{
+    position:relative;
+    min-height:62vh;
+    overflow:hidden;
+    border-radius:22px;
+    margin: 12px 12px 0;
+    box-shadow: var(--shadow);
+    background:#0b1220;
+  }
+
+  .pool-hero__img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center 12%;
+    transform:none;
+    filter: brightness(1.06) contrast(1.03) saturate(1.02);
+  }
+
+  /* overlay discret (pas la bande sombre lourde) */
+  .pool-hero__overlay{
+    position:absolute; inset:0;
+    background: linear-gradient(180deg,
+      rgba(0,0,0,.18) 0%,
+      rgba(0,0,0,.06) 55%,
+      rgba(0,0,0,.28) 100%
+    );
+  }
+
+  .pool-hero__content{
+    position:relative; z-index:2;
+    min-height:62vh;
+    display:flex; flex-direction:column;
+    justify-content:space-between;
+    padding:18px 16px;
+  }
+
+  /* Titre plus haut */
+  .pool-hero h1{
+    margin: 3vh 0 0;
+    color:#fff;
+    font-size: clamp(28px, 7vw, 46px);
+    line-height:1.05;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    font-weight:900;
+    text-shadow: 0 16px 40px rgba(0,0,0,.45);
+  }
+
+  /* Prix : texte noir + montant doré */
+  .pool-hero__price{
+    margin:0;
+    color: rgba(17,24,39,.92);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-shadow:
+      0 2px 10px rgba(255,255,255,.55),
+      0 18px 40px rgba(0,0,0,.25);
+  }
+  .pool-hero__price strong{
+    color: var(--lc-gold);
+    font-size: 1.50em;
+    font-weight: 950;
+  }
+
+  .pool-hero__cta{ display:flex; flex-direction:column; gap:10px; }
+  .pool-hero__cta a{ width:100%; text-decoration:none; }
+
+  .pool-hero__cta .btn-primary{
+    background: linear-gradient(135deg, var(--lc-gold), #f6e1a4);
+    color:#111827;
+    font-weight:900;
+    border-radius:999px;
+    padding:18px 18px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.25);
+  }
+
+  /* Tu SUPPRIMES le bouton "voir les modèles" => pas besoin de style .btn-ghost */
+}
+
+/* Desktop: sécurité (le hero mobile ne doit jamais apparaître) */
+@media (min-width:769px){
+  .pool-hero--mobile{ display:none !important; }
+  .piscines-hero{ display:block !important; }
+}
+
+/* =========================
+   PACKS: FICHES LUXE (PC 3 colonnes / mobile 1 colonne)
+========================= */
+.formules-grid{
+  max-width: 1120px;
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1.4rem;
+  align-items: start;
+}
+
+@media (max-width: 980px){
+  .formules-grid{ grid-template-columns: 1fr; }
+}
+
+.formule-card{
+  background: var(--lc-card);
+  border: 1px solid var(--lc-border);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.formule-media{
+  aspect-ratio: 16/10;
+  background: #0b1220;
+}
+.formule-media img{
   width:100%;
   height:100%;
-  object-fit: cover;
-  object-position: center 18%;
-  transform: none;
-  display:block;
-  filter: brightness(1.06) contrast(1.06) saturate(1.04);
+  object-fit:cover;
 }
 
-.pool-hero__overlay{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,.18) 0%,
-    rgba(0,0,0,.06) 48%,
-    rgba(0,0,0,.42) 100%
-  );
+/* BODY */
+.formule-body{
+  padding: 1.15rem 1.15rem 1.25rem;
 }
 
-.pool-hero__content{
-  position:relative;
-  z-index:2;
-  min-height: 64vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding: 22px 18px 18px;
+/* PASTILLE (doit être JUSTE sous l’image) */
+.formule-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  border-radius:999px;
+  padding:.38rem .75rem;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  border: 1px solid rgba(15,23,42,.18);
+  color: rgba(15,23,42,.75);
+  background:#fff;
+  margin-top: .85rem;
 }
 
-.pool-hero h1{
-  margin: 6vh 0 0;
-  color:#fff;
-  font-size: clamp(28px, 7.4vw, 46px);
-  line-height: 1.02;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  font-weight: 900;
-  text-shadow: 0 16px 48px rgba(0,0,0,.55);
-}
-
-/* Prix : noir + halo (propre) + montant doré plus grand */
-.pool-hero__price{
-  margin: 0;
+.formule-badge.is-highlight{
+  border:none;
+  background: rgba(212,175,55,.18);
   color: rgba(17,24,39,.95);
-  font-size: 1.06rem;
-  font-weight: 700;
-  text-shadow:
-    0 2px 10px rgba(255,255,255,.60),
-    0 18px 44px rgba(0,0,0,.25);
 }
 
-.pool-hero__price strong{
+/* TITRE */
+.formule-title{
+  margin: .7rem 0 .55rem;
+  font-size: 1.55rem;
+  line-height:1.1;
+  font-weight: 900;
+  color: var(--lc-ink);
+}
+
+/* PASTILLES COULEURS */
+.formule-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 8px;
+  margin: 0 0 1rem;
+}
+.pill{
+  border:1px solid rgba(15,23,42,.18);
+  background:#fff;
+  color: rgba(15,23,42,.85);
+  padding:.38rem .65rem;
+  border-radius:999px;
+  font-size:.88rem;
+  font-weight:650;
+}
+
+/* SPECS 2x2 */
+.formule-specs{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:.7rem .9rem;
+  margin: 0 0 1rem;
+}
+@media (max-width: 420px){
+  .formule-specs{ grid-template-columns: 1fr; }
+}
+
+.spec{
+  background: rgba(15,23,42,.03);
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 16px;
+  padding: .72rem .75rem;
+}
+.spec span{
+  display:block;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color: rgba(15,23,42,.60);
+  margin-bottom: .15rem;
+}
+.spec strong{
+  font-size:.95rem;
+  font-weight:850;
+  color: var(--lc-ink);
+}
+
+/* PRIX */
+.formule-price{
+  margin:.2rem 0 .15rem;
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: rgba(15,23,42,.85);
+}
+.formule-price strong{
   color: var(--lc-gold);
-  font-size: 1.55em;
   font-weight: 950;
-  letter-spacing: .01em;
+}
+.formule-price-sub{
+  margin:0;
+  font-size:.88rem;
+  color: rgba(15,23,42,.55);
 }
 
 /* CTA */
-.pool-hero__cta{
-  display:flex;
-  flex-direction:column;
-  gap: 10px;
-  padding-top: 10px;
+.formule-cta{
+  margin-top: 1rem;
 }
-
-.pool-hero__cta a{
-  width: 100%;
+.btn-pack{
   display:inline-flex;
+  width:100%;
   align-items:center;
   justify-content:center;
+  padding: 1rem 1rem;
+  border-radius:999px;
   text-decoration:none;
-  border-radius: 999px;
-  padding: 18px 18px;
   font-weight: 900;
-  letter-spacing: .01em;
+  background: linear-gradient(135deg, var(--lc-gold), #f6e1a4);
+  color:#111827;
+  box-shadow: 0 18px 50px rgba(0,0,0,.16);
 }
 
-.pool-hero__cta .btn-primary{
-  background: linear-gradient(135deg, var(--lc-gold), var(--lc-gold-2));
-  color: #111827;
-  box-shadow: 0 22px 60px rgba(0,0,0,.22);
+/* note en bas (propre) */
+.formule-note{
+  max-width: 900px;
+  margin: 1.2rem auto 0;
+  text-align:center;
+  font-size:.92rem;
+  color: rgba(15,23,42,.65);
 }
 
-.pool-hero__cta .btn-primary:hover{ filter: brightness(1.03); }
 
 /* --------- INTRO PHOTO (desktop) --------- */
 .piscines-intro-photo{
@@ -550,6 +744,250 @@ header{
     font-size: 1rem;
     font-weight: 800;
   }
+  /* Layout général */
+.page-piscines{
+  background: linear-gradient(180deg, #f6f7fb 0%, #f3f4f6 100%);
+  color: var(--lc-ink);
+}
+
+.piscines-section{
+  padding: 4.2rem 1.5rem;
+}
+
+.piscines-wrap{
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.piscines-section-header{
+  text-align:center;
+  max-width: 860px;
+  margin: 0 auto 2.2rem;
+}
+
+.piscines-section-header h2{
+  font-size: clamp(1.7rem, 2.3vw, 2.2rem);
+  margin: 0 0 .65rem;
+  font-weight: 900;
+  letter-spacing: -.02em;
+}
+
+.piscines-section-header p{
+  margin:0;
+  color: rgba(15,23,42,.72);
+  line-height: 1.7;
+  font-size: 1.02rem;
+}
+
+/* petit trait luxe sous titres */
+.piscines-section-header h2::after{
+  content:"";
+  display:block;
+  width: 74px;
+  height: 3px;
+  margin: .9rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--lc-royal), var(--lc-gold));
+  opacity: .9;
+}
+/* Carte highlight pro */
+.piscines-pro{
+  background: linear-gradient(180deg, rgba(29,78,216,.06), rgba(212,175,55,.04));
+}
+
+.pro-card{
+  max-width: 1120px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--lc-border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pro-card::before{
+  content:"";
+  position:absolute;
+  inset: -60px -60px auto auto;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, var(--lc-royal-soft) 0%, rgba(29,78,216,0) 70%);
+}
+
+.pro-card h3{
+  margin:0 0 .65rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.pro-card p{
+  margin:0;
+  color: rgba(15,23,42,.72);
+  line-height: 1.7;
+}
+
+.pro-bullets{
+  margin-top: 1.2rem;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1rem;
+}
+
+.pro-bullet{
+  background: rgba(29,78,216,.05);
+  border: 1px solid rgba(29,78,216,.16);
+  border-radius: 18px;
+  padding: 1rem 1rem;
+}
+
+.pro-bullet strong{
+  display:block;
+  font-weight: 900;
+  margin-bottom: .25rem;
+}
+
+.pro-bullet span{
+  color: rgba(15,23,42,.70);
+  font-size: .96rem;
+}
+
+@media (max-width: 980px){
+  .pro-bullets{ grid-template-columns: 1fr; }
+  .pro-card{ padding: 1.5rem 1.25rem; }
+}
+/* OPTIONS & FINITIONS */
+.options-grid{
+  max-width: 1120px;
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 1.2rem;
+}
+
+.opt-card{
+  background:#fff;
+  border: 1px solid var(--lc-border);
+  border-left: 4px solid var(--lc-royal);
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(2,6,23,.06);
+  padding: 1.35rem 1.35rem;
+}
+
+.opt-card h4{
+  margin:0 0 .6rem;
+  font-size: 1.12rem;
+  font-weight: 900;
+}
+
+.opt-card ul{
+  margin:0;
+  padding-left: 1.1rem;
+  color: rgba(15,23,42,.78);
+  line-height: 1.65;
+}
+
+@media (max-width: 980px){
+  .options-grid{ grid-template-columns: 1fr; }
+}
+/* CTA PROJET */
+.piscines-cta-projet{
+  background: linear-gradient(135deg, #0b1220 0%, #060a14 55%, #0b1220 100%);
+  color: #e5e7eb;
+}
+
+.cta-projet-card{
+  max-width: 1120px;
+  margin: 0 auto;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 22px;
+  padding: 2rem 2rem;
+  box-shadow: 0 24px 80px rgba(2,6,23,.45);
+  position: relative;
+  overflow:hidden;
+}
+
+.cta-projet-card::before{
+  content:"";
+  position:absolute;
+  inset:-60px auto auto -60px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(29,78,216,.25) 0%, rgba(29,78,216,0) 70%);
+}
+
+.cta-projet-card h3{
+  margin:0 0 .55rem;
+  font-size: 1.7rem;
+  font-weight: 950;
+}
+
+.cta-projet-card p{
+  margin:0 0 1.25rem;
+  color: rgba(229,231,235,.86);
+  line-height: 1.7;
+}
+
+.cta-actions{
+  display:flex;
+  gap: 12px;
+  flex-wrap:wrap;
+}
+
+.btn-royal{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 1rem 1.1rem;
+  border-radius: 999px;
+  text-decoration:none;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--lc-royal), #3b82f6);
+  color:#fff;
+  box-shadow: 0 18px 55px rgba(29,78,216,.30);
+}
+
+.btn-outline{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 1rem 1.1rem;
+  border-radius: 999px;
+  text-decoration:none;
+  font-weight: 850;
+  border: 1px solid rgba(255,255,255,.26);
+  color:#e5e7eb;
+  background: rgba(255,255,255,.06);
+}
+/* FAQ LUXE */
+.piscines-faq-list{
+  max-width: 900px;
+  margin: 0 auto;
+  display:grid;
+  gap: 1rem;
+}
+
+.piscines-faq-item{
+  background:#fff;
+  border: 1px solid var(--lc-border);
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(2,6,23,.06);
+  padding: 1.25rem 1.25rem;
+}
+
+.piscines-faq-item h3{
+  margin:0 0 .35rem;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.piscines-faq-item p{
+  margin:0;
+  color: rgba(15,23,42,.72);
+  line-height: 1.7;
+}
+
 }
 
 
@@ -816,20 +1254,19 @@ header{
 
 </section>
 
-<section class="piscines-section bloc-lc-specialiste">
-  <h2>LC Création, spécialiste piscines bois en Brabant Wallon</h2>
+<section class="piscines-section piscines-pro">
+  <div class="pro-card">
+    <h3>LC Création, spécialiste piscines bois en Brabant Wallon</h3>
+    <p>Pose clé en main, finitions soignées et intégration paysagère maîtrisée — un rendu durable et élégant.</p>
 
-  <p>
-    Nous installons des piscines en bois clé en main en Brabant Wallon et à Bruxelles :
-    structure fiable, finitions soignées et chantier maîtrisé du terrassement à la mise en service.
-  </p>
-
-  <ul>
-    <li>Étude de votre terrain et de vos accès.</li>
-    <li>Conseil sur la formule Essentiel, Confort ou Luxe la plus adaptée.</li>
-    <li>Installation complète : terrassement, pose, mise en eau et mise en service.</li>
-  </ul>
+    <div class="pro-bullets">
+      <div class="pro-bullet"><strong>Étude & conseil</strong><span>Terrain, implantation, options, contraintes.</span></div>
+      <div class="pro-bullet"><strong>Pose maîtrisée</strong><span>Équipe pro, propreté chantier, planning clair.</span></div>
+      <div class="pro-bullet"><strong>Finitions premium</strong><span>Signature Blanc minéral LC Création, etc.</span></div>
+    </div>
+  </div>
 </section>
+
 
 <section class="piscines-section bloc-options">
   <h2>Options &amp; finitions possibles</h2>
