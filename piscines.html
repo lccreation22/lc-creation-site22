@@ -694,7 +694,7 @@ html, body { width: 100%; overflow-x: hidden; }
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px 14px;
+    gap: 6px 12px;
     width: 100%;
   }
 
@@ -722,8 +722,8 @@ html, body { width: 100%; overflow-x: hidden; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 70%;
-    transform: scale(1.02);
+    object-position: center 35%;
+    transform: none;
     filter: brightness(1.12) contrast(1.06) saturate(1.04);
   }
 
@@ -892,11 +892,6 @@ html, body { width: 100%; overflow-x: hidden; }
     line-height: 1.05 !important;
   }
 
-  /* 2) PHOTO moins zoomée */
-  html.theme-piscine .pool-hero__img{
-    transform: none !important;              /* stop zoom */
-    object-position: center 60% !important;  /* un peu plus haut */
-  }
 
   /* 3) Bande sombre : on l’allège fortement */
   html.theme-piscine .pool-hero__overlay{
@@ -918,27 +913,12 @@ html, body { width: 100%; overflow-x: hidden; }
     ) !important;
     margin: 0 10px 12px !important;
     border-radius: 16px !important;
-  }
-  @media (max-width: 768px){
-  html.theme-piscine .pool-hero.pool-hero--mobile img.pool-hero__img{
-    transform: scale(1) !important;     /* stop zoom */
-    object-fit: cover !important;
-    object-position: center 25% !important;  /* montre plus le haut */
+ 
   }
     @media (max-width: 768px){
   html.theme-piscine .pool-hero{ min-height: 78vh !important; }
   html.theme-piscine .pool-hero__content{ min-height: 78vh !important; }
- }
-  @media (max-width: 768px){
-  .pool-hero__img{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 35% !important; /* montre plus le haut */
-    transform: none !important;             /* stop le zoom */
-    filter: brightness(1.10) contrast(1.04) saturate(1.03);
+ 
   }
 }
   
