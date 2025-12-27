@@ -816,6 +816,58 @@ html, body { width: 100%; overflow-x: hidden; }
     background: rgba(0,0,0,.18);
     backdrop-filter: blur(6px);
   }
+  /* ===== HEADER MOBILE CLEAN (LC Création) ===== */
+@media (max-width: 768px){
+
+  html.theme-piscine header{
+    background:#fff;
+    padding:0 !important;
+  }
+
+  /* Important: on cible EXACTEMENT .topbar.container */
+  html.theme-piscine .topbar.container{
+    display:flex !important;
+    flex-direction: column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+
+    /* si ton .container met un max-width, on le neutralise ici */
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Logo inchangé */
+  html.theme-piscine .brand{
+    display:flex !important;
+    justify-content:center !important;
+    width:100% !important;
+  }
+  html.theme-piscine .brand img{
+    max-height: 52px !important; /* <- garde ton logo */
+    width:auto !important;
+    height:auto !important;
+  }
+
+  /* Menu centré, propre, pas de scroll horizontal */
+  html.theme-piscine .topbar nav{
+    display:flex !important;
+    flex-wrap: wrap !important;
+    justify-content:center !important;
+    gap: 8px 14px !important;
+    width:100% !important;
+  }
+
+  html.theme-piscine .topbar nav a{
+    margin:0 !important;
+    padding: 6px 8px !important;
+    font-size: 0.95rem !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+}
+
 }
 
 
