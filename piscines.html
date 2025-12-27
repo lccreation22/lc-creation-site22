@@ -937,6 +937,24 @@ html, body { width: 100%; overflow-x: hidden; }
  @media (max-width:768px){
   .piscines-intro-photo{ display: none !important; }
  }
+ @media (max-width:768px){
+
+  /* 1) on réduit la hauteur du hero = beaucoup moins recadré */
+  .pool-hero,
+  .pool-hero__content{
+    min-height: 70vh !important;
+  }
+
+  /* 2) on enlève le zoom et on remonte franchement le cadrage */
+  .pool-hero__img{
+    transform: none !important;
+    object-position: center 15% !important;
+  }
+
+  /* 3) on enlève la bordure test */
+  .pool-hero__img{ outline: none !important; }
+}
+  
 }
 
 
