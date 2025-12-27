@@ -866,10 +866,60 @@ html, body { width: 100%; overflow-x: hidden; }
     line-height: 1.1 !important;
     white-space: nowrap !important;
   }
-}
+/* ===== TUNING MOBILE (header + hero) ===== */
+@media (max-width: 768px){
 
-}
+  /* 1) HEADER plus compact (logo inchangé) */
+  html.theme-piscine header{ padding:0 !important; background:#fff !important; }
 
+  html.theme-piscine .topbar.container{
+    padding: 6px 10px !important;   /* moins haut */
+    gap: 4px !important;            /* moins d’espace */
+  }
+
+  html.theme-piscine .brand img{
+    max-height: 52px !important;    /* LOGO inchangé */
+  }
+
+  /* nav plus compacte, sur 2 lignes si besoin */
+  html.theme-piscine .topbar nav{
+    gap: 6px 12px !important;
+    margin-top: 0 !important;
+  }
+  html.theme-piscine .topbar nav a{
+    padding: 4px 6px !important;
+    font-size: 0.92rem !important;
+    line-height: 1.05 !important;
+  }
+
+  /* 2) PHOTO moins zoomée */
+  html.theme-piscine .pool-hero__img{
+    transform: none !important;              /* stop zoom */
+    object-position: center 60% !important;  /* un peu plus haut */
+  }
+
+  /* 3) Bande sombre : on l’allège fortement */
+  html.theme-piscine .pool-hero__overlay{
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,.28) 0%,
+      rgba(0,0,0,.08) 45%,
+      rgba(0,0,0,.30) 100%
+    ) !important;
+  }
+
+  /* si tu avais un "fond" sur le contenu, on le réduit */
+  html.theme-piscine .pool-hero__content{
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.10) 45%,
+      rgba(0,0,0,.22) 100%
+    ) !important;
+    margin: 0 10px 12px !important;
+    border-radius: 16px !important;
+  }
+}
 
 
 </style>
