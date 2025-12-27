@@ -929,8 +929,19 @@ html, body { width: 100%; overflow-x: hidden; }
   html.theme-piscine .pool-hero{ min-height: 78vh !important; }
   html.theme-piscine .pool-hero__content{ min-height: 78vh !important; }
  }
+  @media (max-width: 768px){
+  .pool-hero__img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35% !important; /* montre plus le haut */
+    transform: none !important;             /* stop le zoom */
+    filter: brightness(1.10) contrast(1.04) saturate(1.03);
+  }
 }
-
+  
 
 </style>
  
