@@ -672,168 +672,113 @@
 
 /* --- Version smartphone --- */
 
-@media (max-width: 768px) {
-  .topbar {
-    flex-direction: column;      /* logo au-dessus, menu en dessous */
-    align-items: center;
-    gap: 0.35rem;
+/* ===== MOBILE FIXES (HERO + HEADER) ===== */
+@media (max-width: 768px){
+
+  /* HEADER — on réduit la hauteur SANS toucher au logo */
+  header{
+    padding: 0;
   }
 
-  .brand img {
-    max-height: 52px;            /* on garde un logo lisible */
+  .topbar{
+    padding: 6px 10px;
+    gap: 6px;
   }
 
-  .topbar nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem 1rem;            /* espace entre les liens */
+  .brand img{
+    max-height: 52px; /* LOGO INCHANGÉ */
   }
 
-  .topbar nav a {
-    margin-left: 0;              /* on annule le margin-left du desktop */
-    font-size: 0.9rem;           /* un poil plus petit pour bien tenir */
-  }
-  @media (max-width: 768px){
-  .pool-hero__img{
-    filter: brightness(1.12) contrast(1.03) saturate(1.02);
-  }
-    @media (max-width: 768px){
-  /* on garde un logo lisible */
-  html.theme-piscine .brand img{ max-height: 52px; }
-    }
-  /* on réduit la hauteur du header sans toucher au logo */
-  html.theme-piscine header{ padding: 0; }
-  html.theme-piscine .topbar{ padding: 6px 10px; gap: 6px; }
-  }
-  /* menu plus compact */
-  html.theme-piscine .topbar nav{
+  .topbar nav{
     gap: 6px 10px;
     margin-top: 2px;
   }
-  html.theme-piscine .topbar nav a{
+
+  .topbar nav a{
     padding: 4px 6px;
-    line-height: 1.1;
     font-size: 0.88rem;
+    line-height: 1.1;
   }
-}
 
+  /* HERO MOBILE */
+  .piscines-hero{
+    display: none;
+  }
 
-/* ===== HERO MOBILE ONLY ===== */
-.pool-hero--mobile{ display:none; }
+  .pool-hero--mobile{
+    display: block;
+  }
 
-@media (max-width: 768px){
-
-  /* on affiche le hero photo, et on cache le hero texte actuel */
-  .piscines-hero{ display:none; }
-  .pool-hero--mobile{ display:block; }
-}
-  /* header plus compact */
-  html.theme-piscine header{ padding: 6px 0; }
-  html.theme-piscine .topbar{ padding: 6px 10px; }
-  html.theme-piscine .brand img{ max-height: 44px; }
-  html.theme-piscine .topbar nav a{ padding: 6px 8px; }
-}
-  /* hero */
   .pool-hero{
-    position:relative;
-    min-height:88vh;
-    overflow:hidden;
+    position: relative;
+    min-height: 88vh;
+    overflow: hidden;
   }
+
   .pool-hero__img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 70%;
-    transform:scale(1.02);
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 70%;
+    transform: scale(1.02);
+    filter: brightness(1.12) contrast(1.03) saturate(1.02);
   }
+
   .pool-hero__overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
       180deg,
-      rgba(0,0,0,.55) 0%,
-      rgba(0,0,0,.25) 45%,
-      rgba(0,0,0,.55) 100%
+      rgba(0,0,0,.45) 0%,
+      rgba(0,0,0,.18) 45%,
+      rgba(0,0,0,.48) 100%
     );
   }
+
   .pool-hero__content{
-    position:relative;
-    z-index:2;
-    min-height:88vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    gap:12px;
-    padding:24px 18px;
-    max-width:720px;
+    position: relative;
+    z-index: 2;
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 24px 18px;
   }
 
-  /* typo BMW-like */
   .pool-hero h1{
-    margin:0;
-    color:#fff;
-    font-size:clamp(26px, 7vw, 44px);
-    line-height:1.05;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(26px, 7vw, 44px);
+    line-height: 1.05;
     text-transform: uppercase;
     letter-spacing: .04em;
     font-weight: 850;
-    text-shadow:0 10px 30px rgba(0,0,0,.35);
+    text-shadow: 0 10px 30px rgba(0,0,0,.35);
   }
 
   .pool-hero__subtitle{
-    margin:0;
-    color:rgba(255,255,255,.92);
-    font-size:1.05rem;
-    line-height:1.35;
-    font-weight:600;
-    text-shadow:0 10px 30px rgba(0,0,0,.35);
+    color: rgba(255,255,255,.92);
+    font-size: 1.05rem;
+    font-weight: 600;
   }
 
   .pool-hero__price{
-    margin:0;
-    color:rgba(255,255,255,.95);
-    font-size:1.12rem;
-    font-weight:800;
-    text-shadow:0 10px 30px rgba(0,0,0,.35);
+    color: rgba(255,255,255,.95);
+    font-size: 1.12rem;
+    font-weight: 800;
   }
 
-  /* CTA */
   .pool-hero__cta{
-    display:flex;
-    gap:10px;
+    display: flex;
     flex-direction: column;
+    gap: 10px;
+  }
+
+  .pool-hero__cta a{
     width: 100%;
-    padding-bottom:8px;
-  }
-
-  .pool-hero__cta a{ width:100%; }
-
-  .btn-primary{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:16px 18px;
-    border-radius:16px;
-    background:#d4af37;
-    color:#0b0b0b;
-    font-weight:800;
-    text-decoration:none;
-  }
-
-  .btn-ghost{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:16px 18px;
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,.35);
-    color:#fff;
-    font-weight:700;
-    text-decoration:none;
-    backdrop-filter: blur(6px);
   }
 }
 
