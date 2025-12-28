@@ -761,6 +761,7 @@ img{ max-width:100%; height:auto; display:block; }
   color: rgba(15,23,42,.72);
   line-height: 1.7;
 }
+  
 }  
 /* =========================
    FORCE THEME SOMBRE (PISCINES)
@@ -785,10 +786,17 @@ html, body{
 }
 
 /* 3) Le wrapper global ne doit jamais remettre du blanc */
-.piscines-wrap,
-.container{
+.theme-piscine .piscines-wrap{
   background: transparent !important;
 }
+.theme-piscine .piscines-section{
+  background: transparent !important;
+}
+.theme-piscine .piscines-section:nth-of-type(odd),
+.theme-piscine .piscines-section:nth-of-type(even){
+  background: transparent !important;
+}
+
 
 /* 4) Textes lisibles sur dark */
 .piscines-section-header p,
