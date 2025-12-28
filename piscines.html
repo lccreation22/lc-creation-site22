@@ -761,6 +761,58 @@ img{ max-width:100%; height:auto; display:block; }
   color: rgba(15,23,42,.72);
   line-height: 1.7;
 }
+/* =========================
+   FORCE THEME SOMBRE (PISCINES)
+   À COLLER TOUT EN BAS
+========================= */
+
+/* 1) Fond global */
+html, body{
+  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%) !important;
+  color: var(--lc-white) !important;
+}
+
+/* 2) Toutes les sections transparentes (plus de blanc automatique) */
+.piscines-section,
+.piscines-pro,
+.bloc-options,
+.piscines-cta-projet,
+.piscines-faq,
+.piscines-intro,
+.piscines-formules{
+  background: transparent !important;
+}
+
+/* 3) Le wrapper global ne doit jamais remettre du blanc */
+.piscines-wrap,
+.container{
+  background: transparent !important;
+}
+
+/* 4) Textes lisibles sur dark */
+.piscines-section-header p,
+.pool-card__subtitle,
+.pool-card__list,
+.piscines-faq-item p,
+.opt-card ul,
+.pro-bullet span{
+  color: rgba(255,255,255,.78) !important;
+}
+
+/* 5) Cartes en dark (même si un autre CSS les met en blanc) */
+.pro-card, .opt-card, .piscines-faq-item, .pool-card{
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* 6) Titres */
+.piscines-section-header h2,
+.pro-card h3,
+.opt-card h4,
+.piscines-faq-item h3{
+  color: #fff !important;
+}
 
 
 </style>
