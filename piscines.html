@@ -316,106 +316,37 @@ img{ max-width:100%; height:auto; display:block; }
 }
 
 .formule-card{
-  background: var(--lc-card);
-  border: 1px solid var(--lc-border);
+  background: rgba(11,18,32,.92);
+  border: 1px solid rgba(255,255,255,.12);
   border-radius: 22px;
-  overflow: hidden;
+  overflow:hidden;
   box-shadow: var(--shadow);
 }
 
-.formule-media{
-  aspect-ratio: 16/10;
-  background: #0b1220;
-}
-.formule-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+.formule-title{ color:#fff; }
+.formule-price{ color: rgba(255,255,255,.88); }
+.formule-price-sub,
+.formule-note{ color: rgba(255,255,255,.65); }
 
-/* BODY */
-.formule-body{
-  padding: 1.15rem 1.15rem 1.25rem;
-}
-
-/* PASTILLE (doit être JUSTE sous l’image) */
 .formule-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:.4rem;
-  border-radius:999px;
-  padding:.38rem .75rem;
-  font-size:.78rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  border: 1px solid rgba(15,23,42,.18);
-  color: rgba(15,23,42,.75);
-  background:#fff;
-  margin-top: .85rem;
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.82);
+  background: rgba(255,255,255,.06);
 }
 
-.formule-badge.is-highlight{
-  border:none;
-  background: rgba(212,175,55,.18);
-  color: rgba(17,24,39,.95);
-}
-
-/* TITRE */
-.formule-title{
-  margin: .7rem 0 .55rem;
-  font-size: 1.55rem;
-  line-height:1.1;
-  font-weight: 900;
-  color: var(--lc-ink);
-}
-
-/* PASTILLES COULEURS */
-.formule-pills{
-  display:flex;
-  flex-wrap:wrap;
-  gap: 8px;
-  margin: 0 0 1rem;
-}
 .pill{
-  border:1px solid rgba(15,23,42,.18);
-  background:#fff;
-  color: rgba(15,23,42,.85);
-  padding:.38rem .65rem;
-  border-radius:999px;
-  font-size:.88rem;
-  font-weight:650;
-}
-
-/* SPECS 2x2 */
-.formule-specs{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:.7rem .9rem;
-  margin: 0 0 1rem;
-}
-@media (max-width: 420px){
-  .formule-specs{ grid-template-columns: 1fr; }
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
 }
 
 .spec{
-  background: rgba(15,23,42,.03);
-  border: 1px solid rgba(15,23,42,.08);
-  border-radius: 16px;
-  padding: .72rem .75rem;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
 }
-.spec span{
-  display:block;
-  font-size:.75rem;
-  text-transform:uppercase;
-  letter-spacing:.05em;
-  color: rgba(15,23,42,.60);
-  margin-bottom: .15rem;
-}
-.spec strong{
-  font-size:.95rem;
-  font-weight:850;
-  color: var(--lc-ink);
-}
+.spec span{ color: rgba(255,255,255,.70); }
+.spec strong{ color:#fff; }
+
 
 /* PRIX */
 .formule-price{
@@ -505,98 +436,6 @@ img{ max-width:100%; height:auto; display:block; }
   font-size: 1.02rem;
   line-height: 1.7;
   color: rgba(15,23,42,.70);
-}
-
-/* --------- CARDS / GRIDS --------- */
-.formules-grid{
-  max-width: 1120px;
-  margin: 0 auto;
-  display:grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-}
-
-@media (max-width: 980px){
-  .formules-grid{ grid-template-columns: 1fr; }
-}
-
-/* Pack card (luxe) */
-.formule-card{
-  background: var(--lc-card);
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(15,23,42,.10);
-  box-shadow: 0 18px 60px rgba(2,6,23,.08);
-  padding: 22px 22px 20px;
-  display:flex;
-  flex-direction:column;
-  gap: 14px;
-}
-
-.formule-badge{
-  display:inline-flex;
-  align-items:center;
-  gap: 8px;
-  font-size: .72rem;
-  text-transform: uppercase;
-  letter-spacing: .10em;
-  padding: 7px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(15,23,42,.18);
-  color: rgba(15,23,42,.78);
-}
-
-.formule-badge-highlight{
-  border: none;
-  background: var(--lc-night);
-  color: #fff;
-}
-
-.formule-header h3{
-  margin: 8px 0 4px;
-  font-size: 1.35rem;
-  font-weight: 900;
-}
-
-.formule-size{
-  margin:0;
-  color: rgba(15,23,42,.64);
-  font-weight: 650;
-}
-
-.formule-list{
-  margin: 0;
-  padding-left: 18px;
-  color: rgba(15,23,42,.78);
-  line-height: 1.6;
-}
-
-.formule-list li + li{ margin-top: 6px; }
-
-.formule-price{
-  margin: 4px 0 0;
-  font-size: 1.05rem;
-  font-weight: 750;
-}
-
-.formule-price strong{
-  color: var(--lc-gold);
-  font-weight: 950;
-}
-
-.formule-price-htva{
-  margin: 0;
-  font-size: .88rem;
-  color: rgba(15,23,42,.55);
-}
-
-.formule-note{
-  max-width: 980px;
-  margin: 22px auto 0;
-  padding: 0 18px;
-  text-align:center;
-  font-size: .92rem;
-  color: rgba(15,23,42,.64);
-  line-height: 1.6;
 }
 
 /* CTA configurateur sous formules */
@@ -1196,245 +1035,6 @@ img{ max-width:100%; height:auto; display:block; }
 .card .price strong{ color: var(--lc-gold); }
 .card p{ color: var(--lc-white-soft); }
 } 
-/* ===== FORMULES: FULL WIDTH ON MOBILE ===== */
-@media (max-width: 768px){
-
-  /* Le container ne doit jamais serrer */
-  .piscines-wrap,
-  .piscines-formules,
-  .piscines-section{
-    max-width: 100% !important;
-  }
-
-  /* La grille passe en 1 colonne et prend toute la largeur */
-  .formules-grid{
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 12px !important;  /* petit padding pour respirer */
-  }
-
-  /* Chaque carte prend toute la largeur */
-  .formule-card{
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    border-radius: 18px !important;
-  }
-
-  /* Si tu utilises la version “auto” */
-  .formules-grid--auto{
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 12px !important;
-  }
-  .formule-card--auto{
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-  }
-
-  /* Le bouton CTA en bas doit aussi être full width */
-  .piscines-config-cta{
-    padding: 0 12px !important;
-  }
-  .piscines-config-cta .btn-config{
-    width: 100% !important;
-    max-width: none !important;
-  }
-/* =========================
-   PATCH FINAL — THÈME LC (FONCÉ / DORÉ / BLANC)
-   À COLLER TOUT EN BAS DU CSS
-========================= */
-
-/* Force le thème sombre sur la page piscines */
-.page-piscines{
-  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%) !important;
-  color: var(--lc-white) !important;
-}
-
-
-/* Header en version sombre (cohérent avec ta base) */
-header{
-  background: rgba(2,6,23,.72) !important;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,.10) !important;
-}
-.topbar nav a{
-  color: rgba(255,255,255,.80) !important;
-}
-.topbar nav a:hover{
-  background: rgba(255,255,255,.06) !important;
-  color: var(--lc-white) !important;
-}
-
-/* Cartes packs : rendu premium sombre */
-.formule-card{
-  background: var(--lc-card) !important;
-  border: 1px solid var(--lc-border) !important;
-  box-shadow: var(--lc-shadow) !important;
-}
-
-/* Textes dans les cartes (tes styles actuels utilisaient du "ink" sombre) */
-.formule-title,
-.formule-price,
-.formule-price-sub,
-.formule-note,
-.spec strong,
-.spec span,
-.pill,
-.formule-badge{
-  color: var(--lc-white) !important;
-}
-.spec{
-  background: rgba(255,255,255,.04) !important;
-  border: 1px solid rgba(255,255,255,.08) !important;
-}
-.spec span{ color: rgba(255,255,255,.70) !important; }
-.pill{
-  background: rgba(255,255,255,.06) !important;
-  border: 1px solid rgba(255,255,255,.10) !important;
-  color: rgba(255,255,255,.85) !important;
-}
-
-/* Badge clair => version sombre */
-.formule-badge{
-  background: rgba(255,255,255,.06) !important;
-  border: 1px solid rgba(255,255,255,.12) !important;
-  color: rgba(255,255,255,.80) !important;
-}
-.formule-badge.is-highlight{
-  background: rgba(212,175,55,.18) !important;
-  color: #111827 !important;
-}
-
-/* Mobile: largeur plein écran + fini les fiches "étroites" */
-@media (max-width: 768px){
-  .formules-grid{
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 12px !important;
-    grid-template-columns: 1fr !important;
-  }
-  .formule-card{
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-  }
-@media (max-width: 980px){
-  .formules-grid{
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 12px !important;
-    gap: 14px !important;
-  }
-
-  .formule-card{
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-  }
-/* =========================
-   FIX PACKS MOBILE — CARDS SOMBRES (texte lisible)
-   À COLLER TOUT EN BAS
-========================= */
-
-.formule-card{
-  background: rgba(11,18,32,.92) !important;  /* dark premium */
-  border: 1px solid rgba(255,255,255,.12) !important;
-  box-shadow: 0 18px 60px rgba(0,0,0,.35) !important;
-  padding: 0 !important;               /* IMPORTANT: évite l'effet “allongé” */
-  overflow: hidden !important;
-}
-
-.formule-body{
-  padding: 14px 14px 16px !important;  /* contenu visible */
-}
-
-.formule-title{
-  color: #fff !important;
-  margin: 10px 0 8px !important;
-  font-size: 1.35rem !important;
-}
-
-.formule-price,
-.formule-price-sub,
-.formule-note,
-.formule-list,
-.spec span,
-.pill{
-  color: rgba(255,255,255,.78) !important;
-}
-
-.spec{
-  background: rgba(255,255,255,.04) !important;
-  border: 1px solid rgba(255,255,255,.08) !important;
-}
-
-.formule-badge{
-  background: rgba(255,255,255,.06) !important;
-  border: 1px solid rgba(255,255,255,.12) !important;
-  color: rgba(255,255,255,.82) !important;
-}
-
-.formule-price strong{
-  color: var(--lc-gold) !important;
-}
-/* =========================
-   FIX PASTILLES COULEURS (packs)
-========================= */
-
-/* Forcer l'affichage du bloc pastilles */
-.formule-pills{
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 8px !important;
-  margin: 10px 0 14px !important;
-}
-
-/* Style des pastilles */
-.formule-pills .pill{
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  padding: 8px 10px !important;
-  border-radius: 999px !important;
-  font-size: .9rem !important;
-  font-weight: 750 !important;
-  line-height: 1 !important;
-
-  background: rgba(255,255,255,.08) !important;
-  border: 1px solid rgba(255,255,255,.14) !important;
-  color: rgba(255,255,255,.90) !important;
-}
-
-/* Pastille active (si tu ajoutes/ as une classe .is-active en JS) */
-.formule-pills .pill.is-active,
-.formule-pills .pill.active{
-  background: rgba(212,175,55,.20) !important;
-  border-color: rgba(212,175,55,.55) !important;
-  color: #111827 !important;
-}
-
-/* Si un ancien CSS les cachait */
-.formule-pills,
-.formule-pills .pill{
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-
-
-
 
 
 </style>
