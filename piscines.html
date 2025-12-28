@@ -1212,6 +1212,39 @@ header{
   .formule-img{ height: 210px; }
   .pills-swatches .pill{ width: 22px; height: 22px; }
 }
+@media (min-width: 769px){
+  /* 1) éviter l’effet flou de scaling */
+  .formule-media{
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+  }
+
+  .formule-img{
+    width: 100%;
+    height: auto;
+    display: block;
+
+    /* netteté perçue */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 2) si tu avais des filtres trop forts, on les calme sur PC */
+  .formule-img{
+    filter: none !important;
+  }
+
+  /* 3) si tu as un overlay/voile sur la photo, on le réduit sur PC */
+  .formule-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.14));
+    pointer-events:none;
+  }
+}
 
 
 </style>
