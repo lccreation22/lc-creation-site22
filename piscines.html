@@ -29,13 +29,26 @@
   --lc-dark-2:#020617;
 
   --lc-gold:#d4af37;
+  --lc-gold-2:#f6e1a4;
   --lc-gold-soft:rgba(212,175,55,.22);
 
   --lc-white:#ffffff;
   --lc-white-soft:rgba(255,255,255,.75);
 
+  --lc-night: var(--lc-dark-2);
+  --lc-paper: transparent;
+
+  --lc-ink: var(--lc-white);
+  --lc-card: rgba(255,255,255,.045);
+  --lc-border: rgba(255,255,255,.10);
+
+  --shadow: 0 18px 60px rgba(0,0,0,.35);
+  --lc-shadow: var(--shadow);
+
   --lc-radius:22px;
+  --radius-xl: 22px;
 }
+
 html, body{
   margin: 0;
   padding: 0;
@@ -1237,22 +1250,6 @@ img{ max-width:100%; height:auto; display:block; }
    PATCH FINAL — THÈME LC (FONCÉ / DORÉ / BLANC)
    À COLLER TOUT EN BAS DU CSS
 ========================= */
-
-/* Variables manquantes (sécurise tout ton CSS existant) */
-:root{
-  --lc-night: var(--lc-dark-2);
-  --lc-paper: transparent;
-
-  --lc-ink: var(--lc-white);
-  --lc-card: rgba(255,255,255,.045);
-  --lc-border: rgba(255,255,255,.10);
-
-  --lc-shadow: 0 18px 60px rgba(0,0,0,.35);
-  --shadow: var(--lc-shadow);
-  --radius-xl: 22px;
-
-  --lc-gold-2: #f6e1a4;
-}
 
 /* Force le thème sombre sur la page piscines */
 .page-piscines{
