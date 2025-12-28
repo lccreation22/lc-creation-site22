@@ -1241,4 +1241,24 @@ main a[href$="piscines.html"]:hover {
     height: auto;
     border-radius: 16px;
   }
+  /* ==========================
+   FIX DEFINITIF PAGE PISCINES
+   ========================== */
+
+/* 1) Sur la page piscines: on coupe tous les voiles clairs hérités */
+html.theme-piscine body::before{
+  content: none !important;
+}
+
+/* 2) On supprime aussi l’image de fond héritée (si elle existe) */
+html.theme-piscine body{
+  background: none !important;
+}
+
+/* 3) On autorise ton CSS inline (dark) à faire le job */
+html.theme-piscine,
+html.theme-piscine body{
+  background: transparent !important;
+}
+
 }
