@@ -509,6 +509,41 @@ main{
 .theme-piscine{
   background: transparent !important;
 }
+/* =========================
+   HARD OVERRIDE (PISCINES)
+   Objectif: tuer le “site clair” sur cette page
+========================= */
+
+/* 1) Stop les voiles clairs globaux */
+html.theme-piscine body::before{ content:none !important; }
+
+/* 2) Stop les backgrounds/gradients clairs globaux */
+html.theme-piscine body{
+  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%) !important;
+}
+
+/* 3) Si des sections globales injectent du gris/blanc */
+html.theme-piscine .section,
+html.theme-piscine .section.alt,
+html.theme-piscine main,
+html.theme-piscine .page-piscines{
+  background: transparent !important;
+}
+
+/* 4) Neutralise les cartes globales “blanches” qui peuvent s’appliquer */
+html.theme-piscine .card{
+  background: transparent !important;
+  border-color: rgba(255,255,255,.10) !important;
+  color: inherit !important;
+}
+
+/* 5) Force lisibilité dans tes blocs “pro” (au cas où un vieux CSS remet du texte sombre) */
+html.theme-piscine .pro-card p,
+html.theme-piscine .pro-bullet span,
+html.theme-piscine .opt-card ul,
+html.theme-piscine .piscines-faq-item p{
+  color: rgba(255,255,255,.78) !important;
+}
 
 </style>
  
