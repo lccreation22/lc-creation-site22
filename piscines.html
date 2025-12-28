@@ -1134,6 +1134,83 @@ header{
 .piscines-section + .piscines-section{
   border-top: 1px solid rgba(255,255,255,.06);
 }
+/* --- TITRE AU-DESSUS DE LA PHOTO --- */
+.formule-card{
+  padding: 18px;              /* donne un cadre propre */
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+
+.formule-title-top{
+  margin: 6px 2px 0;
+  font-size: 1.35rem;
+  font-weight: 950;
+  letter-spacing: .01em;
+  color:#fff;
+}
+
+/* Image plus “catalogue” */
+.formule-media{
+  position:relative;
+  border-radius: 18px;
+  overflow:hidden;
+}
+.formule-img{
+  width:100%;
+  height: 240px;              /* PC */
+  object-fit: cover;
+  display:block;
+}
+
+/* --- SWATCHES (pastilles couleur) sous la photo --- */
+.pills-swatches{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  justify-content:flex-start;
+  margin-top: -4px;           /* colle au plus près de l’image */
+  padding-left: 2px;
+}
+
+/* boutons ronds */
+.pills-swatches .pill{
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.10);
+  box-shadow: 0 8px 18px rgba(0,0,0,.25);
+  cursor:pointer;
+}
+
+/* état actif : halo + anneau */
+.pills-swatches .pill.is-active{
+  border-color: rgba(255,255,255,.85);
+  box-shadow: 0 0 0 6px rgba(212,175,55,.18), 0 10px 22px rgba(0,0,0,.35);
+  transform: translateY(-1px);
+}
+
+/* couleurs par finition (tu peux ajuster) */
+.pills-swatches .pill[data-finish="bois"]{
+  background: linear-gradient(135deg,#b88955,#6b4b2d);
+}
+.pills-swatches .pill[data-finish="blanc"]{
+  background: linear-gradient(135deg,#f8fafc,#dbeafe);
+}
+.pills-swatches .pill[data-finish="gris"]{
+  background: linear-gradient(135deg,#e5e7eb,#94a3b8);
+}
+.pills-swatches .pill[data-finish="anthra"]{
+  background: linear-gradient(135deg,#111827,#475569);
+}
+
+/* Mobile : image moins haute, swatches plus gros */
+@media (max-width:768px){
+  .formule-img{ height: 210px; }
+  .pills-swatches .pill{ width: 22px; height: 22px; }
+}
 
 
 </style>
@@ -1261,23 +1338,24 @@ header{
 
   <!-- ESSENTIEL -->
   <article class="formule-card formule-card--auto" data-pack="essentiel">
+
+    <h3 class="formule-title-top">Essentiel</h3>
+    
     <div class="formule-media">
       <img class="formule-img" src="/01-bois-naturel.png" alt="Piscine bois Essentiel — finition Bois naturel">
       <div class="formule-badges">
         <span class="formule-badge">Accès à la gamme</span>
       </div>
     </div>
+ <div class="formule-pills pills-swatches" role="group" aria-label="Finitions Essentiel">
+    <button class="pill is-active" type="button" data-finish="bois" data-img="/01-bois-naturel.png" aria-label="Bois naturel"></button>
+    <button class="pill" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png" aria-label="Blanc minéral"></button>
+    <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png" aria-label="Gris clair"></button>
+    <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png" aria-label="Anthracite"></button>
+  </div>
 
     <div class="formule-body">
-      <h3>Essentiel</h3>
-
-      <div class="formule-pills" role="group" aria-label="Finitions Essentiel">
-        <button class="pill is-active" type="button" data-finish="bois" data-img="/01-bois-naturel.png">Bois naturel</button>
-        <button class="pill" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png">Blanc minéral</button>
-        <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png">Gris clair</button>
-        <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png">Anthracite</button>
-      </div>
-
+      
       <div class="formule-specs">
         <div class="spec"><span>Dimensions</span><strong>5,00 × 3,20 × 1,25</strong></div>
         <div class="spec"><span>Garantie</span><strong>Structure 8 ans</strong></div>
@@ -1298,22 +1376,23 @@ header{
 
   <!-- CONFORT -->
   <article class="formule-card formule-card--auto" data-pack="confort">
+
+     <h3 class="formule-title-top">Confort</h3>
+    
     <div class="formule-media">
-      <img class="formule-img" src="/01-bois-naturel.png" alt="Piscine bois Confort — finition Bois naturel">
+      <img class="formule-img" src="/04-anthracite-signature.png" alt="Piscine bois Confort — finition Bois naturel">
       <div class="formule-badges">
         <span class="formule-badge formule-badge-highlight">Best-seller</span>
       </div>
     </div>
-
+ <div class="formule-pills pills-swatches" role="group" aria-label="Finitions Confort">
+    <button class="pill is-active" type="button" data-finish="bois" data-img="/01-bois-naturel.png" aria-label="Bois naturel"></button>
+    <button class="pill" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png" aria-label="Blanc minéral"></button>
+    <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png" aria-label="Gris clair"></button>
+    <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png" aria-label="Anthracite"></button>
+  </div>
     <div class="formule-body">
-      <h3>Confort</h3>
-
-      <div class="formule-pills" role="group" aria-label="Finitions Confort">
-        <button class="pill is-active" type="button" data-finish="bois" data-img="/01-bois-naturel.png">Bois naturel</button>
-        <button class="pill" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png">Blanc minéral</button>
-        <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png">Gris clair</button>
-        <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png">Anthracite</button>
-      </div>
+      
 
       <div class="formule-specs">
         <div class="spec"><span>Dimensions</span><strong>6,00 × 4,20 × 1,30</strong></div>
@@ -1335,22 +1414,23 @@ header{
 
   <!-- LUXE -->
   <article class="formule-card formule-card--auto" data-pack="luxe">
+
+     <h3 class="formule-title-top">Essentiel</h3>
+    
     <div class="formule-media">
       <img class="formule-img" src="/02-blanc-mineral-signature.png" alt="Piscine bois Luxe — finition Blanc minéral">
       <div class="formule-badges">
         <span class="formule-badge">Expérience luxe</span>
       </div>
     </div>
-
+ <div class="formule-pills pills-swatches" role="group" aria-label="Finitions Luxe">
+    <button class="pill is-active" type="button" data-finish="bois" data-img="/01-bois-naturel.png" aria-label="Bois naturel"></button>
+    <button class="pill" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png" aria-label="Blanc minéral"></button>
+    <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png" aria-label="Gris clair"></button>
+    <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png" aria-label="Anthracite"></button>
+  </div>
     <div class="formule-body">
-      <h3>Luxe</h3>
-
-      <div class="formule-pills" role="group" aria-label="Finitions Luxe">
-        <button class="pill" type="button" data-finish="bois" data-img="/01-bois-naturel.png">Bois naturel</button>
-        <button class="pill is-active" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png">Blanc minéral</button>
-        <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png">Gris clair</button>
-        <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png">Anthracite</button>
-      </div>
+    
 
       <div class="formule-specs">
         <div class="spec"><span>Dimensions</span><strong>8,30 × 4,90 × 1,36</strong></div>
