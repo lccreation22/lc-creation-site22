@@ -1238,7 +1238,110 @@ img{ max-width:100%; height:auto; display:block; }
     width: 100% !important;
     max-width: none !important;
   }
+/* =========================
+   PATCH FINAL — THÈME LC (FONCÉ / DORÉ / BLANC)
+   À COLLER TOUT EN BAS DU CSS
+========================= */
+
+/* Variables manquantes (sécurise tout ton CSS existant) */
+:root{
+  --lc-night: var(--lc-dark-2);
+  --lc-paper: transparent;
+
+  --lc-ink: var(--lc-white);
+  --lc-card: rgba(255,255,255,.045);
+  --lc-border: rgba(255,255,255,.10);
+
+  --lc-shadow: 0 18px 60px rgba(0,0,0,.35);
+  --shadow: var(--lc-shadow);
+  --radius-xl: 22px;
+
+  --lc-gold-2: #f6e1a4;
 }
+
+/* Force le thème sombre sur la page piscines */
+.page-piscines{
+  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%) !important;
+  color: var(--lc-white) !important;
+}
+
+/* Sections : stop les fonds blancs alternés */
+.piscines-section,
+.piscines-section:nth-of-type(odd),
+.piscines-section:nth-of-type(even){
+  background: transparent !important;
+}
+
+/* Header en version sombre (cohérent avec ta base) */
+header{
+  background: rgba(2,6,23,.72) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.10) !important;
+}
+.topbar nav a{
+  color: rgba(255,255,255,.80) !important;
+}
+.topbar nav a:hover{
+  background: rgba(255,255,255,.06) !important;
+  color: var(--lc-white) !important;
+}
+
+/* Cartes packs : rendu premium sombre */
+.formule-card{
+  background: var(--lc-card) !important;
+  border: 1px solid var(--lc-border) !important;
+  box-shadow: var(--lc-shadow) !important;
+}
+
+/* Textes dans les cartes (tes styles actuels utilisaient du "ink" sombre) */
+.formule-title,
+.formule-price,
+.formule-price-sub,
+.formule-note,
+.spec strong,
+.spec span,
+.pill,
+.formule-badge{
+  color: var(--lc-white) !important;
+}
+.spec{
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+}
+.spec span{ color: rgba(255,255,255,.70) !important; }
+.pill{
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  color: rgba(255,255,255,.85) !important;
+}
+
+/* Badge clair => version sombre */
+.formule-badge{
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  color: rgba(255,255,255,.80) !important;
+}
+.formule-badge.is-highlight{
+  background: rgba(212,175,55,.18) !important;
+  color: #111827 !important;
+}
+
+/* Mobile: largeur plein écran + fini les fiches "étroites" */
+@media (max-width: 768px){
+  .formules-grid{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 12px !important;
+    grid-template-columns: 1fr !important;
+  }
+  .formule-card{
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+}
+
 
 
 
