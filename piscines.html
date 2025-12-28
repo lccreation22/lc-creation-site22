@@ -650,6 +650,85 @@ html.theme-piscine .piscines-faq-item p{
   margin-left:auto;
   margin-right:auto;
 }
+/* =========================================================
+   PATCH CARTES FORMULES (PC) — SUPPRIMER “CADRES” INTERNES
+   À coller TOUT EN BAS
+========================================================= */
+
+/* 1) La carte: OK, mais on évite les doubles bordures/effets */
+.formule-card{
+  border: 1px solid rgba(255,255,255,.10) !important;
+  background: rgba(11,18,32,.92) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* 2) On “dé-cadre” les sous-blocs internes (specs, pricebox, etc.) */
+.formule-card .formule-specs,
+.formule-card .formule-pricebox,
+.formule-card .formule-pills{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 3) Specs: pas de boîtes multiples -> juste une ligne discrète */
+.formule-card .spec{
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: 0 !important;
+  padding: 10px 0 !important;
+}
+.formule-card .spec:last-child{
+  border-bottom: 0 !important;
+}
+.formule-card .spec span{
+  color: rgba(255,255,255,.70) !important;
+}
+.formule-card .spec strong{
+  color: #fff !important;
+}
+
+/* 4) Pills: aspect “chip” propre, sans cadres parasites */
+.formule-card .pill{
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: none !important;
+}
+.formule-card .pill.is-active{
+  background: rgba(212,175,55,.18) !important;
+  border-color: rgba(212,175,55,.45) !important;
+  color: #fff !important;
+}
+
+/* 5) Pricebox: pas de cadre, juste de l’air */
+.formule-card .formule-pricebox{
+  padding-top: 12px !important;
+  margin-top: 10px !important;
+}
+
+/* 6) Images: éviter l’effet “encadré” en trop */
+.formule-card .formule-media{
+  background: transparent !important;
+  border: 0 !important;
+}
+.formule-card .formule-img{
+  display:block;
+  width:100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* 7) Desktop: alignement & espacements plus premium */
+@media (min-width: 980px){
+  .formule-card .formule-body{
+    padding: 18px 18px 20px !important;
+  }
+  .formule-card .formule-specs{
+    margin-top: 10px !important;
+  }
+}
 
 </style>
  
