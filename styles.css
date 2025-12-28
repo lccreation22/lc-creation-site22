@@ -271,21 +271,6 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   position: relative;
 }
 
-/* Ajout du voile translucide bleu clair par-dessus la photo */
-.theme-piscine body::before {
-  content:"";
-  position: fixed;
-  inset: 0;
-  background: rgba(240, 248, 255, 0.75); /* bleu très clair */
-  backdrop-filter: brightness(1.05);     /* adoucit un peu la photo */
-  z-index: -1;
-}
-
-/* Couleurs spécifiques piscine */
-.theme-piscine {
-  --accent: #0099cc;   /* bleu eau */
-  --accent2: #c49a6c;  /* brun bois */
-}
 
 /* Boutons bleus */
 .theme-piscine .btn {
@@ -803,13 +788,8 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
   text-align: center;
   opacity: 0.75;
 }
-/* OVERRIDE ANCIEN FOND PISCINE GLOBAL */
 
-/* On neutralise tout fond "thème piscine" hérité de styles.css */
-html.theme-piscine,
-html.theme-piscine body {
-  background: #f4f4f5 !important;  /* même fond que .page-piscines */
-}
+
 
 /* Header propre, fond blanc */
 html.theme-piscine header {
@@ -830,23 +810,8 @@ html.theme-piscine .topbar {
   --lc-night: #020617;
 }
 
-/* Fond général propre pour le thème piscine */
-html.theme-piscine,
-html.theme-piscine body {
-  background: #f4f4f5 !important;
-}
 
-/* Header propre + léger soulignement doré */
-html.theme-piscine header {
-  background: #ffffff !important;
-  background-image: none !important;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-}
 
-html.theme-piscine .topbar {
-  background: transparent !important;
-}
 
 /* Lien "Piscines bois" mis en avant en doré dans le menu */
 html.theme-piscine .topbar nav a[href="./piscines.html"] {
