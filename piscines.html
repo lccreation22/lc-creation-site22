@@ -85,9 +85,10 @@ section{
 
 /* --------- HEADER (desktop) --------- */
 header{
-  background:#fff;
-  border-bottom: 1px solid rgba(15,23,42,.08);
+  background: transparent;
+  border-bottom: 1px solid rgba(255,255,255,.10);
 }
+
 
 .topbar.container{
   max-width: 1120px;
@@ -97,6 +98,11 @@ header{
   align-items:center;
   justify-content:space-between;
   gap: 18px;
+}
+brand{
+  background: #ffffff;
+  padding: 8px 14px;
+  border-radius: 0 0 18px 0; /* optionnel, très chic */
 }
 
 .brand img{
@@ -187,12 +193,6 @@ header{
 *{ box-sizing:border-box; }
 img{ max-width:100%; height:auto; display:block; }
 
-/* =========================
-   HEADER (desktop safe)
-========================= */
-.topbar{ display:flex; align-items:center; justify-content:space-between; padding:.75rem 1rem; }
-.topbar nav a{ text-decoration:none; margin-left:1.5rem; font-weight:500; color:var(--lc-ink); }
-.topbar nav a.active{ color:var(--lc-gold); border-bottom:2px solid var(--lc-gold); padding-bottom:2px; }
 
 /* =========================
    HERO MOBILE (uniquement)
