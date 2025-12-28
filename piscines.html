@@ -900,7 +900,39 @@ html.theme-piscine .piscines-faq-item p{
     width: 100% !important;
     padding: 16px 16px !important;
   }
+/* =========================================================
+   FIX HEADER : liens lisibles sur fond blanc (zone logo)
+   À COLLER TOUT EN BAS
+========================================================= */
+
+/* Desktop : header visuellement "clair" => liens foncés */
+@media (min-width: 769px){
+  header .topbar nav a{
+    color: rgba(2,6,23,.78) !important;
+  }
+  header .topbar nav a:hover{
+    color: rgba(2,6,23,1) !important;
+    background: rgba(2,6,23,.06) !important;
+  }
+  header .topbar nav a.active{
+    color: var(--lc-gold) !important;
+  }
 }
+
+/* Mobile : ton header est sur fond sombre => liens blancs */
+@media (max-width: 768px){
+  header .topbar nav a{
+    color: rgba(255,255,255,.88) !important;
+  }
+  header .topbar nav a:hover{
+    color: #fff !important;
+    background: rgba(255,255,255,.06) !important;
+  }
+  header .topbar nav a.active{
+    color: var(--lc-gold) !important;
+  }
+}
+
 
 
 
