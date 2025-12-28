@@ -489,6 +489,27 @@ main.page-piscines,
 body{
   background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%) !important;
 }
+/* HARD FORCE DARK — PRIORITÉ MAX */
+html, body{
+  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%) !important;
+  color: var(--lc-white) !important;
+}
+
+main.page-piscines,
+.page-piscines{
+  background: transparent !important;
+}
+
+/* Si ton styles.css met un fond blanc sur main ou sur des wrappers */
+body > main,
+main{
+  background: transparent !important;
+}
+
+/* Sécurité : certains thèmes mettent un fond sur le wrapper */
+.theme-piscine{
+  background: transparent !important;
+}
 
 </style>
  
