@@ -1170,6 +1170,58 @@ img{ max-width:100%; height:auto; display:block; }
 .card h3, .card .price{ color: var(--lc-white); }
 .card .price strong{ color: var(--lc-gold); }
 .card p{ color: var(--lc-white-soft); }
+} 
+/* ===== FORMULES: FULL WIDTH ON MOBILE ===== */
+@media (max-width: 768px){
+
+  /* Le container ne doit jamais serrer */
+  .piscines-wrap,
+  .piscines-formules,
+  .piscines-section{
+    max-width: 100% !important;
+  }
+
+  /* La grille passe en 1 colonne et prend toute la largeur */
+  .formules-grid{
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 12px !important;  /* petit padding pour respirer */
+  }
+
+  /* Chaque carte prend toute la largeur */
+  .formule-card{
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border-radius: 18px !important;
+  }
+
+  /* Si tu utilises la version “auto” */
+  .formules-grid--auto{
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 12px !important;
+  }
+  .formule-card--auto{
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  /* Le bouton CTA en bas doit aussi être full width */
+  .piscines-config-cta{
+    padding: 0 12px !important;
+  }
+  .piscines-config-cta .btn-config{
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
 
 
 
