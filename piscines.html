@@ -34,18 +34,35 @@
   --lc-radius:22px;
 }
 html, body{
+  margin: 0;
+  padding: 0;
   background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%);
   color: var(--lc-white);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow-x: hidden;
+}
+p, li, span{
+  color: var(--lc-white-soft);
+}
+h1, h2, h3, h4{
+  color: var(--lc-white);
+}
+a{
+  color: var(--lc-white);
+  text-decoration: none;
+}
+a:hover{
+  color: var(--lc-gold);
+}
+section{
+  width: 100%;
 }
 
-a{ color: var(--lc-white); }
-a:hover{ color: var(--lc-gold); }
-
-*{ box-sizing: border-box; }
-html, body{ width:100%; overflow-x:hidden; }
-body{ margin:0; background: var(--lc-paper); color: var(--lc-ink); font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-
-a{ color: inherit; }
+.container{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 0 18px;
+}
 
 /* --------- HEADER (desktop) --------- */
 header{
