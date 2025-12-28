@@ -22,18 +22,24 @@
 
 /* --------- TOKENS --------- */
 :root{
+  --lc-dark:#0b1220;
+  --lc-dark-2:#020617;
+
   --lc-gold:#d4af37;
-  --lc-night:#020617;
-  --lc-ink:#0f172a;
+  --lc-gold-soft:rgba(212,175,55,.22);
 
-  /* BLEU ROI (accent premium) */
-  --lc-royal:#1d4ed8;          /* bleu roi */
-  --lc-royal-soft: rgba(29,78,216,.14);
+  --lc-white:#ffffff;
+  --lc-white-soft:rgba(255,255,255,.75);
 
-  --lc-card:#ffffff;
-  --lc-border: rgba(15,23,42,.10);
-  --shadow: 0 18px 55px rgba(2,6,23,.10);
+  --lc-radius:22px;
 }
+html, body{
+  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%);
+  color: var(--lc-white);
+}
+
+a{ color: var(--lc-white); }
+a:hover{ color: var(--lc-gold); }
 
 *{ box-sizing: border-box; }
 html, body{ width:100%; overflow-x:hidden; }
@@ -144,15 +150,6 @@ header{
 /* =========================
    VARIABLES / BASE LUXE
 ========================= */
-:root{
-  --lc-gold:#d4af37;
-  --lc-night:#020617;
-  --lc-ink:#0f172a;
-  --lc-muted:#64748b;
-  --lc-card:#ffffff;
-  --lc-border:rgba(15,23,42,.10);
-  --shadow: 0 18px 55px rgba(2,6,23,.10);
-}
 
 /* Sécurité layout */
 *{ box-sizing:border-box; }
@@ -948,18 +945,21 @@ img{ max-width:100%; height:auto; display:block; }
   box-shadow: 0 18px 55px rgba(29,78,216,.30);
 }
 
-.btn-outline{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 1rem 1.1rem;
+.btn-gold{
+  background: var(--lc-gold);
+  color: var(--lc-dark-2);
+  border: 1px solid rgba(0,0,0,.15);
   border-radius: 999px;
-  text-decoration:none;
-  font-weight: 850;
-  border: 1px solid rgba(255,255,255,.26);
-  color:#e5e7eb;
-  background: rgba(255,255,255,.06);
+  padding: 14px 22px;
+  font-weight: 700;
+  cursor: pointer;
 }
+
+.btn-gold:hover{
+  filter: brightness(.95);
+  box-shadow: 0 0 0 6px var(--lc-gold-soft);
+}
+
 /* FAQ LUXE */
 .piscines-faq-list{
   max-width: 900px;
@@ -986,17 +986,6 @@ img{ max-width:100%; height:auto; display:block; }
   margin:0;
   color: rgba(15,23,42,.72);
   line-height: 1.7;
-}
-:root{
-  --lc-gold:#d4af37;
-  --lc-night:#020617;
-  --lc-ink:#0f172a;
-
-  --lc-royal:#1d4ed8;
-  --lc-royal-soft: rgba(29,78,216,.14);
-
-  --lc-border: rgba(15,23,42,.10);
-  --shadow: 0 18px 55px rgba(2,6,23,.10);
 }
 
 /* Wrapper général */
