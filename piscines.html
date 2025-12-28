@@ -728,6 +728,50 @@ html.theme-piscine .piscines-faq-item p{
   .formule-card .formule-specs{
     margin-top: 10px !important;
   }
+  /* =========================================================
+   PC — CENTRER + AGRANDIR LES FICHES (Essentiel/Confort/Luxe)
+   À coller tout en bas
+========================================================= */
+
+@media (min-width: 980px){
+
+  /* 1) La zone “collections” prend plus de place */
+  .piscines-formules{
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  /* 2) Grille plus large + centrée */
+  .formules-grid{
+    max-width: 1320px !important;          /* avant 1120 */
+    margin: 0 auto !important;
+    grid-template-columns: repeat(3, minmax(320px, 1fr)) !important;
+    gap: 1.6rem !important;
+    justify-content: center !important;    /* centre le bloc */
+    align-items: stretch !important;
+  }
+
+  /* 3) Cartes légèrement plus “grandes” (sans tout casser) */
+  .formule-card{
+    transform: scale(1.03);               /* léger boost */
+    transform-origin: center;
+  }
+
+  /* 4) Image un poil plus haute */
+  .formule-card .formule-img{
+    height: 210px !important;             /* avant 190 */
+  }
+
+
+/* Très grands écrans : encore un peu plus confortable */
+@media (min-width: 1400px){
+  .formules-grid{
+    max-width: 1400px !important;
+    grid-template-columns: repeat(3, minmax(360px, 1fr)) !important;
+  }
+  .formule-card{
+    transform: scale(1.05);
+  }
 }
 
 </style>
