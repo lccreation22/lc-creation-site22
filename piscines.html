@@ -1083,6 +1083,57 @@ header{
     color: var(--lc-gold) !important;
   }
 }
+/* ===== SHOWROOM (URBAINE + FICHES) ===== */
+.showroom{
+  position: relative;
+  padding-top: 46px;
+  padding-bottom: 56px;
+}
+
+.showroom::before{
+  content:"";
+  position:absolute;
+  inset: 120px 0 0 0;               /* commence après le titre */
+  border-radius: 26px;
+  margin: 0 auto;
+  width: min(1200px, calc(100% - 36px));
+  background:
+    radial-gradient(900px 520px at 50% 0%, rgba(255,255,255,.07), rgba(0,0,0,0) 70%),
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 22px 80px rgba(0,0,0,.35);
+  pointer-events:none;
+  z-index:0;
+}
+
+.showroom > *{ position: relative; z-index:1; }
+/* ===== PANELS POUR STRUCTURER LES BLOCS ===== */
+.panel{
+  position: relative;
+  padding-top: 66px;
+  padding-bottom: 66px;
+}
+
+.panel::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  width: min(1200px, calc(100% - 36px));
+  margin: 0 auto;
+  border-radius: 26px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 20px 70px rgba(0,0,0,.30);
+  pointer-events:none;
+  z-index:0;
+}
+
+.panel > *{ position: relative; z-index:1; }
+
+/* petit séparateur luxe entre sections */
+.piscines-section + .piscines-section{
+  border-top: 1px solid rgba(255,255,255,.06);
+}
 
 
 </style>
@@ -1159,7 +1210,8 @@ header{
  
  
 <!-- FORMULES / COLLECTIONS -->
-<section class="piscines-section piscines-formules" id="collections">
+<section class="piscines-section piscines-formules showroom" id="collections">
+
   <div class="piscines-section-header">
     <h2>Nos collections de piscines en bois</h2>
     <p>
@@ -1357,7 +1409,7 @@ header{
   </div>
 </section>
 
-<section class="piscines-section">
+<section class="piscines-section panel">
   <div class="piscines-wrap">
     <div class="piscines-section-header">
       <h2>Options &amp; finitions possibles</h2>
@@ -1417,7 +1469,7 @@ header{
 </section>
 
 
-<section class="piscines-section piscines-cta-projet" id="bloc-devis-piscine">
+<section class="piscines-section piscines-cta-projet panel" id="bloc-devis-piscine">
   <div class="cta-projet-card">
     <h3>Vous avez un projet ?</h3>
     <p>Parlons de votre terrain, de vos envies et de votre budget. Réponse rapide et conseils personnalisés.</p>
@@ -1431,7 +1483,7 @@ header{
 
 
 <!-- FAQ -->
-<section class="piscines-section piscines-faq">
+<section class="piscines-section piscines-faq panel">
   <div class="piscines-section-header">
     <h2>Questions fréquentes</h2>
   </div>
