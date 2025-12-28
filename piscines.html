@@ -536,13 +536,12 @@ img{ max-width:100%; height:auto; display:block; }
   .piscines-config-cta .btn-config{ width: 100%; text-align:center; }
 }
 
-/* --------- DESKTOP SAFETY --------- */
-@media (min-width:769px){
-  .pool-hero--mobile{ display:none !important; }
-  .piscines-hero{ display:block !important; }
-  .piscines-intro-photo{ display:block !important; }
-}
+
 @media (min-width: 769px){
+  .pool-hero--mobile{ display:none !important; }
+.piscines-hero{ display:block !important; }
+.piscines-intro-photo{ display:block !important; }
+
   .piscines-hero{
     padding: 36px 18px 32px; /* moins haut */
   }
@@ -667,7 +666,7 @@ img{ max-width:100%; height:auto; display:block; }
   color: rgba(15,23,42,.70);
   font-size: .96rem;
 }
-}
+
 @media (max-width: 980px){
   .pro-bullets{ grid-template-columns: 1fr; }
   .pro-card{ padding: 1.5rem 1.25rem; }
@@ -804,199 +803,6 @@ img{ max-width:100%; height:auto; display:block; }
   margin:0;
   color: rgba(15,23,42,.72);
   line-height: 1.7;
-}
-
-/* Wrapper général */
-.piscines-wrap{ max-width: 1120px; margin: 0 auto; }
-
-/* Headers de section premium */
-.piscines-section-header{
-  text-align:center;
-  max-width: 860px;
-  margin: 0 auto 2.2rem;
-}
-.piscines-section-header h2{
-  font-size: clamp(1.7rem, 2.3vw, 2.2rem);
-  margin: 0 0 .65rem;
-  font-weight: 900;
-  letter-spacing: -.02em;
-}
-.piscines-section-header p{
-  margin:0;
-  color: rgba(15,23,42,.72);
-  line-height: 1.7;
-  font-size: 1.02rem;
-}
-.piscines-section-header h2::after{
-  content:"";
-  display:block;
-  width: 74px;
-  height: 3px;
-  margin: .9rem auto 0;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--lc-royal), var(--lc-gold));
-  opacity: .95;
-}
-
-/* PRO CARD (tu l'as déjà, on fiabilise) */
-.piscines-pro{
-  background: linear-gradient(180deg, rgba(29,78,216,.06), rgba(212,175,55,.04));
-}
-.pro-card{
-  max-width: 1120px;
-  margin: 0 auto;
-  background: #fff;
-  border: 1px solid var(--lc-border);
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-  padding: 2rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.pro-card::before{
-  content:"";
-  position:absolute;
-  inset: -60px -60px auto auto;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, var(--lc-royal-soft) 0%, rgba(29,78,216,0) 70%);
-}
-.pro-card h3{ margin:0 0 .65rem; font-size: 1.5rem; font-weight: 950; }
-.pro-card p{ margin:0; color: rgba(15,23,42,.72); line-height: 1.7; }
-.pro-bullets{
-  margin-top: 1.2rem;
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 1rem;
-}
-.pro-bullet{
-  background: rgba(29,78,216,.05);
-  border: 1px solid rgba(29,78,216,.16);
-  border-radius: 18px;
-  padding: 1rem 1rem;
-}
-.pro-bullet strong{ display:block; font-weight: 950; margin-bottom: .25rem; }
-.pro-bullet span{ color: rgba(15,23,42,.70); font-size: .96rem; }
-@media (max-width: 980px){
-  .pro-bullets{ grid-template-columns: 1fr; }
-  .pro-card{ padding: 1.5rem 1.25rem; }
-}
-
-/* OPTIONS GRID */
-.options-grid{
-  max-width: 1120px;
-  margin: 0 auto;
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 1.2rem;
-}
-.opt-card{
-  background:#fff;
-  border: 1px solid var(--lc-border);
-  border-left: 4px solid var(--lc-royal);
-  border-radius: 18px;
-  box-shadow: 0 14px 40px rgba(2,6,23,.06);
-  padding: 1.35rem 1.35rem;
-}
-.opt-card h4{
-  margin:0 0 .6rem;
-  font-size: 1.12rem;
-  font-weight: 950;
-}
-.opt-card ul{
-  margin:0;
-  padding-left: 1.1rem;
-  color: rgba(15,23,42,.78);
-  line-height: 1.65;
-}
-.options-footnote{
-  max-width: 900px;
-  margin: 1.6rem auto 0;
-  text-align:center;
-  color: rgba(15,23,42,.72);
-}
-@media (max-width: 980px){
-  .options-grid{ grid-template-columns: 1fr; }
-}
-
-/* CTA PROJET (bleu nuit + halo royal) */
-.piscines-cta-projet{
-  background: linear-gradient(135deg, #0b1220 0%, #060a14 55%, #0b1220 100%);
-  color: #e5e7eb;
-}
-.cta-projet-card{
-  max-width: 1120px;
-  margin: 0 auto;
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 22px;
-  padding: 2rem 2rem;
-  box-shadow: 0 24px 80px rgba(2,6,23,.45);
-  position: relative;
-  overflow:hidden;
-}
-.cta-projet-card::before{
-  content:"";
-  position:absolute;
-  inset:-60px auto auto -60px;
-  width: 240px;
-  height: 240px;
-  background: radial-gradient(circle, rgba(29,78,216,.25) 0%, rgba(29,78,216,0) 70%);
-}
-.cta-projet-card h3{ margin:0 0 .55rem; font-size: 1.75rem; font-weight: 980; }
-.cta-projet-card p{
-  margin:0 0 1.25rem;
-  color: rgba(229,231,235,.86);
-  line-height: 1.7;
-}
-.cta-actions{ display:flex; gap: 12px; flex-wrap:wrap; }
-.btn-royal{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 1rem 1.1rem;
-  border-radius: 999px;
-  text-decoration:none;
-  font-weight: 950;
-  background: linear-gradient(135deg, var(--lc-royal), #3b82f6);
-  color:#fff;
-  box-shadow: 0 18px 55px rgba(29,78,216,.30);
-}
-.btn-outline{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 1rem 1.1rem;
-  border-radius: 999px;
-  text-decoration:none;
-  font-weight: 900;
-  border: 1px solid rgba(255,255,255,.26);
-  color:#e5e7eb;
-  background: rgba(255,255,255,.06);
-}
-@media (max-width: 640px){
-  .cta-projet-card{ padding: 1.5rem 1.25rem; }
-  .cta-actions a{ width: 100%; }
-}
-
-.card{
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: var(--lc-radius);
-  box-shadow: 0 16px 40px rgba(0,0,0,.35);
-}
-
-.card h3, .card .price{ color: var(--lc-white); }
-.card .price strong{ color: var(--lc-gold); }
-.card p{ color: var(--lc-white-soft); }
- 
-.pro-card, .opt-card, .piscines-faq-item{
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.10);
-  box-shadow: var(--shadow);
-}
-.pro-card p, .opt-card ul, .piscines-faq-item p,
-.pro-bullet span{
-  color: rgba(255,255,255,.78);
 }
 
 
