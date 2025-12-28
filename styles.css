@@ -265,11 +265,6 @@ footer{border-top:1px solid var(--border);margin-top:36px;padding:18px 0;color:v
 }
 /* ==================== THEME PISCINE ==================== */
 
-/* ==== Thème piscine avec fond semi-transparent ==== */
-.theme-piscine body {
-  background: url("Bord de piscine ensoleillé.png") center/cover fixed no-repeat;
-  position: relative;
-}
 
 
 /* Boutons bleus */
