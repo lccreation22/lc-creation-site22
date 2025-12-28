@@ -1245,6 +1245,62 @@ header{
     pointer-events:none;
   }
 }
+/* PASTILLES = ronds couleur + texte */
+.formule-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top: 10px;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.90);
+  font-weight: 800;
+  cursor:pointer;
+}
+
+/* Le rond couleur */
+.pill::before{
+  content:"";
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #fff; /* fallback */
+  box-shadow: 0 0 0 2px rgba(255,255,255,.25);
+}
+
+/* Couleurs par finition */
+.pill[data-finish="bois"]::before{
+  background: linear-gradient(135deg,#a16207,#f59e0b);
+}
+.pill[data-finish="blanc"]::before{
+  background: #f8fafc;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.35), inset 0 0 0 1px rgba(0,0,0,.25);
+}
+.pill[data-finish="gris"]::before{
+  background: #cbd5e1;
+}
+.pill[data-finish="anthra"]::before{
+  background: #111827;
+}
+
+/* Etat actif : plus visible */
+.pill.is-active{
+  border-color: rgba(212,175,55,.55);
+  background: rgba(212,175,55,.10);
+  color: #fff;
+  box-shadow: 0 0 0 6px rgba(212,175,55,.14);
+}
+.pill.is-active::before{
+  box-shadow: 0 0 0 3px rgba(212,175,55,.45), inset 0 0 0 1px rgba(0,0,0,.25);
+}
 
 
 </style>
