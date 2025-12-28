@@ -1,0 +1,337 @@
+/* =========================
+   LC CRÉATION — PISCINES CLEAN
+   Palette: dark / gold / white
+========================= */
+
+:root{
+  --lc-dark:#0b1220;
+  --lc-dark-2:#020617;
+
+  --lc-gold:#d4af37;
+  --lc-gold-2:#f6e1a4;
+  --lc-gold-soft:rgba(212,175,55,.22);
+
+  --lc-white:#ffffff;
+  --lc-white-soft:rgba(255,255,255,.78);
+
+  --card: rgba(255,255,255,.045);
+  --border: rgba(255,255,255,.10);
+  --shadow: 0 18px 60px rgba(0,0,0,.35);
+  --radius: 22px;
+
+  --wrap: 1120px;
+}
+
+/* Base */
+*{ box-sizing:border-box; }
+html, body{
+  margin:0; padding:0;
+  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%);
+  color: var(--lc-white);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow-x:hidden;
+}
+img{ max-width:100%; height:auto; display:block; }
+p, li{ color: var(--lc-white-soft); }
+a{ color: var(--lc-white); text-decoration:none; }
+a:hover{ color: var(--lc-gold); }
+
+.container, .piscines-wrap{
+  width: min(var(--wrap), 100%);
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* Header (sombre premium) */
+header{
+  background: rgba(2,6,23,.72);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+}
+.topbar.container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+  padding: 14px 18px;
+}
+.topbar nav{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.topbar nav a{
+  color: rgba(255,255,255,.82);
+  font-weight: 650;
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+.topbar nav a:hover{ background: rgba(255,255,255,.06); color:#fff; }
+.topbar nav a.active{
+  color: var(--lc-gold);
+  background: rgba(212,175,55,.12);
+}
+
+/* Hero desktop */
+.piscines-hero{
+  padding: 46px 18px 34px;
+  background: radial-gradient(circle at top left, rgba(255,255,255,.06) 0, rgba(255,255,255,0) 55%);
+}
+.piscines-hero-inner{
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  text-align:center;
+}
+.piscines-hero h1{
+  margin:0 0 10px;
+  font-size: clamp(26px, 2.6vw, 42px);
+  font-weight: 900;
+  letter-spacing:.02em;
+}
+.piscines-hero p{
+  margin:0 auto;
+  max-width: 860px;
+  line-height:1.7;
+  opacity:.92;
+}
+.phrase-urgence{
+  margin-top: 14px;
+  font-weight: 850;
+  color: var(--lc-gold);
+}
+
+/* Sections (pas de fond blanc) */
+.piscines-section{ padding: 52px 0; background: transparent; }
+.piscines-section-header{
+  text-align:center;
+  max-width: 900px;
+  margin: 0 auto 22px;
+  padding: 0 18px;
+}
+.piscines-section-header h2{
+  margin:0 0 10px;
+  font-size: clamp(22px, 2.2vw, 34px);
+  font-weight: 900;
+}
+.piscines-section-header p{ margin:0; line-height:1.7; }
+
+/* Intro photo (desktop) */
+.piscines-intro-photo{
+  width: min(var(--wrap), 100%);
+  margin: 18px auto 0;
+  padding: 0 18px;
+}
+.piscines-intro-photo img{
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* =========================
+   PACKS (Essentiel/Confort/Luxe)
+========================= */
+.formules-grid{
+  width: min(var(--wrap), 100%);
+  margin: 0 auto;
+  padding: 0 18px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.formule-card{
+  background: rgba(11,18,32,.92);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow: var(--shadow);
+}
+
+.formule-media{
+  aspect-ratio: 16/10;
+  background:#0b1220;
+}
+.formule-media img{ width:100%; height:100%; object-fit:cover; }
+
+.formule-body{ padding: 14px 14px 16px; }
+
+.formule-badge{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.85);
+  margin-top: 10px;
+}
+.formule-badge.is-highlight{
+  border:none;
+  background: rgba(212,175,55,.20);
+  color:#111827;
+}
+
+.formule-title{
+  margin: 10px 0 8px;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color:#fff;
+}
+
+.formule-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.formule-pills .pill{
+  display:inline-flex;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 750;
+  line-height: 1;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
+}
+
+.formule-specs{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0 0 12px;
+}
+.spec{
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 10px 10px;
+}
+.spec span{
+  display:block;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color: rgba(255,255,255,.70);
+  margin-bottom: 3px;
+}
+.spec strong{
+  color:#fff;
+  font-size:.95rem;
+  font-weight: 850;
+}
+
+.formule-price{
+  margin: 2px 0 2px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: rgba(255,255,255,.88);
+}
+.formule-price strong{ color: var(--lc-gold); font-weight: 950; }
+.formule-price-sub{ margin:0; font-size:.88rem; color: rgba(255,255,255,.65); }
+
+.btn-pack{
+  margin-top: 12px;
+  display:inline-flex;
+  width:100%;
+  align-items:center;
+  justify-content:center;
+  padding: 16px 16px;
+  border-radius: 999px;
+  font-weight: 950;
+  letter-spacing:.02em;
+  background: linear-gradient(135deg, var(--lc-gold), var(--lc-gold-2));
+  color:#111827;
+  box-shadow: 0 18px 50px rgba(0,0,0,.16);
+}
+
+/* CTA sous packs */
+.piscines-config-cta{
+  width: min(var(--wrap), 100%);
+  margin: 20px auto 0;
+  padding: 0 18px;
+  display:flex;
+  justify-content:center;
+}
+.piscines-config-cta .btn-config{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 16px 34px;
+  border-radius: 999px;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  color:#fff;
+}
+.piscines-config-cta .btn-config:hover{
+  border-color: rgba(212,175,55,.55);
+  box-shadow: 0 0 0 6px var(--lc-gold-soft);
+}
+
+/* =========================
+   URBAINE — stable (pas de "décrochage")
+========================= */
+.pool-card{
+  width: min(var(--wrap), 100%);
+  margin: 28px auto 0;
+  padding: 18px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.pool-card__image img{
+  border-radius: 18px;
+  max-height: 320px;
+  width: 100%;
+  object-fit: cover;
+}
+.pool-card__content h2{
+  margin: 14px 0 8px;
+  font-size: 1.5rem;
+  font-weight: 950;
+}
+.pool-card__subtitle{ margin:0 0 12px; }
+.pool-card__list{ margin: 0 0 12px; padding-left: 18px; line-height:1.6; }
+.pool-card__price{ margin: 10px 0 12px; font-weight: 900; }
+.pool-card__price .price-gold{ color: var(--lc-gold); }
+.pool-card__cta .btn-primary{
+  display:inline-flex;
+  width: 100%;
+  align-items:center;
+  justify-content:center;
+  padding: 16px 16px;
+  border-radius: 999px;
+  font-weight: 950;
+  background: linear-gradient(135deg, var(--lc-gold), var(--lc-gold-2));
+  color:#111827;
+}
+
+/* =========================
+   MOBILE
+========================= */
+.pool-hero--mobile{ display:none; } /* si tu utilises ton hero mobile existant */
+
+@media (max-width: 980px){
+  .formules-grid{ grid-template-columns: 1fr; padding: 0 12px; }
+}
+@media (max-width: 420px){
+  .formule-specs{ grid-template-columns: 1fr; }
+}
+@media (max-width: 768px){
+  .topbar.container{ flex-direction: column; gap: 8px; padding: 10px 12px; }
+  .brand img{ max-height: 52px; }
+  .piscines-intro-photo{ padding: 0 12px; }
+  .piscines-section{ padding: 42px 0; }
+  .pool-card{ margin: 18px 12px 0; padding: 14px; }
+}
