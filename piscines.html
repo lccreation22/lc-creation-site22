@@ -999,6 +999,90 @@ header{
     z-index: 2;
   }
 }
+/* =========================================
+   MOBILE FIX (packs) : plus aucun chevauchement
+========================================= */
+@media (max-width: 768px){
+
+  /* cards full width et moins "tour" */
+  #mini-piscine-urbaine .formule-card{
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Image de la fiche : ratio propre */
+  #mini-piscine-urbaine .formule-img{
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  /* >>> LA CLÉ : specs en vraie grille 2 colonnes (label | valeur) */
+  #mini-piscine-urbaine .spec{
+    display: grid !important;
+    grid-template-columns: 110px 1fr;  /* colonne label fixe */
+    gap: 10px;
+    align-items: baseline;
+    padding: 12px 12px;
+  }
+
+  #mini-piscine-urbaine .spec span{
+    display: block;
+    font-size: .95rem;
+    line-height: 1.25;
+    opacity: .78;
+    white-space: nowrap;              /* évite "Dimen / sions" */
+  }
+
+  #mini-piscine-urbaine .spec strong{
+    display: block;
+    font-size: 1.02rem;
+    line-height: 1.25;
+    white-space: normal;              /* autorise retour ligne propre */
+    word-break: break-word;
+  }
+
+  /* Les séparateurs deviennent plus discrets (optionnel) */
+  #mini-piscine-urbaine .spec{
+    border-color: rgba(255,255,255,.10) !important;
+    background: rgba(255,255,255,.035) !important;
+  }
+
+  /* Bouton CTA : bien centré */
+  #mini-piscine-urbaine .btn-pack{
+    max-width: 360px;
+    margin: 12px auto 0;
+  }
+}
+/* =========================================
+   MOBILE FIX HEADER : liens noirs sur fond blanc
+========================================= */
+@media (max-width: 768px){
+
+  html.theme-piscine header{
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(2,6,23,.10) !important;
+  }
+
+  html.theme-piscine header .topbar{
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+  }
+
+  /* liens NAV bien visibles */
+  html.theme-piscine header .topbar nav a{
+    color: rgba(2,6,23,.82) !important;
+  }
+  html.theme-piscine header .topbar nav a:hover{
+    color: rgba(2,6,23,1) !important;
+    background: rgba(2,6,23,.06) !important;
+  }
+  html.theme-piscine header .topbar nav a.active{
+    color: var(--lc-gold) !important;
+  }
+}
 
 
 </style>
