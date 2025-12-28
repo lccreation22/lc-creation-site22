@@ -112,41 +112,22 @@ brand{
   display:block;
 }
 
-.topbar nav{
-  display:flex;
-  align-items:center;
-  gap: 20px;
+.topbar{
+  background: rgba(2,6,23,.72);
+  backdrop-filter: blur(10px);
 }
 
 .topbar nav a{
-  text-decoration:none;
-  font-weight: 600;
-  font-size: .98rem;
-  color: rgba(15,23,42,.78);
-  padding: 8px 10px;
-  border-radius: 999px;
-  transition: background .15s ease, color .15s ease;
+  color: rgba(255,255,255,.82);
 }
 
 .topbar nav a:hover{
-  background: rgba(2,6,23,.04);
-  color: rgba(15,23,42,.92);
+  background: rgba(255,255,255,.06);
+  color: #ffffff;
 }
 
 .topbar nav a.active{
   color: var(--lc-gold);
-  position: relative;
-}
-
-.topbar nav a.active::after{
-  content:"";
-  position:absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 4px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--lc-gold), transparent);
-  border-radius: 999px;
 }
 
 
