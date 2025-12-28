@@ -544,6 +544,112 @@ html.theme-piscine .opt-card ul,
 html.theme-piscine .piscines-faq-item p{
   color: rgba(255,255,255,.78) !important;
 }
+/* =========================================================
+   PATCH MISE EN PAGE (PISCINES) — BLOCS / CENTRAGE / URBAINE
+   À coller TOUT EN BAS du <style> de piscines.html
+========================================================= */
+
+/* 1) Largeur cohérente partout (évite les “blocs” qui changent de largeur) */
+.page-piscines > section,
+.page-piscines > div{
+  width: 100%;
+}
+
+.page-piscines .piscines-hero-inner,
+.page-piscines .piscines-section-header,
+.page-piscines .piscines-intro-photo,
+.page-piscines .formules-grid,
+.page-piscines .pro-card,
+.page-piscines .options-grid,
+.page-piscines .cta-projet-card,
+.page-piscines .piscines-faq-list{
+  width: min(1120px, calc(100% - 36px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 2) Centrage textes des zones “titre/intro” uniquement (on ne touche pas aux listes) */
+.page-piscines .piscines-section-header,
+.page-piscines .piscines-hero-inner{
+  text-align: center;
+}
+.page-piscines .piscines-section-header p{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* 3) URBAINE : structure PRO et stable (image cadrée + texte propre) */
+#mini-piscine-urbaine.pool-card{
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+/* Desktop : image à gauche / contenu à droite */
+@media (min-width: 900px){
+  #mini-piscine-urbaine.pool-card{
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    align-items: stretch;
+  }
+
+  #mini-piscine-urbaine .pool-card__image{
+    height: 420px;                /* hauteur stable */
+    overflow: hidden;
+  }
+
+  #mini-piscine-urbaine .pool-card__image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display:block;
+  }
+
+  #mini-piscine-urbaine .pool-card__content{
+    padding: 22px 22px;
+  }
+}
+
+/* Mobile : image au-dessus, contenu en dessous */
+@media (max-width: 899px){
+  #mini-piscine-urbaine.pool-card{
+    display: block;
+    margin: 18px auto 0;
+    width: min(1120px, calc(100% - 24px));
+  }
+
+  #mini-piscine-urbaine .pool-card__image{
+    height: 240px;                /* évite l’image “géante” */
+    overflow:hidden;
+  }
+  #mini-piscine-urbaine .pool-card__image img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  #mini-piscine-urbaine .pool-card__content{
+    padding: 16px 16px 18px;
+  }
+}
+
+/* 4) Petits détails pro : on évite les centragse bizarres dans les contenus */
+.pool-card__list{
+  text-align: left;               /* les listes restent lisibles */
+}
+.pool-card__dimensions span{
+  display:block;
+  opacity:.88;
+  margin-top: 6px;
+}
+
+/* 5) Le bloc “Configurer ma piscine en 2 minutes” bien centré */
+.piscines-config-cta{
+  width: min(1120px, calc(100% - 36px));
+  margin-left:auto;
+  margin-right:auto;
+}
 
 </style>
  
