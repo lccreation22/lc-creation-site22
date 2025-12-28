@@ -772,7 +772,65 @@ html.theme-piscine .piscines-faq-item p{
   .formule-card{
     transform: scale(1.05);
   }
+  /* =========================================================
+   FIX PC : fiches centrées + pas d’écrasement du bouton URBAINE
+   À coller TOUT EN BAS
+========================================================= */
+
+/* 1) On neutralise tout zoom/transform qui peut remonter les cartes */
+.formule-card{
+  transform: none !important;
 }
+
+/* 2) Espace clair entre le bouton “URBAINE” et la grille des fiches */
+#mini-piscine-urbaine .pool-card__cta{
+  margin-bottom: 18px !important;
+}
+#mini-piscine-urbaine .formules-grid{
+  margin-top: 14px !important;
+}
+
+/* 3) Sur PC : colonnes à largeur fixe + centrage réel */
+@media (min-width: 980px){
+
+  /* Le bloc fiche prend plus de place mais reste centré */
+  #mini-piscine-urbaine .formules-grid{
+    width: 100% !important;
+    max-width: 1320px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(340px, 380px)) !important;
+    gap: 22px !important;
+
+    justify-content: center !important;   /* centre le groupe de colonnes */
+    justify-items: stretch !important;    /* cartes propres */
+    align-items: stretch !important;
+  }
+
+  /* Les cartes respirent un peu + hauteur uniforme */
+  #mini-piscine-urbaine .formule-card{
+    height: 100%;
+  }
+
+  /* Image de fiche plus confortable */
+  #mini-piscine-urbaine .formule-img{
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    border-radius: 14px !important;
+  }
+
+
+/* 4) Très grands écrans : un poil plus large (optionnel mais nickel) */
+@media (min-width: 1400px){
+  #mini-piscine-urbaine .formules-grid{
+    max-width: 1400px !important;
+    grid-template-columns: repeat(3, minmax(360px, 420px)) !important;
+  }
+}
+
 
 </style>
  
