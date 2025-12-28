@@ -829,7 +829,79 @@ html.theme-piscine .piscines-faq-item p{
     max-width: 1400px !important;
     grid-template-columns: repeat(3, minmax(360px, 420px)) !important;
   }
+/* =========================================================
+   FIX MOBILE : fiches pleines largeur + specs lisibles
+   À coller TOUT EN BAS
+========================================================= */
+@media (max-width: 980px){
+
+  /* La grille doit prendre toute la largeur */
+  .formules-grid{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 12px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    justify-content: stretch !important;
+    justify-items: stretch !important;
+  }
+
+  /* Chaque fiche doit prendre toute la largeur */
+  .formule-card{
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  /* Image plus large / moins de “vide” */
+  .formule-media,
+  .formule-img{
+    width: 100% !important;
+  }
+  .formule-img{
+    height: 220px !important;
+    object-fit: cover !important;
+  }
+
+  /* Specs : on évite "Dimensions6,00" collé, et on respire */
+  .formule-specs{
+    display: grid !important;
+    gap: 10px !important;
+  }
+  .spec{
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    gap: 14px !important;
+    padding: 12px 12px !important;
+  }
+  .spec span{
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    opacity: .78;
+  }
+  .spec strong{
+    flex: 0 0 auto !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+  }
+
+  /* Si certains strong sont longs (ex: "Hors-sol / Semi / Enterrée"), on autorise le retour */
+  .spec strong{
+    white-space: normal !important;
+  }
+
+  /* Bouton plus confortable */
+  .btn-pack{
+    width: 100% !important;
+    padding: 16px 16px !important;
+  }
 }
+
 
 
 </style>
