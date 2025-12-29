@@ -2128,3 +2128,59 @@ html.theme-piscine body{
 @media(min-width: 900px){
   .cta-proof{ grid-template-columns: repeat(3, 1fr); }
 }
+.trust-section{ padding: 28px 14px; max-width: 980px; margin: 0 auto; }
+.trust-section h2{ margin:0 0 6px; font-size:1.35rem; }
+.trust-sub{ margin:0 0 14px; color: rgba(255,255,255,.78); }
+
+.trust-grid{
+  display: grid;
+  gap: 14px;
+}
+@media(min-width: 900px){
+  .trust-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.trust-card{
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.30);
+  position: relative;
+  overflow: hidden;
+}
+.trust-card:before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(212,175,55,.28),
+    rgba(212,175,55,.06),
+    rgba(255,255,255,.08));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+  opacity: .65;
+}
+.trust-card h3{ margin:0 0 6px; font-size:1.05rem; }
+.trust-card p{ margin:0; color: rgba(255,255,255,.78); line-height:1.45; }
+
+.trust-badges{
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+@media(min-width: 900px){
+  .trust-badges{ grid-template-columns: repeat(3, 1fr); }
+}
+.trust-badge{
+  background: rgba(2,6,23,.40);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 999px;
+  padding: 10px 12px;
+  color: rgba(255,255,255,.82);
+  text-align: center;
+  font-weight: 700;
+}
