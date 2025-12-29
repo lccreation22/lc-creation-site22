@@ -1395,7 +1395,34 @@ header{
       alt="Piscine en bois dans un jardin aménagé"
       loading="lazy">
   </div>
- 
+ <section class="finish-section" id="finitions">
+  <div class="finish-head">
+    <h2>Choisissez votre style</h2>
+    <p>Nos finitions s’adaptent à toutes nos formules — Essentiel, Confort ou Luxe.</p>
+  </div>
+
+  <div class="finish-card">
+    <div class="finish-preview">
+      <img id="finishPreviewImg"
+           src="/01-bois-naturel.png"
+           alt="Bois naturel"
+           loading="lazy">
+      <div class="finish-badge" id="finishBadge">Bois naturel</div>
+    </div>
+
+    <div class="finish-pills" role="tablist" aria-label="Finitions">
+      <button class="pill is-active" type="button" data-finish="bois" data-img="/01-bois-naturel.png" aria-label="Bois naturel">Bois naturel</button>
+      <button class="pill" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png" aria-label="Blanc minéral">Blanc minéral</button>
+      <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png" aria-label="Gris clair">Gris clair</button>
+      <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png" aria-label="Anthracite">Anthracite</button>
+    </div>
+
+    <div class="finish-note" id="finishNote">
+      <strong>Signature LC Création :</strong> Blanc minéral — rendu architectural & lumineux.
+    </div>
+  </div>
+</section>
+
  
 <!-- FORMULES / COLLECTIONS -->
 <section class="piscines-section piscines-formules showroom" id="collections">
@@ -1740,6 +1767,40 @@ header{
 
     if (src) img.src = src;
   });
+</script>
+<script>
+(function(){
+  const pills = Array.from(document.querySelectorAll('#finitions .pill'));
+  const img = document.getElementById('finishPreviewImg');
+  const badge = document.getElementById('finishBadge');
+  const note = document.getElementById('finishNote');
+
+  if(!pills.length || !img || !badge) return;
+
+  const notes = {
+    bois:  "<strong>Bois naturel :</strong> chaleureux, intemporel, parfaitement intégré au jardin.",
+    blanc: "<strong>Signature LC Création :</strong> Blanc minéral — rendu architectural & lumineux.",
+    gris:  "<strong>Gris clair :</strong> look contemporain, très “design” et facile à harmoniser.",
+    anthra:"<strong>Anthracite :</strong> contraste premium, moderne, effet haut de gamme."
+  };
+
+  pills.forEach(btn => {
+    btn.addEventListener('click', () => {
+      pills.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+
+      const label = btn.textContent.trim() || btn.getAttribute('aria-label') || 'Finition';
+      const src = btn.dataset.img;
+
+      if(src) img.src = src;
+      img.alt = label;
+      badge.textContent = label;
+
+      const key = btn.dataset.finish;
+      if(note && notes[key]) note.innerHTML = notes[key];
+    });
+  });
+})();
 </script>
 
 
