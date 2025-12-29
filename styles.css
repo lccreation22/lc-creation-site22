@@ -1950,3 +1950,27 @@ html.theme-piscine body{
   color: rgba(255,255,255,.70);
   font-size: .92rem;
 }
+.pack-link{
+  display:inline-block;
+  margin-top: 10px;
+  color: rgba(212,175,55,.95);
+  font-weight: 800;
+  text-decoration: none;
+}
+.pack-link:hover{ text-decoration: underline; }
+/* FORCE style bouton pack (override) */
+#collections .formule-cta .btn-pack{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  padding: 14px 16px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(212,175,55,.55) !important;
+  background: rgba(212,175,55,.95) !important;
+  color: #06101f !important;
+  font-weight: 900 !important;
+  letter-spacing: .2px !important;
+  text-decoration: none !important;
+  box-shadow: 0 16px 34px rgba(212,175,55,.14) !important;
+}
