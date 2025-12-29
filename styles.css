@@ -1464,3 +1464,8 @@ html.theme-piscine body{
 #urbainecarte .pack-card{ padding-bottom: 14px; }
 #urbainecarte .pack-cta{ margin-bottom: 0; }
 #urbainecarte p{ margin-bottom: 0.6em; }
+#urbainecarte .pack-head{
+  background: transparent !important;
+  padding-top: 0;
+  margin-top: 0;
+}
