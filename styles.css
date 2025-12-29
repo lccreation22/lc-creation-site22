@@ -2070,3 +2070,61 @@ html.theme-piscine body{
   background: rgba(255,255,255,.02);
 }
 .options-cta p{ margin:0 0 10px; color: rgba(255,255,255,.78); }
+.cta-projet-card{
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.30);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-projet-card:before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(212,175,55,.35),
+    rgba(212,175,55,.08),
+    rgba(255,255,255,.08));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+  opacity: .75;
+}
+
+.cta-projet-card h2{
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+}
+
+.cta-projet-card p{
+  margin: 0 0 14px;
+  color: rgba(255,255,255,.78);
+  line-height: 1.45;
+}
+
+.cta-actions{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cta-actions a{
+  flex: 1 1 220px;
+}
+
+.cta-proof{
+  margin-top: 12px;
+  display: grid;
+  gap: 6px;
+  color: rgba(255,255,255,.75);
+  font-size: .95rem;
+}
+
+@media(min-width: 900px){
+  .cta-proof{ grid-template-columns: repeat(3, 1fr); }
+}
