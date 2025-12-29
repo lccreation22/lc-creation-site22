@@ -2184,3 +2184,9 @@ html.theme-piscine body{
   text-align: center;
   font-weight: 700;
 }
+/* Mobile: cacher toutes les photos des packs (Essentiel/Confort/Luxe) */
+@media (max-width: 720px){
+  #collections .formule-card--auto .formule-media{
+    display: none !important;
+  }
+}
