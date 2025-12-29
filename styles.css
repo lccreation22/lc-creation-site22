@@ -1751,3 +1751,9 @@ html.theme-piscine body{
     font-size: 1.05rem;
   }
 }
+@media (max-width: 720px){
+  .formule-card--auto[data-pack="confort"]{
+    border-color: rgba(212,175,55,.30);
+    background: linear-gradient(180deg, rgba(212,175,55,.07), rgba(255,255,255,.03));
+  }
+}
