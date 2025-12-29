@@ -1897,3 +1897,56 @@ html.theme-piscine body{
   border-color: rgba(212,175,55,.30) !important;
   background: linear-gradient(180deg, rgba(212,175,55,.07), rgba(255,255,255,.03)) !important;
 }
+/* Packs : même ambiance bleutée que Projection */
+#collections .formule-card--auto{
+  background: radial-gradient(900px 520px at 20% 0%,
+      rgba(255,255,255,.06),
+      rgba(0,0,0,0) 65%),
+    linear-gradient(180deg,
+      rgba(7,16,32,.92),
+      rgba(2,6,23,.92)) !important;
+}
+#collections .formule-card--auto::after{
+  content:"" !important;
+  position:absolute !important;
+  width: 260px !important;
+  height: 260px !important;
+  left: -120px !important;
+  top: -120px !important;
+  background: radial-gradient(circle, rgba(212,175,55,.16), rgba(212,175,55,0) 65%) !important;
+  filter: blur(6px) !important;
+  pointer-events:none !important;
+}
+#collections .formule-media{
+  background: rgba(2,6,23,.35) !important;
+}
+
+#collections .formule-img{
+  filter: contrast(1.03) saturate(1.05);
+  transform: scale(1.01);
+}
+/* Même look que btn-primary pour les packs */
+#collections .btn-pack{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,.55);
+  background: rgba(212,175,55,.95);
+  color: #06101f;
+  font-weight: 900;
+  letter-spacing: .2px;
+  box-shadow: 0 16px 34px rgba(212,175,55,.14);
+  text-decoration: none;
+}
+
+#collections .btn-pack:hover{
+  filter: brightness(1.02);
+}
+#collections .pack-proof{
+  margin: 10px 0 12px;
+  color: rgba(255,255,255,.70);
+  font-size: .92rem;
+}
