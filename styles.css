@@ -1987,3 +1987,13 @@ html.theme-piscine body{
 .compare-list li{ margin: 8px 0; line-height: 1.35; }
 .compare-note{ margin: 10px 0 0; color: rgba(255,255,255,.65); font-size: .92rem; }
 .gold{ color: #d4af37; font-weight: 900; }
+.cta-proof{
+  margin-top: 12px;
+  display: grid;
+  gap: 6px;
+  color: rgba(255,255,255,.75);
+  font-size: .95rem;
+}
+@media(min-width: 900px){
+  .cta-proof{ grid-template-columns: repeat(3, 1fr); }
+}
