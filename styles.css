@@ -1454,3 +1454,13 @@ html.theme-piscine body{
   background: linear-gradient(180deg, rgba(212,175,55,.06), rgba(255,255,255,.03));
 }
 
+#urbainecarte .pack-head,
+#urbainecarte .pack-highlights,
+#urbainecarte .pack-details,
+#urbainecarte .pack-body,
+#urbainecarte .pack-cta{
+  background: transparent !important;
+}
+#urbainecarte .pack-card{ padding-bottom: 14px; }
+#urbainecarte .pack-cta{ margin-bottom: 0; }
+#urbainecarte p{ margin-bottom: 0.6em; }
