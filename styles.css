@@ -1469,3 +1469,42 @@ html.theme-piscine body{
   padding-top: 0;
   margin-top: 0;
 }
+.projection-section{
+  padding: 28px 14px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.projection-section h2{
+  margin: 0 0 16px;
+  font-size: 1.35rem;
+}
+
+.projection-items{
+  display: grid;
+  gap: 16px;
+}
+
+.projection-item{
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.projection-item h3{
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.projection-item p{
+  margin: 0;
+  color: rgba(255,255,255,.78);
+  line-height: 1.45;
+}
+
+.projection-cta{
+  margin-top: 18px;
+  color: rgba(255,255,255,.65);
+  font-size: .95rem;
+}
