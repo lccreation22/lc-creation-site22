@@ -2240,3 +2240,33 @@ html.theme-piscine body{
   }
   .pano-overlay p{ font-size: 1.15rem; }
 }
+/* HERO full-bleed sur mobile (supprime les bords gris) */
+@media (max-width: 720px){
+
+  .hero-piscine{
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-radius: 0;
+  }
+
+  .hero-media{
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .hero-media img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+  }
+
+  /* si ton overlay avait un radius */
+  .hero-overlay{
+    border-radius: 0;
+  }
+}
+@media (max-width: 720px){
+  body{ overflow-x: hidden; }
+}
