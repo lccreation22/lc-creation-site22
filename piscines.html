@@ -1341,6 +1341,18 @@ header{
   padding-top: 28px;
   padding-bottom: 28px;
 }
+/* On n'utilise plus l'ancien hero mobile */
+.pool-hero--mobile{ display:none !important; }
+.pool-hero{ display:none !important; }
+/* Nouveau hero mobile */
+@media (max-width:768px){
+  .piscines-hero{ display:none !important; }   /* desktop hero masqué */
+  .hero-piscine{ display:block !important; }  /* nouveau hero affiché */
+  .piscines-intro-photo{ display:none !important; }
+}
+@media (min-width:769px){
+  .hero-piscine{ display:none !important; }   /* nouveau hero masqué sur PC */
+}
 
 
 </style>
