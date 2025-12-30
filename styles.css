@@ -2191,46 +2191,52 @@ html.theme-piscine body{
   }
 }
 .pano-break{
-  margin: 22px auto;
-  width: min(1200px, calc(100% - 28px));
-  border-radius: 18px;
+  /* plein écran */
+  width: 100vw;
+  margin: 22px 0;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  /* plus de cadre */
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 22px 60px rgba(0,0,0,.40);
+
+  /* image + overlay plus léger */
   background:
-    linear-gradient(
-      180deg,
-      rgba(2,6,23,.25),
-      rgba(2,6,23,.85)
-    ),
-    url("/pano-soir-lc.png") center / cover no-repeat;
-  min-height: 170px; /* mobile */
+    linear-gradient(180deg, rgba(2,6,23,.08), rgba(2,6,23,.40)),
+    url("/pano-soir-lc.png") center 70% / cover no-repeat;
+
+  min-height: 190px; /* mobile */
 }
 
 .pano-overlay{
-  min-height: 170px;
-  display: flex;
-  align-items: flex-end;
-  padding: 14px 16px;
+  min-height: 190px;
+  display:flex;
+  align-items:flex-end;
+  padding: 14px 18px;
 }
 
 .pano-overlay p{
-  margin: 0;
+  margin:0;
   color: rgba(255,255,255,.92);
-  font-weight: 800;
-  letter-spacing: .3px;
+  font-weight: 900;
+  letter-spacing: .2px;
+  text-shadow: 0 10px 30px rgba(0,0,0,.55);
 }
 
-/* desktop */
+/* PC: on descend le cadrage pour voir la piscine */
 @media (min-width: 900px){
   .pano-break{
-    min-height: 240px;
+    min-height: 280px;
+    background:
+      linear-gradient(180deg, rgba(2,6,23,.06), rgba(2,6,23,.35)),
+      url("/pano-soir-lc.png") center 82% / cover no-repeat;
   }
   .pano-overlay{
-    min-height: 240px;
-    padding: 18px 22px;
+    min-height: 280px;
+    padding: 18px 28px;
   }
-  .pano-overlay p{
-    font-size: 1.15rem;
-  }
+  .pano-overlay p{ font-size: 1.15rem; }
 }
