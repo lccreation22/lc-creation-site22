@@ -2270,3 +2270,37 @@ html.theme-piscine body{
 @media (max-width: 720px){
   body{ overflow-x: hidden; }
 }
+@media (max-width: 720px){
+
+  /* 1) Le hero doit sortir du container */
+  .hero-piscine{
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    border-radius: 0 !important;
+  }
+
+  /* 2) Image bord à bord */
+  .hero-piscine .hero-media,
+  .hero-piscine .hero-media img,
+  .hero-piscine .hero-overlay{
+    border-radius: 0 !important;
+  }
+
+  .hero-piscine .hero-media{
+    overflow: hidden !important;
+  }
+
+  .hero-piscine .hero-media img{
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 3) Sécurité anti scroll horizontal */
+  html, body{ overflow-x: hidden !important; }
+}
