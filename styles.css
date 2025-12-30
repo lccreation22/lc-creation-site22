@@ -2304,3 +2304,10 @@ html.theme-piscine body{
   /* 3) Sécurité anti scroll horizontal */
   html, body{ overflow-x: hidden !important; }
 }
+@media (max-width:768px){
+  .pool-hero{
+    margin: 0 !important;        /* supprime les bords */
+    border-radius: 0 !important; /* full-bleed */
+    min-height: 68vh !important; /* optionnel, un peu plus grand */
+  }
+}
