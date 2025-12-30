@@ -201,15 +201,16 @@ header{
   .pool-hero--mobile{ display:block; }
   .piscines-intro-photo{ display:none; }
 
-  .pool-hero{
-    position:relative;
-    min-height:68vh;
-    overflow:hidden;
-    border-radius: 0;
-    margin: 0;
-    box-shadow: var(--shadow);
-    background:#0b1220;
-  }
+ .pool-hero{
+  position:relative;
+  min-height:62vh;
+  overflow:hidden;
+  border-radius: var(--radius-xl);
+  margin:12px 12px 0;
+  box-shadow: var(--shadow);
+  background:#0b1220;
+}
+
 
   .pool-hero__img{
     position:absolute;
@@ -1339,22 +1340,6 @@ header{
 .panel{
   padding-top: 28px;
   padding-bottom: 28px;
-}
-@media (max-width:768px){
-  .pool-hero{
-    margin: 0 !important;        /* supprime les bords */
-    border-radius: 0 !important; /* full-bleed */
-    min-height: 68vh !important; /* optionnel, un peu plus grand */
-  }
-}
-@media (max-width:768px){
-  .pool-hero__overlay{
-    background: linear-gradient(180deg,
-      rgba(0,0,0,.05) 0%,
-      rgba(0,0,0,0) 48%,
-      rgba(0,0,0,.35) 100%
-    ) !important;
-  }
 }
 
 
