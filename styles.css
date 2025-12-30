@@ -2203,7 +2203,7 @@ html.theme-piscine body{
       rgba(2,6,23,.25),
       rgba(2,6,23,.85)
     ),
-    url("/pano-soir-lc.jpg") center / cover no-repeat;
+    url("/pano-soir-lc.png") center / cover no-repeat;
   min-height: 170px; /* mobile */
 }
 
