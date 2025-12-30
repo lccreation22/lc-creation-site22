@@ -2190,3 +2190,47 @@ html.theme-piscine body{
     display: none !important;
   }
 }
+.pano-break{
+  margin: 22px auto;
+  width: min(1200px, calc(100% - 28px));
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 22px 60px rgba(0,0,0,.40);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2,6,23,.25),
+      rgba(2,6,23,.85)
+    ),
+    url("/pano-soir-lc.jpg") center / cover no-repeat;
+  min-height: 170px; /* mobile */
+}
+
+.pano-overlay{
+  min-height: 170px;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px 16px;
+}
+
+.pano-overlay p{
+  margin: 0;
+  color: rgba(255,255,255,.92);
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+/* desktop */
+@media (min-width: 900px){
+  .pano-break{
+    min-height: 240px;
+  }
+  .pano-overlay{
+    min-height: 240px;
+    padding: 18px 22px;
+  }
+  .pano-overlay p{
+    font-size: 1.15rem;
+  }
+}
