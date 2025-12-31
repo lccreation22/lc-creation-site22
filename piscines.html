@@ -1367,12 +1367,16 @@ html.theme-piscine .page-piscines{
 .finish-head h2::after{
   content:"";
   display:block;
-  width: 72px;
+  width: 110px;              /* adapte si tu veux plus court/long */
   height: 3px;
-  margin-top: 12px;
+  margin: 12px auto 0;       /* centré comme les autres sections */
   border-radius: 999px;
-  background: var(--lc-gold);
-  box-shadow: 0 0 0 6px var(--lc-gold-soft);
+  box-shadow: none;          /* enlève le halo */
+  background: linear-gradient(90deg,
+    rgba(212,175,55,0),
+    rgba(212,175,55,1),
+    rgba(212,175,55,0)
+  );
 }
 
 .finish-head p{
