@@ -1440,6 +1440,20 @@ html.theme-piscine .page-piscines{
   color: rgba(255,255,255,.95);
 }
 
+/* === UNDERLINE IDENTIQUE À "Nos modèles" === */
+.finish-head h2::after{
+  content:"";
+  display:block;
+  width: 110px;           /* ajuste si besoin */
+  height: 3px;
+  margin: 12px auto 0;    /* auto = centré comme "Nos modèles" */
+  border-radius: 999px;
+  background: var(--lc-gold);
+  box-shadow: none !important;  /* enlève le halo */
+}
+
+/* (optionnel) si tu veux aussi centrer tout le bloc comme "Nos modèles" */
+.finish-head{ text-align: center; }
 
 
 </style>
