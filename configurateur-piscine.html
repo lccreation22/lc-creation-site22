@@ -713,17 +713,29 @@ html, body {
     <label>Choisissez votre pack</label>
     <div class="config-radio-group" id="config-pack">
 
-      <!-- Packs existants -->
-      <label class="config-radio-option active">
-        <input type="radio" name="pack" value="Essentiel" checked>
-        <div>
-          <div class="config-radio-title">Essentiel</div>
-          <div class="config-radio-desc">
-            5,00 × 3,20 × 1,23 m — accès intelligent à la piscine bois, idéal pour un premier projet.
-            Base indicative : ~16 500 € TVAC.
-          </div>
-        </div>
-      </label>
+     <!-- Packs -->
+<label class="config-radio-option">
+  <input type="radio" name="pack" value="Urbaine">
+  <div>
+    <div class="config-radio-title">Urbaine</div>
+    <div class="config-radio-desc">
+      4,34 × 4,00 × 1,15 m — mini piscine compacte, parfaite pour petits jardins / milieu urbain.
+      Base indicative : ~11 900 € TVAC.
+    </div>
+  </div>
+</label>
+
+<label class="config-radio-option active">
+  <input type="radio" name="pack" value="Essentiel" checked>
+  <div>
+    <div class="config-radio-title">Essentiel</div>
+    <div class="config-radio-desc">
+      5,00 × 3,20 × 1,23 m — accès intelligent à la piscine bois, idéal pour un premier projet.
+      Base indicative : ~16 500 € TVAC.
+    </div>
+  </div>
+</label>
+
 
       <label class="config-radio-option">
         <input type="radio" name="pack" value="Confort">
@@ -1384,7 +1396,7 @@ html, body {
 
     // --- Évacuation
     var defaultEvacM3 = {
-      Urbain: 18,
+      Urbaine: 18,
       Essentiel: 30,
       Confort: 46,
       Luxe: 60
@@ -1420,7 +1432,7 @@ html, body {
 
     // --- Surface terrasse auto (pourtour 1 m)
     var packSizes = {
-      Urbain: { L: 3.5, W: 2.7 },  // approx. 9 m²
+      Urbaine: { L: 4.34, W: 4.0 },  // approx. 9 m²
       Essentiel: { L: 5.2, W: 3.2 },
       Confort: { L: 6.2, W: 4.2 },
       Luxe: { L: 8.35, W: 4.9 }
@@ -1552,7 +1564,7 @@ html, body {
 
     // === CALCUL PRIX ===
     var basePrices = {
-    
+      Urbaine: 11900,
       Essentiel: 15490,
       Confort: 19490,
       Luxe: 23990
@@ -1563,7 +1575,7 @@ html, body {
 
     // Liner
     if (linerColor === "Sand" || linerColor === "Grey") {
-      optionsTotal += 175;
+      optionsTotal += 355;
     }
 
     // Chauffage
@@ -1576,12 +1588,12 @@ html, body {
 
     // Couverture
     if (couvertureVal === "Couverture à barres") optionsTotal += 2000;
-    if (couvertureVal === "Volet à lamelles manuel") optionsTotal += 3800;
-    if (couvertureVal === "Volet à lamelles motorisé") optionsTotal += 5800;
+    if (couvertureVal === "Volet à lamelles manuel") optionsTotal += 4800;
+    if (couvertureVal === "Volet à lamelles motorisé") optionsTotal += 8800;
 
     // Bâches
     var bachesTotal = 0;
-    if (pack === "Essentiel" || pack === "Urbain") {
+    if (pack === "Essentiel" || pack === "Urbaine") {
       for (var bb = 0; bb < bacheChecked.length; bb++) {
         var valB = bacheChecked[bb].value;
         if (valB === "Bâche été") bachesTotal += 600;
