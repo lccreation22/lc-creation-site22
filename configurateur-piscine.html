@@ -1776,16 +1776,20 @@ html, body {
           if (!data.ok) {
             throw new Error(data.error || "Erreur inconnue");
           }
-           // ✅ Meta Pixel: Lead (uniquement si l'envoi a réussi)
-  if (window.fbq) {
-    fbq("track", "Lead");
-    // Optionnel : tracer aussi l'estimation comme valeur
-    // fbq("track", "Lead", { value: parseFloat((estimationText || "").replace(/[^\d.,]/g,"").replace(",", ".")) || 0, currency: "EUR" });
-  }
+          // ✅ Meta Pixel: Lead (uniquement si l'envoi a réussi)
+if (window.fbq) {
+  fbq("track", "Lead");
+}
 
-          alert("Merci ! Votre demande a bien été envoyée. Nous vous recontactons rapidement.");
-          nextBtn.disabled = true;
-          nextBtn.textContent = "Demande envoyée ✅";
+// Optionnel : bloquer le bouton immédiatement
+nextBtn.disabled = true;
+nextBtn.textContent = "Envoi en cours…";
+
+// ✅ petite pause puis redirection
+setTimeout(function () {
+  window.location.href = "/merci-configurateur.html";
+}, 300);
+
         })
         .catch(function (err) {
           console.error(err);
