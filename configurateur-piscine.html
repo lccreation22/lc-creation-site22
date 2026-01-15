@@ -537,6 +537,26 @@ html, body {
         justify-content: center;
       }
     }
+.tag-premium{
+  display:inline-block;
+  margin-left:8px;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:.75rem;
+  font-weight:800;
+  background: rgba(212,175,55,.16);
+  border: 1px solid rgba(212,175,55,.35);
+  color: rgba(212,175,55,.95);
+}
+.config-hint{ margin-top:10px; }
+.hint-box{
+  border-radius:14px;
+  padding:10px 12px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+}
+.hint-title{ font-weight:900; margin-bottom:2px; }
+.hint-text{ color: rgba(255,255,255,.78); font-size:.95rem; line-height:1.35; }
 
   </style>
    
@@ -953,12 +973,17 @@ html, body {
               </div>
             </label>
             <label class="config-radio-option">
-              <input type="radio" name="couverture" value="Volet à lamelles motorisé">
-              <div>
-                <div class="config-radio-title">Volet à lamelles motorisé</div>
-                <div class="config-radio-desc">Volet motorisé, confort d’usage maximal et esthétique soignée.</div>
-              </div>
-            </label>
+  <input type="radio" name="couverture" value="Volet à lamelles motorisé">
+  <div>
+    <div class="config-radio-title">
+      Volet à lamelles motorisé <span class="tag-premium">Premium</span>
+    </div>
+    <div class="config-radio-desc">
+      Confort maximal. Chiffrage personnalisé au RDV (le prix dépend de la largeur, de l’accès et de l’alimentation).
+    </div>
+  </div>
+</label>
+
           </div>
         </div>
 
@@ -1606,10 +1631,14 @@ html, body {
     if (traitement === "Électrolyseur + régulation pH") optionsTotal += 3200;
     if (traitement === "Pompe doseuse") optionsTotal += 1800;
 
-    // Couverture
-    if (couvertureVal === "Couverture à barres") optionsTotal += 2000;
-    if (couvertureVal === "Volet à lamelles manuel") optionsTotal += 4800;
-    if (couvertureVal === "Volet à lamelles motorisé") optionsTotal += 8800;
+   // Couverture
+if (couvertureVal === "Couverture à barres") optionsTotal += 2000;
+if (couvertureVal === "Volet à lamelles pvc manuel") optionsTotal += 2800;
+
+// Motorisé = premium, chiffré au RDV => ne pas impacter l'estimation
+if (couvertureVal === "Volet à lamelles motorisé") {
+  // optionsTotal += 0;
+}
 
     // Bâches
     var bachesTotal = 0;
@@ -1685,6 +1714,29 @@ html, body {
     document.getElementById("summary-pose").textContent =
       "Pose : " + pose.toLowerCase();
   }
+function handleVoletMotoriseHint(couvertureVal){
+  const existing = document.getElementById("motorise-hint");
+  if(existing) existing.remove();
+
+  if(couvertureVal !== "Volet à lamelles motorisé") return;
+
+  const wrap = document.getElementById("config-couverture");
+  if(!wrap) return;
+
+  const hint = document.createElement("div");
+  hint.id = "motorise-hint";
+  hint.className = "config-hint";
+  hint.innerHTML = `
+    <div class="hint-box">
+      <div class="hint-title">Option Premium</div>
+      <div class="hint-text">
+        La motorisation peut ajouter <strong>jusqu’à ~9 000 €</strong> selon la configuration.
+        On la chiffre précisément lors du RDV.
+      </div>
+    </div>
+  `;
+  wrap.appendChild(hint);
+}
 
   // === 8. Validation étape 4 ===
   function validateStep4() {
