@@ -1013,9 +1013,9 @@ html, body {
           <label>Confort & loisirs</label>
           <div class="config-check-group" id="config-loisir">
             <label class="config-check-option">
-              <input type="checkbox" name="loisir" value="Éclairage LED couleur (RGB)">
+              <input type="checkbox" name="loisir" value="Spot LED couleur (RGB)">
               <div>
-                <div class="config-check-option-title">Éclairage LED couleur</div>
+                <div class="config-check-option-title">Spot LED couleur</div>
                 <div class="config-check-option-desc">
                   Spots LED RGB pour changer l’ambiance du bassin.
                   Dans les packs Confort et Luxe, un éclairage LED blanc est déjà inclus&nbsp;: cette option permet de passer en couleur.
@@ -1532,6 +1532,7 @@ html, body {
       (couvertureVal === "Aucune couverture spécifique"
         ? "à définir ensemble"
         : couvertureVal);
+handleVoletMotoriseHint(couvertureVal);
 
     // Entretien (robot inclus d’office en Luxe)
     var entretienEl = document.querySelector('input[name="entretien"]:checked');
@@ -1579,20 +1580,31 @@ html, body {
     if (loisirChecked.length === 0) {
       if (pack === "Essentiel" ) {
         summaryLoisirEl.textContent = "Loisirs : aucun équipement spécifique";
+        handleHaloHint(false);
+
       } else {
         summaryLoisirEl.textContent = "Loisirs : éclairage LED blanc inclus dans le pack";
       }
     } else {
-      var labels = [];
-      for (var li = 0; li < loisirChecked.length; li++) {
-        labels.push(loisirChecked[li].value);
-      }
-      var baseText = "";
-      if (pack === "Confort" || pack === "Luxe") {
-        baseText = "éclairage LED blanc inclus, options : ";
-      }
-      summaryLoisirEl.textContent = "Loisirs : " + baseText + labels.join(", ");
-    }
+  var labels = [];
+  var haloSelected = false;
+
+  for (var li = 0; li < loisirChecked.length; li++) {
+    var v = loisirChecked[li].value;
+    labels.push(v);
+    if (v === "Bandeau LED sous margelles (Halo)") haloSelected = true;
+  }
+
+  var baseText = "";
+  if (pack === "Confort" || pack === "Luxe") {
+    baseText = "éclairage LED blanc inclus, options : ";
+  }
+  summaryLoisirEl.textContent = "Loisirs : " + baseText + labels.join(", ");
+
+  // ✅ AJOUT ICI : message “Signature” si Halo coché
+  handleHaloHint(haloSelected);
+}
+
 
     // Délai & contact
     var delaiSel = document.getElementById("config-delai");
@@ -1653,6 +1665,7 @@ if (couvertureVal === "Volet à lamelles motorisé") {
   // optionsTotal += 0;
 }
 
+
     // Bâches
     var bachesTotal = 0;
     if (pack === "Essentiel" || pack === "Urbaine") {
@@ -1679,7 +1692,7 @@ if (couvertureVal === "Volet à lamelles motorisé") {
     // Loisirs
     for (var ls = 0; ls < loisirChecked.length; ls++) {
       var valL = loisirChecked[ls].value;
-      if (valL === "Éclairage LED couleur (RGB)") optionsTotal += 600;
+      if (valL === "Spot LED couleur (RGB)") optionsTotal += 600;
       if (valL === "Douche solaire extérieure") optionsTotal += 800;
       if (valL === "Nage à contre-courant") optionsTotal += 6500;
     }
