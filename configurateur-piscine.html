@@ -1413,6 +1413,48 @@ html, body {
   }
 
   togglePlageVisibility();
+  // === HINTS (premium / signature) ===
+function handleVoletMotoriseHint(couvertureVal){
+  var existing = document.getElementById("motorise-hint");
+  if(existing) existing.remove();
+
+  if(couvertureVal !== "Volet à lamelles motorisé") return;
+
+  var wrap = document.getElementById("config-couverture");
+  if(!wrap) return;
+
+  var hint = document.createElement("div");
+  hint.id = "motorise-hint";
+  hint.className = "config-hint";
+  hint.innerHTML =
+    '<div class="hint-box">' +
+      '<div class="hint-title">Option Premium</div>' +
+      '<div class="hint-text">La motorisation peut ajouter <strong>jusqu’à ~9 000 €</strong> selon la largeur, l’accès et l’alimentation. On la chiffre précisément lors du RDV.</div>' +
+    '</div>';
+
+  wrap.appendChild(hint);
+}
+
+function handleHaloHint(isSelected){
+  var existing = document.getElementById("halo-hint");
+  if(existing) existing.remove();
+  if(!isSelected) return;
+
+  var wrap = document.getElementById("config-loisir");
+  if(!wrap) return;
+
+  var hint = document.createElement("div");
+  hint.id = "halo-hint";
+  hint.className = "config-hint";
+  hint.innerHTML =
+    '<div class="hint-box">' +
+      '<div class="hint-title">Option Signature</div>' +
+      '<div class="hint-text">Le bandeau LED dépend de la <strong>longueur</strong>, des <strong>passages de câbles</strong> et de l’<strong>alimentation</strong>. On le chiffre précisément lors du RDV.</div>' +
+    '</div>';
+
+  wrap.appendChild(hint);
+}
+
 
   // === 7. Mise à jour du récapitulatif + prix ===
   function updateSummary() {
