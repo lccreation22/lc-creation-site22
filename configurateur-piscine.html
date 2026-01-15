@@ -1616,28 +1616,25 @@ handleVoletMotoriseHint(couvertureVal);
         "Bâches : été + hiver + enrouleur inox inclus dans le pack Luxe";
     }
 
-    // Loisirs
-    var loisirChecked = document.querySelectorAll('input[name="loisir"]:checked');
-    var summaryLoisirEl = document.getElementById("summary-loisir");
-    if (loisirChecked.length === 0) {
-      if (pack === "Essentiel" ) {
-    summaryLoisirEl.textContent = "Loisirs : aucun équipement spécifique";
-   } else {
-    summaryLoisirEl.textContent = "Loisirs : éclairage LED blanc inclus dans le pack";
-   }
-        handleHaloHint(false);
+   // Loisirs
+var loisirChecked = document.querySelectorAll('input[name="loisir"]:checked');
+var summaryLoisirEl = document.getElementById("summary-loisir");
 
-      } else {
-        summaryLoisirEl.textContent = "Loisirs : éclairage LED blanc inclus dans le pack";
-      }
-    } else {
+if (loisirChecked.length === 0) {
+  if (pack === "Essentiel") {
+    summaryLoisirEl.textContent = "Loisirs : aucun équipement spécifique";
+  } else {
+    summaryLoisirEl.textContent = "Loisirs : éclairage LED blanc inclus dans le pack";
+  }
+  handleHaloHint(false);
+} else {
   var labels = [];
-  var haloSelected = false;
+  var haloSelectedLocal = false;
 
   for (var li = 0; li < loisirChecked.length; li++) {
     var v = loisirChecked[li].value;
     labels.push(v);
-    if (v === "Bandeau LED sous margelles (Halo)") haloSelected = true;
+    if (v === "Bandeau LED sous margelles (Halo)") haloSelectedLocal = true;
   }
 
   var baseText = "";
@@ -1645,10 +1642,9 @@ handleVoletMotoriseHint(couvertureVal);
     baseText = "éclairage LED blanc inclus, options : ";
   }
   summaryLoisirEl.textContent = "Loisirs : " + baseText + labels.join(", ");
-
-  // ✅ AJOUT ICI : message “Signature” si Halo coché
-  handleHaloHint(haloSelected);
+  handleHaloHint(haloSelectedLocal);
 }
+
 
 
     // Délai & contact
@@ -1703,7 +1699,7 @@ handleVoletMotoriseHint(couvertureVal);
 
    // Couverture
 if (couvertureVal === "Couverture à barres") optionsTotal += 2000;
-if (couvertureVal === "Volet à lamelles pvc manuel") optionsTotal += 2800;
+if (couvertureVal === "Volet à lamelles manuel") optionsTotal += 2800;
 
 // Motorisé = premium, chiffré au RDV => ne pas impacter l'estimation
 if (couvertureVal === "Volet à lamelles motorisé") {
@@ -1734,18 +1730,19 @@ if (couvertureVal === "Volet à lamelles motorisé") {
       optionsTotal += 1800;
     }
 
-    // Loisirs
-    for (var ls = 0; ls < loisirChecked.length; ls++) {
-      var valL = loisirChecked[ls].value;
-      if (valL === "Spot LED couleur (RGB)") optionsTotal += 600;
-      if (valL === "Douche solaire extérieure") optionsTotal += 800;
-      if (valL === "Nage à contre-courant") optionsTotal += 6500;
-      if (valL === "Bandeau LED sous margelles (Halo)") {
-    haloSelected = true;
+   // Loisirs
+for (var ls = 0; ls < loisirChecked.length; ls++) {
+  var valL = loisirChecked[ls].value;
+  if (valL === "Spot LED couleur (RGB)") optionsTotal += 600;
+  if (valL === "Douche solaire extérieure") optionsTotal += 800;
+  if (valL === "Nage à contre-courant") optionsTotal += 6500;
+
+  if (valL === "Bandeau LED sous margelles (Halo)") {
     // Option Signature => chiffrée au RDV, n'impacte pas l'estimation
     // optionsTotal += 0;
-      }
-    }
+  }
+}
+
     // Plage / terrasse
     var plageTotal = 0;
     var plagePricesPerM2 = {
@@ -1789,29 +1786,7 @@ if (couvertureVal === "Volet à lamelles motorisé") {
     document.getElementById("summary-pose").textContent =
       "Pose : " + pose.toLowerCase();
   }
-function handleVoletMotoriseHint(couvertureVal){
-  const existing = document.getElementById("motorise-hint");
-  if(existing) existing.remove();
 
-  if(couvertureVal !== "Volet à lamelles motorisé") return;
-
-  const wrap = document.getElementById("config-couverture");
-  if(!wrap) return;
-
-  const hint = document.createElement("div");
-  hint.id = "motorise-hint";
-  hint.className = "config-hint";
-  hint.innerHTML = `
-    <div class="hint-box">
-      <div class="hint-title">Option Premium</div>
-      <div class="hint-text">
-        La motorisation peut ajouter <strong>jusqu’à ~9 000 €</strong> selon la configuration.
-        On la chiffre précisément lors du RDV.
-      </div>
-    </div>
-  `;
-  wrap.appendChild(hint);
-}
 
   // === 8. Validation étape 4 ===
   function validateStep4() {
