@@ -1621,7 +1621,10 @@ handleVoletMotoriseHint(couvertureVal);
     var summaryLoisirEl = document.getElementById("summary-loisir");
     if (loisirChecked.length === 0) {
       if (pack === "Essentiel" ) {
-        summaryLoisirEl.textContent = "Loisirs : aucun équipement spécifique";
+    summaryLoisirEl.textContent = "Loisirs : aucun équipement spécifique";
+   } else {
+    summaryLoisirEl.textContent = "Loisirs : éclairage LED blanc inclus dans le pack";
+   }
         handleHaloHint(false);
 
       } else {
