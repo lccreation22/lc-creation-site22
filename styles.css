@@ -2285,3 +2285,17 @@ html:not(.theme-piscine) .hero-piscine::before{
   box-shadow: 0 0 0 6px rgba(212,175,55,.18);
   flex:0 0 auto;
 }
+@media (max-width: 640px){
+  header{ border-bottom:1px solid rgba(0,0,0,.06); }
+  .topbar{ min-height: 56px; padding: 6px 0; }
+
+  header .brand img{
+    max-height: 54px;      /* au lieu de 100px */
+    width: auto;
+  }
+
+  nav a{
+    padding: 6px 8px;
+    font-size: 15px;
+  }
+}
