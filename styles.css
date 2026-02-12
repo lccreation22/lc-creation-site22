@@ -2257,3 +2257,67 @@ html:not(.theme-piscine) .hero-piscine::before{
   position:absolute; inset:0;
   background: rgba(255,255,255,0.62);
 }
+/* === HERO MOBILE : URGENCE + SÉRÉNITÉ (au-dessus de la ligne de flottaison) === */
+
+.hero-content{
+  display:flex;
+  flex-direction:column;
+  gap:10px;              /* plus compact */
+}
+
+.hero-urgency{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:999px;
+  background: rgba(2,6,23,.62);
+  border: 1px solid rgba(212,175,55,.35);
+  color: rgba(255,255,255,.92);
+  font-size: .92rem;
+  font-weight: 650;
+  backdrop-filter: blur(6px);
+}
+
+.hero-urgency strong{ color:#fff; font-weight:900; }
+.hero-urgency .dot{
+  width:10px; height:10px; border-radius:99px;
+  background: rgba(212,175,55,.95);
+  box-shadow: 0 0 0 6px rgba(212,175,55,.18);
+  flex:0 0 auto;
+}
+
+.serenity-strip{
+  padding:12px 12px;
+  border-radius:16px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.serenity-title{
+  font-weight: 950;
+  letter-spacing: .2px;
+  color:#fff;
+  margin-bottom:8px;
+}
+
+.serenity-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.serenity-pills span{
+  display:inline-flex;
+  align-items:center;
+  padding:8px 10px;
+  border-radius:999px;
+  background: rgba(2,6,23,.45);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.86);
+  font-weight: 750;
+  font-size: .9rem;
+}
+
+/* Rend la zone plus “one screen” */
+.hero-media img{ height: 480px; }   /* avant 520 */
