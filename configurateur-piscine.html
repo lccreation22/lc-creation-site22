@@ -813,9 +813,6 @@ html, body {
   </div>
 </div>
 
-        
-    </div> <!-- fin .config-radio-group -->
-  </div> <!-- ✅ fin .config-group (packs) -->
 
   <div class="config-group">
     <label for="config-budget">Budget global envisagé</label>
@@ -1505,6 +1502,9 @@ function handleHaloHint(isSelected){
     var cp = (cpEl && cpEl.value) ? cpEl.value : "à préciser";
     document.getElementById("summary-code-postal").textContent =
       "Code postal : " + cp;
+var poseEl = document.querySelector('input[name="pose"]:checked');
+var pose = poseEl ? poseEl.value : "Hors-sol";
+document.getElementById("summary-pose").textContent = "Pose : " + pose.toLowerCase();
 
     // --- Pack
     var packEl = document.querySelector('input[name="pack"]:checked');
@@ -1560,6 +1560,9 @@ var auto = (defaultEvacM3ByTaillePose[taille] && defaultEvacM3ByTaillePose[taill
     }
 
     var evacM3 = evacM3Input ? Number(evacM3Input.value || 0) : 0;
+  var evacEl = document.querySelector('input[name="evacuation"]:checked');
+var evacChoice = evacEl ? evacEl.value : "Non";
+
     if (evacChoice === "Oui" && evacM3 > 0) {
       document.getElementById("summary-evac").textContent =
         "Évacuation : oui (" + evacM3 + " m³)";
@@ -1682,6 +1685,21 @@ if (loisirChecked.length === 0) {
   summaryLoisirEl.textContent = "Loisirs : " + baseText + labels.join(", ");
   handleHaloHint(haloSelectedLocal);
 }
+var sereniteChecked = document.querySelector('input[name="serenite"]');
+var sereniteSelected = sereniteChecked ? sereniteChecked.checked : false;
+
+var sereniteText = "Pack Sérénité : non";
+var sereniteAnnual = 0;
+
+if (pack === "Luxe") {
+  sereniteText = "Pack Sérénité : inclus (Luxe)";
+} else if (sereniteSelected) {
+  sereniteText = "Pack Sérénité : 399 €/an";
+  sereniteAnnual = 399; // pas dans le prix TVAC du chantier, mais on l'affiche
+}
+
+var sereniteSummaryEl = document.getElementById("summary-serenite");
+if (sereniteSummaryEl) sereniteSummaryEl.textContent = sereniteText;
 
 
 
@@ -1826,7 +1844,8 @@ for (var ls = 0; ls < loisirChecked.length; ls++) {
       evacTotal = evacM3 * evacPriceTVAC;
     }
 
-   var price = priceBaseAvecPose + optionsTotal + plageTotal + evacTotal;
+   var price = packAvecPose + optionsTotal + plageTotal + evacTotal;
+ 
 var rounded = Math.round(price / 10) * 10; // arrondi plus fin (10€) ou 100€ comme avant
 
 if (!estimationUnlocked) {
@@ -1843,21 +1862,6 @@ if (!estimationUnlocked) {
     document.getElementById("summary-pose").textContent =
       "Pose : " + pose.toLowerCase();
   }
-var sereniteChecked = document.querySelector('input[name="serenite"]');
-var sereniteSelected = sereniteChecked ? sereniteChecked.checked : false;
-
-var sereniteText = "Pack Sérénité : non";
-var sereniteAnnual = 0;
-
-if (pack === "Luxe") {
-  sereniteText = "Pack Sérénité : inclus (Luxe)";
-} else if (sereniteSelected) {
-  sereniteText = "Pack Sérénité : 399 €/an";
-  sereniteAnnual = 399; // pas dans le prix TVAC du chantier, mais on l'affiche
-}
-
-var sereniteSummaryEl = document.getElementById("summary-serenite");
-if (sereniteSummaryEl) sereniteSummaryEl.textContent = sereniteText;
 
 
   // === 8. Validation étape 4 ===
