@@ -923,38 +923,6 @@ html, body {
           </div>
         </div>
 
-        
-
-        <!-- Couverture / sécurité -->
-        <div class="config-group">
-          <label>Couverture / sécurité</label>
-          <div class="config-radio-group" id="config-couverture">
-            <label class="config-radio-option active">
-              <input type="radio" name="couverture" value="Aucune couverture spécifique" checked>
-              <div>
-                <div class="config-radio-title">À définir ensemble</div>
-                <div class="config-radio-desc">Nous verrons ensemble la solution la plus adaptée à votre projet.</div>
-              </div>
-            </label>
-           
-            <label class="config-radio-option">
-              <input type="radio" name="couverture" value="Volet à lamelles manuel">
-              <div>
-                <div class="config-radio-title">Volet à lamelles manuel</div>
-                <div class="config-radio-desc">Volet hors-sol à lamelles, manœuvre manuelle, haut niveau de sécurité.</div>
-              </div>
-            </label>
-            <label class="config-radio-option">
-  <input type="radio" name="couverture" value="Volet à lamelles motorisé">
-  <div>
-    <div class="config-radio-title">
-      Volet à lamelles motorisé <span class="tag-premium">Premium</span>
-    </div>
-    <div class="config-radio-desc">
-      Confort maximal. Chiffrage personnalisé au RDV (le prix dépend de la largeur, de l’accès et de l’alimentation).
-    </div>
-  </div>
-</label>
 
           </div>
         </div>
@@ -1404,24 +1372,7 @@ html, body {
   }
 
   togglePlageVisibility();
-  // === HINTS (premium / signature) ===
-function handleVoletMotoriseHint(couvertureVal){
-  var existing = document.getElementById("motorise-hint");
-  if(existing) existing.remove();
-
-  if(couvertureVal !== "Volet à lamelles motorisé") return;
-
-  var wrap = document.getElementById("config-couverture");
-  if(!wrap) return;
-
-  var hint = document.createElement("div");
-  hint.id = "motorise-hint";
-  hint.className = "config-hint";
-  hint.innerHTML =
-    '<div class="hint-box">' +
-      '<div class="hint-title">Option Premium</div>' +
-      '<div class="hint-text">La motorisation peut ajouter <strong>jusqu’à ~9 000 €</strong> selon la largeur, l’accès et l’alimentation. On la chiffre précisément lors du RDV.</div>' +
-    '</div>';
+  
 
   wrap.appendChild(hint);
 }
@@ -1575,23 +1526,15 @@ document.getElementById("summary-chauffage").textContent =
     document.getElementById("summary-traitement").textContent =
       "Traitement : " + traitement;
 
-    // --- Couverture (verrouillée selon pack)
+    // --- Couverture (incluse selon pack)
 var couvertureVal = "";
-if (pack === "Essentiel") couvertureVal = "Bâche à bulles (incluse)";
+if (pack === "Essentiel") couvertureVal = "Bâche à bulles + enrouleur (inclus)";
 if (pack === "Confort")   couvertureVal = "Volet à lamelles manuel (inclus)";
 if (pack === "Luxe")      couvertureVal = "Volet à lamelles motorisé (inclus)";
 
 var sumCouverture = document.getElementById("summary-couverture");
 if (sumCouverture) sumCouverture.textContent = "Couverture : " + couvertureVal;
 
-// (optionnel) si tu gardes quand même les radios, tu peux les “synchroniser”
-var radioToCheck = null;
-if (pack === "Confort") radioToCheck = 'input[name="couverture"][value="Volet à lamelles manuel"]';
-if (pack === "Luxe")    radioToCheck = 'input[name="couverture"][value="Volet à lamelles motorisé"]';
-if (radioToCheck) {
-  var r = document.querySelector(radioToCheck);
-  if (r) r.checked = true;
-}
 
     // Entretien (robot inclus d’office en Luxe)
     var entretienEl = document.querySelector('input[name="entretien"]:checked');
@@ -1609,12 +1552,10 @@ if (radioToCheck) {
    // Bâches (Essentiel uniquement)
 var summaryBachesEl = document.getElementById("summary-baches");
 if (summaryBachesEl) {
-  if (pack === "Essentiel") {
-    summaryBachesEl.textContent = "Bâche à bulles : incluse";
-  } else {
-    summaryBachesEl.textContent = "Bâche à bulles : —";
-  }
+  if (pack === "Essentiel") summaryBachesEl.textContent = "Couverture : bâche à bulles + enrouleur inclus";
+  else summaryBachesEl.textContent = "Couverture : incluse via volet";
 }
+
 
    // Loisirs
 var loisirChecked = document.querySelectorAll('input[name="loisir"]:checked');
@@ -1722,13 +1663,7 @@ var packBase = (PRICE_GRID[taille] && PRICE_GRID[taille][pack]) ? PRICE_GRID[tai
 }
 
 
-  // Couverture
-
-
-if (couvertureVal === "Volet à lamelles manuel") {
-  if (pack === "Essentiel") optionsTotal += 2800; // inclus en Confort
-}
-
+ 
 // motorisé = inclus en Luxe, sinon chiffré au RDV (0)
 if (couvertureVal === "Volet à lamelles motorisé") {
   // pack Essentiel/Confort => 0 (RDV)
