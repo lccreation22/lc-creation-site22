@@ -456,20 +456,7 @@ html, body {
       font-size: 0.76rem;
       opacity: 0.75;
     }
-.config-liner-preview {
-  margin-top: 0.8rem;
-  border-radius: 18px;
-  background: rgba(15, 23, 42, 0.9);
-  padding: 0.75rem;
-  text-align: center;
-}
 
-.config-liner-preview img {
-  max-width: 100%;
-  height: auto;
-  display: inline-block;
-  border-radius: 14px;
-}
 
     /* MOBILE HEADER */
 
@@ -804,7 +791,10 @@ html, body {
       <input type="radio" name="pack" value="Confort">
       <div>
         <div class="config-radio-title">Confort</div>
-        <div class="config-radio-desc">Volet manuel PVC + margelles exotique + pompe à chaleur.</div>
+        <div class="config-radio-desc">
+  Volet manuel à lames PVC + margelles bois + pompe à chaleur incluse.
+</div>
+
       </div>
     </label>
 
@@ -812,7 +802,10 @@ html, body {
       <input type="radio" name="pack" value="Luxe">
       <div>
         <div class="config-radio-title">Luxe</div>
-        <div class="config-radio-desc">Volet motorisé polycarbonate + robot + pompe doseuse + LED RGB.</div>
+        <div class="config-radio-desc">
+  Volet motorisé à lames polycarbonate + margelles bois exotique + pompe à chaleur incluse + robot + pompe doseuse + LED RGB.
+</div>
+
       </div>
     </label>
 
@@ -872,12 +865,7 @@ html, body {
 
           <small>Les liners Sand et Grey entraînent un supplément de 175&nbsp;€ TVAC.</small>
 
-          <!-- Preview visuelle de la couleur sélectionnée -->
-          <div class="config-liner-preview">
-            <img id="config-liner-image"
-                 src="./liner blue.jpg"
-                 alt="Liner blue"
-                 loading="lazy">
+         
           </div>
         </div>
 
@@ -1224,6 +1212,7 @@ html, body {
           <li id="summary-pack">Essentiel</li>
           <li id="summary-budget">Budget envisagé : 20 000 – 30 000 €</li>
           <li id="summary-taille">Taille : Compacte</li>
+          <li id="summary-margelles">Margelles : bois</li>
 
         </ul>
       </div>
@@ -1490,6 +1479,12 @@ var taille = tailleEl ? tailleEl.value : "Compacte";
 
 var summaryTailleEl = document.getElementById("summary-taille");
 if (summaryTailleEl) summaryTailleEl.textContent = "Taille : " + taille;
+// --- Margelles (selon pack)
+var margellesText = "bois";
+if (pack === "Luxe") margellesText = "bois exotique";
+
+document.getElementById("summary-margelles").textContent =
+  "Margelles : " + margellesText;
 
     // --- Couleur liner
     var linerEl = document.querySelector('input[name="liner_color"]:checked');
@@ -1498,14 +1493,7 @@ if (summaryTailleEl) summaryTailleEl.textContent = "Taille : " + taille;
     if (summaryLinerEl) {
       summaryLinerEl.textContent = "Couleur du liner : " + linerColor.toLowerCase();
     }
-    var linerImg = document.getElementById("config-liner-image");
-    if (linerImg) {
-      var src = "./liner blue.jpg";
-      if (linerColor === "Sand") src = "./liner sand.jpg";
-      if (linerColor === "Grey") src = "./liner grey.jpg";
-      linerImg.src = src;
-      linerImg.alt = "Liner " + linerColor;
-    }
+    
 
    // --- Évacuation
 var evacEl = document.querySelector('input[name="evacuation"]:checked');
@@ -1573,10 +1561,16 @@ var size = sizeByTaille[taille];
       "Budget envisagé : " + budgetLabel;
 
     // --- Options principales
-    var chauffageEl = document.querySelector('input[name="chauffage"]:checked');
-    var chauffage = chauffageEl ? chauffageEl.value : "Pas de chauffage";
-    document.getElementById("summary-chauffage").textContent =
-      "Chauffage : " + chauffage.toLowerCase();
+   var chauffageEl = document.querySelector('input[name="chauffage"]:checked');
+var chauffage = chauffageEl ? chauffageEl.value : "Pas de chauffage";
+
+if (pack === "Confort" || pack === "Luxe") {
+  chauffage = "Pompe à chaleur (incluse)";
+}
+
+document.getElementById("summary-chauffage").textContent =
+  "Chauffage : " + chauffage.toLowerCase();
+
 
     var traitementEl = document.querySelector('input[name="traitement"]:checked');
     var traitement = traitementEl ? traitementEl.value : "Traitement manuel";
