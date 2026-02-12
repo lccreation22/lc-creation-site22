@@ -2333,3 +2333,13 @@ html:not(.theme-piscine) .hero-piscine::before{
   color:#ffffff;
   letter-spacing:.4px;
 }
+/* Masquer le bandeau urgence dans le hero image sur PC */
+@media (min-width: 1024px){
+  .hero-urgency{
+    display:none;
+  }
+}
+/* Prix hero en blanc partout (desktop + smartphone) */
+.hero-price strong{
+  color:#ffffff !important;
+}
