@@ -1658,6 +1658,43 @@ html.theme-piscine .page-piscines{
     padding: 22px 18px 28px;
   }
 }
+/* ===== HEADER MOBILE COMPACT (page Piscines) ===== */
+@media (max-width:700px){
+
+  /* on réduit la hauteur globale du header */
+  html.theme-piscine header{
+    padding: 6px 0 !important;
+  }
+
+  /* topbar moins haute */
+  html.theme-piscine .topbar{
+    min-height: 0 !important;
+    padding: 6px 0 !important;
+    gap: 6px;
+    flex-direction: column;   /* logo au-dessus, menu dessous */
+    align-items: center;
+  }
+
+  /* logo plus petit */
+  html.theme-piscine header .brand img{
+    max-height: 54px !important;   /* ajuste: 48–60 */
+  }
+
+  /* menu en UNE ligne, plus compact */
+  html.theme-piscine nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;        /* empêche le retour à la ligne */
+    gap: 10px;
+  }
+
+  html.theme-piscine nav a{
+    padding: 6px 8px !important;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+}
 
 
 
