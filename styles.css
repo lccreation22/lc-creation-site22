@@ -2320,10 +2320,7 @@ html:not(.theme-piscine) .hero-piscine::before{
     margin: 0 !important;
   }
 }
-/* Desktop : on enlève la phrase d’urgence du bandeau du haut (on garde la pill sur l’image) */
-@media (min-width: 900px){
-  .piscines-hero .phrase-urgence{ display:none !important; }
-}
+
 .hero-price span{
   font-size:14px;
   opacity:.75;
