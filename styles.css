@@ -2346,3 +2346,29 @@ html:not(.theme-piscine) .hero-piscine::before{
   border:1px solid rgba(255,255,255,.2);
   backdrop-filter: blur(8px);
 }
+/* =========================
+   FIX : plus de "capsule géante" autour des CTA (mobile/desktop)
+   ========================= */
+
+.hero-cta,
+.cta-actions,
+.piscines-config-cta{
+  background: transparent !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* CTA du hero piscine : 2 boutons propres, empilés en mobile */
+.hero-piscine .hero-cta{
+  display: grid !important;
+  gap: 12px !important;
+  margin-top: 14px !important;
+}
+
+.hero-piscine .hero-cta a{
+  width: 100% !important;
+  max-width: 520px !important;
+  margin: 0 auto !important;
+}
