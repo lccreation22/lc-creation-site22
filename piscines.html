@@ -1762,6 +1762,30 @@ html.theme-piscine .page-piscines{
 .serenite-cta{ display:flex; gap:10px; flex-wrap:wrap; }
 .serenite-cta a{ flex:1 1 220px; }
 
+/* ==========================
+   FIX: .hero-cta = conteneur (pas un bouton)
+   ========================== */
+.hero-content .hero-cta{
+  display:flex !important;
+  gap:10px !important;
+  flex-wrap:wrap !important;
+
+  background: transparent !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.hero-content .hero-cta a{
+  flex: 1 1 180px;
+}
+
+/* Sur mobile: 2 gros boutons bien lisibles */
+@media (max-width: 700px){
+  .hero-content .hero-cta a{
+    width: 100%;
+  }
+}
 
 
 </style>
