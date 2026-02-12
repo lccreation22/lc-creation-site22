@@ -864,10 +864,8 @@ html, body {
           </div>
 
           <small>Les liners Sand et Grey entraînent un supplément de 175&nbsp;€ TVAC.</small>
-
-         
-          </div>
         </div>
+        
 
         <!-- Chauffage -->
         <div class="config-group">
@@ -1733,23 +1731,7 @@ if (couvertureVal === "Volet à lamelles motorisé") {
 
 
 
-    // Bâches
-    var bachesTotal = 0;
-    if (pack === "Essentiel" || pack === "Urbaine") {
-      for (var bb = 0; bb < bacheChecked.length; bb++) {
-        var valB = bacheChecked[bb].value;
-        if (valB === "Bâche été") bachesTotal += 600;
-        if (valB === "Bâche hiver") bachesTotal += 700;
-        if (valB === "Enrouleur inox") bachesTotal += 450;
-      }
-    } else if (pack === "Confort") {
-      var hasEnr = false;
-      for (var bc = 0; bc < bacheChecked.length; bc++) {
-        if (bacheChecked[bc].value === "Enrouleur inox") hasEnr = true;
-      }
-      if (hasEnr) bachesTotal += 450;
-    }
-    optionsTotal += bachesTotal;
+  
 
     // Entretien (robot) hors Luxe
     if (pack !== "Luxe" && entretienValue === "Avec robot nettoyeur") {
