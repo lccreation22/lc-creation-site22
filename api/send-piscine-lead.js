@@ -57,6 +57,8 @@ export default async function handler(req, res) {
       "",
       `Projet : ${typeProjet || "-"}`,
       `Pack choisi : ${pack || "-"}`,
+      Taille : ${taille}
+
       budgetText || "",
       "",
       chauffageTxt || "",
