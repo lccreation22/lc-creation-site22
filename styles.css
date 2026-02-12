@@ -2299,3 +2299,50 @@ html:not(.theme-piscine) .hero-piscine::before{
     font-size: 15px;
   }
 }
+/* ==============================
+   FIX CTA HERO INDEX MOBILE
+   ============================== */
+
+/* Le conteneur NE DOIT PAS être un bouton */
+.hero-cta,
+.cta-group,
+.home-cta {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* Les vrais boutons */
+.hero-cta a,
+.cta-group a,
+.home-cta a {
+
+  display:block;
+  width:100%;
+  text-align:center;
+
+  padding:18px 20px;
+  border-radius:999px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* bouton principal */
+.btn-primary{
+  background:linear-gradient(135deg,#f1d27a,#caa43a);
+  color:#111;
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+}
+
+/* bouton secondaire */
+.btn-secondary,
+.btn-ghost{
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(8px);
+}
