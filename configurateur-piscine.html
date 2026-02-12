@@ -937,33 +937,7 @@ html, body {
           </div>
         </div>
 
-        <!-- Bâches & enrouleur -->
-        <div class="config-group">
-          <label>Bâches & enrouleur</label>
-          <div class="config-check-group" id="config-baches">
-            <label class="config-check-option">
-              <input type="checkbox" name="bache" value="Bâche été">
-              <div>
-                <div class="config-check-option-title">Bâche été</div>
-                <div class="config-check-option-desc">Bâche à bulles pour limiter l’évaporation et garder la chaleur.</div>
-              </div>
-            </label>
-            <label class="config-check-option">
-              <input type="checkbox" name="bache" value="Bâche hiver">
-              <div>
-                <div class="config-check-option-title">Bâche hiver</div>
-                <div class="config-check-option-desc">Bâche opaque pour la mise en hivernage du bassin.</div>
-              </div>
-            </label>
-            <label class="config-check-option">
-              <input type="checkbox" name="bache" value="Enrouleur inox">
-              <div>
-                <div class="config-check-option-title">Enrouleur inox</div>
-                <div class="config-check-option-desc">Enrouleur inox pour manipuler facilement la bâche été.</div>
-              </div>
-            </label>
-          </div>
-        </div>
+        
 
         <!-- Couverture / sécurité -->
         <div class="config-group">
@@ -976,13 +950,7 @@ html, body {
                 <div class="config-radio-desc">Nous verrons ensemble la solution la plus adaptée à votre projet.</div>
               </div>
             </label>
-            <label class="config-radio-option">
-              <input type="radio" name="couverture" value="Couverture à barres">
-              <div>
-                <div class="config-radio-title">Couverture à barres</div>
-                <div class="config-radio-desc">Sécurité renforcée et meilleure isolation.</div>
-              </div>
-            </label>
+           
             <label class="config-radio-option">
               <input type="radio" name="couverture" value="Volet à lamelles manuel">
               <div>
@@ -1618,11 +1586,14 @@ var size = sizeByTaille[taille];
     var couvertureEl = document.querySelector('input[name="couverture"]:checked');
     var couvertureVal = couvertureEl ? couvertureEl.value : "Aucune couverture spécifique";
     document.getElementById("summary-couverture").textContent =
-      "Couverture : " +
-      (couvertureVal === "Aucune couverture spécifique"
-        ? "à définir ensemble"
-        : couvertureVal);
+  "Couverture : " + couvertureVal;
+
 handleVoletMotoriseHint(couvertureVal);
+// Couverture incluse selon pack
+if (pack === "Essentiel") couvertureVal = "Bâche à bulles";
+if (pack === "Confort")   couvertureVal = "Volet à lamelles manuel";
+if (pack === "Luxe")      couvertureVal = "Volet à lamelles motorisé";
+
 
     // Entretien (robot inclus d’office en Luxe)
     var entretienEl = document.querySelector('input[name="entretien"]:checked');
@@ -1637,32 +1608,15 @@ handleVoletMotoriseHint(couvertureVal);
     document.getElementById("summary-entretien").textContent =
       "Entretien : " + entretienText;
 
-    // Bâches & enrouleur
-    var bacheChecked = document.querySelectorAll('input[name="bache"]:checked');
-    var summaryBachesEl = document.getElementById("summary-baches");
-
-    if (pack === "Essentiel" ) {
-      if (bacheChecked.length === 0) {
-        summaryBachesEl.textContent = "Bâches : aucune sélection";
-      } else {
-        var labelsBaches = [];
-        for (var bi = 0; bi < bacheChecked.length; bi++) {
-          labelsBaches.push(bacheChecked[bi].value);
-        }
-        summaryBachesEl.textContent = "Bâches : " + labelsBaches.join(", ");
-      }
-    } else if (pack === "Confort") {
-      var txt = "Bâches : été + hiver incluses dans le pack Confort";
-      var hasEnrouleur = false;
-      for (var bj = 0; bj < bacheChecked.length; bj++) {
-        if (bacheChecked[bj].value === "Enrouleur inox") hasEnrouleur = true;
-      }
-      if (hasEnrouleur) txt += ", enrouleur inox en option";
-      summaryBachesEl.textContent = txt;
-    } else if (pack === "Luxe") {
-      summaryBachesEl.textContent =
-        "Bâches : été + hiver + enrouleur inox inclus dans le pack Luxe";
-    }
+   // Bâches (Essentiel uniquement)
+var summaryBachesEl = document.getElementById("summary-baches");
+if (summaryBachesEl) {
+  if (pack === "Essentiel") {
+    summaryBachesEl.textContent = "Bâche à bulles : incluse";
+  } else {
+    summaryBachesEl.textContent = "Bâche à bulles : —";
+  }
+}
 
    // Loisirs
 var loisirChecked = document.querySelectorAll('input[name="loisir"]:checked');
@@ -1770,18 +1724,18 @@ var packBase = (PRICE_GRID[taille] && PRICE_GRID[taille][pack]) ? PRICE_GRID[tai
 }
 
 
-   // Couverture
-if (couvertureVal === "Couverture à barres") optionsTotal += 2000;
+  // Couverture
+
 
 if (couvertureVal === "Volet à lamelles manuel") {
-  // inclus en Confort (et Luxe a motorisé inclus)
-  if (pack === "Essentiel") optionsTotal += 2800;
+  if (pack === "Essentiel") optionsTotal += 2800; // inclus en Confort
 }
 
-// motorisé = inclus en Luxe, et si choisi hors Luxe : chiffré au RDV (0 ici)
+// motorisé = inclus en Luxe, sinon chiffré au RDV (0)
 if (couvertureVal === "Volet à lamelles motorisé") {
-  // si pack !== "Luxe" => chiffré au RDV, ne pas impacter
+  // pack Essentiel/Confort => 0 (RDV)
 }
+
 
 
 
