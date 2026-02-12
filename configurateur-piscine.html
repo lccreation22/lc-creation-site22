@@ -1533,42 +1533,43 @@ if (summaryTailleEl) summaryTailleEl.textContent = "Taille : " + taille;
       linerImg.alt = "Liner " + linerColor;
     }
 
-    // --- Évacuation
-   var defaultEvacM3ByTaillePose = {
+   // --- Évacuation
+var evacEl = document.querySelector('input[name="evacuation"]:checked');
+var evacChoice = evacEl ? evacEl.value : "Non";
+
+var defaultEvacM3ByTaillePose = {
   Compacte:  { "Hors-sol": 0,  "Semi-enterrée": 18, "Enterrée": 30 },
   Familiale: { "Hors-sol": 0,  "Semi-enterrée": 22, "Enterrée": 38 },
   Grande:    { "Hors-sol": 0,  "Semi-enterrée": 30, "Enterrée": 55 }
 };
 
-var auto = (defaultEvacM3ByTaillePose[taille] && defaultEvacM3ByTaillePose[taille][pose])
-  ? defaultEvacM3ByTaillePose[taille][pose]
-  : 0;
+if (evacChoice === "Oui") {
+  if (evacVolumeRow) evacVolumeRow.style.display = "block";
 
-      var currentVal = evacM3Input ? Number(evacM3Input.value || 0) : 0;
+  var auto = (defaultEvacM3ByTaillePose[taille] && defaultEvacM3ByTaillePose[taille][pose])
+    ? defaultEvacM3ByTaillePose[taille][pose]
+    : 0;
 
-      // si 0 ou encore une ancienne valeur auto, on met la valeur du pack
-      var knownDefaults = [0, 18, 22, 30, 38, 55];
+  var currentVal = evacM3Input ? Number(evacM3Input.value || 0) : 0;
+  var knownDefaults = [0, 18, 22, 30, 38, 55];
+  var isAutoLike = knownDefaults.indexOf(currentVal) !== -1;
 
-      var isAutoLike = knownDefaults.indexOf(currentVal) !== -1;
+  if (evacM3Input && (currentVal === 0 || isAutoLike)) {
+    evacM3Input.value = auto;
+  }
+} else {
+  if (evacVolumeRow) evacVolumeRow.style.display = "none";
+  if (evacM3Input) evacM3Input.value = 0;
+}
 
-      if (evacM3Input && (currentVal === 0 || isAutoLike)) {
-        evacM3Input.value = auto;
-      }
-    } else {
-      if (evacVolumeRow) evacVolumeRow.style.display = "none";
-      if (evacM3Input) evacM3Input.value = 0;
-    }
+var evacM3 = evacM3Input ? Number(evacM3Input.value || 0) : 0;
 
-    var evacM3 = evacM3Input ? Number(evacM3Input.value || 0) : 0;
-  var evacEl = document.querySelector('input[name="evacuation"]:checked');
-var evacChoice = evacEl ? evacEl.value : "Non";
+if (evacChoice === "Oui" && evacM3 > 0) {
+  document.getElementById("summary-evac").textContent = "Évacuation : oui (" + evacM3 + " m³)";
+} else {
+  document.getElementById("summary-evac").textContent = "Évacuation : non";
+}
 
-    if (evacChoice === "Oui" && evacM3 > 0) {
-      document.getElementById("summary-evac").textContent =
-        "Évacuation : oui (" + evacM3 + " m³)";
-    } else {
-      document.getElementById("summary-evac").textContent = "Évacuation : non";
-    }
 
     // --- Surface terrasse auto (pourtour 1 m)
     var sizeByTaille = {
