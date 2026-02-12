@@ -1381,11 +1381,20 @@ html.theme-piscine body{
 }
 
 .hero-cta{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:999px;
+  font-weight:700;
+  text-decoration:none;
+  font-size:16px;
+
+  color:#111827;
+  background: linear-gradient(135deg, #d4af37, #f6e1a4);
+
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+  border: none;
 }
+
 
 .btn-primary{
   display:inline-flex;
