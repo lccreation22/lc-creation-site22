@@ -749,56 +749,71 @@ html, body {
 
           <!-- ETAPE 2 : PACK -->
 <div class="config-step" data-step="2">
-  <div class="config-group">
-    <label>Choisissez votre pack</label>
-    <div class="config-radio-group" id="config-pack">
+  <!-- Taille -->
+<div class="config-group">
+  <label>Choisissez votre taille</label>
+  <div class="config-radio-group" id="config-taille">
 
-     <!-- Packs -->
-<label class="config-radio-option">
-  <input type="radio" name="pack" value="Urbaine">
-  <div>
-    <div class="config-radio-title">Urbaine</div>
-    <div class="config-radio-desc">
-      4,34 × 4,00 × 1,15 m — mini piscine compacte, parfaite pour petits jardins / milieu urbain.
-      Base indicative : ~11 900 € TVAC.
-    </div>
+    <label class="config-radio-option active">
+      <input type="radio" name="taille" value="Compacte" checked>
+      <div>
+        <div class="config-radio-title">Compacte</div>
+        <div class="config-radio-desc">Format idéal pour un premier projet. À partir de 15 990 € TVAC (Essentiel).</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="taille" value="Familiale">
+      <div>
+        <div class="config-radio-title">Familiale</div>
+        <div class="config-radio-desc">Le format le plus demandé. À partir de 18 990 € TVAC (Essentiel).</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="taille" value="Grande">
+      <div>
+        <div class="config-radio-title">Grande</div>
+        <div class="config-radio-desc">Pour maximiser l’espace baignade. À partir de 21 990 € TVAC (Essentiel).</div>
+      </div>
+    </label>
+
   </div>
-</label>
+</div>
 
-<label class="config-radio-option active">
-  <input type="radio" name="pack" value="Essentiel" checked>
-  <div>
-    <div class="config-radio-title">Essentiel</div>
-    <div class="config-radio-desc">
-      5,00 × 3,20 × 1,23 m — accès intelligent à la piscine bois, idéal pour un premier projet.
-      Base indicative : ~16 500 € TVAC.
-    </div>
+<!-- Pack (niveau de confort) -->
+<div class="config-group">
+  <label>Choisissez votre niveau de confort</label>
+  <div class="config-radio-group" id="config-pack">
+
+    <label class="config-radio-option active">
+      <input type="radio" name="pack" value="Essentiel" checked>
+      <div>
+        <div class="config-radio-title">Essentiel</div>
+        <div class="config-radio-desc">Le standard LC : prêt à profiter, simple et efficace.</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="pack" value="Confort">
+      <div>
+        <div class="config-radio-title">Confort</div>
+        <div class="config-radio-desc">Volet manuel PVC + margelles exotique + pompe à chaleur.</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="pack" value="Luxe">
+      <div>
+        <div class="config-radio-title">Luxe</div>
+        <div class="config-radio-desc">Volet motorisé polycarbonate + robot + pompe doseuse + LED RGB.</div>
+      </div>
+    </label>
+
   </div>
-</label>
+</div>
 
-
-      <label class="config-radio-option">
-        <input type="radio" name="pack" value="Confort">
-        <div>
-          <div class="config-radio-title">Confort</div>
-          <div class="config-radio-desc">
-            6,00 × 4,20 × 1,30 m — format familial, options techniques plus évoluées.
-            Base indicative : ~19 800 € TVAC.
-          </div>
-        </div>
-      </label>
-
-      <label class="config-radio-option">
-        <input type="radio" name="pack" value="Luxe">
-        <div>
-          <div class="config-radio-title">Luxe</div>
-          <div class="config-radio-desc">
-            8,35 × 4,90 × 1,36 m — expérience haut de gamme, confort maximal et équipements complets.
-            Base indicative : ~24 000 € TVAC.
-          </div>
-        </div>
-      </label>
-
+        
     </div> <!-- fin .config-radio-group -->
   </div> <!-- ✅ fin .config-group (packs) -->
 
@@ -1007,6 +1022,21 @@ html, body {
             </label>
           </div>
         </div>
+<div class="config-group">
+  <label>Pack Sérénité (recommandé)</label>
+  <div class="config-check-group" id="config-serenite">
+    <label class="config-check-option">
+      <input type="checkbox" name="serenite" value="Pack Sérénité">
+      <div>
+        <div class="config-check-option-title">Pack Sérénité — 399 €/an</div>
+        <div class="config-check-option-desc">
+          Suivi annuel + garantie assurée par LC Création.
+          <strong>Inclus dans le pack Luxe.</strong>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
 
         <!-- Confort & loisirs -->
         <div class="config-group">
@@ -1222,6 +1252,8 @@ html, body {
         <ul class="config-summary-list">
           <li id="summary-pack">Essentiel</li>
           <li id="summary-budget">Budget envisagé : 20 000 – 30 000 €</li>
+          <li id="summary-taille">Taille : Compacte</li>
+
         </ul>
       </div>
 
@@ -1236,6 +1268,7 @@ html, body {
           <li id="summary-loisir">Loisirs : aucun équipement spécifique</li>
           <li id="summary-liner">Couleur du liner : blue</li>
           <li id="summary-evac">Évacuation : non</li>
+          <li id="summary-serenite">Pack Sérénité : non</li>
 
           <li id="summary-plage">Plage/terrasse : aucune</li>
 
@@ -1477,6 +1510,12 @@ function handleHaloHint(isSelected){
     var packEl = document.querySelector('input[name="pack"]:checked');
     var pack = packEl ? packEl.value : "Essentiel";
     document.getElementById("summary-pack").textContent = pack;
+// --- Taille (nouveau)
+var tailleEl = document.querySelector('input[name="taille"]:checked');
+var taille = tailleEl ? tailleEl.value : "Compacte";
+
+var summaryTailleEl = document.getElementById("summary-taille");
+if (summaryTailleEl) summaryTailleEl.textContent = "Taille : " + taille;
 
     // --- Couleur liner
     var linerEl = document.querySelector('input[name="liner_color"]:checked');
@@ -1495,23 +1534,21 @@ function handleHaloHint(isSelected){
     }
 
     // --- Évacuation
-    var defaultEvacM3 = {
-      Urbaine: 18,
-      Essentiel: 30,
-      Confort: 46,
-      Luxe: 60
-    };
+   var defaultEvacM3ByTaillePose = {
+  Compacte:  { "Hors-sol": 0,  "Semi-enterrée": 18, "Enterrée": 30 },
+  Familiale: { "Hors-sol": 0,  "Semi-enterrée": 22, "Enterrée": 38 },
+  Grande:    { "Hors-sol": 0,  "Semi-enterrée": 30, "Enterrée": 55 }
+};
 
-    var evacEl = document.querySelector('input[name="evacuation"]:checked');
-    var evacChoice = evacEl ? evacEl.value : "Non";
+var auto = (defaultEvacM3ByTaillePose[taille] && defaultEvacM3ByTaillePose[taille][pose])
+  ? defaultEvacM3ByTaillePose[taille][pose]
+  : 0;
 
-    if (evacChoice === "Oui") {
-      if (evacVolumeRow) evacVolumeRow.style.display = "block";
-      var auto = defaultEvacM3[pack] || 0;
       var currentVal = evacM3Input ? Number(evacM3Input.value || 0) : 0;
 
       // si 0 ou encore une ancienne valeur auto, on met la valeur du pack
-      var knownDefaults = [18, 30, 46, 60];
+      var knownDefaults = [0, 18, 22, 30, 38, 55];
+
       var isAutoLike = knownDefaults.indexOf(currentVal) !== -1;
 
       if (evacM3Input && (currentVal === 0 || isAutoLike)) {
@@ -1531,13 +1568,14 @@ function handleHaloHint(isSelected){
     }
 
     // --- Surface terrasse auto (pourtour 1 m)
-    var packSizes = {
-      Urbaine: { L: 4.34, W: 4.0 },  // approx. 9 m²
-      Essentiel: { L: 5.2, W: 3.2 },
-      Confort: { L: 6.2, W: 4.2 },
-      Luxe: { L: 8.35, W: 4.9 }
-    };
-    var size = packSizes[pack];
+    var sizeByTaille = {
+  Compacte:  { L: 5.0,  W: 3.2 },
+  Familiale: { L: 6.0,  W: 4.2 },
+  Grande:    { L: 8.35, W: 4.9 }
+};
+
+var size = sizeByTaille[taille];
+
     if (size && plageSurfaceInput) {
       var b = 1;
       var autoSurface = (size.L + 2 * b) * (size.W + 2 * b) - size.L * size.W;
@@ -1674,13 +1712,17 @@ if (loisirChecked.length === 0) {
       "Plage/terrasse : " + plageLabel;
 
     // === CALCUL PRIX ===
-    var basePrices = {
-      Urbaine: 11900,
-      Essentiel: 15490,
-      Confort: 19490,
-      Luxe: 23990
-    };
-    var packBase = basePrices[pack] || 0;
+   var tailleEl = document.querySelector('input[name="taille"]:checked');
+var taille = tailleEl ? tailleEl.value : "Compacte";
+
+var PRICE_GRID = {
+  "Compacte":  { "Essentiel": 15990, "Confort": 23290, "Luxe": 28290 },
+  "Familiale": { "Essentiel": 18990, "Confort": 26990, "Luxe": 31990 },
+  "Grande":    { "Essentiel": 21990, "Confort": 30990, "Luxe": 36990 }
+};
+
+var packBase = (PRICE_GRID[taille] && PRICE_GRID[taille][pack]) ? PRICE_GRID[taille][pack] : 0;
+
 
     var optionsTotal = 0;
 
@@ -1688,23 +1730,34 @@ if (loisirChecked.length === 0) {
     if (linerColor === "Sand" || linerColor === "Grey") {
       optionsTotal += 355;
     }
+   //Chauffage
+   if (chauffage === "Pompe à chaleur") {
+  // PAC incluse en Confort & Luxe
+  if (pack === "Essentiel") optionsTotal += 3500;
+}
 
-    // Chauffage
-    if (chauffage === "Pompe à chaleur") optionsTotal += 3500;
 
     // Traitement
     if (traitement === "Électrolyseur au sel") optionsTotal += 1800;
     if (traitement === "Électrolyseur + régulation pH") optionsTotal += 3200;
-    if (traitement === "Pompe doseuse") optionsTotal += 1800;
+   if (traitement === "Pompe doseuse") {
+  if (pack !== "Luxe") optionsTotal += 1800;
+}
+
 
    // Couverture
 if (couvertureVal === "Couverture à barres") optionsTotal += 2000;
-if (couvertureVal === "Volet à lamelles manuel") optionsTotal += 2800;
 
-// Motorisé = premium, chiffré au RDV => ne pas impacter l'estimation
-if (couvertureVal === "Volet à lamelles motorisé") {
-  // optionsTotal += 0;
+if (couvertureVal === "Volet à lamelles manuel") {
+  // inclus en Confort (et Luxe a motorisé inclus)
+  if (pack === "Essentiel") optionsTotal += 2800;
 }
+
+// motorisé = inclus en Luxe, et si choisi hors Luxe : chiffré au RDV (0 ici)
+if (couvertureVal === "Volet à lamelles motorisé") {
+  // si pack !== "Luxe" => chiffré au RDV, ne pas impacter
+}
+
 
 
     // Bâches
@@ -1733,7 +1786,10 @@ if (couvertureVal === "Volet à lamelles motorisé") {
    // Loisirs
 for (var ls = 0; ls < loisirChecked.length; ls++) {
   var valL = loisirChecked[ls].value;
-  if (valL === "Spot LED couleur (RGB)") optionsTotal += 600;
+  if (valL === "Spot LED couleur (RGB)") {
+  if (pack !== "Luxe") optionsTotal += 600;
+}
+
   if (valL === "Douche solaire extérieure") optionsTotal += 800;
   if (valL === "Nage à contre-courant") optionsTotal += 6500;
 
@@ -1770,22 +1826,38 @@ for (var ls = 0; ls < loisirChecked.length; ls++) {
       evacTotal = evacM3 * evacPriceTVAC;
     }
 
-    var price = packAvecPose + optionsTotal + plageTotal + evacTotal;
-    var rounded = Math.round(price / 100) * 100;
+   var price = priceBaseAvecPose + optionsTotal + plageTotal + evacTotal;
+var rounded = Math.round(price / 10) * 10; // arrondi plus fin (10€) ou 100€ comme avant
 
-    if (!estimationUnlocked) {
-      priceEl.textContent = "—";
-    } else {
-      priceEl.textContent = rounded.toLocaleString("fr-BE", {
-        style: "currency",
-        currency: "EUR",
-        maximumFractionDigits: 0
-      });
-    }
+if (!estimationUnlocked) {
+  priceEl.textContent = "—";
+} else {
+  priceEl.textContent = rounded.toLocaleString("fr-BE", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0
+  });
+}
+
 
     document.getElementById("summary-pose").textContent =
       "Pose : " + pose.toLowerCase();
   }
+var sereniteChecked = document.querySelector('input[name="serenite"]');
+var sereniteSelected = sereniteChecked ? sereniteChecked.checked : false;
+
+var sereniteText = "Pack Sérénité : non";
+var sereniteAnnual = 0;
+
+if (pack === "Luxe") {
+  sereniteText = "Pack Sérénité : inclus (Luxe)";
+} else if (sereniteSelected) {
+  sereniteText = "Pack Sérénité : 399 €/an";
+  sereniteAnnual = 399; // pas dans le prix TVAC du chantier, mais on l'affiche
+}
+
+var sereniteSummaryEl = document.getElementById("summary-serenite");
+if (sereniteSummaryEl) sereniteSummaryEl.textContent = sereniteText;
 
 
   // === 8. Validation étape 4 ===
