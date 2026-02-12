@@ -1517,97 +1517,103 @@ html.theme-piscine .page-piscines{
   z-index:1;
 }
 @media (max-width:768px){
+  .hero-piscine{
+    position:relative;
+    height:82vh;
+    overflow:hidden;
+    border-radius:0 !important;
+    margin:0 !important;
+    box-shadow:none !important;
+  }
 
-.hero-piscine{
-  position:relative;
-  height:78vh;
-  overflow:hidden;
-  border-radius:0;
+  .hero-media img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 25%;
+    filter: contrast(1.08) brightness(.92) saturate(1.05);
+  }
+
+  .hero-overlay{
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg,
+      rgba(2,6,23,.08) 0%,
+      rgba(2,6,23,.55) 58%,
+      rgba(2,6,23,.90) 100%
+    );
+  }
+
+  .hero-content{
+    position:relative;
+    z-index:2;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:22px 18px 28px;
+  }
+
+  .hero-content h1{
+    margin:0 0 8px;
+    font-size:32px;
+    line-height:1.05;
+    font-weight:950;
+    letter-spacing:.01em;
+    text-shadow:0 18px 45px rgba(0,0,0,.45);
+  }
+
+  .hero-price{
+    margin:0 0 14px;
+    font-size:14px;
+    color:rgba(255,255,255,.78);
+  }
+  .hero-price strong{
+    display:block;
+    margin-top:2px;
+    font-size:28px;
+    font-weight:950;
+    color:var(--lc-gold);
+  }
+
+  .hero-ctas{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:6px;
+  }
+
+  .hero-ctas .btn-primary{
+    width:100%;
+    padding:18px 18px;
+    font-size:18px;
+    font-weight:950;
+    border-radius:999px;
+    background: linear-gradient(135deg, var(--lc-gold), var(--lc-gold-2));
+    color:#111827;
+    box-shadow:0 18px 55px rgba(0,0,0,.40);
+    border:1px solid rgba(212,175,55,.35);
+  }
+
+  .hero-ctas .btn-secondary{
+    width:100%;
+    padding:16px 18px;
+    border-radius:999px;
+    background:transparent;
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;
+    font-weight:850;
+  }
+
+  .hero-proof{
+    margin-top:14px;
+    font-size:13px;
+    color:rgba(255,255,255,.70);
+  }
 }
 
-.hero-media img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  filter: contrast(1.08) brightness(.92);
-}
-
-/* overlay plus subtil */
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(180deg,
-    rgba(2,6,23,.05) 0%,
-    rgba(2,6,23,.45) 60%,
-    rgba(2,6,23,.85) 100%
-  );
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:22px 18px 28px;
-}
-
-/* TITRE */
-.hero-content h1{
-  font-size:32px;
-  line-height:1.05;
-  font-weight:900;
-  margin-bottom:8px;
-  letter-spacing:.02em;
-}
-
-/* PRIX */
-.hero-price{
-  font-size:15px;
-  opacity:.9;
-  margin-bottom:12px;
-}
-.hero-price strong{
-  font-size:26px;
-  color:#d4af37;
-}
-
-/* CTA PRINCIPAL */
-.hero-ctas{
-  margin-top:10px;
-}
-
-.hero-ctas .btn-primary{
-  width:100%;
-  padding:18px;
-  font-size:18px;
-  font-weight:900;
-  border-radius:999px;
-  background: linear-gradient(135deg,#d4af37,#f6e1a4);
-  color:#111;
-  box-shadow:0 18px 50px rgba(0,0,0,.4);
-}
-
-/* CTA secondaire discret */
-.hero-ctas .btn-secondary{
-  width:100%;
-  margin-top:8px;
-  background:transparent;
-  border:1px solid rgba(255,255,255,.35);
-  color:#fff;
-}
-
-/* preuves */
-.hero-proof{
-  margin-top:14px;
-  font-size:13px;
-  opacity:.75;
-}
-}
 
 
 </style>
