@@ -2343,3 +2343,18 @@ html:not(.theme-piscine) .hero-piscine::before{
 .hero-price strong{
   color:#ffffff !important;
 }
+/* ===== Bandeau urgence : visible mobile / masqué PC ===== */
+
+/* Desktop */
+@media (min-width: 900px){
+  .hero-urgency{
+    display: none !important;
+  }
+}
+
+/* Smartphone */
+@media (max-width: 899px){
+  .hero-urgency{
+    display: flex;
+  }
+}
