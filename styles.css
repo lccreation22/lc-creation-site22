@@ -2249,3 +2249,11 @@ html.theme-piscine body{
   }
   .pano-overlay p{ font-size: 1.15rem; }
 }
+html:not(.theme-piscine) .hero-piscine{
+  background: url("fond-hero-piscine.jpg.png") center/cover no-repeat;
+}
+html:not(.theme-piscine) .hero-piscine::before{
+  content:"";
+  position:absolute; inset:0;
+  background: rgba(255,255,255,0.62);
+}
