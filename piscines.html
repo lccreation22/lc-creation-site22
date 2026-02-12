@@ -1501,6 +1501,21 @@ html.theme-piscine .page-piscines{
   .hero-ctas{flex-direction:column;}
   .btn-primary,.btn-secondary{width:100%;}
 }
+.hero{
+  position:relative;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(2,6,23,.10), rgba(2,6,23,.55));
+  border-radius: inherit;
+  pointer-events:none;
+}
+.hero > *{
+  position:relative;
+  z-index:1;
+}
 
 
 </style>
