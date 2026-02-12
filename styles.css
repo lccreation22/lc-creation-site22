@@ -2299,3 +2299,24 @@ html:not(.theme-piscine) .hero-piscine::before{
     font-size: 15px;
   }
 }
+/* INDEX (mobile) : empêcher la "capsule" qui englobe 2 boutons */
+@media (max-width: 760px){
+  /* Cible uniquement la home (index) : si tu n’as pas de classe page, vois variante B plus bas */
+  body.home .cta-actions,
+  body.home .hero-cta,
+  body.home .hero-buttons{
+    background: transparent !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  body.home .cta-actions a,
+  body.home .hero-cta a,
+  body.home .hero-buttons a{
+    display: flex !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
