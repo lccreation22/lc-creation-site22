@@ -1575,17 +1575,23 @@ document.getElementById("summary-chauffage").textContent =
     document.getElementById("summary-traitement").textContent =
       "Traitement : " + traitement;
 
-    var couvertureEl = document.querySelector('input[name="couverture"]:checked');
-    var couvertureVal = couvertureEl ? couvertureEl.value : "Aucune couverture spécifique";
-    document.getElementById("summary-couverture").textContent =
-  "Couverture : " + couvertureVal;
+    // --- Couverture (verrouillée selon pack)
+var couvertureVal = "";
+if (pack === "Essentiel") couvertureVal = "Bâche à bulles (incluse)";
+if (pack === "Confort")   couvertureVal = "Volet à lamelles manuel (inclus)";
+if (pack === "Luxe")      couvertureVal = "Volet à lamelles motorisé (inclus)";
 
-handleVoletMotoriseHint(couvertureVal);
-// Couverture incluse selon pack
-if (pack === "Essentiel") couvertureVal = "Bâche à bulles";
-if (pack === "Confort")   couvertureVal = "Volet à lamelles manuel";
-if (pack === "Luxe")      couvertureVal = "Volet à lamelles motorisé";
+var sumCouverture = document.getElementById("summary-couverture");
+if (sumCouverture) sumCouverture.textContent = "Couverture : " + couvertureVal;
 
+// (optionnel) si tu gardes quand même les radios, tu peux les “synchroniser”
+var radioToCheck = null;
+if (pack === "Confort") radioToCheck = 'input[name="couverture"][value="Volet à lamelles manuel"]';
+if (pack === "Luxe")    radioToCheck = 'input[name="couverture"][value="Volet à lamelles motorisé"]';
+if (radioToCheck) {
+  var r = document.querySelector(radioToCheck);
+  if (r) r.checked = true;
+}
 
     // Entretien (robot inclus d’office en Luxe)
     var entretienEl = document.querySelector('input[name="entretien"]:checked');
