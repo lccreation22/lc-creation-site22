@@ -1613,6 +1613,51 @@ html.theme-piscine .page-piscines{
     color:rgba(255,255,255,.70);
   }
 }
+/* FIX HERO MOBILE : l'image doit toujours avoir une hauteur */
+@media (max-width:768px){
+
+  /* on force une hauteur réelle au hero */
+  html.theme-piscine .hero-piscine{
+    position: relative;
+    height: 82vh;
+    min-height: 560px;     /* sécurité */
+    overflow: hidden;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* le conteneur média prend toute la place */
+  html.theme-piscine .hero-piscine .hero-media{
+    position: absolute;
+    inset: 0;
+  }
+
+  /* l'image remplit le hero */
+  html.theme-piscine .hero-piscine .hero-media img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+  }
+
+  html.theme-piscine .hero-piscine .hero-overlay{
+    position: absolute;
+    inset: 0;
+  }
+
+  html.theme-piscine .hero-piscine .hero-content{
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 22px 18px 28px;
+  }
+}
 
 
 
