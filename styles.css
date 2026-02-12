@@ -2320,3 +2320,57 @@ html:not(.theme-piscine) .hero-piscine::before{
     margin: 0 !important;
   }
 }
+/* Desktop : on enlève la phrase d’urgence du bandeau du haut (on garde la pill sur l’image) */
+@media (min-width: 900px){
+  .piscines-hero .phrase-urgence{ display:none !important; }
+}
+@media (min-width: 900px){
+  .hero-content{
+    bottom: 44px !important;   /* remonte tout le bloc */
+    left: 44px !important;
+    right: auto !important;
+    max-width: 720px;
+  }
+
+  .hero-urgency{
+    margin-bottom: 14px;       /* espace avant le titre */
+  }
+
+  .hero-content h1{
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 900px){
+  .hero-price strong{
+    font-size: clamp(34px, 3.4vw, 52px) !important;
+    letter-spacing: .4px;
+  }
+  .hero-price span{
+    font-size: 16px !important;
+    opacity: .85;
+  }
+}
+.hero-price{
+  display:inline-flex;
+  align-items:baseline;
+  gap:10px;
+  padding:12px 16px;
+  border-radius:16px;
+
+  background:rgba(2,6,23,.45);
+  border:1px solid rgba(212,175,55,.35);
+
+  backdrop-filter:blur(6px);
+}
+
+.hero-price span{
+  font-size:14px;
+  opacity:.75;
+}
+
+.hero-price strong{
+  font-size:clamp(34px,3.6vw,52px);
+  font-weight:800;
+  color:#D4AF37;
+  letter-spacing:.4px;
+}
