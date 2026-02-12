@@ -34,50 +34,49 @@ export default async function handler(req, res) {
     }
 
     // --- Construire le mail ---
-    const {
-      prenom, nom, emailClient, tel, message, codePostal,
-      terrain, typeProjet, pack, budgetText,
-      chauffageTxt, traitementTxt, couvertureTxt, entretienTxt, loisirsTxt,
-      delaiTxt, contactPrefTxt, estimationText,
-      evacChoice, evacM3, plageMateriau, plageSurface
-    } = body;
+const {
+  prenom, nom, emailClient, tel, message, codePostal,
+  terrain, typeProjet, pack, taille, budgetText,   // ✅ taille ajoutée ici
+  chauffageTxt, traitementTxt, couvertureTxt, entretienTxt, loisirsTxt,
+  delaiTxt, contactPrefTxt, estimationText,
+  evacChoice, evacM3, plageMateriau, plageSurface
+} = body;
 
-    const text = [
-      "Nouvelle configuration piscine via le site LC Création",
-      "",
-      "Coordonnées client :",
-      `Prénom : ${prenom || "-"}`,
-      `Nom : ${nom || "-"}`,
-      `E-mail : ${emailClient || "-"}`,
-      `Téléphone : ${tel || "non renseigné"}`,
-      "",
-      "Localisation :",
-      `Code postal / Ville : ${codePostal || "non renseigné"}`,
-      `Terrain : ${terrain || "-"}`,
-      "",
-      `Projet : ${typeProjet || "-"}`,
-      `Pack choisi : ${pack || "-"}`,
-      Taille : ${taille}
-
-      budgetText || "",
-      "",
-      chauffageTxt || "",
-      traitementTxt || "",
-      couvertureTxt || "",
-      entretienTxt || "",
-      loisirsTxt || "",
-      "",
-      delaiTxt || "",
-      contactPrefTxt || "",
-      "",
-      `Évacuation : ${evacChoice || "Non"} ${evacM3 ? `(${evacM3} m³)` : ""}`,
-      `Plage/terrasse : ${plageMateriau || "Aucune"} ${plageSurface ? `(${plageSurface} m²)` : ""}`,
-      "",
-      `Estimation indicative affichée au client : ${estimationText || "—"} TVAC`,
-      "",
-      "Message du client :",
-      message || "(aucun message complémentaire)"
-    ].join("\n");
+const text = [
+  "Nouvelle configuration piscine via le site LC Création",
+  "",
+  "Coordonnées client :",
+  `Prénom : ${prenom || "-"}`,
+  `Nom : ${nom || "-"}`,
+  `E-mail : ${emailClient || "-"}`,
+  `Téléphone : ${tel || "non renseigné"}`,
+  "",
+  "Localisation :",
+  `Code postal / Ville : ${codePostal || "non renseigné"}`,
+  `Terrain : ${terrain || "-"}`,
+  "",
+  `Projet : ${typeProjet || "-"}`,
+  `Pack choisi : ${pack || "-"}`,
+  `Taille : ${taille || "-"}`,          // ✅ ici
+  budgetText || "",
+  "",
+  chauffageTxt || "",
+  traitementTxt || "",
+  couvertureTxt || "",
+  entretienTxt || "",
+  loisirsTxt || "",
+  "",
+  delaiTxt || "",
+  contactPrefTxt || "",
+  "",
+  `Évacuation : ${evacChoice || "Non"} ${evacM3 ? `(${evacM3} m³)` : ""}`,
+  `Plage/terrasse : ${plageMateriau || "Aucune"} ${plageSurface ? `(${plageSurface} m²)` : ""}`,
+  "",
+  `Estimation indicative affichée au client : ${estimationText || "—"} TVAC`,
+  "",
+  "Message du client :",
+  message || "(aucun message complémentaire)"
+].join("\n");
 
     const subject = `Demande estimation piscine bois – ${prenom || ""} ${nom || ""}`.trim();
 
