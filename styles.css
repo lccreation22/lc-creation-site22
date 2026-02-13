@@ -2615,3 +2615,38 @@ html:not(.theme-piscine) .hero-piscine::before{
   color:#101418 !important;
   text-decoration-color: rgba(216,180,107,.8);
 }
+/* ===== FIX lisibilité détails (forcé) ===== */
+
+/* base lisible */
+.serenite-card .serenite-list li{
+  color:#101418 !important;
+}
+
+/* le titre du point (en gras) */
+.serenite-card .serenite-list li strong{
+  color:#101418 !important;
+}
+
+/* TOUT ce qui vient après le strong = détail (parenthèses) */
+.serenite-card .serenite-list li strong + *{
+  color: rgba(16,20,24,.72) !important;
+}
+.serenite-card .serenite-list li strong ~ *{
+  color: rgba(16,20,24,.72) !important;
+}
+
+/* cas où le détail est dans un span */
+.serenite-card .serenite-list li span{
+  color: rgba(16,20,24,.72) !important;
+}
+
+/* cas où le détail est dans em/small */
+.serenite-card .serenite-list li em,
+.serenite-card .serenite-list li small{
+  color: rgba(16,20,24,.72) !important;
+}
+
+/* bullet gold */
+.serenite-card .serenite-list li::marker{
+  color:#d8b46b !important;
+}
