@@ -2742,3 +2742,36 @@ html:not(.theme-piscine) .hero-piscine::before{
   margin:0 auto;
   line-height:1.4;
 }
+.finish-section{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 18px 10px;
+}
+.finish-preview{
+  max-width: 720px;
+  margin: 0 auto 14px;
+}
+
+.finish-preview img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+.finish-card{
+  padding:22px;
+  border-radius:18px;
+  background: rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);
+}
+.finish-head{
+  text-align:center;
+  margin-bottom:16px;
+}
+
+.finish-head h2{
+  margin-bottom:6px;
+}
+
+.finish-head p{
+  opacity:.85;
+}
