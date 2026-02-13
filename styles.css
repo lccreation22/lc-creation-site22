@@ -2358,3 +2358,19 @@ html:not(.theme-piscine) .hero-piscine::before{
     display: flex;
   }
 }
+@media (max-width: 768px){
+  .hero{
+    background-position: 50% 72%; /* ajuste 65% -> 80% selon le rendu */
+  }
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: inherit;           /* reprend le background-image */
+  background-size: cover;
+  background-position: inherit;
+  z-index:0;
+}
+
+.hero > *{ position:relative; z-index:2; }
