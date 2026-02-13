@@ -2405,20 +2405,24 @@ Un accompagnement avant, pendant et après la pose, pour une piscine simple à v
 
 </main>
 <script>
-  document.addEventListener('click', (e) => {
-    const pill = e.target.closest('.pill');
-    if (!pill) return;
+document.addEventListener('click', (e) => {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
 
-    const card = pill.closest('.formule-card--auto');
-    const img = card.querySelector('.formule-img');
-    const src = pill.getAttribute('data-img');
+  // ✅ Ne gérer ici QUE les pills qui sont dans les cartes packs
+  const card = pill.closest('.formule-card--auto');
+  if (!card) return; // <-- IMPORTANT : évite de casser les pills de #finitions
 
-    card.querySelectorAll('.pill').forEach(p => p.classList.remove('is-active'));
-    pill.classList.add('is-active');
+  const img = card.querySelector('.formule-img');
+  const src = pill.getAttribute('data-img');
 
-    if (src) img.src = src;
-  });
+  card.querySelectorAll('.pill').forEach(p => p.classList.remove('is-active'));
+  pill.classList.add('is-active');
+
+  if (src && img) img.src = src;
+});
 </script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
