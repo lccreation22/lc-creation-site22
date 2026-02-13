@@ -2577,3 +2577,41 @@ html:not(.theme-piscine) .hero-piscine::before{
 .serenite-card strong{
   color: #0f141b !important;
 }
+/* ===== Pack Sérénité : lisibilité sur fond clair ===== */
+
+/* texte normal */
+.serenite-card{
+  color:#101418 !important;
+}
+
+/* sous-texte / parenthèses / descriptions */
+.serenite-card .serenite-sub,
+.serenite-card li span,
+.serenite-card li small,
+.serenite-card em,
+.serenite-card .muted,
+.serenite-card p{
+  color: rgba(16,20,24,.78) !important;
+}
+
+/* si tu as des parenthèses dans un <span> après un <strong> */
+.serenite-card li strong + span{
+  color: rgba(16,20,24,.70) !important;
+}
+
+/* IMPORTANT: le mot “Important” en accent (pas noir lourd) */
+.serenite-card b,
+.serenite-card strong{
+  color:#101418 !important;
+}
+
+/* bullets en gold */
+.serenite-card .serenite-list li::marker{
+  color:#d8b46b !important;
+}
+
+/* liens/underline (optionnel) */
+.serenite-card a{
+  color:#101418 !important;
+  text-decoration-color: rgba(216,180,107,.8);
+}
