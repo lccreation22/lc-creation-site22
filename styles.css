@@ -2488,3 +2488,26 @@ html:not(.theme-piscine) .hero-piscine::before{
 .hero-urgency{
   justify-content:flex-start;
 }
+.hero-urgency{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  padding:10px 0;
+  background: transparent;
+  border: none;
+
+  color: rgba(255,255,255,.90);
+}
+
+.hero-urgency::before{
+  content:"";
+  width:34px;
+  height:2px;
+  background: rgba(255, 215, 140, 0.9);
+  border-radius:2px;
+}
+
+.hero-urgency .dot{ display:none; } /* inutile ici */
+.hero-urgency strong{ font-weight:700; }
+.hero-urgency u{ text-underline-offset:3px; text-decoration-thickness:1px; }
