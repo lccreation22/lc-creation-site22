@@ -2398,7 +2398,65 @@ html:not(.theme-piscine) .hero-piscine::before{
   border:1px solid rgba(255,215,120,.35);
 }
 @media(max-width:768px){
-  .hero{
-    filter: brightness(1.08) contrast(1.05);
+  .hero::before{
+    filter: brightness(1.08) contrast(1.05) saturate(1.05);
+    transform: scale(1.03);
   }
+}
+.hero{
+  background-image:url("/heropiscine22.png");
+  background-size:cover;
+  background-position:50% 60%;
+}
+/* ===== HERO mobile tuning (à mettre tout en bas) ===== */
+
+/* mobile: recadrage */
+@media (max-width:768px){
+  .hero{
+    background-position: 50% 72%;
+  }
+}
+
+/* pseudo-bg (si tu l'utilises) */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: inherit;
+  background-size: cover;
+  background-position: inherit;
+  z-index:0;
+  transform: scale(1.01);
+}
+
+.hero > *{ position:relative; z-index:2; }
+
+/* mobile: amélioration image (SUR ::before) */
+@media (max-width:768px){
+  .hero::before{
+    filter: brightness(1.08) contrast(1.05) saturate(1.05);
+    transform: scale(1.03);
+  }
+}
+
+/* remonter contenu */
+.hero-content{ padding-top:20px; }
+@media(max-width:768px){
+  .hero-content{ padding-top:14px; }
+}
+
+/* bandeau urgence premium */
+.hero-urgency{
+  position:relative !important;
+  top:auto !important;
+  margin-top:14px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(20,20,20,.55);
+  border:1px solid rgba(255,215,120,.35);
+}
+
+/* bandeau visible mobile / masqué desktop */
+@media (min-width: 900px){
+  .hero-urgency{ display:none !important; }
 }
