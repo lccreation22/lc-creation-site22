@@ -2511,3 +2511,38 @@ html:not(.theme-piscine) .hero-piscine::before{
 .hero-urgency .dot{ display:none; } /* inutile ici */
 .hero-urgency strong{ font-weight:700; }
 .hero-urgency u{ text-underline-offset:3px; text-decoration-thickness:1px; }
+.serenite-section{
+  background: linear-gradient(180deg,#0c0f14 0%, #0b0e13 100%);
+  padding:70px 20px;
+}
+
+.serenite-card{
+  background: linear-gradient(180deg,#f5f6f7 0%, #eceef1 100%);
+  color:#111;
+
+  border-radius:26px;
+  padding:38px 26px;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.45);
+}
+.serenite-card h2{
+  color:#0d1117;
+}
+
+.serenite-card p{
+  color:#3a3f45;
+}
+
+.serenite-list li{
+  color:#20242a;
+}
+.serenite-card::before{
+  content:"";
+  display:block;
+  width:60px;
+  height:3px;
+  background: linear-gradient(90deg,#d8b46b,#f0d28c);
+  border-radius:2px;
+  margin-bottom:18px;
+}
