@@ -2546,3 +2546,34 @@ html:not(.theme-piscine) .hero-piscine::before{
   border-radius:2px;
   margin-bottom:18px;
 }
+/* ===== Pack Sérénité : carte CLAIRE (force) ===== */
+.serenite-card{
+  background: linear-gradient(180deg, #f7f7f8 0%, #eceff3 100%) !important;
+  color: #0f141b !important;
+  border: 1px solid rgba(0,0,0,.10) !important;
+  box-shadow: 0 25px 70px rgba(0,0,0,.35) !important;
+}
+
+/* textes dans la carte */
+.serenite-card h2,
+.serenite-card .serenite-sub,
+.serenite-card li,
+.serenite-card p{
+  color: inherit !important;
+}
+
+/* sous-texte plus doux */
+.serenite-card .serenite-sub{
+  color: rgba(15,20,27,.78) !important;
+}
+
+/* bullets en “gold” premium (au lieu de noir) */
+.serenite-card .serenite-list li::marker{
+  color: rgba(216,180,107,1) !important;
+}
+
+/* “Important” : pas en jaune agressif */
+.serenite-card .important,
+.serenite-card strong{
+  color: #0f141b !important;
+}
