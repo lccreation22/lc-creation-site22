@@ -2420,38 +2420,43 @@ Un accompagnement avant, pendant et après la pose, pour une piscine simple à v
   });
 </script>
 <script>
-(function(){
-  const pills = Array.from(document.querySelectorAll('#finitions .pill'));
+document.addEventListener("DOMContentLoaded", function(){
+
+  const pills = document.querySelectorAll('#finitions .pill');
   const img = document.getElementById('finishPreviewImg');
   const badge = document.getElementById('finishBadge');
   const note = document.getElementById('finishNote');
 
-  if(!pills.length || !img || !badge) return;
+  if(!pills.length || !img) return;
 
   const notes = {
     bois:  "<strong>Bois naturel :</strong> chaleureux, intemporel, parfaitement intégré au jardin.",
     blanc: "<strong>Signature LC Création :</strong> Blanc minéral — rendu architectural & lumineux.",
-    gris:  "<strong>Gris clair :</strong> look contemporain, très “design” et facile à harmoniser.",
+    gris:  "<strong>Gris clair :</strong> look contemporain, très design et facile à harmoniser.",
     anthra:"<strong>Anthracite :</strong> contraste premium, moderne, effet haut de gamme."
   };
 
   pills.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function(){
+
       pills.forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
 
-      const label = btn.textContent.trim() || btn.getAttribute('aria-label') || 'Finition';
-      const src = btn.dataset.img;
-
-      if(src) img.src = src;
-      img.alt = label;
-      badge.textContent = label;
-
+      const src = btn.getAttribute('data-img');
+      const label = btn.textContent.trim();
       const key = btn.dataset.finish;
+
+      if(src){
+        img.src = src;
+        img.alt = label;
+      }
+
+      if(badge) badge.textContent = label;
       if(note && notes[key]) note.innerHTML = notes[key];
     });
   });
-})();
+
+});
 </script>
 
 
