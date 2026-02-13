@@ -2460,3 +2460,31 @@ html:not(.theme-piscine) .hero-piscine::before{
 @media (min-width: 900px){
   .hero-urgency{ display:none !important; }
 }
+/* Force l'ordre des éléments dans le hero (mobile + desktop) */
+.hero-content{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+/* Ordre “pro” */
+.hero-content h1{ order: 1; }
+.hero-price{ order: 2; }
+.hero-cta{ order: 3; }
+.hero-urgency{ order: 4; }
+.hero-proof{ order: 5; }
+
+/* Bandeau : jamais collé en haut */
+.hero-urgency{
+  position: static !important;   /* casse tout absolute/top */
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  margin: 14px 0 0 !important;   /* espace sous les boutons */
+  width: 100%;
+}
+
+/* Option : le centrer visuellement si tu veux */
+.hero-urgency{
+  justify-content:flex-start;
+}
