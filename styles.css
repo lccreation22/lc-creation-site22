@@ -2775,3 +2775,26 @@ html:not(.theme-piscine) .hero-piscine::before{
 .finish-head p{
   opacity:.85;
 }
+/* force le CTA au-dessus de tout */
+.hero-content{
+  position:absolute;
+  z-index: 50;
+}
+
+.hero-content .hero-cta,
+.hero-content .hero-cta a{
+  position: relative;
+  z-index: 60;
+  pointer-events: auto;
+}
+
+/* si tu as un overlay sur la hero, il ne doit pas capter les clics */
+.hero::before,
+.hero::after,
+.hero-overlay,
+.hero-bg,
+.hero-media,
+.hero-image,
+.hero-banner{
+  pointer-events: none;
+}
