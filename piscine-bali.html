@@ -89,6 +89,79 @@ label {
   margin-top:20px;
   cursor:pointer;
 }
+  .bali-details {
+  padding: 80px 20px;
+  background: #050505;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bali-details h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.gold-line {
+  width: 46px;
+  height: 2px;
+  background: #c8a96a;
+  margin: 0 0 34px 0;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.detail-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(200,169,106,0.18);
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+}
+
+.detail-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #c8a96a;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.detail-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.detail-card li {
+  color: rgba(255,255,255,0.88);
+  line-height: 1.75;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bali-details h2 {
+    font-size: 28px;
+  }
+
+  .detail-card {
+    padding: 24px 20px;
+  }
+}
 </style>
 
 </head>
@@ -117,17 +190,45 @@ Base 6 x 3 m – PAC et volet inclus
 </div>
 
 <!-- DIFFERENCE -->
-<div class="section">
-  <h2>Ce qui est inclus</h2>
-  <ul>
-    <li>Liner effet pierre de Bali</li>
-    <li>Escalier intégré</li>
-    <li>Pompe à chaleur incluse</li>
-    <li>Volet à lamelles inclus</li>
-    <li>Aménagement complet intégré</li>
-  </ul>
-</div>
+<section class="section bali-details">
+  <div class="section-inner">
+    <h2>Une conception complète</h2>
+    <div class="gold-line"></div>
 
+    <div class="details-grid">
+      <div class="detail-card">
+        <h3>Piscine & équipement</h3>
+        <ul>
+          <li>Piscine bois semi-enterrée (structure renforcée)</li>
+          <li>Liner effet pierre de Bali (rendu eau naturel haut de gamme)</li>
+          <li>Escalier intégré (confort et esthétique)</li>
+          <li>Pompe à chaleur incluse</li>
+          <li>Volet à lamelles inclus</li>
+        </ul>
+      </div>
+
+      <div class="detail-card">
+        <h3>Aménagement extérieur inspiré Bali</h3>
+        <ul>
+          <li>Plantation structurée (bambous, feuillages larges, graminées)</li>
+          <li>Composition paysagère dense (effet jungle maîtrisée)</li>
+          <li>Mise en scène minérale autour de la piscine</li>
+          <li>Ambiance pensée comme un véritable espace de vie</li>
+        </ul>
+      </div>
+
+      <div class="detail-card">
+        <h3>Ambiance jour & nuit</h3>
+        <ul>
+          <li>Pré-équipement éclairage extérieur</li>
+          <li>Mise en lumière des végétaux par spots chauds</li>
+          <li>Éclairage intégré autour de la piscine</li>
+          <li>Atmosphère élégante et chaleureuse en soirée</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- RARETE -->
 <div class="section">
   <h2>Disponibilités limitées</h2>
