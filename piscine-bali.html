@@ -162,6 +162,57 @@ label {
     padding: 24px 20px;
   }
 }
+  .bali-rarete {
+  padding: 100px 20px;
+  background: radial-gradient(circle at center, #111 0%, #050505 100%);
+  text-align: center;
+}
+
+.rarete-inner {
+  max-width: 800px;
+  margin: auto;
+}
+
+.bali-rarete h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.gold-line.center {
+  margin: 15px auto 30px;
+}
+
+.rarete-main {
+  font-size: 26px;
+  font-weight: 500;
+  color: #c8a96a;
+  margin-bottom: 20px;
+}
+
+.rarete-sub {
+  font-size: 16px;
+  opacity: 0.75;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.rarete-btn {
+  display: inline-block;
+  padding: 18px 40px;
+  background: #c8a96a;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 40px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.rarete-btn:hover {
+  opacity: 0.85;
+}
 </style>
 
 </head>
@@ -229,15 +280,27 @@ Base 6 x 3 m – PAC et volet inclus
     </div>
   </div>
 </section>
-<!-- RARETE -->
-<div class="section">
-  <h2>Disponibilités limitées</h2>
-  <p>
-    6 projets uniquement pour juillet et août 2026.<br>
-    Une fois les créneaux remplis → liste d’attente.
-  </p>
-  <a href="#formulaire" class="btn">Réserver ma place</a>
-</div>
+<section class="bali-rarete">
+  <div class="rarete-inner">
+
+    <h2>Accès limité</h2>
+    <div class="gold-line center"></div>
+
+    <p class="rarete-main">
+      6 réalisations uniquement pour l’été 2026
+    </p>
+
+    <p class="rarete-sub">
+      Installations prévues exclusivement en juillet et août.<br>
+      Une fois les créneaux remplis → liste d’attente.
+    </p>
+
+    <a href="#formulaire" class="rarete-btn">
+      Réserver ma place
+    </a>
+
+  </div>
+</section>
 
 <!-- FORMULAIRE -->
 <div class="section" id="formulaire">
