@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piscine Bali – LC Création</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0f0f0f;
+  color:#fff;
+}
+
+.section {
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.hero {
+  background:url('TON_IMAGE_ICI.jpg') center/cover no-repeat;
+  height:80vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background-blend-mode:darken;
+  background-color:rgba(0,0,0,0.5);
+}
+
+h1 {
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+h2 {
+  font-size:28px;
+}
+
+p {
+  opacity:0.9;
+}
+
+.btn {
+  margin-top:20px;
+  padding:15px 30px;
+  background:#c8a96a;
+  color:#000;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:5px;
+}
+
+.form {
+  background:#1a1a1a;
+  padding:30px;
+  border-radius:10px;
+}
+
+input, select {
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:5px;
+}
+
+label {
+  display:block;
+  margin-top:15px;
+  font-size:14px;
+}
+
+.submit {
+  background:#c8a96a;
+  border:none;
+  padding:15px;
+  width:100%;
+  font-size:16px;
+  font-weight:bold;
+  margin-top:20px;
+  cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Un coin de Bali.<br>Chez vous.</h1>
+  <p>Piscine bois semi-enterrée – Signature LC Création</p>
+  <p>À partir de 29 990€ TVAC (PAC + volet inclus)</p>
+  <a href="#formulaire" class="btn">Réserver ma place</a>
+  <p style="margin-top:10px;">6 réalisations – juillet & août 2026</p>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section">
+  <h2>L’expérience Bali</h2>
+  <p>
+    Imaginez rentrer chez vous et retrouver une ambiance digne des villas balinaises.
+    Bois naturel, eau aux reflets pierre de Bali, éclairage chaud et végétation dense.
+  </p>
+</div>
+
+<!-- DIFFERENCE -->
+<div class="section">
+  <h2>Ce qui est inclus</h2>
+  <ul>
+    <li>Liner effet pierre de Bali</li>
+    <li>Escalier intégré</li>
+    <li>Pompe à chaleur incluse</li>
+    <li>Volet à lamelles inclus</li>
+    <li>Aménagement complet intégré</li>
+  </ul>
+</div>
+
+<!-- RARETE -->
+<div class="section">
+  <h2>Disponibilités limitées</h2>
+  <p>
+    6 projets uniquement pour juillet et août 2026.<br>
+    Une fois les créneaux remplis → liste d’attente.
+  </p>
+  <a href="#formulaire" class="btn">Réserver ma place</a>
+</div>
+
+<!-- FORMULAIRE -->
+<div class="section" id="formulaire">
+  <h2>Réserver ma place</h2>
+
+  <div class="form">
+
+    <form action="https://formspree.io/f/TON_ID" method="POST">
+
+      <input type="text" name="nom" placeholder="Nom" required>
+      <input type="text" name="prenom" placeholder="Prénom" required>
+      <input type="tel" name="telephone" placeholder="Téléphone" required>
+      <input type="email" name="email" placeholder="Email" required>
+
+      <input type="text" name="adresse" placeholder="Rue + numéro" required>
+      <input type="text" name="cp" placeholder="Code postal" required>
+      <input type="text" name="ville" placeholder="Ville" required>
+
+      <label>Localisation du projet</label>
+      <select name="distance" required>
+        <option value="">Choisir</option>
+        <option>Moins de 30 min</option>
+        <option>30 à 60 min</option>
+        <option>Plus de 1h</option>
+      </select>
+
+      <label>Budget</label>
+      <select name="budget" required>
+        <option value="">Choisir</option>
+        <option>Je confirme un budget cohérent (+30k)</option>
+        <option>Je m’adapte à cette base</option>
+      </select>
+
+      <label>Disponibilité</label>
+      <select name="dispo" required>
+        <option value="">Choisir</option>
+        <option>Disponible juillet / août 2026</option>
+      </select>
+
+      <label>Terrain</label>
+      <select name="terrain">
+        <option>Plat</option>
+        <option>Pente</option>
+        <option>Accès difficile</option>
+      </select>
+
+      <label>Engagement</label>
+      <select name="engagement" required>
+        <option value="">Choisir</option>
+        <option>Prêt à avancer rapidement</option>
+        <option>Projet concret</option>
+      </select>
+
+      <button type="submit" class="submit">Réserver ma place</button>
+
+    </form>
+
+  </div>
+</div>
+
+</body>
+</html>
