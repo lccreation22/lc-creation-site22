@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 <title>Piscine Bali – LC Création</title>
 
 <style>
@@ -38,13 +38,16 @@ h1 {
   font-weight: 500;
   letter-spacing: 1px;
 }
+
 h2 {
   font-size:28px;
 }
+
 .hero p {
   font-size: 16px;
   opacity: 0.8;
 }
+
 p {
   opacity:0.9;
 }
@@ -65,12 +68,18 @@ p {
   border-radius:10px;
 }
 
-input, select {
+input, select, textarea {
   width:100%;
   padding:12px;
   margin:10px 0;
   border:none;
   border-radius:5px;
+  box-sizing:border-box;
+}
+
+textarea {
+  min-height:120px;
+  resize:vertical;
 }
 
 label {
@@ -89,7 +98,13 @@ label {
   margin-top:20px;
   cursor:pointer;
 }
-  .bali-details {
+
+.submit:disabled {
+  opacity:0.7;
+  cursor:not-allowed;
+}
+
+.bali-details {
   padding: 80px 20px;
   background: #050505;
 }
@@ -149,20 +164,7 @@ label {
   font-size: 15px;
 }
 
-@media (max-width: 900px) {
-  .details-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .bali-details h2 {
-    font-size: 28px;
-  }
-
-  .detail-card {
-    padding: 24px 20px;
-  }
-}
-  .bali-rarete {
+.bali-rarete {
   padding: 100px 20px;
   background: radial-gradient(circle at center, #111 0%, #050505 100%);
   text-align: center;
@@ -213,25 +215,36 @@ label {
 .rarete-btn:hover {
   opacity: 0.85;
 }
-</style>
 
+@media (max-width: 900px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bali-details h2 {
+    font-size: 28px;
+  }
+
+  .detail-card {
+    padding: 24px 20px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <h1>Un coin de Bali.<br>Chez vous.</h1>
   <p>Piscine bois semi-enterrée – Signature LC Création</p>
- <p>À partir de 29 990€ TVAC</p>
-<p style="font-size:14px; opacity:0.8;">
-Base 6 x 3 m – PAC et volet inclus
-</p>
+  <p>À partir de 29 990€ TVAC</p>
+  <p style="font-size:14px; opacity:0.8;">
+    Base 6 x 3 m – PAC et volet inclus
+  </p>
   <a href="#formulaire" class="btn">Réserver ma place</a>
   <p style="margin-top:10px;">6 réalisations – juillet & août 2026</p>
 </div>
 
-<!-- EXPERIENCE -->
 <div class="section">
   <h2>L’expérience Bali</h2>
   <p>
@@ -240,7 +253,6 @@ Base 6 x 3 m – PAC et volet inclus
   </p>
 </div>
 
-<!-- DIFFERENCE -->
 <section class="section bali-details">
   <div class="section-inner">
     <h2>Une conception complète</h2>
@@ -280,9 +292,9 @@ Base 6 x 3 m – PAC et volet inclus
     </div>
   </div>
 </section>
+
 <section class="bali-rarete">
   <div class="rarete-inner">
-
     <h2>Accès limité</h2>
     <div class="gold-line center"></div>
 
@@ -298,67 +310,67 @@ Base 6 x 3 m – PAC et volet inclus
     <a href="#formulaire" class="rarete-btn">
       Réserver ma place
     </a>
-
   </div>
 </section>
 
-<!-- FORMULAIRE -->
 <div class="section" id="formulaire">
   <h2>Réserver ma place</h2>
 
   <div class="form">
-<form id="bali-form">
+    <form id="bali-form">
 
-      <input type="text" name="nom" placeholder="Nom" required>
-      <input type="text" name="prenom" placeholder="Prénom" required>
-      <input type="tel" name="telephone" placeholder="Téléphone" required>
-      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" id="bali-nom" placeholder="Nom" required>
+      <input type="text" id="bali-prenom" placeholder="Prénom" required>
+      <input type="tel" id="bali-telephone" placeholder="Téléphone" required>
+      <input type="email" id="bali-email" placeholder="Email" required>
 
-      <input type="text" name="adresse" placeholder="Rue + numéro" required>
-      <input type="text" name="cp" placeholder="Code postal" required>
-      <input type="text" name="ville" placeholder="Ville" required>
+      <input type="text" id="bali-adresse" placeholder="Rue + numéro" required>
+      <input type="text" id="bali-code-postal" placeholder="Code postal" required>
+      <input type="text" id="bali-ville" placeholder="Ville" required>
 
       <label>Localisation du projet</label>
-      <select name="distance" required>
+      <select id="bali-distance" required>
         <option value="">Choisir</option>
-        <option>Moins de 30 min</option>
-        <option>30 à 60 min</option>
-        <option>Plus de 1h</option>
+        <option value="Moins de 30 min">Moins de 30 min</option>
+        <option value="30 à 60 min">30 à 60 min</option>
+        <option value="Plus de 1h">Plus de 1h</option>
       </select>
 
       <label>Budget</label>
-      <select name="budget" required>
+      <select id="bali-budget" required>
         <option value="">Choisir</option>
-        <option>Je confirme un budget cohérent (+30k)</option>
-        <option>Je m’adapte à cette base</option>
+        <option value="Je confirme un budget cohérent (+30k)">Je confirme un budget cohérent (+30k)</option>
+        <option value="Je m’adapte à cette base">Je m’adapte à cette base</option>
       </select>
 
       <label>Disponibilité</label>
-      <select name="dispo" required>
+      <select id="bali-disponibilite" required>
         <option value="">Choisir</option>
-        <option>Disponible juillet / août 2026</option>
+        <option value="Disponible juillet / août 2026">Disponible juillet / août 2026</option>
       </select>
 
       <label>Terrain</label>
-      <select name="terrain">
-        <option>Plat</option>
-        <option>Pente</option>
-        <option>Accès difficile</option>
+      <select id="bali-terrain" required>
+        <option value="">Choisir</option>
+        <option value="Plat">Plat</option>
+        <option value="Pente">Pente</option>
+        <option value="Accès difficile">Accès difficile</option>
       </select>
 
       <label>Engagement</label>
-      <select name="engagement" required>
+      <select id="bali-engagement" required>
         <option value="">Choisir</option>
-        <option>Prêt à avancer rapidement</option>
-        <option>Projet concret</option>
+        <option value="Prêt à avancer rapidement">Prêt à avancer rapidement</option>
+        <option value="Projet concret">Projet concret</option>
       </select>
 
-      <button type="submit" class="submit">Réserver ma place</button>
+      <textarea id="bali-message" placeholder="Précisions utiles sur votre projet"></textarea>
 
+      <button type="submit" class="submit" id="bali-submit">Réserver ma place</button>
     </form>
-
   </div>
 </div>
+
 <script>
 (function () {
   var form = document.getElementById("bali-form");
@@ -419,5 +431,6 @@ Base 6 x 3 m – PAC et volet inclus
   });
 })();
 </script>
+
 </body>
 </html>
