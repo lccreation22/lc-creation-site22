@@ -307,8 +307,7 @@ Base 6 x 3 m – PAC et volet inclus
   <h2>Réserver ma place</h2>
 
   <div class="form">
-
-    <form action="https://formspree.io/f/TON_ID" method="POST">
+<form id="bali-form">
 
       <input type="text" name="nom" placeholder="Nom" required>
       <input type="text" name="prenom" placeholder="Prénom" required>
@@ -360,6 +359,65 @@ Base 6 x 3 m – PAC et volet inclus
 
   </div>
 </div>
+<script>
+(function () {
+  var form = document.getElementById("bali-form");
+  var submitBtn = document.getElementById("bali-submit");
 
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var payload = {
+      source: "page-bali",
+      projet: "Piscine Bali",
+      prenom: document.getElementById("bali-prenom").value.trim(),
+      nom: document.getElementById("bali-nom").value.trim(),
+      emailClient: document.getElementById("bali-email").value.trim(),
+      tel: document.getElementById("bali-telephone").value.trim(),
+      adresse: document.getElementById("bali-adresse").value.trim(),
+      codePostal: document.getElementById("bali-code-postal").value.trim(),
+      ville: document.getElementById("bali-ville").value.trim(),
+      distance: document.getElementById("bali-distance").value,
+      budgetText: document.getElementById("bali-budget").value,
+      delaiTxt: document.getElementById("bali-disponibilite").value,
+      terrain: document.getElementById("bali-terrain").value,
+      engagement: document.getElementById("bali-engagement").value,
+      message: document.getElementById("bali-message").value.trim(),
+      estimationText: "Piscine Bali à partir de 29 990€ TVAC",
+      pack: "Bali",
+      taille: "Base 6 x 3 m"
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Envoi en cours…";
+
+    fetch("/api/send-piscine-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (!data.ok) {
+          throw new Error(data.error || "Erreur inconnue");
+        }
+
+        if (window.fbq) {
+          fbq("track", "Lead");
+        }
+
+        window.location.href = "/merci-bali.html";
+      })
+      .catch(function (err) {
+        console.error(err);
+        alert("Oups, problème d’envoi. Merci de réessayer ou de nous appeler.");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Réserver ma place";
+      });
+  });
+})();
+</script>
 </body>
 </html>
