@@ -1,0 +1,478 @@
+from pathlib import Path
+import shutil, zipfile, textwrap, os
+
+base = Path("/mnt/data/offre-piscine-25900-page")
+assets = base / "assets"
+assets.mkdir(parents=True, exist_ok=True)
+
+# Copy generated ad visual if available
+src_img = Path("/mnt/data/a_high_quality_advertisement_graphic_poster_for.png")
+asset_name = "offre-piscine-25900-meta.png"
+if src_img.exists():
+    shutil.copy(src_img, assets / asset_name)
+
+html = r'''<!doctype html>
+<html lang="fr-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Piscine bois 6 x 3 m à 25 900 € TTC | LC Création</title>
+  <meta name="description" content="Offre juillet LC Création : piscine bois 6 x 3 m clé en main à 25 900 € TTC. Pompe à chaleur, volet PVC, filtration, pose et mise en service incluses.">
+  <meta property="og:title" content="Piscine bois 6 x 3 m clé en main — 25 900 € TTC">
+  <meta property="og:description" content="Offre juillet LC Création. PAC, volet PVC, filtration, pose et mise en service incluses. Réservation 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/offre-piscine-25900-meta.png">
+  <meta name="theme-color" content="#07111d">
+
+  <style>
+    :root{
+      --bg:#07111d;
+      --bg2:#0d1b2a;
+      --text:#f8f5ed;
+      --muted:#d8d1c2;
+      --gold:#d9a441;
+      --gold2:#f1c96a;
+      --line:rgba(217,164,65,.35);
+      --card:rgba(255,255,255,.055);
+      --max:1160px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(217,164,65,.15), transparent 32%),
+        linear-gradient(135deg, #050b12, var(--bg) 45%, #0c1725);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:auto;padding:0 22px}
+    header{
+      border-bottom:1px solid var(--line);
+      background:rgba(5,11,18,.84);
+      backdrop-filter:blur(12px);
+      position:sticky;top:0;z-index:20;
+    }
+    .nav{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .brand strong{
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:clamp(28px,4vw,42px);
+      color:var(--gold2);
+      font-weight:500;
+      line-height:1;
+    }
+    .brand span{font-size:13px;color:var(--muted);letter-spacing:.16em}
+    .nav-cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border-radius:999px;
+      padding:13px 19px;
+      font-weight:800;
+      border:1px solid var(--gold);
+      transition:.2s ease;
+      text-align:center;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg,var(--gold2),var(--gold));
+      color:#08101a;
+      box-shadow:0 15px 40px rgba(217,164,65,.18);
+    }
+    .btn.secondary{color:var(--gold2);background:rgba(255,255,255,.03)}
+    .btn:hover{transform:translateY(-1px)}
+    .hero{
+      padding:64px 0 48px;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.03fr .97fr;
+      align-items:center;
+      gap:42px;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:#07111d;
+      background:linear-gradient(135deg,var(--gold2),var(--gold));
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:20px;
+    }
+    h1{
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight:500;
+      font-size:clamp(46px,8vw,86px);
+      line-height:.96;
+      margin:0 0 18px;
+    }
+    h1 em{
+      display:block;
+      font-style:normal;
+      color:var(--gold2);
+      font-family:Inter, system-ui, sans-serif;
+      font-weight:900;
+      letter-spacing:.05em;
+      font-size:.52em;
+      margin-top:10px;
+      text-transform:uppercase;
+    }
+    .price{
+      display:flex;
+      align-items:flex-end;
+      gap:12px;
+      margin:26px 0 18px;
+      color:var(--gold2);
+    }
+    .price strong{
+      font-size:clamp(60px,12vw,112px);
+      line-height:.8;
+      letter-spacing:-.05em;
+    }
+    .price span{
+      font-size:22px;
+      font-weight:900;
+      color:var(--text);
+      padding-bottom:9px;
+    }
+    .subtitle{
+      font-size:clamp(19px,2.5vw,26px);
+      color:var(--text);
+      font-weight:800;
+      max-width:620px;
+      margin:0 0 26px;
+    }
+    .subtitle span{color:var(--gold2)}
+    .included{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin:28px 0;
+      max-width:620px;
+    }
+    .inc{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:13px 14px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      font-weight:750;
+    }
+    .check{
+      flex:0 0 auto;
+      width:24px;height:24px;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color:#07111d;
+      background:var(--gold2);
+      font-weight:950;
+    }
+    .hero-note{
+      font-size:14px;
+      color:var(--muted);
+      margin-top:15px;
+    }
+    .visual{
+      position:relative;
+    }
+    .visual::before{
+      content:"";
+      position:absolute;
+      inset:-22px;
+      background:radial-gradient(circle at 50% 50%, rgba(217,164,65,.18), transparent 65%);
+      z-index:-1;
+    }
+    .visual-card{
+      border:1px solid var(--line);
+      border-radius:28px;
+      overflow:hidden;
+      background:#07111d;
+      box-shadow:0 30px 90px rgba(0,0,0,.48);
+    }
+    .visual-card img{
+      width:100%;
+      display:block;
+      aspect-ratio:4/5;
+      object-fit:cover;
+    }
+    .badge{
+      position:absolute;
+      right:18px;top:18px;
+      width:152px;height:152px;
+      border-radius:50%;
+      border:2px solid var(--gold2);
+      background:rgba(7,17,29,.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:18px;
+      font-weight:900;
+      box-shadow:0 14px 40px rgba(0,0,0,.35);
+    }
+    .badge span{
+      display:block;
+      color:var(--gold2);
+      font-size:24px;
+      line-height:1.05;
+    }
+    section{padding:58px 0;border-top:1px solid rgba(217,164,65,.16)}
+    .section-title{
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:clamp(32px,5vw,54px);
+      line-height:1.05;
+      margin:0 0 14px;
+      font-weight:500;
+    }
+    .lead{font-size:20px;color:var(--muted);max-width:780px;margin:0 0 26px}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px;
+    }
+    .card h3{margin:0 0 8px;font-size:20px;color:var(--gold2)}
+    .card p{margin:0;color:var(--muted)}
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      counter-reset:step;
+    }
+    .step{
+      position:relative;
+      padding:26px;
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--line);
+      border-radius:22px;
+    }
+    .step::before{
+      counter-increment:step;
+      content:counter(step);
+      display:inline-flex;
+      width:38px;height:38px;
+      align-items:center;justify-content:center;
+      border-radius:50%;
+      background:var(--gold2);
+      color:#07111d;
+      font-weight:950;
+      margin-bottom:16px;
+    }
+    .step h3{margin:0 0 8px;color:var(--text)}
+    .step p{margin:0;color:var(--muted)}
+    .cta{
+      text-align:center;
+      padding:70px 0;
+      background:
+        linear-gradient(135deg, rgba(217,164,65,.12), transparent),
+        rgba(255,255,255,.03);
+    }
+    .cta-box{
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:42px 24px;
+      max-width:920px;
+      margin:auto;
+      background:rgba(7,17,29,.58);
+    }
+    .cta h2{
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:500;
+      font-size:clamp(34px,6vw,62px);
+      margin:0 0 12px;
+      line-height:1.04;
+    }
+    .cta p{color:var(--muted);font-size:20px;margin:0 auto 26px;max-width:700px}
+    .cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    footer{
+      padding:28px 0;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      font-size:14px;
+      text-align:center;
+    }
+    .small{
+      font-size:13px;color:var(--muted);max-width:940px;margin:24px auto 0;text-align:center;
+    }
+
+    @media (max-width:880px){
+      .nav{align-items:flex-start;padding:16px 0;flex-direction:column}
+      .nav-cta{width:100%}
+      .nav-cta .btn{flex:1}
+      .hero{padding-top:38px}
+      .hero-grid{grid-template-columns:1fr;gap:28px}
+      .visual{order:-1}
+      .visual-card img{aspect-ratio:1/1}
+      .badge{width:120px;height:120px;font-size:13px}
+      .badge span{font-size:20px}
+      .included{grid-template-columns:1fr}
+      .cards,.steps{grid-template-columns:1fr}
+      .price strong{font-size:76px}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/">
+        <strong>LC Création</strong>
+        <span>Piscines • Aménagement extérieur</span>
+      </a>
+      <div class="nav-cta">
+        <a class="btn secondary" href="tel:+32474693800">0474 / 69 38 00</a>
+        <a class="btn primary" href="#contact">Réserver une visite projet</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Offre juillet • Réservation 2026</div>
+          <h1>Piscine bois 6 × 3 m <em>clé en main</em></h1>
+
+          <div class="price">
+            <strong>25 900 €</strong>
+            <span>TTC</span>
+          </div>
+
+          <p class="subtitle">Une offre claire avec les <span>indispensables inclus dès le départ</span>.</p>
+
+          <div class="included" aria-label="Équipements inclus">
+            <div class="inc"><span class="check">✓</span> Pompe à chaleur incluse</div>
+            <div class="inc"><span class="check">✓</span> Volet PVC inclus</div>
+            <div class="inc"><span class="check">✓</span> Filtration incluse</div>
+            <div class="inc"><span class="check">✓</span> Pose incluse</div>
+            <div class="inc"><span class="check">✓</span> Mise en service incluse</div>
+            <div class="inc"><span class="check">✓</span> Conseil & suivi projet</div>
+          </div>
+
+          <div class="cta-actions">
+            <a class="btn primary" href="#contact">Vérifier mon projet</a>
+            <a class="btn secondary" href="tel:+32474693800">Appeler maintenant</a>
+          </div>
+
+          <p class="hero-note">Offre valable sous réserve d’accès, de faisabilité technique et de validation du projet. Évacuation des terres, options spécifiques et adaptations hors configuration de base non incluses.</p>
+        </div>
+
+        <div class="visual">
+          <div class="visual-card">
+            <img src="assets/offre-piscine-25900-meta.png" alt="Offre piscine bois 6 x 3 m clé en main LC Création à 25 900 euros TTC">
+          </div>
+          <div class="badge">Créneaux<br><span>limités</span><br>2026</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">Pourquoi cette offre fonctionne</h2>
+        <p class="lead">Le prix d’une piscine grimpe souvent quand on ajoute les éléments que les clients veulent réellement utiliser au quotidien. Ici, l’offre est pensée pour partir directement sur une base complète et cohérente.</p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Prix clair</h3>
+            <p>Une base simple à comprendre : piscine bois 6 × 3 m, pose et équipements essentiels inclus.</p>
+          </div>
+          <div class="card">
+            <h3>Confort immédiat</h3>
+            <p>Pompe à chaleur, volet PVC et filtration inclus pour profiter plus facilement de la piscine.</p>
+          </div>
+          <div class="card">
+            <h3>Projet maîtrisé</h3>
+            <p>On valide l’accès, le terrain, l’implantation et les éventuelles adaptations avant de bloquer une réservation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">Comment réserver votre projet</h2>
+        <p class="lead">Le but est de vérifier rapidement si votre terrain est compatible avec l’offre avant d’aller plus loin.</p>
+
+        <div class="steps">
+          <div class="step">
+            <h3>Premier échange</h3>
+            <p>Vous nous envoyez votre commune, quelques photos de l’accès et les grandes lignes du projet.</p>
+          </div>
+          <div class="step">
+            <h3>Validation technique</h3>
+            <p>Nous vérifions l’accès, le terrain, l’implantation et les contraintes éventuelles.</p>
+          </div>
+          <div class="step">
+            <h3>Réservation</h3>
+            <p>Si le projet est compatible, nous préparons la suite et organisons la réservation dans le planning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="wrap">
+        <div class="cta-box">
+          <h2>Votre projet piscine est prévu pour 2026 ?</h2>
+          <p>Juillet est le bon moment pour verrouiller une offre claire et réserver votre place dans le planning.</p>
+          <div class="cta-actions">
+            <a class="btn primary" href="tel:+32474693800">Appeler le 0474 / 69 38 00</a>
+            <a class="btn secondary" href="mailto:lecocqcedric@outlook.be?subject=Offre%20piscine%2025%20900%20%E2%82%AC%20TTC&body=Bonjour%2C%0A%0AJe%20souhaite%20avoir%20des%20informations%20sur%20l%27offre%20piscine%20bois%206%20x%203%20m%20%C3%A0%2025%20900%20%E2%82%AC%20TTC.%0A%0ACommune%20%3A%0ATerrain%20plat%20ou%20en%20pente%20%3A%0AAcc%C3%A8s%20au%20jardin%20%3A%0AD%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci.">Envoyer une demande</a>
+          </div>
+          <p class="small">Piscine bois 6 × 3 m. Offre à 25 900 € TTC sous réserve d’accès et de faisabilité technique. Hors évacuation des terres, accès complexe, adaptations particulières, options supplémentaires ou modifications demandées après validation.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    LC Création SRL — Piscines bois & aménagements extérieurs — Brabant Wallon & environs — 0474 / 69 38 00
+  </footer>
+</body>
+</html>
+'''
+
+html_path = base / "piscine-bois-25900.html"
+html_path.write_text(html, encoding="utf-8")
+
+zip_path = Path("/mnt/data/page-offre-piscine-25900-lc-creation.zip")
+with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
+    for p in base.rglob("*"):
+        z.write(p, p.relative_to(base.parent))
+
+html_path, zip_path, zip_path.exists(), html_path.exists()
