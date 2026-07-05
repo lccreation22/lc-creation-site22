@@ -1,15 +1,4 @@
-from pathlib import Path
-import shutil, zipfile, textwrap, os
 
-base = Path("/mnt/data/offre-piscine-25900-page")
-assets = base / "assets"
-assets.mkdir(parents=True, exist_ok=True)
-
-# Copy generated ad visual if available
-src_img = Path("/mnt/data/a_high_quality_advertisement_graphic_poster_for.png")
-asset_name = "offre-piscine-25900-meta.png"
-if src_img.exists():
-    shutil.copy(src_img, assets / asset_name)
 
 html = r'''<!doctype html>
 <html lang="fr-BE">
@@ -467,12 +456,5 @@ html = r'''<!doctype html>
 </html>
 '''
 
-html_path = base / "piscine-bois-25900.html"
-html_path.write_text(html, encoding="utf-8")
-
-zip_path = Path("/mnt/data/page-offre-piscine-25900-lc-creation.zip")
-with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
-    for p in base.rglob("*"):
-        z.write(p, p.relative_to(base.parent))
 
 html_path, zip_path, zip_path.exists(), html_path.exists()
