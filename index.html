@@ -1,5 +1,4 @@
- 
-<!doctype html>
+ <!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -8,328 +7,39 @@
   <title>LC Création | Piscines & aménagements extérieurs en Brabant Wallon</title>
   <meta name="description" content="LC Création conçoit et réalise piscines bois, terrasses, terrassements et aménagements extérieurs en Brabant Wallon et Bruxelles. Un seul interlocuteur pour transformer votre extérieur.">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png.png">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./favicon-lc-creation-512.png">
+
+  <!-- CSS global du site -->
   <link rel="stylesheet" href="./styles.css?v=50">
+  <!-- CSS propre à la nouvelle page d'accueil -->
+  <link rel="stylesheet" href="./home.css?v=1">
 
-  <style>
-    :root{
-      --lc-black:#0a0a0a;
-      --lc-charcoal:#161616;
-      --lc-white:#ffffff;
-      --lc-off:#f4f4f1;
-      --lc-text:#171717;
-      --lc-muted:#666a6d;
-      --lc-green:#68b82f;
-      --lc-water:#31a5b6;
-      --lc-wood:#9a6847;
-      --lc-line:rgba(17,17,17,.13);
-      --lc-max:1240px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:var(--lc-white);
-      color:var(--lc-text);
-      -webkit-font-smoothing:antialiased;
-    }
-    img{display:block;max-width:100%}
-    a{color:inherit}
-
-    .lc-container{
-      width:min(var(--lc-max),calc(100% - 48px));
-      margin-inline:auto;
-    }
-
-    /* HEADER */
-    .lc-header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:rgba(255,255,255,.96);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
-    .lc-header-inner{
-      min-height:92px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:32px;
-    }
-    .lc-brand img{width:290px;max-height:68px;object-fit:contain;object-position:left center}
-    .lc-nav{display:flex;align-items:center;gap:28px}
-    .lc-nav a{
-      text-decoration:none;
-      font-size:.92rem;
-      font-weight:550;
-      letter-spacing:.01em;
-      color:#272727;
-    }
-    .lc-nav a:hover{color:var(--lc-green)}
-    .lc-nav .nav-cta{
-      padding:13px 20px;
-      background:var(--lc-black);
-      color:#fff;
-    }
-    .lc-nav .nav-cta:hover{background:#232323;color:#fff}
-
-    /* HERO */
-    .hero{
-      position:relative;
-      min-height:calc(100vh - 92px);
-      background:var(--lc-black);
-      color:#fff;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      overflow:hidden;
-    }
-    .hero-copy{
-      padding:clamp(64px,8vw,120px) max(42px,calc((100vw - var(--lc-max))/2 + 24px));
-      padding-right:clamp(42px,7vw,110px);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      min-width:0;
-    }
-    .eyebrow{
-      margin:0 0 20px;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      font-size:.76rem;
-      font-weight:700;
-      color:#b9b9b9;
-    }
-    .hero h1{
-      margin:0;
-      max-width:760px;
-      font-size:clamp(3.2rem,6.2vw,7rem);
-      line-height:.94;
-      letter-spacing:-.055em;
-      font-weight:650;
-    }
-    .hero h1 span{color:var(--lc-green)}
-    .hero-sub{
-      margin:30px 0 0;
-      max-width:650px;
-      font-size:clamp(1.05rem,1.45vw,1.3rem);
-      line-height:1.6;
-      color:#d1d1d1;
-    }
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:38px}
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:52px;
-      padding:0 24px;
-      text-decoration:none;
-      border:1px solid transparent;
-      font-weight:650;
-      font-size:.95rem;
-      transition:.2s ease;
-    }
-    .btn-light{background:#fff;color:#111}
-    .btn-light:hover{background:#e9e9e9}
-    .btn-outline{border-color:rgba(255,255,255,.38);color:#fff;background:transparent}
-    .btn-outline:hover{background:#fff;color:#111}
-    .btn-dark{background:var(--lc-black);color:#fff}
-    .btn-dark:hover{background:#292929}
-    .btn-green{background:var(--lc-green);color:#0c1708}
-    .btn-green:hover{filter:brightness(.95)}
-
-    .hero-visual{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      min-width:0;
-    }
-    .hero-panel{position:relative;min-height:680px;overflow:hidden}
-    .hero-panel img{width:100%;height:100%;object-fit:cover}
-    .hero-panel::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.20));
-    }
-    .panel-label{
-      position:absolute;z-index:2;left:24px;bottom:24px;
-      color:#fff;text-transform:uppercase;font-size:.72rem;font-weight:750;
-      letter-spacing:.14em;padding:10px 12px;background:rgba(0,0,0,.55);
-      backdrop-filter:blur(8px);
-    }
-
-    /* SECTIONS */
-    .section{padding:clamp(80px,9vw,140px) 0}
-    .section.dark{background:var(--lc-black);color:#fff}
-    .section.off{background:var(--lc-off)}
-    .kicker{font-size:.76rem;text-transform:uppercase;letter-spacing:.17em;font-weight:750;color:var(--lc-green);margin-bottom:17px}
-    .display-title{
-      margin:0;
-      font-size:clamp(2.4rem,4.3vw,5rem);
-      letter-spacing:-.045em;
-      line-height:1.02;
-      font-weight:620;
-    }
-    .lead{max-width:760px;margin:24px 0 0;font-size:1.08rem;line-height:1.75;color:var(--lc-muted)}
-    .dark .lead{color:#bdbdbd}
-
-    /* BRAND POSITIONING */
-    .positioning-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end}
-    .positioning-list{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--lc-line)}
-    .positioning-item{padding:26px 0;border-bottom:1px solid var(--lc-line);font-size:1.08rem}
-    .positioning-item:nth-child(odd){padding-right:24px}
-    .positioning-item:nth-child(even){padding-left:24px;border-left:1px solid var(--lc-line)}
-
-    /* FEATURE */
-    .feature{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(360px,.8fr);min-height:690px;background:#111;color:#fff}
-    .feature-media img{width:100%;height:100%;object-fit:cover}
-    .feature-copy{padding:clamp(58px,7vw,110px);display:flex;flex-direction:column;justify-content:center}
-    .feature-price{margin-top:34px;font-size:clamp(2.6rem,4vw,4.6rem);font-weight:650;letter-spacing:-.05em}
-    .feature-price small{display:block;font-size:.8rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#aaa;margin-bottom:8px}
-    .feature-specs{margin:22px 0 34px;padding:0;list-style:none;color:#d0d0d0;line-height:1.9}
-
-    /* FINANCEMENT / PUB */
-    .finance-wrap{
-      display:grid;
-      grid-template-columns:.84fr 1.16fr;
-      align-items:stretch;
-      background:#0c0c0c;
-      color:#fff;
-      overflow:hidden;
-    }
-    .finance-copy{padding:clamp(56px,6vw,96px);display:flex;flex-direction:column;justify-content:center}
-    .finance-number{font-size:clamp(4rem,8vw,8.8rem);line-height:.86;font-weight:700;letter-spacing:-.065em;margin:14px 0 26px}
-    .finance-number span{font-size:.23em;letter-spacing:0;color:#c8c8c8;font-weight:600;display:block;margin-top:18px}
-    .finance-visual{min-height:600px;background:#ececec}
-    .finance-visual img{width:100%;height:100%;object-fit:cover}
-    .finance-note{font-size:.72rem;line-height:1.5;color:#858585;margin-top:18px;max-width:560px}
-
-    /* AMENAGEMENT */
-    .amenagement-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
-    .amenagement-photo{height:680px;overflow:hidden}
-    .amenagement-photo img{width:100%;height:100%;object-fit:cover}
-    .service-lines{margin-top:38px;border-top:1px solid var(--lc-line)}
-    .service-line{display:flex;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--lc-line);font-size:1.02rem}
-    .service-line span:last-child{color:#999}
-
-    /* BEFORE AFTER */
-    .before-after{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:46px;background:#111}
-    .ba-item{position:relative;aspect-ratio:4/3;overflow:hidden}
-    .ba-item img{width:100%;height:100%;object-fit:cover}
-    .ba-badge{position:absolute;left:18px;bottom:18px;padding:10px 13px;background:#fff;color:#111;text-transform:uppercase;letter-spacing:.13em;font-size:.7rem;font-weight:800}
-
-    /* WHY */
-    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #333;margin-top:54px}
-    .why-item{padding:34px 34px 20px 0;border-bottom:1px solid #333}
-    .why-item + .why-item{padding-left:34px;border-left:1px solid #333}
-    .why-number{color:var(--lc-green);font-size:.8rem;font-weight:800;letter-spacing:.12em;margin-bottom:30px}
-    .why-item h3{font-size:1.42rem;margin:0 0 12px}
-    .why-item p{margin:0;color:#aaa;line-height:1.7}
-
-    /* REALISATIONS */
-    .gallery{display:grid;grid-template-columns:1.35fr .65fr;grid-template-rows:390px 390px;gap:14px;margin-top:50px}
-    .gallery figure{margin:0;position:relative;overflow:hidden;background:#ddd}
-    .gallery figure:first-child{grid-row:1 / 3}
-    .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
-    .gallery figure:hover img{transform:scale(1.018)}
-    .gallery figcaption{position:absolute;left:18px;bottom:16px;color:#fff;background:rgba(0,0,0,.56);padding:9px 11px;font-size:.78rem;letter-spacing:.04em}
-
-    /* AVIS */
-    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d8d8d4;margin-top:50px}
-    .review{background:var(--lc-off);padding:38px}
-    .stars{letter-spacing:.12em;color:var(--lc-green);margin-bottom:22px}
-    .review blockquote{margin:0;font-size:1.06rem;line-height:1.75}
-    .review footer{margin-top:22px;font-size:.84rem;color:#6d6d6d;background:transparent}
-
-    /* CTA */
-    .cta-final{position:relative;background:#111;color:#fff;overflow:hidden}
-    .cta-final-inner{min-height:520px;display:flex;align-items:center;position:relative;z-index:2}
-    .cta-final h2{font-size:clamp(3rem,6vw,6.8rem);line-height:.92;letter-spacing:-.06em;margin:0;max-width:900px}
-    .cta-final p{font-size:1.1rem;color:#bdbdbd;max-width:600px;line-height:1.7;margin:26px 0 34px}
-    .cta-accent{position:absolute;right:-10%;top:-35%;width:55vw;height:55vw;border:1px solid rgba(104,184,47,.35);border-radius:50%}
-    .cta-accent::after{content:"";position:absolute;inset:12%;border:1px solid rgba(49,165,182,.22);border-radius:50%}
-
-    /* FOOTER */
-    .lc-footer{background:#050505;color:#9f9f9f;border-top:1px solid #222}
-    .footer-inner{padding:28px 0;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;font-size:.84rem}
-    .footer-inner a{color:#fff;text-decoration:none}
-
-    @media (max-width:1100px){
-      .hero{grid-template-columns:1fr}
-      .hero-copy{min-height:620px;padding-inline:max(32px,calc((100vw - 920px)/2))}
-      .hero-visual{height:520px}
-      .hero-panel{min-height:auto}
-      .positioning-grid,.amenagement-grid{grid-template-columns:1fr;gap:46px}
-      .feature,.finance-wrap{grid-template-columns:1fr}
-      .feature-media{height:560px}
-      .finance-visual{min-height:520px}
-    }
-
-    @media (max-width:820px){
-      .lc-container{width:min(100% - 28px,var(--lc-max))}
-      .lc-header-inner{min-height:auto;padding:14px 0;align-items:flex-start}
-      .lc-brand img{width:220px}
-      .lc-nav{gap:12px;flex-wrap:wrap;justify-content:flex-end}
-      .lc-nav a{font-size:.82rem}
-      .lc-nav .nav-cta{padding:10px 12px}
-      .hero-copy{min-height:560px;padding:62px 24px}
-      .hero-visual{height:450px}
-      .positioning-list{grid-template-columns:1fr}
-      .positioning-item:nth-child(odd),.positioning-item:nth-child(even){padding:20px 0;border-left:0}
-      .why-grid,.reviews{grid-template-columns:1fr}
-      .why-item + .why-item{padding-left:0;border-left:0}
-      .gallery{grid-template-columns:1fr;grid-template-rows:none}
-      .gallery figure:first-child{grid-row:auto}
-      .gallery figure{height:360px}
-      .before-after{grid-template-columns:1fr}
-      .amenagement-photo{height:520px}
-    }
-
-    @media (max-width:560px){
-      .lc-header{position:relative}
-      .lc-header-inner{display:block}
-      .lc-brand img{margin:0 auto 12px;width:260px}
-      .lc-nav{justify-content:center;gap:12px 16px}
-      .lc-nav .nav-cta{width:100%;margin-top:2px}
-      .hero{min-height:auto}
-      .hero-copy{min-height:520px}
-      .hero h1{font-size:3.35rem}
-      .hero-visual{grid-template-columns:1fr;height:auto}
-      .hero-panel{height:360px}
-      .hero-panel:last-child{display:none}
-      .section{padding:72px 0}
-      .feature-media{height:410px}
-      .feature-copy,.finance-copy{padding:48px 24px}
-      .finance-visual{min-height:380px}
-      .finance-number{font-size:4.4rem}
-      .amenagement-photo{height:400px}
-      .gallery figure{height:300px}
-      .cta-final-inner{min-height:480px}
-    }
-  </style>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YLJL7PN7V3"></script>
+  <!-- Analytics : chargé uniquement lorsque le site est en ligne, jamais en local -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YLJL7PN7V3');
+    if (location.protocol === 'http:' || location.protocol === 'https:') {
+      const gtagScript = document.createElement('script');
+      gtagScript.async = true;
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-YLJL7PN7V3';
+      document.head.appendChild(gtagScript);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-YLJL7PN7V3');
+    }
   </script>
 </head>
-<body>
+
+<body class="home-v2">
 
 <header class="lc-header">
   <div class="lc-container lc-header-inner">
     <a class="lc-brand" href="./index.html" aria-label="LC Création - Accueil">
-  <div class="brand">
-  <img
-    src="./LC_Creation_Logo_Noir_WEB_1200.png"
-    alt="LC Création — Piscines & aménagements extérieurs"
-  >
-</div>
+      <img src="./LC_Creation_Logo_Noir_WEB_1200.png" alt="LC Création SRL - Piscines et aménagements extérieurs">
     </a>
+
     <nav class="lc-nav" aria-label="Navigation principale">
       <a href="./piscines.html">Piscines</a>
       <a href="#amenagements">Aménagements</a>
@@ -341,25 +51,26 @@
 </header>
 
 <main>
-  <!-- HERO -->
+
+  <!-- HERO : une seule vraie photo, pleine largeur -->
   <section class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">LC Création · Brabant Wallon</p>
-      <h1>Piscines <span>&</span><br>aménagements extérieurs.</h1>
-      <p class="hero-sub">Des extérieurs pensés comme de véritables espaces de vie. Piscine, terrasse, terrassement et finitions : un seul interlocuteur pour donner une cohérence à l’ensemble.</p>
-      <div class="hero-actions">
-        <a class="btn btn-light" href="./piscines.html">Découvrir nos piscines</a>
-        <a class="btn btn-outline" href="#amenagements">Découvrir nos aménagements</a>
-      </div>
+    <div class="hero-bg" aria-hidden="true">
+      <img src="./hero-piscine-jour.jpg" alt="">
     </div>
-    <div class="hero-visual" aria-label="Piscines et aménagements extérieurs LC Création">
-      <div class="hero-panel">
-        <img src="image pub2.jpg" alt="Piscine bois LC Création intégrée dans un jardin">
-        <div class="panel-label">Piscines</div>
-      </div>
-      <div class="hero-panel">
-        <img src="terrasse dalle.jpg" alt="Terrasse et aménagement extérieur LC Création">
-        <div class="panel-label">Aménagements extérieurs</div>
+
+    <div class="lc-container hero-content">
+      <div class="hero-copy">
+        <p class="eyebrow">LC Création · Brabant Wallon</p>
+        <h1>Piscines <span>&</span><br>aménagements extérieurs.</h1>
+        <p class="hero-sub">
+          Des extérieurs pensés pour être vécus. Piscine, terrasse, terrassement et finitions :
+          un seul interlocuteur pour donner une cohérence à l’ensemble.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-light" href="./piscines.html">Découvrir nos piscines</a>
+          <a class="btn btn-outline" href="#amenagements">Découvrir nos aménagements</a>
+        </div>
       </div>
     </div>
   </section>
@@ -370,8 +81,13 @@
       <div>
         <div class="kicker">Notre approche</div>
         <h2 class="display-title">Un projet.<br>Un seul interlocuteur.</h2>
-        <p class="lead">LC Création réunit aujourd’hui deux expertises complémentaires : la piscine et l’aménagement extérieur. L’objectif n’est pas d’ajouter un bassin dans un jardin, mais de créer un extérieur cohérent, durable et agréable à vivre.</p>
+        <p class="lead">
+          LC Création réunit aujourd’hui deux expertises complémentaires : la piscine et l’aménagement extérieur.
+          L’objectif n’est pas simplement d’ajouter un bassin dans un jardin, mais de créer un extérieur cohérent,
+          durable et agréable à vivre.
+        </p>
       </div>
+
       <div class="positioning-list">
         <div class="positioning-item">Piscines bois</div>
         <div class="positioning-item">Terrasses</div>
@@ -386,13 +102,22 @@
   <!-- PISCINE VEDETTE -->
   <section class="feature">
     <div class="feature-media">
-      <img src="image pub2.jpg" alt="Piscine bois 6 x 3 m LC Création">
+      <img src="./hero-piscine-jour.jpg" alt="Piscine bois 6 x 3 m LC Création">
     </div>
+
     <div class="feature-copy">
       <div class="kicker">Piscines</div>
       <h2 class="display-title">La piscine autrement.</h2>
-      <p class="lead">Une piscine bois clé en main, pensée pour s’intégrer naturellement à votre extérieur et installée par une équipe qui maîtrise aussi le terrassement et les finitions.</p>
-      <div class="feature-price"><small>Piscine 6 × 3 m</small>25 900 € TVAC</div>
+      <p class="lead">
+        Une piscine bois clé en main, pensée pour s’intégrer naturellement à votre extérieur et installée
+        par une équipe qui maîtrise aussi le terrassement et les finitions.
+      </p>
+
+      <div class="feature-price">
+        <small>Piscine 6 × 3 m</small>
+        25 900 € TVAC
+      </div>
+
       <ul class="feature-specs">
         <li>Terrassement</li>
         <li>Filtration complète</li>
@@ -400,54 +125,99 @@
         <li>Volet</li>
         <li>Pose & mise en service</li>
       </ul>
-      <div><a class="btn btn-green" href="./piscines.html">Découvrir la piscine 6 × 3</a></div>
+
+      <div>
+        <a class="btn btn-green" href="./piscines.html">Découvrir la piscine 6 × 3</a>
+      </div>
     </div>
   </section>
 
-  <!-- 490 -->
+  <!-- FINANCEMENT -->
   <section class="section dark" style="padding:0">
     <div class="finance-wrap">
       <div class="finance-copy">
         <div class="kicker">Budget maîtrisé</div>
         <h2 class="display-title">Une piscine plus accessible qu’on ne l’imagine.</h2>
         <div class="finance-number">490 €<span>par mois*</span></div>
-        <p class="lead">Une autre manière de regarder son projet : raisonner en mensualité plutôt qu’en prix total.</p>
-        <div style="margin-top:32px"><a class="btn btn-light" href="./contact.html">Étudier mon projet</a></div>
-        <p class="finance-note">*Simulation indicative. Exemple basé sur un financement de 25 000 € sur 60 mois. Mensualité, TAEG, coût total et acceptation dépendent de l’organisme prêteur et du profil de l’emprunteur. À valider avant publication selon l’offre de financement réellement proposée.</p>
+
+        <p class="lead">
+          Une autre manière de regarder son projet : raisonner en mensualité plutôt qu’en prix total.
+        </p>
+
+        <div style="margin-top:32px">
+          <a class="btn btn-light" href="./contact.html">Étudier mon projet</a>
+        </div>
+
+        <p class="finance-note">
+          *Simulation indicative. Exemple basé sur un financement de 25 000 € sur 60 mois.
+          Mensualité, TAEG, coût total et acceptation dépendent de l’organisme prêteur et du profil de l’emprunteur.
+          À valider avant publication selon l’offre de financement réellement proposée.
+        </p>
       </div>
+
       <div class="finance-visual">
         <img src="./piscine-490.png" alt="Piscine bois LC Création à partir de 490 euros par mois">
       </div>
     </div>
   </section>
 
-  <!-- AMENAGEMENT -->
+  <!-- AMBIANCE SOIRÉE -->
+  <section class="evening">
+    <div class="evening-bg" aria-hidden="true">
+      <img src="./piscine-soiree.jpg" alt="">
+    </div>
+
+    <div class="lc-container evening-content">
+      <div class="evening-copy">
+        <div class="kicker">Du matin au soir</div>
+        <h2 class="display-title">Un extérieur à vivre.<br>Pas seulement à regarder.</h2>
+        <p class="lead">
+          La piscine devient une vraie pièce de vie extérieure : baignade, détente et soirées d’été,
+          dans un ensemble pensé pour rester agréable bien après le coucher du soleil.
+        </p>
+        <div style="margin-top:32px">
+          <a class="btn btn-light" href="./piscines.html">Découvrir nos piscines</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMÉNAGEMENTS -->
   <section class="section off" id="amenagements">
     <div class="lc-container amenagement-grid">
       <div class="amenagement-photo">
         <img src="fondecran22.jpg" alt="Aménagement extérieur LC Création">
       </div>
+
       <div>
         <div class="kicker">Aménagements extérieurs</div>
         <h2 class="display-title">L’extérieur ne s’arrête pas à la piscine.</h2>
-        <p class="lead">Terrasses, accès, nivellement, plantations et finitions : nous créons les espaces qui donnent du sens à l’ensemble du jardin.</p>
+        <p class="lead">
+          Terrasses, accès, nivellement, plantations et finitions :
+          nous créons les espaces qui donnent du sens à l’ensemble du jardin.
+        </p>
+
         <div class="service-lines">
           <div class="service-line"><span>Terrasses</span><span>01</span></div>
           <div class="service-line"><span>Pavage & accès</span><span>02</span></div>
           <div class="service-line"><span>Terrassement</span><span>03</span></div>
           <div class="service-line"><span>Aménagement paysager</span><span>04</span></div>
         </div>
-        <div style="margin-top:34px"><a class="btn btn-dark" href="./contact.html">Parler de mon extérieur</a></div>
+
+        <div style="margin-top:34px">
+          <a class="btn btn-dark" href="./contact.html">Parler de mon extérieur</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- AVANT APRES -->
+  <!-- AVANT / APRÈS -->
   <section class="section">
     <div class="lc-container">
       <div class="kicker">Transformation</div>
       <h2 class="display-title">Avant. Après.<br>LC Création.</h2>
       <p class="lead">La meilleure démonstration reste le chantier lui-même.</p>
+
       <div class="before-after">
         <div class="ba-item">
           <img src="rea1.jpg" alt="Avant transformation d'un extérieur par LC Création">
@@ -461,46 +231,61 @@
     </div>
   </section>
 
-  <!-- DIFFERENCE -->
+  <!-- DIFFÉRENCE -->
   <section class="section dark">
     <div class="lc-container">
       <div class="kicker">Pourquoi LC Création</div>
       <h2 class="display-title">Nous ne posons pas simplement une piscine.</h2>
+
       <div class="why-grid">
         <div class="why-item">
           <div class="why-number">01</div>
           <h3>Une vision globale</h3>
-          <p>Piscine et extérieur sont pensés comme un seul projet, avec une attention portée aux niveaux, aux circulations et aux finitions.</p>
+          <p>
+            Piscine et extérieur sont pensés comme un seul projet,
+            avec une attention portée aux niveaux, aux circulations et aux finitions.
+          </p>
         </div>
+
         <div class="why-item">
           <div class="why-number">02</div>
           <h3>Un seul interlocuteur</h3>
-          <p>Moins d’intervenants, moins de coordination à gérer et une responsabilité claire du début à la fin du chantier.</p>
+          <p>
+            Moins d’intervenants, moins de coordination à gérer et une responsabilité claire
+            du début à la fin du chantier.
+          </p>
         </div>
+
         <div class="why-item">
           <div class="why-number">03</div>
           <h3>Un chantier maîtrisé</h3>
-          <p>Terrassement, installation, raccordements, finitions et mise en service sont coordonnés dans une même logique.</p>
+          <p>
+            Terrassement, installation, raccordements, finitions et mise en service
+            sont coordonnés dans une même logique.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- REALISATIONS -->
+  <!-- RÉALISATIONS -->
   <section class="section" id="realisations">
     <div class="lc-container">
       <div class="kicker">Réalisations</div>
       <h2 class="display-title">Le résultat parle pour nous.</h2>
       <p class="lead">Quelques projets réalisés en Brabant Wallon et à Bruxelles.</p>
+
       <div class="gallery">
         <figure>
           <img src="reali23.jpg" alt="Aménagement complet de jardin LC Création à Waterloo">
           <figcaption>Aménagement complet · Waterloo</figcaption>
         </figure>
+
         <figure>
           <img src="rea1.jpg" alt="Rénovation complète de cour LC Création à Nivelles">
           <figcaption>Cour rénovée · Nivelles</figcaption>
         </figure>
+
         <figure>
           <img src="reali22.jpg" alt="Allée et clôture LC Création à Braine-l'Alleud">
           <figcaption>Allée & clôture · Braine-l’Alleud</figcaption>
@@ -514,17 +299,20 @@
     <div class="lc-container">
       <div class="kicker">Avis clients</div>
       <h2 class="display-title">La confiance se construit chantier après chantier.</h2>
+
       <div class="reviews">
         <article class="review">
           <div class="stars">★★★★★</div>
           <blockquote>“Terrasse refaite à neuf, travail soigné et délais tenus. Je recommande.”</blockquote>
           <footer>Marc · Nivelles</footer>
         </article>
+
         <article class="review">
           <div class="stars">★★★★★</div>
           <blockquote>“Aménagement complet du jardin, résultat impeccable. Équipe professionnelle.”</blockquote>
           <footer>Sophie · Waterloo</footer>
         </article>
+
         <article class="review">
           <div class="stars">★★★★★</div>
           <blockquote>“Devis clair et chantier propre. Très satisfait du pavage de l’allée.”</blockquote>
@@ -537,11 +325,16 @@
   <!-- CTA FINAL -->
   <section class="section cta-final">
     <div class="cta-accent" aria-hidden="true"></div>
+
     <div class="lc-container cta-final-inner">
       <div>
         <div class="kicker">Votre projet</div>
         <h2>Et si votre extérieur était le prochain ?</h2>
-        <p>Parlez-nous de votre projet de piscine ou d’aménagement extérieur. Nous vous orientons vers la solution la plus cohérente avec votre terrain, vos envies et votre budget.</p>
+        <p>
+          Parlez-nous de votre projet de piscine ou d’aménagement extérieur.
+          Nous vous orientons vers la solution la plus cohérente avec votre terrain, vos envies et votre budget.
+        </p>
+
         <div class="hero-actions">
           <a class="btn btn-light" href="./contact.html">Démarrer mon projet</a>
           <a class="btn btn-outline" href="tel:0474693800">0474 / 69.38.00</a>
@@ -549,11 +342,15 @@
       </div>
     </div>
   </section>
+
 </main>
 
 <footer class="lc-footer">
   <div class="lc-container footer-inner">
-    <div>© LC Création SRL · 0474 / 69.38.00 · <a href="mailto:lecocqcedric@outlook.be">lecocqcedric@outlook.be</a></div>
+    <div>
+      © LC Création SRL · 0474 / 69.38.00 ·
+      <a href="mailto:lecocqcedric@outlook.be">lecocqcedric@outlook.be</a>
+    </div>
     <div>Brabant Wallon & Bruxelles · Piscines & aménagements extérieurs</div>
   </div>
 </footer>
