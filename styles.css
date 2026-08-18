@@ -2937,3 +2937,50 @@ header nav a {
 header nav a:hover {
   color: rgba(255,255,255,.65) !important;
 }
+header .brand img {
+  display: block !important;
+  width: auto !important;
+  height: 145px !important;
+  max-height: 145px !important;
+  max-width: 560px !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+}
+
+.topbar {
+  min-height: 165px !important;
+  padding: 8px 24px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .brand {
+  width: auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
+@media (max-width: 900px) {
+  header .brand img {
+    height: 115px !important;
+    max-height: 115px !important;
+    max-width: 450px !important;
+  }
+
+  .topbar {
+    min-height: 135px !important;
+  }
+}
+@media (max-width: 640px) {
+  header .brand img {
+    width: min(94vw, 430px) !important;
+    height: auto !important;
+    max-width: 430px !important;
+    max-height: none !important;
+  }
+
+  .topbar {
+    min-height: auto !important;
+    padding: 10px 12px !important;
+  }
+}
