@@ -1,3 +1,208 @@
+from pathlib import Path
+import tinycss2, re
+
+src = Path("/mnt/data/Texte collé(3).txt")
+dst = Path("/mnt/data/styles.css")
+
+css = src.read_text(encoding="utf-8")
+
+# We preserve all existing page-specific styles, but remove every old rule
+# that can override the site header/logo/navigation.
+TARGET_WORDS = ("header", ".topbar", ".brand", "nav", ".call-mobile")
+
+def selector_targets_header(prelude_text: str) -> bool:
+    s = prelude_text.lower()
+    return any(word in s for word in TARGET_WORDS)
+
+def clean_rule_list(text: str) -> str:
+    rules = tinycss2.parse_rule_list(text, skip_whitespace=False, skip_comments=False)
+    out = []
+    for rule in rules:
+        if rule.type == "qualified-rule":
+            selector = tinycss2.serialize(rule.prelude)
+            if selector_targets_header(selector):
+                continue
+            out.append(tinycss2.serialize([rule]))
+        elif rule.type == "at-rule" and rule.content is not None:
+            # Recursively clean @media / @supports blocks.
+            prelude = tinycss2.serialize(rule.prelude)
+            inner = tinycss2.serialize(rule.content)
+            cleaned_inner = clean_rule_list(inner)
+            # Keep non-empty at-rule blocks.
+            if cleaned_inner.strip():
+                out.append(f"@{rule.lower_at_keyword}{prelude}{{{cleaned_inner}}}")
+        else:
+            out.append(tinycss2.serialize([rule]))
+    return "".join(out)
+
+cleaned = clean_rule_list(css)
+
+header_css = r"""
+/* =========================================================
+   LC CRÉATION — HEADER OFFICIEL 2026
+   Version noire / logo horizontal
+   Ce bloc est volontairement unique : ne pas dupliquer ailleurs.
+   ========================================================= */
+
+header{
+  position:relative !important;
+  inset:auto !important;
+  z-index:30;
+  width:100%;
+  margin:0;
+  background:#050505 !important;
+  border:0 !important;
+  border-bottom:1px solid rgba(255,255,255,.08) !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+}
+
+header .topbar{
+  width:min(1440px,100%);
+  min-height:170px;
+  margin:0 auto;
+  padding:12px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  background:#050505 !important;
+}
+
+header .brand{
+  flex:0 0 650px;
+  width:650px;
+  max-width:58vw;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  margin:0;
+  padding:0;
+}
+
+header .brand img{
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  max-width:none !important;
+  max-height:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  object-fit:contain !important;
+  filter:none !important;
+  border-radius:0 !important;
+}
+
+header nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  gap:8px 28px;
+  margin-left:auto;
+}
+
+header nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  margin:0 !important;
+  padding:8px 0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  color:#fff !important;
+  font-size:15px;
+  font-weight:500;
+  line-height:1.2;
+  letter-spacing:.02em;
+  text-decoration:none;
+  transition:opacity .18s ease;
+}
+
+header nav a:hover,
+header nav a:focus-visible{
+  color:#fff !important;
+  background:transparent !important;
+  opacity:.62;
+  outline:none;
+}
+
+/* Tablette */
+@media (max-width:1000px){
+  header .topbar{
+    min-height:138px;
+    padding:10px 22px;
+    gap:24px;
+  }
+
+  header .brand{
+    flex-basis:480px;
+    width:480px;
+    max-width:57vw;
+  }
+
+  header nav{
+    gap:6px 18px;
+  }
+
+  header nav a{
+    font-size:14px;
+  }
+}
+
+/* Smartphone */
+@media (max-width:700px){
+  header .topbar{
+    min-height:auto;
+    padding:12px 14px 14px;
+    flex-direction:column;
+    justify-content:center;
+    gap:8px;
+  }
+
+  header .brand{
+    flex:0 0 auto;
+    width:min(94vw,500px);
+    max-width:none;
+    justify-content:center;
+  }
+
+  header .brand img{
+    width:100% !important;
+    height:auto !important;
+  }
+
+  header nav{
+    width:100%;
+    margin:0;
+    justify-content:center;
+    gap:2px 18px;
+  }
+
+  header nav a{
+    min-height:38px;
+    font-size:14px;
+    padding:6px 0 !important;
+  }
+}
+"""
+
+final_css = header_css.strip() + "\n\n" + cleaned.lstrip()
+
+# Add an explicit note at the end so future edits don't accidentally append another header override.
+final_css += "\n\n/* FIN DU FICHIER — ne pas ajouter de nouvelle règle header/topbar/brand/nav ici. */\n"
+
+dst.write_text(final_css, encoding="utf-8")
+
+# Basic validation
+rules = tinycss2.parse_stylesheet(final_css, skip_whitespace=True, skip_comments=False)
+errors = [r for r in rules if r.type == "error"]
+
+print(f"Fichier créé : {dst}")
+print(f"Taille : {dst.stat().st_size/1024:.1f} Ko")
+print(f"Erreurs CSS détectées : {len(errors)}")
+print("Anciennes règles header/nav supprimées, un seul header officiel conservé.")
 :root{
   --lc-black:#050505;
   --lc-charcoal:#111111;
