@@ -771,3 +771,59 @@ body.home-v2 a{color:inherit;text-decoration:none}
     width:100%;
   }
 }
+
+
+/* =========================================================
+   HOME — OFFRE UNIQUE 25 900 € TVAC / 490 € PAR MOIS
+   ========================================================= */
+.home-v2 .home-offer-price{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  margin:30px 0 24px;
+}
+.home-v2 .home-offer-total{
+  font-size:clamp(2.2rem,4vw,4.4rem);
+  line-height:.95;
+  font-weight:680;
+  letter-spacing:-.05em;
+  color:#fff;
+}
+.home-v2 .home-offer-or{
+  margin:12px 0 8px;
+  color:#8f8f8f;
+  font-size:.82rem;
+  font-weight:750;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+}
+.home-v2 .home-offer-monthly{
+  font-size:clamp(4rem,7.2vw,7.7rem);
+  line-height:.86;
+  font-weight:720;
+  letter-spacing:-.065em;
+  color:#fff;
+}
+.home-v2 .home-offer-monthly small{
+  font-size:.22em;
+  font-weight:650;
+  letter-spacing:0;
+  color:#c6c6c6;
+}
+.home-v2 .home-offer-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:32px;
+}
+.home-v2 a.btn-light{
+  background:#fff !important;
+  color:#111 !important;
+}
+.home-v2 a.btn-outline{
+  color:#fff !important;
+}
+@media(max-width:560px){
+  .home-v2 .home-offer-actions{flex-direction:column}
+  .home-v2 .home-offer-actions .btn{width:100%}
+}
