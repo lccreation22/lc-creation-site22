@@ -680,3 +680,41 @@ body.pool-v2{
     width:100%;
   }
 }
+/* =========================================================
+   CADRAGE PHOTOS — ÉTAPES CHANTIER
+   ========================================================= */
+
+/* 01 — implantation */
+.timeline .step:nth-child(1) .step-photo img{
+  object-position:center 50%;
+}
+
+/* 02 — structure */
+.timeline .step:nth-child(2) .step-photo img{
+  object-position:center 55%;
+}
+
+/* 03 — feutre / protection intérieure */
+.timeline .step:nth-child(3) .step-photo img{
+  object-position:center 28%;
+}
+
+/* 04 — liner */
+.timeline .step:nth-child(4) .step-photo img{
+  object-position:center 46%;
+}
+
+/* 05 — local technique */
+.timeline .step:nth-child(5) .step-photo img{
+  object-position:center 68%;
+}
+
+/* 06 — écolage */
+.timeline .step:nth-child(6) .step-photo img{
+  object-position:center 38%;
+}
+
+/* 07 — finitions */
+.timeline .step:nth-child(7) .step-photo img{
+  object-position:center 50%;
+}
