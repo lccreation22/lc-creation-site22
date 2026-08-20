@@ -89,11 +89,36 @@ body.pool-v2{
   font-size:.94rem;
   transition:.2s ease;
 }
-.btn-light{background:#fff;color:#111}
-.btn-outline{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(0,0,0,.12)}
-.btn-dark{background:#080808;color:#fff}
-.btn-green{background:#9ac653;color:#0e1708}
-.center{text-align:center}
+.pool-v2 .btn-light{
+  background:#fff;
+  color:#111;
+}
+
+.pool-v2 .btn-light:hover{
+  background:#eaeaea;
+  color:#111;
+}
+
+.pool-v2 .btn-outline{
+  color:#fff;
+  border-color:rgba(255,255,255,.45);
+  background:rgba(0,0,0,.12);
+}
+
+.pool-v2 .btn-outline:hover{
+  background:#fff;
+  color:#111;
+}
+
+.pool-v2 .btn-dark{
+  background:#080808;
+  color:#fff;
+}
+
+.pool-v2 .btn-green{
+  background:#9ac653;
+  color:#0e1708;
+}
 
 /* HERO */
 .pool-hero{
