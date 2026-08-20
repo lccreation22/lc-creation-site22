@@ -34,31 +34,31 @@ body.pool-v2{
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .pool-v2 .lc-header-inner{
-  min-height:148px;
+  min-height:108px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:40px;
+  gap:28px;
 }
+
 .pool-v2 .lc-brand{
-  flex:0 0 560px;
-  width:560px;
-  max-width:53vw;
+  flex:0 0 400px;
+  width:400px;
+  max-width:44vw;
 }
-.pool-v2 .lc-brand img{width:100%;height:auto}
+
+.pool-v2 .lc-brand img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
 .pool-v2 .lc-nav{
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:8px 27px;
+  gap:8px 24px;
 }
+
 .pool-v2 .lc-nav a{
-  color:#fff;
-  font-size:.91rem;
-  font-weight:520;
-  padding:10px 0;
-  transition:opacity .18s ease;
+  font-size:.88rem;
 }
 .pool-v2 .lc-nav a:hover{opacity:.62}
 .pool-v2 .lc-nav a.active{color:#9ac653}
