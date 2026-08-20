@@ -956,3 +956,15 @@ body.pool-v2{
     object-position:center 12%;
   }
 }
+/* Local technique déporté : montrer toute l'installation */
+.pool-v2 .technical-grid article:nth-child(2) .tech-card-photo{
+  background:#f3f3f1;
+}
+
+.pool-v2 .technical-grid article:nth-child(2) .tech-card-photo img{
+  object-fit:contain;
+  object-position:center center;
+}
+.pool-v2 .technical-grid article:nth-child(2) .tech-card-photo{
+  height:300px;
+}
