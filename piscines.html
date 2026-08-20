@@ -1,2515 +1,534 @@
-
-  <!doctype html>
-<html lang="fr" class="theme-piscine">
+<!doctype html>
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Piscines bois Brabant Wallon — Installation & pose | LC Création</title>
-  <meta name="description" content="LC Création installe votre piscine en bois sur mesure en Brabant Wallon et Bruxelles. Formules Essentiel, Confort, Luxe. Devis gratuit et rapide.">
+  <title>Piscines bois en Brabant Wallon | LC Création</title>
+  <meta name="description" content="Piscines bois installées clé en main en Brabant Wallon et Bruxelles : terrassement, structure, filtration, pompe à chaleur, volet, finitions et mise en service par LC Création.">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./favicon-lc-creation-512.png">
 
   <link rel="stylesheet" href="./styles.css?v=53">
- 
-
-  <!-- CSS spécifique page piscines -->
-  <style>
-  /* =========================================================
-   LC CRÉATION — PISCINES (STYLE LUXE) — VERSION PROPRE
-   Desktop : hero texte + grande photo (intro)
-   Mobile  : hero photo (blanc minéral) + texte/CTA
-   ========================================================= */
-
-/* --------- TOKENS --------- */
-/* =========================================================
-   LC CRÉATION — PISCINES (DARK LUXE) — VERSION CLEAN & SAFE
-   ========================================================= */
-
-/* --------- TOKENS --------- */
-:root{
-  --lc-dark:#0b1220;
-  --lc-dark-2:#020617;
-
-  --lc-gold:#d4af37;
-  --lc-gold-2:#f6e1a4;
-  --lc-gold-soft: rgba(212,175,55,.22);
-
-  --lc-white:#ffffff;
-  --lc-white-soft: rgba(255,255,255,.78);
-
-  --lc-night: var(--lc-dark-2);
-
-  --lc-border: rgba(255,255,255,.10);
-  --lc-card: rgba(255,255,255,.045);
-
-  --shadow: 0 18px 60px rgba(0,0,0,.35);
-
-  --radius-xl: 22px;
-  --lc-royal: #1d4ed8;
-  --lc-royal-soft: rgba(29,78,216,.22);
-}
-
-/* --------- BASE / RESET --------- */
-*{ box-sizing:border-box; }
-img{ max-width:100%; height:auto; display:block; }
-
-html, body{
-  margin:0;
-  padding:0;
-  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%);
-  color: var(--lc-white);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  overflow-x:hidden;
-}
-
-p, li, span{ color: var(--lc-white-soft); }
-h1, h2, h3, h4{ color: var(--lc-white); }
-
-a{ color: var(--lc-white); text-decoration:none; }
-a:hover{ color: var(--lc-gold); }
-
-section{ width:100%; }
-
-.container{
-  width:min(1100px, 100%);
-  margin:0 auto;
-  padding:0 18px;
-}
-
-/* =========================================================
-   HEADER
-   - logo: zone blanche
-   - nav: blanc lisible
-   ========================================================= */
-header{
-  background: transparent;
-  border-bottom: 1px solid var(--lc-border);
-}
-
-.topbar{
-  background: rgba(2,6,23,.72);
-  backdrop-filter: blur(10px);
-}
-
-.topbar.container{
-  max-width: 1120px;
-  margin:0 auto;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-}
-
-/* zone logo blanche (seul endroit blanc) */
-.brand{
-  background:#fff;
-  padding:8px 14px;
-  border-radius: 0 0 18px 0;
-}
-.brand img{
-  max-height:64px;
-  width:auto;
-  height:auto;
-}
-
-/* nav */
-.topbar nav a{
-  display:inline-block;
-  padding: 8px 10px;
-  border-radius: 10px;
-  color: rgba(255,255,255,.86);
-}
-.topbar nav a:hover{
-  background: rgba(255,255,255,.06);
-  color:#fff;
-}
-.topbar nav a.active{
-  color: var(--lc-gold);
-}
-
-/* =========================================================
-   HERO DESKTOP
-   ========================================================= */
-.piscines-hero{
-  background: radial-gradient(circle at top left, #1e293b 0, var(--lc-night) 55%);
-  color:#f9fafb;
-  padding: 54px 18px 46px;
-}
-
-.piscines-hero-inner{
-  max-width:1040px;
-  margin:0 auto;
-  text-align:center;
-}
-
-.piscines-hero h1{
-  margin:0 0 12px;
-  font-size: clamp(28px, 3.2vw, 44px);
-  line-height: 1.12;
-  letter-spacing:.02em;
-  font-weight: 860;
-}
-
-.piscines-hero p{
-  margin:0 auto;
-  max-width:820px;
-  font-size: 1.02rem;
-  line-height: 1.7;
-  opacity:.92;
-}
-
-.phrase-urgence{
-  margin-top:16px;
-  font-weight:800;
-  color: var(--lc-gold);
-}
-
-/* =========================================================
-   HERO MOBILE
-   ========================================================= */
-.pool-hero--mobile{ display:none; }
-
-@media (max-width:768px){
-  .topbar.container{
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:10px 12px;
-    gap:8px;
-    max-width:100%;
-    margin:0;
-  }
-  .brand img{ max-height:52px; }
-
-  .topbar nav{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:6px 12px;
-    width:100%;
-  }
-  .topbar nav a{
-    padding:6px 8px;
-    font-size:.92rem;
-    white-space:nowrap;
-  }
-
-  .piscines-hero{ display:none; }
-  .pool-hero--mobile{ display:block; }
-  .piscines-intro-photo{ display:none; }
-
- .pool-hero{
-  position:relative;
-  min-height:62vh;
-  overflow:hidden;
-  border-radius: var(--radius-xl);
-  margin:12px 12px 0;
-  box-shadow: var(--shadow);
-  background:#0b1220;
-}
-
-
-  .pool-hero__img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 12%;
-    filter: brightness(1.01) contrast(1.08) saturate(1.06);
-  }
-
-  .pool-hero__overlay{
-    position:absolute;
-    inset:0;
-    background: linear-gradient(180deg,
-    rgba(0,0,0,.10) 0%,
-    rgba(0,0,0,0) 45%,
-    rgba(0,0,0,.55) 100%
-    );
-  }
-
-  .pool-hero__content{
-    position:relative;
-    z-index:2;
-    min-height:62vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    padding:18px 16px;
-  }
-
-  .pool-hero h1{
-    margin: 10px 0 6px; 
-    color:#fff;
-    font-size: clamp(28px, 7vw, 46px);
-    line-height:1.02;
-    letter-spacing:.04em;
-    text-transform:uppercase;
-    font-weight:900;
-    text-shadow: 0 16px 40px rgba(0,0,0,.45);
-  }
-
-  .pool-hero__price{
-    margin-top: 26px;  
-    margin-bottom: 10px;
-    color: rgba(17,24,39,.92);
-    font-size: 1.3rem;
-    font-weight:600;
-    letter-spacing: .02em;
-    text-shadow:
-  0 10px 28px rgba(0,0,0,.45);
-
-  }
-  .pool-hero__price strong{
-    color: var(--lc-gold);
-    font-size: 1.8em;
-    font-weight:900;
-  }
-
-  .pool-hero__cta{
-    margin-top:auto;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-  }
-  .pool-hero__cta a{ width:100%; }
-
-  .pool-hero__cta .btn-primary{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    background: linear-gradient(135deg, var(--lc-gold), var(--lc-gold-2));
-    color:#111827;
-    font-weight:900;
-    border-radius:999px;
-    padding:18px 18px;
-    box-shadow: 0 18px 50px rgba(0,0,0,.25);
-  }
-}
-
-/* Desktop: sécurité */
-@media (min-width:769px){
-  .pool-hero--mobile{ display:none !important; }
-  .piscines-hero{ display:block !important; }
-  .piscines-intro-photo{ display:block !important; }
-}
-
-/* =========================================================
-   INTRO PHOTO (desktop)
-   ========================================================= */
-.piscines-intro-photo{
-  max-width:1120px;
-  margin:26px auto 0;
-  padding:0 18px;
-}
-.piscines-intro-photo img{
-  width:100%;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-}
-
-/* =========================================================
-   PACKS
-   ========================================================= */
-.formules-grid{
-  max-width:1120px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap:1.4rem;
-  align-items:start;
-}
-@media (max-width:980px){
-  .formules-grid{ grid-template-columns:1fr; }
-}
-
-.formule-card{
-  background: rgba(11,18,32,.92);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: var(--radius-xl);
-  overflow:hidden;
-  box-shadow: var(--shadow);
-}
-
-.formule-title{ color:#fff; }
-.formule-price{ color: rgba(255,255,255,.88); }
-.formule-price-sub, .formule-note{ color: rgba(255,255,255,.65); }
-
-.formule-badge{
-  border: 1px solid rgba(255,255,255,.12);
-  color: rgba(255,255,255,.82);
-  background: rgba(255,255,255,.06);
-}
-
-.pill{
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.14);
-  color: rgba(255,255,255,.92);
-}
-
-.spec{
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-}
-.spec span{ color: rgba(255,255,255,.70); }
-.spec strong{ color:#fff; }
-
-.btn-pack{
-  display:inline-flex;
-  width:100%;
-  align-items:center;
-  justify-content:center;
-  padding: 1rem 1rem;
-  border-radius:999px;
-  font-weight:900;
-  background: linear-gradient(135deg, var(--lc-gold), var(--lc-gold-2));
-  color:#111827;
-  box-shadow: 0 18px 50px rgba(0,0,0,.16);
-}
-
-.formule-note{
-  max-width:900px;
-  margin: 1.2rem auto 0;
-  text-align:center;
-  font-size:.92rem;
-  color: rgba(255,255,255,.65);
-}
-
-/* =========================================================
-   SECTIONS / TITRES
-   ========================================================= */
-.piscines-section{
-  padding: 56px 18px;
-  background: transparent;
-}
-
-.piscines-section-header{
-  max-width: 920px;
-  margin: 0 auto 30px;
-  text-align:center;
-}
-
-.piscines-section-header h2{
-  margin:0 0 10px;
-  font-size: clamp(22px, 2.4vw, 34px);
-  font-weight:900;
-  color:#fff;
-}
-
-.piscines-section-header p{
-  margin:0 auto;
-  max-width:820px;
-  font-size:1.02rem;
-  line-height:1.7;
-  color: rgba(255,255,255,.78);
-}
-
-/* CTA */
-.piscines-config-cta{
-  max-width:1120px;
-  margin:26px auto 0;
-  padding:0 18px;
-  display:flex;
-  justify-content:center;
-}
-.piscines-config-cta .btn-config{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:16px 34px;
-  border-radius:999px;
-  font-weight:950;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  background: linear-gradient(135deg, var(--lc-gold), var(--lc-gold-2));
-  color:#111827;
-  box-shadow: 0 24px 70px rgba(0,0,0,.22);
-}
-@media (max-width:768px){
-  .formules-grid{ padding:0 12px; }
-  .piscines-config-cta{ padding:0 12px; }
-  .piscines-config-cta .btn-config{ width:100%; text-align:center; }
-}
-
-/* =========================================================
-   URBAINE CARD (dark)
-   ========================================================= */
-.pool-card{
-  background: var(--lc-card);
-  border: 1px solid var(--lc-border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-}
-.pool-card__subtitle, .pool-card__list{ color: rgba(255,255,255,.78); }
-
-.pool-card__image{
-  overflow: hidden;
-  border-radius: 18px;
-  aspect-ratio: 16 / 9;         /* recadrage stable */
-}
-
-.pool-card__image img{
-  width:100%;
-  border-radius:18px;
-  display:block;
-  object-fit:cover;
-}
-
-
-
-.pool-card__content h2{
-  margin:18px 0 6px;
-  font-size:1.65rem;
-  font-weight:950;
-}
-
-.pool-card__price{ margin:14px 0 10px; font-weight:850; }
-.pool-card__price .price-gold{ color: var(--lc-gold); font-weight:950; }
-
-.pool-card__cta .btn-primary{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 24px;
-  border-radius:999px;
-  font-weight:950;
-  background: linear-gradient(135deg, var(--lc-gold), var(--lc-gold-2));
-  color:#111827;
-  box-shadow: 0 18px 55px rgba(0,0,0,.18);
-}
-
-@media (max-width:768px){
-  .pool-card{ margin:22px 12px 0; padding:16px; }
-  .pool-card__content h2{ font-size:1.35rem; }
-  .pool-card__subtitle{ font-size:.98rem; }
-}
-
-/* =========================================================
-   HARD LOCK : si un autre CSS met du blanc sur <main>
-   ========================================================= */
-main.page-piscines,
-.page-piscines{
-  background: transparent !important;
-}
-
-/* Fond dark garanti partout */
-body{
-  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%) !important;
-}
-/* HARD FORCE DARK — PRIORITÉ MAX */
-html, body{
-  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%) !important;
-  color: var(--lc-white) !important;
-}
-
-main.page-piscines,
-.page-piscines{
-  background: transparent !important;
-}
-
-/* Si ton styles.css met un fond blanc sur main ou sur des wrappers */
-body > main,
-main{
-  background: transparent !important;
-}
-
-/* Sécurité : certains thèmes mettent un fond sur le wrapper */
-.theme-piscine{
-  background: transparent !important;
-}
-/* =========================
-   HARD OVERRIDE (PISCINES)
-   Objectif: tuer le “site clair” sur cette page
-========================= */
-
-/* 1) Stop les voiles clairs globaux */
-html.theme-piscine body::before{ content:none !important; }
-
-/* 2) Stop les backgrounds/gradients clairs globaux */
-html.theme-piscine body{
-  background: linear-gradient(180deg, var(--lc-dark) 0%, var(--lc-dark-2) 100%) !important;
-}
-
-/* 3) Si des sections globales injectent du gris/blanc */
-html.theme-piscine .section,
-html.theme-piscine .section.alt,
-html.theme-piscine main,
-html.theme-piscine .page-piscines{
-  background: transparent !important;
-}
-
-/* 4) Neutralise les cartes globales “blanches” qui peuvent s’appliquer */
-html.theme-piscine .card{
-  background: transparent !important;
-  border-color: rgba(255,255,255,.10) !important;
-  color: inherit !important;
-}
-
-/* 5) Force lisibilité dans tes blocs “pro” (au cas où un vieux CSS remet du texte sombre) */
-html.theme-piscine .pro-card p,
-html.theme-piscine .pro-bullet span,
-html.theme-piscine .opt-card ul,
-html.theme-piscine .piscines-faq-item p{
-  color: rgba(255,255,255,.78) !important;
-}
-/* =========================================================
-   PATCH MISE EN PAGE (PISCINES) — BLOCS / CENTRAGE / URBAINE
-   À coller TOUT EN BAS du <style> de piscines.html
-========================================================= */
-
-/* 1) Largeur cohérente partout (évite les “blocs” qui changent de largeur) */
-.page-piscines > section,
-.page-piscines > div{
-  width: 100%;
-}
-
-.page-piscines .piscines-hero-inner,
-.page-piscines .piscines-section-header,
-.page-piscines .piscines-intro-photo,
-.page-piscines .formules-grid,
-.page-piscines .pro-card,
-.page-piscines .options-grid,
-.page-piscines .cta-projet-card,
-.page-piscines .piscines-faq-list{
-  width: min(1120px, calc(100% - 36px));
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 2) Centrage textes des zones “titre/intro” uniquement (on ne touche pas aux listes) */
-.page-piscines .piscines-section-header,
-.page-piscines .piscines-hero-inner{
-  text-align: center;
-}
-.page-piscines .piscines-section-header p{
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* 3) URBAINE : structure PRO et stable (image cadrée + texte propre) */
-#mini-piscine-urbaine.pool-card{
-  overflow: hidden;
-  border-radius: var(--radius-xl);
-}
-
-/* Desktop : image à gauche / contenu à droite */
-@media (min-width: 900px){
-  #mini-piscine-urbaine.pool-card{
-    display: grid;
-    grid-template-columns: 1.35fr 1fr;
-    align-items: stretch;
-  }
-
-  #mini-piscine-urbaine .pool-card__image{
-    height: 420px;                /* hauteur stable */
-    overflow: hidden;
-  }
-
-  #mini-piscine-urbaine .pool-card__image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display:block;
-  }
-
-  #mini-piscine-urbaine .pool-card__content{
-    padding: 22px 22px;
-  }
-}
-
-/* Mobile : image au-dessus, contenu en dessous */
-@media (max-width: 899px){
-  #mini-piscine-urbaine.pool-card{
-    display: block;
-    margin: 18px auto 0;
-    width: min(1120px, calc(100% - 24px));
-  }
-
- 
-  #mini-piscine-urbaine .pool-card__image{
-    height: 210px;
-    overflow: hidden;
-  }
-  #mini-piscine-urbaine .pool-card__image img{
-    width:100%; height:100%;
-    object-fit:cover;
-    object-position:center 100%;
-    transform: scale(1.12);          /* <- zoom = moins de ciel */
-    transform-origin: center bottom;  /* <- garde le bas */
-  }
-
-
-
-  #mini-piscine-urbaine .pool-card__content{
-    padding: 16px 16px 18px;
-  }
-}
-
-/* 4) Petits détails pro : on évite les centragse bizarres dans les contenus */
-.pool-card__list{
-  text-align: left;               /* les listes restent lisibles */
-}
-.pool-card__dimensions span{
-  display:block;
-  opacity:.88;
-  margin-top: 6px;
-}
-
-/* 5) Le bloc “Configurer ma piscine en 2 minutes” bien centré */
-.piscines-config-cta{
-  width: min(1120px, calc(100% - 36px));
-  margin-left:auto;
-  margin-right:auto;
-}
-/* =========================================================
-   PATCH CARTES FORMULES (PC) — SUPPRIMER “CADRES” INTERNES
-   À coller TOUT EN BAS
-========================================================= */
-
-/* 1) La carte: OK, mais on évite les doubles bordures/effets */
-.formule-card{
-  border: 1px solid rgba(255,255,255,.10) !important;
-  background: rgba(11,18,32,.92) !important;
-  box-shadow: var(--shadow) !important;
-}
-
-/* 2) On “dé-cadre” les sous-blocs internes (specs, pricebox, etc.) */
-.formule-card .formule-specs,
-.formule-card .formule-pricebox,
-.formule-card .formule-pills{
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-/* 3) Specs: pas de boîtes multiples -> juste une ligne discrète */
-.formule-card .spec{
-  background: transparent !important;
-  border: 0 !important;
-  border-bottom: 1px solid rgba(255,255,255,.10) !important;
-  border-radius: 0 !important;
-  padding: 10px 0 !important;
-}
-.formule-card .spec:last-child{
-  border-bottom: 0 !important;
-}
-.formule-card .spec span{
-  color: rgba(255,255,255,.70) !important;
-}
-.formule-card .spec strong{
-  color: #fff !important;
-}
-
-/* 4) Pills: aspect “chip” propre, sans cadres parasites */
-.formule-card .pill{
-  background: rgba(255,255,255,.06) !important;
-  border: 1px solid rgba(255,255,255,.14) !important;
-  box-shadow: none !important;
-}
-.formule-card .pill.is-active{
-  background: rgba(212,175,55,.18) !important;
-  border-color: rgba(212,175,55,.45) !important;
-  color: #fff !important;
-}
-
-/* 5) Pricebox: pas de cadre, juste de l’air */
-.formule-card .formule-pricebox{
-  padding-top: 12px !important;
-  margin-top: 10px !important;
-}
-
-/* 6) Images: éviter l’effet “encadré” en trop */
-.formule-card .formule-media{
-  background: transparent !important;
-  border: 0 !important;
-}
-.formule-card .formule-img{
-  display:block;
-  width:100%;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 18px;
-}
-
-/* 7) Desktop: alignement & espacements plus premium */
-@media (min-width: 980px){
-  .formule-card .formule-body{
-    padding: 18px 18px 20px !important;
-  }
-  .formule-card .formule-specs{
-    margin-top: 10px !important;
-  }
-}
-  /* =========================================================
-   PC — CENTRER + AGRANDIR LES FICHES (Essentiel/Confort/Luxe)
-   À coller tout en bas
-========================================================= */
-
-@media (min-width: 980px){
-
-  /* 1) La zone “collections” prend plus de place */
-  .piscines-formules{
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  /* 2) Grille plus large + centrée */
-  .formules-grid{
-    max-width: 1320px !important;          /* avant 1120 */
-    margin: 0 auto !important;
-    grid-template-columns: repeat(3, minmax(320px, 1fr)) !important;
-    gap: 1.6rem !important;
-    justify-content: center !important;    /* centre le bloc */
-    align-items: stretch !important;
-  }
-
-  /* 3) Cartes légèrement plus “grandes” (sans tout casser) */
-  .formule-card{
-    transform: scale(1.03);               /* léger boost */
-    transform-origin: center;
-  }
-
-  /* 4) Image un poil plus haute */
-  .formule-card .formule-img{
-    height: 210px !important;             /* avant 190 */
-  }
-}
-
-
-/* Très grands écrans : encore un peu plus confortable */
-@media (min-width: 1400px){
-  .formules-grid{
-    max-width: 1400px !important;
-    grid-template-columns: repeat(3, minmax(360px, 1fr)) !important;
-  }
-  .formule-card{
-    transform: scale(1.05);
-  }
-}
-  /* =========================================================
-   FIX PC : fiches centrées + pas d’écrasement du bouton URBAINE
-   À coller TOUT EN BAS
-========================================================= */
-
-/* 1) On neutralise tout zoom/transform qui peut remonter les cartes */
-.formule-card{
-  transform: none !important;
-}
-
-/* 2) Espace clair entre le bouton “URBAINE” et la grille des fiches */
-#mini-piscine-urbaine .pool-card__cta{
-  margin-bottom: 18px !important;
-}
-#mini-piscine-urbaine .formules-grid{
-  margin-top: 14px !important;
-}
-
-/* 3) Sur PC : colonnes à largeur fixe + centrage réel */
-@media (min-width: 980px){
-
-  /* Le bloc fiche prend plus de place mais reste centré */
-  #mini-piscine-urbaine .formules-grid{
-    width: 100% !important;
-    max-width: 1320px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(340px, 380px)) !important;
-    gap: 22px !important;
-
-    justify-content: center !important;   /* centre le groupe de colonnes */
-    justify-items: stretch !important;    /* cartes propres */
-    align-items: stretch !important;
-  }
-
-  /* Les cartes respirent un peu + hauteur uniforme */
-  #mini-piscine-urbaine .formule-card{
-    height: 100%;
-  }
-
-  /* Image de fiche plus confortable */
-  #mini-piscine-urbaine .formule-img{
-    width: 100% !important;
-    height: 220px !important;
-    object-fit: cover !important;
-    border-radius: 14px !important;
-  }
-}
-
-/* 4) Très grands écrans : un poil plus large (optionnel mais nickel) */
-@media (min-width: 1400px){
-  #mini-piscine-urbaine .formules-grid{
-    max-width: 1400px !important;
-    grid-template-columns: repeat(3, minmax(360px, 420px)) !important;
-  }
-}
-/* =========================================================
-   FIX MOBILE : fiches pleines largeur + specs lisibles
-   À coller TOUT EN BAS
-========================================================= */
-@media (max-width: 980px){
-
-  /* La grille doit prendre toute la largeur */
-  .formules-grid{
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 12px !important;
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-    justify-content: stretch !important;
-    justify-items: stretch !important;
-  }
-
-  /* Chaque fiche doit prendre toute la largeur */
-  .formule-card{
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    transform: none !important;
-  }
-
-  /* Image plus large / moins de “vide” */
-  .formule-media,
-  .formule-img{
-    width: 100% !important;
-  }
-  .formule-img{
-    height: 220px !important;
-    object-fit: cover !important;
-  }
-
-  /* Specs : on évite "Dimensions6,00" collé, et on respire */
-  .formule-specs{
-    display: grid !important;
-    gap: 10px !important;
-  }
-  .spec{
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: baseline !important;
-    gap: 14px !important;
-    padding: 12px 12px !important;
-  }
-  .spec span{
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    white-space: nowrap !important;
-    opacity: .78;
-  }
-  .spec strong{
-    flex: 0 0 auto !important;
-    text-align: right !important;
-    white-space: nowrap !important;
-  }
-
-  /* Si certains strong sont longs (ex: "Hors-sol / Semi / Enterrée"), on autorise le retour */
-  .spec strong{
-    white-space: normal !important;
-  }
-
-  /* Bouton plus confortable */
-  .btn-pack{
-    width: 100% !important;
-    padding: 16px 16px !important;
-  }
-}
-/* =========================================================
-   FIX HEADER : liens lisibles sur fond blanc (zone logo)
-   À COLLER TOUT EN BAS
-========================================================= */
-
-/* Desktop : header visuellement "clair" => liens foncés */
-@media (min-width: 769px){
-  header .topbar nav a{
-    color: rgba(2,6,23,.78) !important;
-  }
-  header .topbar nav a:hover{
-    color: rgba(2,6,23,1) !important;
-    background: rgba(2,6,23,.06) !important;
-  }
-  header .topbar nav a.active{
-    color: var(--lc-gold) !important;
-  }
-}
-
-/* Mobile : ton header est sur fond sombre => liens blancs */
-@media (max-width: 768px){
-  header .topbar nav a{
-    color: rgba(255,255,255,.88) !important;
-  }
-  header .topbar nav a:hover{
-    color: #fff !important;
-    background: rgba(255,255,255,.06) !important;
-  }
-  header .topbar nav a.active{
-    color: var(--lc-gold) !important;
-  }
-header{
-  background: #fff !important;
-}
-.topbar{
-  background: #fff !important;
-  backdrop-filter: none !important;
-}
-}
-/* ============================
-   FIX URBAINE + FICHES (DESKTOP)
-   Objectif:
-   - URBAINE en 2 colonnes (image | texte)
-   - les 3 fiches passent en dessous sur toute la largeur, centrées + plus grandes
-============================ */
-@media (min-width: 769px){
-
-  /* La carte URBAINE devient une grille propre */
-  #mini-piscine-urbaine.pool-card{
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 22px;
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 22px;
-    align-items: start;
-    position: relative;
-  }
-
-  /* Image URBAINE bien cadrée */
-  #mini-piscine-urbaine .pool-card__image img{
-    width: 100%;
-    height: 100%;
-    max-height: 260px;
-    object-fit: cover;
-    border-radius: 18px;
-  }
-
-  /* IMPORTANT: la grille de fiches doit occuper toute la largeur, sous les 2 colonnes */
-  #mini-piscine-urbaine .formules-grid{
-    grid-column: 1 / -1;          /* prend toute la largeur de la carte URBAINE */
-    width: 100%;
-    max-width: 1040px;            /* plus large => cartes plus grandes */
-    margin: 18px auto 0;          /* CENTRÉ */
-    justify-content: center;
-    gap: 18px;
-  }
-
-  /* Cartes plus grandes (sans être énormes) */
-  #mini-piscine-urbaine .formules-grid .formule-card{
-    max-width: 340px;             /* “gabarit” propre */
-    width: 100%;
-  }
-
-  /* Empêche que la grille remonte et “mange” le bouton */
-  #mini-piscine-urbaine .pool-card__cta{
-    margin-bottom: 14px;
-  }
-  #mini-piscine-urbaine .pool-card__cta .btn-primary{
-    display: inline-flex;
-    position: relative;
-    z-index: 2;
-  }
-}
-/* =========================================
-   MOBILE FIX (packs) : plus aucun chevauchement
-========================================= */
-@media (max-width: 768px){
-
-  /* cards full width et moins "tour" */
-  #mini-piscine-urbaine .formule-card{
-    width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  /* Image de la fiche : ratio propre */
-  #mini-piscine-urbaine .formule-img{
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    border-radius: 16px;
-  }
-
-  /* >>> LA CLÉ : specs en vraie grille 2 colonnes (label | valeur) */
-  #mini-piscine-urbaine .spec{
-    display: grid !important;
-    grid-template-columns: 110px 1fr;  /* colonne label fixe */
-    gap: 10px;
-    align-items: baseline;
-    padding: 12px 12px;
-  }
-
-  #mini-piscine-urbaine .spec span{
-    display: block;
-    font-size: .95rem;
-    line-height: 1.25;
-    opacity: .78;
-    white-space: nowrap;              /* évite "Dimen / sions" */
-  }
-
-  #mini-piscine-urbaine .spec strong{
-    display: block;
-    font-size: 1.02rem;
-    line-height: 1.25;
-    white-space: normal;              /* autorise retour ligne propre */
-    word-break: break-word;
-  }
-
-  /* Les séparateurs deviennent plus discrets (optionnel) */
-  #mini-piscine-urbaine .spec{
-    border-color: rgba(255,255,255,.10) !important;
-    background: rgba(255,255,255,.035) !important;
-  }
-
-  /* Bouton CTA : bien centré */
-  #mini-piscine-urbaine .btn-pack{
-    max-width: 360px;
-    margin: 12px auto 0;
-  }
-}
-/* =========================================
-   MOBILE FIX HEADER : liens noirs sur fond blanc
-========================================= */
-@media (max-width: 768px){
-
-  html.theme-piscine header{
-    background: #ffffff !important;
-    border-bottom: 1px solid rgba(2,6,23,.10) !important;
-  }
-
-  html.theme-piscine header .topbar{
-    background: #ffffff !important;
-    backdrop-filter: none !important;
-  }
-
-  /* liens NAV bien visibles */
-  html.theme-piscine header .topbar nav a{
-    color: rgba(2,6,23,.82) !important;
-  }
-  html.theme-piscine header .topbar nav a:hover{
-    color: rgba(2,6,23,1) !important;
-    background: rgba(2,6,23,.06) !important;
-  }
-  html.theme-piscine header .topbar nav a.active{
-    color: var(--lc-gold) !important;
-  }
-}
-/* ===== SHOWROOM (URBAINE + FICHES) ===== */
-.showroom{
-  position: relative;
-  padding-top: 46px;
-  padding-bottom: 56px;
-}
-
-.showroom::before{
-  content:"";
-  position:absolute;
-  inset: 120px 0 0 0;               /* commence après le titre */
-  border-radius: 26px;
-  margin: 0 auto;
-  width: min(1200px, calc(100% - 36px));
-  background:
-    radial-gradient(900px 520px at 50% 0%, rgba(255,255,255,.07), rgba(0,0,0,0) 70%),
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 22px 80px rgba(0,0,0,.35);
-  pointer-events:none;
-  z-index:0;
-}
-
-.showroom > *{ position: relative; z-index:1; }
-/* ===== PANELS POUR STRUCTURER LES BLOCS ===== */
-.panel{
-  position: relative;
-  padding-top: 66px;
-  padding-bottom: 66px;
-}
-
-.panel::before{
-  content:"";
-  position:absolute;
-  inset: 0;
-  width: min(1200px, calc(100% - 36px));
-  margin: 0 auto;
-  border-radius: 26px;
-  background: rgba(255,255,255,.035);
-  border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 20px 70px rgba(0,0,0,.30);
-  pointer-events:none;
-  z-index:0;
-}
-
-.panel > *{ position: relative; z-index:1; }
-
-/* petit séparateur luxe entre sections */
-.piscines-section + .piscines-section{
-  border-top: 1px solid rgba(255,255,255,.06);
-}
-/* --- TITRE AU-DESSUS DE LA PHOTO --- */
-.formule-card{
-  padding: 18px;              /* donne un cadre propre */
-  display:flex;
-  flex-direction:column;
-  gap: 12px;
-}
-
-.formule-title-top{
-  margin: 6px 2px 0;
-  font-size: 1.35rem;
-  font-weight: 950;
-  letter-spacing: .01em;
-  color:#fff;
-}
-
-/* Image plus “catalogue” */
-.formule-media{
-  position:relative;
-  border-radius: 18px;
-  overflow:hidden;
-}
-.formule-img{
-  width:100%;
-  height: 240px;              /* PC */
-  object-fit: cover;
-  display:block;
-}
-
-/* --- SWATCHES (pastilles couleur) sous la photo --- */
-.pills-swatches{
-  display:flex;
-  gap: 10px;
-  align-items:center;
-  justify-content:flex-start;
-  margin-top: -4px;           /* colle au plus près de l’image */
-  padding-left: 2px;
-}
-
-/* boutons ronds */
-.pills-swatches .pill{
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  padding: 0;
-  border: 1px solid rgba(255,255,255,.35);
-  background: rgba(255,255,255,.10);
-  box-shadow: 0 8px 18px rgba(0,0,0,.25);
-  cursor:pointer;
-}
-
-/* état actif : halo + anneau */
-.pills-swatches .pill.is-active{
-  border-color: rgba(255,255,255,.85);
-  box-shadow: 0 0 0 6px rgba(212,175,55,.18), 0 10px 22px rgba(0,0,0,.35);
-  transform: translateY(-1px);
-}
-
-
-/* Couleurs “réelles” (ajuste si tu veux) */
-.pills-swatches .pill[data-finish="bois"]{
-  background: radial-gradient(circle at 30% 30%, #d2a679 0%, #7a4f2a 60%, #4a2f18 100%);
-}
-.pills-swatches .pill[data-finish="blanc"]{
-  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #f1f5f9 55%, #cbd5e1 100%);
-}
-.pills-swatches .pill[data-finish="gris"]{
-  background: radial-gradient(circle at 30% 30%, #f3f4f6 0%, #9ca3af 60%, #6b7280 100%);
-}
-.pills-swatches .pill[data-finish="anthra"]{
-  background: radial-gradient(circle at 30% 30%, #334155 0%, #111827 60%, #020617 100%);
-}
-
-/* Mobile : image moins haute, swatches plus gros */
-@media (max-width:768px){
-  .formule-img{ height: 210px; }
-  .pills-swatches .pill{ width: 22px; height: 22px; }
-}
-@media (min-width: 769px){
-  /* 1) éviter l’effet flou de scaling */
-  .formule-media{
-    position: relative;
-    overflow: hidden;
-    border-radius: 22px;
-  }
-
-  .formule-img{
-    width: 100%;
-    height: auto;
-    display: block;
-
-    /* netteté perçue */
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* 2) si tu avais des filtres trop forts, on les calme sur PC */
-  .formule-img{
-    filter: none !important;
-  }
-
-  /* 3) si tu as un overlay/voile sur la photo, on le réduit sur PC */
-  .formule-media::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.14));
-    pointer-events:none;
-  }
-}
-/* PASTILLES = ronds couleur + texte */
-.formule-pills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top: 10px;
-}
-
-.pill{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.90);
-  font-weight: 800;
-  cursor:pointer;
-}
-
-/* Le rond couleur */
-.pill::before{
-  content:"";
-  width: 16px;
-  height: 16px;
-  border-radius: 999px;
-  background: #fff; /* fallback */
-  box-shadow: 0 0 0 2px rgba(255,255,255,.25);
-}
-
-/* Couleurs par finition */
-.pill[data-finish="bois"]::before{
-  background: linear-gradient(135deg,#a16207,#f59e0b);
-}
-.pill[data-finish="blanc"]::before{
-  background: #f8fafc;
-  box-shadow: 0 0 0 2px rgba(255,255,255,.35), inset 0 0 0 1px rgba(0,0,0,.25);
-}
-.pill[data-finish="gris"]::before{
-  background: #cbd5e1;
-}
-.pill[data-finish="anthra"]::before{
-  background: #111827;
-}
-
-/* Etat actif : plus visible */
-.pill.is-active{
-  border-color: rgba(212,175,55,.55);
-  background: rgba(212,175,55,.10);
-  color: #fff;
-  box-shadow: 0 0 0 6px rgba(212,175,55,.14);
-}
-.pill.is-active::before{
-  box-shadow: 0 0 0 3px rgba(212,175,55,.45), inset 0 0 0 1px rgba(0,0,0,.25);
-}
-.piscines-formules .piscines-section-header h2{
-  font-size: clamp(28px, 3.2vw, 44px);
-  line-height: 1.1;
-  margin-bottom: 10px;
-}
-
-/* === SHOWROOM OFF (on garde juste l'espace) === */
-.showroom::before{
-  content: none !important;
-  display: none !important;
-}
-
-.showroom{
-  padding-top: 28px;   /* ajuste si tu veux */
-  padding-bottom: 28px;
-}
-.panel::before{
-  content: none !important;
-  display: none !important;
-}
-.panel{
-  padding-top: 28px;
-  padding-bottom: 28px;
-}
-/* On n'utilise plus l'ancien hero mobile */
-.pool-hero--mobile{ display:none !important; }
-.pool-hero{ display:none !important; }
-/* Nouveau hero mobile */
-@media (max-width:768px){
-  .piscines-hero{ display:none !important; }   /* desktop hero masqué */
-  .hero-piscine{ display:block !important; }  /* nouveau hero affiché */
-  .piscines-intro-photo{ display:none !important; }
-}
-
-
-html.theme-piscine body,
-html.theme-piscine .page-piscines{
-  background:#020617;
-}
-.finish-head h2{
-  font-size: clamp(30px, 5.8vw, 44px);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1.06;
-  margin: 0 0 10px;
-}
-
-.finish-head h2::after{
-  content:"";
-  display:block;
-  width: 110px;              /* adapte si tu veux plus court/long */
-  height: 3px;
-  margin: 12px auto 0;       /* centré comme les autres sections */
-  border-radius: 999px;
-  box-shadow: none;          /* enlève le halo */
-  background: linear-gradient(90deg,
-    rgba(212,175,55,0),
-    rgba(212,175,55,1),
-    rgba(212,175,55,0)
-  );
-}
-
-.finish-head p{
-  margin: 10px 0 0;
-  color: rgba(255,255,255,.72);
-  font-size: 15px;
-  line-height: 1.45;
-}
-/* Zone choix : on la rend clairement interactive */
-.finish-pills{
-  position: relative;
-  margin-top: 14px;
-  padding-top: 18px;
-}
-
-/* Hint texte au-dessus des pills */
-.finish-pills::before{
-  content: "Choisissez une finition (glissez →)";
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 13px;
-  font-weight: 700;
-  color: rgba(255,255,255,.68);
-}
-
-/* Si tes pills sont en scroll horizontal, ce dégradé aide énormément */
-@media (max-width: 768px){
-  .finish-pills{
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 6px;
-  }
-  .finish-pills .pill{ scroll-snap-align: start; }
-
-  /* Dégradé à droite pour montrer qu'on peut scroller */
-  .finish-pills::after{
-    content:"";
-    position:absolute;
-    right:0;
-    bottom:0;
-    width:44px;
-    height: calc(100% - 12px);
-    pointer-events:none;
-    background: linear-gradient(90deg, rgba(2,6,23,0), rgba(2,6,23,.92));
-  }
-}
-.pill{
-  border: 1px solid rgba(255,255,255,.16);
-  background: rgba(255,255,255,.05);
-  color: rgba(255,255,255,.86);
-  padding: 12px 16px;
-  border-radius: 999px;
-  font-weight: 800;
-  transition: transform .12s ease, border-color .12s ease, background .12s ease, box-shadow .12s ease;
-}
-
-.pill:active{ transform: scale(.98); }
-
-.pill.is-active{
-  border-color: var(--lc-gold);
-  background: rgba(212,175,55,.14);
-  box-shadow: 0 0 0 6px var(--lc-gold-soft);
-  color: rgba(255,255,255,.95);
-}
-
-/* === UNDERLINE IDENTIQUE À "Nos modèles" === */
-.finish-head h2::after{
-  content:"";
-  display:block;
-  width: 110px;           /* ajuste si besoin */
-  height: 3px;
-  margin: 12px auto 0;    /* auto = centré comme "Nos modèles" */
-  border-radius: 999px;
-  background: var(--lc-gold);
-  box-shadow: none !important;  /* enlève le halo */
-}
-
-/* (optionnel) si tu veux aussi centrer tout le bloc comme "Nos modèles" */
-.finish-head{ text-align: center; }
-.hero-ctas{
-  display:flex;
-  gap:12px;
-  margin-top:14px;
-  flex-wrap:wrap;
-}
-
-/* Bouton principal */
-.btn-primary{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 18px;
-  border-radius:999px;
-  font-weight:800;
-  text-decoration:none;
-  letter-spacing:.2px;
-  color:#111827;
-  background: linear-gradient(135deg, #d4af37, #f6e1a4);
-  box-shadow: 0 18px 40px rgba(0,0,0,.35);
-  border:1px solid rgba(212,175,55,.35);
-}
-
-/* Bouton secondaire (premium discret) */
-.btn-secondary{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 18px;
-  border-radius:999px;
-  font-weight:700;
-  text-decoration:none;
-  color:#e5e7eb;
-  background: rgba(2,6,23,.35);
-  border:1px solid rgba(148,163,184,.55);
-  backdrop-filter: blur(6px);
-}
-
-/* Mobile = full width, super lisible */
-@media (max-width:768px){
-  .hero-ctas{flex-direction:column;}
-  .btn-primary,.btn-secondary{width:100%;}
-}
-.hero{
-  position:relative;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(180deg, rgba(2,6,23,.10), rgba(2,6,23,.55));
-  border-radius: inherit;
-  pointer-events:none;
-}
-.hero > *{
-  position:relative;
-  z-index:1;
-}
-@media (max-width:768px){
-  .hero-piscine{
-    position:relative;
-    height:82vh;
-    overflow:hidden;
-    border-radius:0 !important;
-    margin:0 !important;
-    box-shadow:none !important;
-  }
-
-  .hero-media img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 25%;
-    filter: contrast(1.08) brightness(.92) saturate(1.05);
-  }
-
-  .hero-overlay{
-    position:absolute;
-    inset:0;
-    background: linear-gradient(180deg,
-      rgba(2,6,23,.08) 0%,
-      rgba(2,6,23,.55) 58%,
-      rgba(2,6,23,.90) 100%
-    );
-  }
-
-  .hero-content{
-    position:relative;
-    z-index:2;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    padding:22px 18px 28px;
-  }
-
-  .hero-content h1{
-    margin:0 0 8px;
-    font-size:32px;
-    line-height:1.05;
-    font-weight:950;
-    letter-spacing:.01em;
-    text-shadow:0 18px 45px rgba(0,0,0,.45);
-  }
-
-  .hero-price{
-    margin:0 0 14px;
-    font-size:14px;
-    color:rgba(255,255,255,.78);
-  }
-  .hero-price strong{
-    display:block;
-    margin-top:2px;
-    font-size:28px;
-    font-weight:950;
-    color:var(--lc-gold);
-  }
-
-  .hero-ctas{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    margin-top:6px;
-  }
-
-  .hero-ctas .btn-primary{
-    width:100%;
-    padding:18px 18px;
-    font-size:18px;
-    font-weight:950;
-    border-radius:999px;
-    background: linear-gradient(135deg, var(--lc-gold), var(--lc-gold-2));
-    color:#111827;
-    box-shadow:0 18px 55px rgba(0,0,0,.40);
-    border:1px solid rgba(212,175,55,.35);
-  }
-
-  .hero-ctas .btn-secondary{
-    width:100%;
-    padding:16px 18px;
-    border-radius:999px;
-    background:transparent;
-    border:1px solid rgba(255,255,255,.35);
-    color:#fff;
-    font-weight:850;
-  }
-
-  .hero-proof{
-    margin-top:14px;
-    font-size:13px;
-    color:rgba(255,255,255,.70);
-  }
-}
-/* FIX HERO MOBILE : l'image doit toujours avoir une hauteur */
-@media (max-width:768px){
-
-  /* on force une hauteur réelle au hero */
-  html.theme-piscine .hero-piscine{
-    position: relative;
-    height: 82vh;
-    min-height: 560px;     /* sécurité */
-    overflow: hidden;
-    border-radius: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* le conteneur média prend toute la place */
-  html.theme-piscine .hero-piscine .hero-media{
-    position: absolute;
-    inset: 0;
-  }
-
-  /* l'image remplit le hero */
-  html.theme-piscine .hero-piscine .hero-media img{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 25%;
-    display: block;
-  }
-
-  html.theme-piscine .hero-piscine .hero-overlay{
-    position: absolute;
-    inset: 0;
-  }
-
-  html.theme-piscine .hero-piscine .hero-content{
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 22px 18px 28px;
-  }
-}
-/* ===== HEADER MOBILE COMPACT (page Piscines) ===== */
-@media (max-width:700px){
-
-  /* on réduit la hauteur globale du header */
-  html.theme-piscine header{
-    padding: 6px 0 !important;
-  }
-
-  /* topbar moins haute */
-  html.theme-piscine .topbar{
-    min-height: 0 !important;
-    padding: 6px 0 !important;
-    gap: 6px;
-    flex-direction: column;   /* logo au-dessus, menu dessous */
-    align-items: center;
-  }
-
-  /* logo plus petit */
-  html.theme-piscine header .brand img{
-    max-height: 54px !important;   /* ajuste: 48–60 */
-  }
-
-  /* menu en UNE ligne, plus compact */
-  html.theme-piscine nav{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;        /* empêche le retour à la ligne */
-    gap: 10px;
-  }
-
-  html.theme-piscine nav a{
-    padding: 6px 8px !important;
-    font-size: 15px;
-    white-space: nowrap;
-  }
-}
-.hero-urgency{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 12px;
-  border-radius:999px;
-  background: rgba(2,6,23,.55);
-  border: 1px solid rgba(212,175,55,.35);
-  color:#fff;
-  font-weight:650;
-  font-size:.92rem;
-  backdrop-filter: blur(8px);
-  width: fit-content;
-  max-width: 100%;
-}
-.hero-urgency .dot{
-  width:9px;height:9px;border-radius:50%;
-  background:#d4af37;
-  box-shadow: 0 0 0 4px rgba(212,175,55,.18);
-  flex:0 0 auto;
-}
-@media (max-width: 420px){
-  .hero-urgency{ font-size:.88rem; padding:9px 11px; }
-}
-.serenite-section{ padding: 18px 14px 6px; max-width:980px; margin:0 auto; }
-
-.serenite-card{
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 18px;
-  padding: 16px;
-  box-shadow: 0 18px 40px rgba(0,0,0,.30);
-  position: relative;
-  overflow: hidden;
-}
-.serenite-card:before{
-  content:"";
-  position:absolute; inset:0;
-  border-radius: 18px;
-  padding: 1px;
-  background: linear-gradient(135deg,
-    rgba(212,175,55,.35),
-    rgba(212,175,55,.08),
-    rgba(255,255,255,.08));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events:none;
-  opacity:.75;
-}
-
-.serenite-head h2{ margin:0 0 6px; font-size:1.35rem; color:#fff; }
-.serenite-sub{ margin:0 0 12px; color: rgba(255,255,255,.78); line-height:1.45; }
-
-.serenite-list{ margin:0; padding-left:18px; color: rgba(255,255,255,.88); }
-.serenite-list li{ margin:8px 0; line-height:1.35; }
-
-.serenite-note{
-  margin: 12px 0 12px;
-  color: rgba(255,255,255,.72);
-  font-size:.95rem;
-  line-height:1.45;
-}
-
-.serenite-cta{ display:flex; gap:10px; flex-wrap:wrap; }
-.serenite-cta a{ flex:1 1 220px; }
-
-/* ==========================
-   FIX: .hero-cta = conteneur (pas un bouton)
-   ========================== */
-.hero-content .hero-cta{
-  display:flex !important;
-  gap:10px !important;
-  flex-wrap:wrap !important;
-
-  background: transparent !important;
-  padding: 0 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-.hero-content .hero-cta a{
-  flex: 1 1 180px;
-}
-
-/* Sur mobile: 2 gros boutons bien lisibles */
-@media (max-width: 700px){
-  .hero-content .hero-cta a{
-    width: 100%;
-  }
-}
-/* ==========================
-   HERO: urgence en haut
-   ========================== */
-.hero-urgency{
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  right: 14px;
-  z-index: 3;
-}
-
-/* On garde le contenu principal en bas */
-.hero-content{
-  position:absolute;
-  left: 14px; right: 14px; bottom: 14px;
-  z-index: 2;
-}
-.hero h1{ margin: 0 0 10px; }
-.hero-price{ margin: 0 0 18px; }
-.hero-cta{ margin: 0 0 14px; }
-.hero-urgency{ margin: 0 0 16px; }  /* bandeau juste sous les boutons */
-.hero-proof{ margin-top: 0; opacity: .9; }
-@media (max-width: 768px){
-  .hero-content{
-    padding-top: 22px; /* remonte tout le bloc contenu */
-  }
-}
-
-
-</style>
- 
- <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YLJL7PN7V3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YLJL7PN7V3');
-  </script>
-  <!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1565202944499059');
-  fbq('track', 'PageView');
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1565202944499059&ev=PageView&noscript=1"
-  />
-</noscript>
-<!-- End Meta Pixel Code -->
-
+  <link rel="stylesheet" href="./piscines.css?v=1">
 </head>
-<body>
 
-<header>
-  <div class="topbar container">
-    <div class="brand">
-      <img src="./logo-amenagement-cropped.png" alt="LC Création">
-    </div>
-    <nav>
-      <a href="./index.html">Aménagements extérieurs</a>
-      <a href="./piscines.html" class="active">Piscines bois</a>
+<body class="pool-v2">
+
+<header class="lc-header">
+  <div class="lc-container lc-header-inner">
+    <a class="lc-brand" href="./index.html" aria-label="LC Création - Accueil">
+      <img src="./LC_Creation_Logo_Noir_WEB_1200.png" alt="LC Création SRL - Piscines et aménagements extérieurs">
+    </a>
+
+    <nav class="lc-nav" aria-label="Navigation principale">
+      <a class="active" href="./piscines.html">Piscines</a>
+      <a href="./index.html#amenagements">Aménagements</a>
+      <a href="./index.html#realisations">Réalisations</a>
       <a href="./contact.html">Contact</a>
+      <a class="nav-cta" href="./configurateur-piscine.html">Configurer ma piscine</a>
     </nav>
   </div>
 </header>
 
+<main>
 
+  <!-- HERO -->
+  <section class="pool-hero">
+    <div class="pool-hero-bg">
+      <img src="./piscines-hero.jpg" alt="Piscine bois LC Création">
+    </div>
+    <div class="pool-hero-shade"></div>
 
-<main class="page-piscines">
-
-   <!-- HERO DESKTOP (inchangé, masqué sur mobile par CSS) -->
-  <section class="piscines-hero">
-    <div class="piscines-hero-inner">
-      <h1>Votre piscine bois installée
-            prête pour l’été</h1>
-
-      <p>
-        Enterrées, semi-enterrées ou hors-sol — structures garanties 10 ans, fabrication européenne
-        et intégration paysagère signée LC Création.
+    <div class="lc-container pool-hero-content">
+      <p class="eyebrow">Piscines LC Création · Brabant Wallon</p>
+      <h1>Votre piscine.<br>Pensée de A à Z.</h1>
+      <p class="pool-hero-sub">
+        Terrassement, structure, filtration, chauffage, volet, finitions et mise en service :
+        un seul interlocuteur pour l’ensemble de votre projet.
       </p>
 
-      <p class="phrase-urgence">
-        <span><strong>Créneaux Printemps 2026 :</strong> Printemps SOLD OUT • <u>1 place en juin</u></span>
+      <div class="pool-actions">
+        <a class="btn btn-light" href="./configurateur-piscine.html">Configurer ma piscine</a>
+        <a class="btn btn-outline" href="#offre-6x3">Voir l’offre 6 × 3</a>
+      </div>
+
+      <p class="hero-micro">
+        En quelques étapes : dimensions, implantation, options et coordonnées du projet.
       </p>
     </div>
   </section>
 
-  <!-- HERO MOBILE (affiché uniquement sur smartphone) -->
-<section class="hero-piscine">
-  <div class="hero-media">
-    <img src="/heropiscine22.png"
-         alt="Piscine bois – Blanc minéral Signature LC Création"
-         loading="eager">
-    <div class="hero-overlay"></div>
-  </div>
+  <!-- 490 € / MOIS -->
+  <section class="pool-section finance-feature">
+    <div class="lc-container">
+      <div class="section-head center">
+        <p class="kicker">Budget maîtrisé</p>
+        <h2>Une piscine plus accessible qu’on ne l’imagine.</h2>
+        <p>Notre offre commerciale phare, pensée pour rendre le projet plus lisible dès le départ.</p>
+      </div>
 
-  <div class="hero-content">
-    
+      <div class="finance-poster">
+        <img src="./piscine-bois-490.png" alt="Piscine bois à partir de 490 euros par mois">
+      </div>
 
-    <h1>Décidez maintenant, profitez cet été</h1>
+      <div class="center finance-cta">
+        <a class="btn btn-dark" href="./contact.html">Étudier mon projet</a>
+        <p class="legal-note">
+          *Simulation indicative. Les conditions de financement, le TAEG, la mensualité et le coût total dépendent
+          de l’organisme prêteur et du profil de l’emprunteur.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <div class="hero-price">
-      <span>À partir de</span>
-      <strong>15 490€ TTC</strong>
+  <!-- OFFRE 6X3 -->
+  <section class="pool-offer" id="offre-6x3">
+    <div class="pool-offer-media">
+      <img src="./piscine-25900.png" alt="Piscine bois 6 x 3 m LC Création">
     </div>
 
-    <!-- CTA (si tu les as plus bas, garde-les ici idéalement) -->
-    <div class="hero-cta">
-     <a class="btn-primary" href="./configurateur-piscine.html">Configurer en 2 minutes</a>
-
-
-      <a class="btn-ghost" href="#finitions">Voir les finitions</a>
-    </div>
-<div class="hero-urgency" role="status" aria-live="polite">
-  <span class="dot"></span>
-  <span><strong>Créneaux Printemps 2026 :</strong> Printemps SOLD OUT • <u>1 place en juin</u></span>
-</div>
-
-    <div class="hero-proof">
-      <span>Brabant Wallon</span> • <span>Garantie 10 ans</span> • <span>Intégration maîtrisée</span>
-    </div>
-  </div>
-</section>
-<section class="serenite-section" id="serenite">
-  <div class="serenite-card">
-    <div class="serenite-head">
-      <h2>Pack Sérénité</h2>
-      <p class="serenite-sub">
-Un accompagnement avant, pendant et après la pose, pour une piscine simple à vivre et sereine dans le temps.
-</p>
-
-    </div>
-
-    <ul class="serenite-list">
-      <li><strong>Suivi planifié</strong> (mise au point + ajustements)</li>
-      <li><strong>Contrôle annuel</strong> (prévention & longévité)</li>
-      <li><strong>Sérénité 10 ans</strong> : accompagnement & conseils prioritaires</li>
-    </ul>
-
-    <div class="serenite-foot">
-      <p class="serenite-note">
-        <strong>Important :</strong> le Pack Sérénité est <u>une option</u> (non incluse par défaut).
-        On vous le chiffre clairement dans le devis selon votre configuration.
+    <div class="pool-offer-copy">
+      <p class="kicker">Offre 6 × 3</p>
+      <h2>La piscine autrement.</h2>
+      <p class="offer-intro">
+        Une piscine bois 6 × 3 m complète, installée et mise en service par LC Création.
       </p>
 
-      
-    </div>
-  </div>
-</section>
-
-<section class="projection-section">
-   <div class="projection-wrap">
-  <h2>Imaginez votre espace de vie extérieur</h2>
-
-  <div class="projection-items">
-    <div class="projection-item">
-      <h3>Un jardin qui devient un lieu de vie</h3>
-      <p>Un espace pensé pour se détendre, partager et profiter, du printemps à la fin de l’été.</p>
-    </div>
-
-    <div class="projection-item">
-      <h3>Une intégration élégante et durable</h3>
-      <p>Bois, lignes soignées, finitions personnalisées — la piscine s’intègre naturellement à votre extérieur.</p>
-    </div>
-
-    <div class="projection-item">
-      <h3>Un projet simple, maîtrisé de A à Z</h3>
-      <p>Un interlocuteur unique, un chantier propre et un résultat conforme à ce qui a été imaginé.</p>
-    </div>
-  </div>
-
-  <p class="projection-cta">
-    Choisissez ensuite le style et la formule qui correspondent à votre projet.
-  </p>
-  </div>  
-</section>
-
-    <section class="finish-section" id="finitions">
-  <div class="finish-head">
-    <h2>Choisissez votre style</h2>
-    <p>Nos finitions s’adaptent à toutes nos formules — Essentiel, Confort ou Luxe.</p>
-  </div>
-
-  <div class="finish-card">
-    <div class="finish-preview">
-      <img id="finishPreviewImg"
-           src="/01-bois-naturel.png"
-           alt="Bois naturel"
-           loading="lazy">
-      <div class="finish-badge" id="finishBadge">Bois naturel</div>
-    </div>
-
-    <div class="finish-pills" role="tablist" aria-label="Finitions">
-      <button class="pill is-active" type="button" data-finish="bois" data-img="/01-bois-naturel.png">Bois naturel</button>
-      <button class="pill" type="button" data-finish="blanc" data-img="/02-blanc-mineral-signature.png">Blanc minéral</button>
-      <button class="pill" type="button" data-finish="gris" data-img="/03-gris-clair-architectural-signature.png">Gris clair</button>
-      <button class="pill" type="button" data-finish="anthra" data-img="/04-anthracite-signature.png">Anthracite</button>
-    </div>
-
-    <div class="finish-note" id="finishNote">
-      <strong>Bois naturel :</strong> chaleureux, intemporel, parfaitement intégré au jardin.
-    </div>
-  </div>
-</section>
-
-<section class="sizes-section" id="tailles">
- <div class="sizes-head sizes-head--center">
-  <h2>Choisissez le format de votre piscine</h2>
-  <p>3 formats, 3 usages. Sélectionnez une taille et comparez nos modèles.</p>
-</div>
-
-  <div class="sizes-table" role="list">
-
-    <button class="size-row is-active" type="button" data-size="S" role="listitem">
-      <div class="size-main">
-        <div class="size-dim">5 × 3,2</div>
-        <div class="size-tag">Compact</div>
+      <div class="offer-price">
+        <small>Prix de l’offre</small>
+        25 900 € TVAC
       </div>
-      <div class="size-desc">Idéale petits jardins. Belle intégration, budget maîtrisé.</div>
-      <div class="size-cta">Choisir →</div>
-    </button>
 
-    <button class="size-row" type="button" data-size="M" role="listitem">
-      <div class="size-main">
-        <div class="size-dim">6 × 4,2</div>
-        <div class="size-tag gold">Famille</div>
+      <div class="offer-includes">
+        <div><span>01</span><strong>Terrassement</strong></div>
+        <div><span>02</span><strong>Structure bois</strong></div>
+        <div><span>03</span><strong>Filtration complète</strong></div>
+        <div><span>04</span><strong>Pompe à chaleur</strong></div>
+        <div><span>05</span><strong>Volet</strong></div>
+        <div><span>06</span><strong>Pose & mise en service</strong></div>
       </div>
-      <div class="size-desc">Le format le plus demandé : confort de baignade + jeux.</div>
-      <div class="size-cta">Choisir →</div>
-    </button>
 
-    <button class="size-row" type="button" data-size="L" role="listitem">
-      <div class="size-main">
-        <div class="size-dim">8,35 × 4,90</div>
-        <div class="size-tag">Grand confort</div>
-      </div>
-      <div class="size-desc">Plus d’espace, nage & détente. Rendu premium “waouh”.</div>
-      <div class="size-cta">Choisir →</div>
-    </button>
-
-  </div>
-
-  <!-- Ta note “pose” va parfaitement ici -->
-  <p class="formule-note">
-    Prix indicatifs en pose hors-sol. Pose semi-enterrée : +10% (hors évacuation). Pose enterrée : +20% (hors évacuation).
-    Évacuation chiffrée selon le terrain (m³). Devis final après visite sur place.
-  </p>
-</section>
-
- 
-<!-- FORMULES / COLLECTIONS -->
-<section class="piscines-section piscines-formules showroom" id="collections">
-
-  <div class="piscines-section-header">
-  <h2>Nos modèles</h2>
-  <p>
-    Trois niveaux de confort, un rendu haut de gamme. Tous nos modèles existent en hors-sol, semi-enterré ou enterré.
-  </p>
-</div>
-<section style="background:#111; padding:60px 20px; text-align:center; color:#fff;">
-
-  <div style="max-width:1000px; margin:auto;">
-
-    <h2 style="font-size:32px; margin-bottom:10px;">
-      Piscine Bali – Signature LC Création
-    </h2>
-
-    <p style="font-size:18px; opacity:0.85; margin-bottom:30px;">
-      Un espace inspiré des plus belles villas balinaises.<br>
-      Ambiance complète, prête à vivre.
-    </p>
-
-    <!-- IMAGE -->
-    <img src="balipub.png" 
-         alt="Piscine Bali LC Création" 
-         style="width:100%; border-radius:10px; margin-bottom:30px;">
-
-    <!-- TEXTE -->
-    <p style="font-size:16px; max-width:700px; margin:auto; margin-bottom:20px; line-height:1.6;">
-      Bois naturel, liner effet pierre de Bali, végétation dense et éclairage chaud.<br>
-      Un concept unique pour transformer votre jardin en véritable lieu de vie.
-    </p>
-
-    <!-- PRIX -->
-    <p style="font-size:22px; margin-bottom:5px;">
-      À partir de 29 990€ TVAC
-    </p>
-
-    <p style="font-size:14px; opacity:0.7; margin-bottom:30px;">
-      Base 6 x 3 m – entièrement équipée
-    </p>
-
-    <!-- RARETE -->
-    <p style="font-size:14px; color:#c8a96a; margin-bottom:30px;">
-      6 réalisations disponibles – été 2026
-    </p>
-
-    <!-- BOUTON -->
-    <a href="/piscine-bali.html" 
-       style="display:inline-block; padding:15px 35px; background:#c8a96a; color:#000; font-weight:bold; text-decoration:none; border-radius:6px;">
-      Découvrir la version Bali
-    </a>
-
-  </div>
-
-</section>
-<section class="urb-section" id="urbainecarte">
-  <article class="pack-card pack-card--urb">
-    <div class="urb-media">
-      <img src="/urbainecarte.jpg"
-           alt="Piscine Urbaine — LC Création"
-           loading="lazy">
-      <div class="urb-badge">Piscine Urbaine</div>
+      <a class="btn btn-green" href="./contact.html">Recevoir une étude pour mon terrain</a>
     </div>
+  </section>
 
-    <header class="pack-head">
+  <!-- CONFIGURATEUR -->
+  <section class="config-band">
+    <div class="lc-container config-band-inner">
       <div>
-        <h3>Urbaine</h3>
-        <p class="pack-intent">Format compact à partir de 11900 TTC — idéale petits jardins & projets urbains.</p>
+        <p class="kicker">Votre projet en quelques minutes</p>
+        <h2>Vous avez déjà une idée du bassin ? Configurez-la.</h2>
+        <p>
+          Indiquez la taille souhaitée, le type d’implantation et les principales options.
+          Cela nous permet de revenir vers vous avec une première orientation plus précise.
+        </p>
       </div>
-      <div class="pack-tag pack-tag--gold">Compact</div>
-    </header>
 
-    <ul class="pack-highlights">
-      <li>Optimisée pour les espaces contraints 10m²</li>
-      <li>Finitions au choix (dont Signature Blanc minéral)</li>
-      <li>Étude rapide : faisabilité, accès chantier, options</li>
-    </ul>
-
-    <details class="pack-details">
-      <summary>Voir les options</summary>
-      <div class="pack-body">
-        <p><strong>Pose :</strong> enterrée / semi-enterrée / hors sol</p>
-        <p><strong>Évacuation :</strong> selon configuration</p>
-        <p>On valide ensemble l’implantation et les options utiles avant devis.</p>
+      <div class="config-band-cta">
+        <a class="btn btn-green btn-config-main" href="./configurateur-piscine.html">
+          Configurer ma piscine
+        </a>
+        <span>Rapide · sans engagement</span>
       </div>
-    </details>
-
-    <div class="pack-cta">
-      <a class="btn-primary" href="/configurateur-piscine.html#urbaine">Demander une estimation Urbaine</a>
-      <a class="btn-ghost" href="/configurateur-piscine.html">Configurer une piscine</a>
     </div>
-  </article>
-</section>
+  </section>
 
+  <!-- PROCESS -->
+  <section class="pool-section dark" id="process">
+    <div class="lc-container">
+      <div class="section-head">
+        <p class="kicker">Le chantier</p>
+        <h2>Comment se construit votre piscine.</h2>
+        <p>
+          Nous vous montrons ce qui se passe réellement entre le premier traçage et la première baignade.
+        </p>
+      </div>
 
+      <div class="timeline">
 
-  <!-- FICHES -->
- <div class="formules-grid formules-grid--auto">
+        <article class="step">
+          <div class="step-num">01</div>
+          <div class="step-copy">
+            <h3>Implantation & terrassement</h3>
+            <p>Le projet commence par l’implantation du bassin, la vérification des accès et l’ouverture du terrain aux dimensions prévues.</p>
+          </div>
+          <div class="step-photo"><img src="./etape-01-terrain.jpg" alt="Implantation d'une piscine LC Création"></div>
+        </article>
 
-  <!-- ESSENTIEL -->
-  <article class="formule-card formule-card--auto" data-pack="essentiel">
-  <h3 class="formule-title-top">Essentiel</h3>
-  <p class="formule-intent">La base premium : simple, propre, durable.</p>
+        <article class="step">
+          <div class="step-num">02</div>
+          <div class="step-copy">
+            <h3>Support & structure</h3>
+            <p>Après préparation du support, la structure bois est assemblée, mise à niveau et contrôlée avant la préparation intérieure.</p>
+          </div>
+          <div class="step-photo"><img src="./etape-02-structure.jpg" alt="Terrassement piscine LC Création"></div>
+        </article>
 
-  <div class="formule-media">
-    <img class="formule-img" src="/01-bois-naturel.png" alt="Piscine bois Essentiel — finitions au choix">
-    <div class="formule-badges">
-      <span class="formule-badge">Accès à la gamme</span>
+        <article class="step">
+          <div class="step-num">03</div>
+          <div class="step-copy">
+            <h3>Protection intérieure</h3>
+            <p>Le bassin reçoit son feutre de protection sur le fond, les parois et les marches avant la pose du liner.</p>
+          </div>
+          <div class="step-photo"><img src="./etape-03-feutre.jpg" alt="Préparation et drainage piscine"></div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">04</div>
+          <div class="step-copy">
+            <h3>Liner & mise en eau</h3>
+            <p>Le liner est posé, ajusté puis le remplissage commence progressivement pour mettre le revêtement en place correctement.</p>
+          </div>
+          <div class="step-photo"><img src="./etape-04-liner.jpg" alt="Montage structure bois piscine"></div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">05</div>
+          <div class="step-copy">
+            <h3>Local technique & réglages</h3>
+            <p>Pompe, filtre, vannes et équipements sont raccordés et organisés pour rester accessibles lors de l’entretien.</p>
+          </div>
+          <div class="step-photo"><img src="./etape-05-local-technique.jpg" alt="Hydraulique piscine LC Création"></div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">06</div>
+          <div class="step-copy">
+            <h3>Mise en service & écolage</h3>
+            <p>Une fois l’installation opérationnelle, nous expliquons au client la filtration, les vannes, le traitement et les réglages utiles au quotidien.</p>
+          </div>
+          <div class="step-photo"><img src="./etape-06-ecolage.jpg" alt="Pose liner piscine"></div>
+        </article>
+
+        <article class="step">
+          <div class="step-num">07</div>
+          <div class="step-copy">
+            <h3>Finitions & détails</h3>
+            <p>Habillage, margelles, volet et détails de finition viennent terminer l’intégration de la piscine dans son environnement.</p>
+          </div>
+          <div class="step-photo"><img src="./etape-07-finition.jpg" alt="Finitions piscine LC Création"></div>
+        </article>
+
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="formule-body">
-    <div class="pack-includes">
-      <h4>Inclus</h4>
-      <ul>
-        <li>éclairage LED</li>
-        <li>Filtration complète adaptée</li>
-        <li>Pompe à vitesse variable</li>
-        <li>Baches d'été avec enrouleur</li>
-        <li>Mise en service & explications</li>
-        <li>Finition au choix (voir “Style”)</li>
-      </ul>
-    </div>
+  <!-- STRUCTURE / BOIS -->
+  <section class="pool-section">
+    <div class="lc-container split-tech">
+      <div>
+        <p class="kicker">Structure bois</p>
+        <h2>Le bois n’est pas simplement enterré dans la terre.</h2>
+        <p class="tech-lead">
+          La durabilité d’une piscine bois dépend autant de sa structure que de la façon dont elle est intégrée au terrain.
+        </p>
 
-    <p class="pack-for"><strong>Idéal si :</strong> vous voulez une piscine haut de gamme, simple et efficace.</p>
-
-    <div class="pack-cta">
-      <a class="btn-primary" href="./configurateur-piscine.html#essentiel">Configurer Essentiel</a>
-      <a class="btn-ghost" href="#serenite">Ajouter du suivi (Pack Sérénité)</a>
-    </div>
-
-    <p class="pack-proof">Pose propre • Planning clair • Interlocuteur unique</p>
-  </div>
-</article>
-
-  <!-- CONFORT -->
-  <article class="formule-card formule-card--auto" data-pack="confort">
-  <h3 class="formule-title-top">Confort</h3>
-  <p class="formule-intent">Le meilleur équilibre : plus d’équipement, plus d’usage.</p>
-
-  <div class="formule-media">
-    <img class="formule-img" src="/04-anthracite-signature.png" alt="Piscine bois Confort — finitions au choix">
-    <div class="formule-badges">
-      <span class="formule-badge formule-badge-highlight">Best-seller</span>
-    </div>
-  </div>
-
-  <div class="formule-body">
-    <div class="pack-includes">
-      <h4>Inclus</h4>
-      <ul>
-        <li>Tout Essentiel</li>
-        <li>Éclairage LED (ambiance soirée)</li>
-        <li>Volet a lame pvc manuel</li>
-        <li>Pompe à chaleur</li>
-        <li>Margelles en bois exotique</li>
-        <li>Finition au choix (voir “Style”)</li>
-      </ul>
-    </div>
-
-    <p class="pack-for"><strong>Idéal si :</strong> vous voulez profiter souvent, avec un confort immédiat.</p>
-
-    <div class="pack-cta">
-      <a class="btn-primary" href="./configurateur-piscine.html#confort">Configurer Confort</a>
-      <a class="btn-ghost" href="#options">Voir les options</a>
-    </div>
-
-    <p class="pack-proof">Best value • Pose propre • Planning clair</p>
-  </div>
-</article>
-
-
-  <!-- LUXE -->
- <article class="formule-card formule-card--auto" data-pack="luxe">
-  <h3 class="formule-title-top">Luxe</h3>
-  <p class="formule-intent">L’expérience complète : rendu “waouh” + confort premium.</p>
-
-  <div class="formule-media">
-    <img class="formule-img" src="/02-blanc-mineral-signature.png" alt="Piscine bois Luxe — Blanc minéral Signature">
-    <div class="formule-badges">
-      <span class="formule-badge">Expérience luxe</span>
-    </div>
-  </div>
-
-  <div class="formule-body">
-    <div class="pack-includes">
-      <h4>Inclus</h4>
-      <ul>
-        <li>Tout Confort</li>
-        <li>Pompe à chaleur</li>
-        <li>Pompe doseuse</li>
-        <li>Finitions Signature possibles (ex : Blanc minéral)</li>
-        <li>Volet à lame polycarbonnate motorisé</li>
-        <li> Pack Sérénité inclus </li>
-      </ul>
-    </div>
-
-    <p class="pack-for"><strong>Idéal si :</strong> vous voulez le maximum de confort et un rendu haut de gamme.</p>
-
-    <div class="pack-cta">
-      <a class="btn-primary" href="./configurateur-piscine.html#luxe">Configurer Luxe</a>
-      <a class="btn-ghost" href="#finitions">Voir les finitions</a>
-    </div>
-
-    <p class="pack-proof">Rendu premium • Options sélectionnées • Suivi possible</p>
-  </div>
-</article>
-
-<section class="packs-compare" aria-label="Comparer les formules">
-  <div class="compare-card">
-    <h3>Comparer en 10 secondes</h3>
-
-    <ul class="compare-list">
-      <li><strong>Essentiel</strong> — pour démarrer : simple, durable, efficace.</li>
-      <li><strong>Confort</strong> — <span class="gold">best value</span> : plus d’équipement, meilleur équilibre.</li>
-      <li><strong>Luxe</strong> — premium : options + confort maximal, rendu “waouh”.</li>
-    </ul>
-
-    <p class="compare-note">Les finitions (Bois / Blanc minéral / Gris / Anthracite) se choisissent dans “Style”.</p>
-  </div>
-</section>
-
-
-  <!-- GROS BOUTON CONFIGURATEUR -->
-  <div class="piscines-config-cta">
-    <a href="./configurateur-piscine.html" class="btn-config">
-      Configurer ma piscine en 2 minutes
-    </a>
-  </div>
-  <div class="cta-proof">
-  <div>✅ Pose propre & planning clair</div>
-  <div>✅ Interlocuteur unique</div>
-  <div>✅ Garantie structure 8 ans</div>
-</div>
-
-
-    </div>
-  </div>
-<section class="pano-break">
-  <div class="pano-overlay">
-    <p>Un extérieur qui se vit aussi le soir.</p>
-  </div>
-</section>
-
-
-
-</section>
-<section class="piscines-section options-premium" id="options">
-  <h2>Options & finitions possibles</h2>
-  <p class="options-sub">Des options utiles, choisies pour le confort, la durabilité et l’esthétique. On vous conseille selon votre terrain et votre usage.</p>
-
-  <div class="options-grid">
-
-    <!-- 1) Esthétique & intégration -->
-    <article class="opt-card">
-      <h3>Esthétique & intégration</h3>
-      <ul>
-        <li>Finitions au choix (Bois, Blanc minéral, Gris, Anthracite)</li>
-        <li>Margelles / plages / habillage selon votre extérieur</li>
-        <li>Intégration paysagère (niveau, accès, visuels)</li>
-      </ul>
-
-      <details class="opt-more">
-        <summary>Voir plus</summary>
-        <div class="opt-body">
-          <ul>
-            <li>Exemples : peinture Signature LC Création, éclairage d’ambiance…</li>
-            <li>Coordination terrasse/pavage et zones de circulation</li>
-          </ul>
+        <div class="tech-points">
+          <div><strong>Drainage</strong><span>Gestion de l’eau autour du bassin selon le terrain.</span></div>
+          <div><strong>Protection périphérique</strong><span>Séparation entre la structure et les terres.</span></div>
+          <div><strong>Préparation du support</strong><span>Base stable et niveaux contrôlés avant montage.</span></div>
+          <div><strong>Contrôle des finitions</strong><span>Les zones visibles et les interfaces avec la terrasse sont traitées comme un ensemble.</span></div>
         </div>
-      </details>
-    </article>
+      </div>
 
-    <!-- 2) Confort d’usage -->
-    <article class="opt-card">
-      <h3>Confort d’usage</h3>
-      <ul>
-        <li>Éclairage LED (blanc / options selon pack)</li>
-        <li>Robot (selon pack / option)</li>
-        <li>Chauffage : pompe à chaleur</li>
-      </ul>
+      <div class="tech-photo">
+        <img src="./structure-bois-detail.jpg" alt="Détail de structure bois piscine LC Création">
+      </div>
+    </div>
+  </section>
 
-      <details class="opt-more">
-        <summary>Voir plus</summary>
-        <div class="opt-body">
-          <ul>
-            <li>Nage à contre-courant (si compatible)</li>
-            <li>Douche extérieure / zone détente</li>
-          </ul>
+  <!-- IMPLANTATION -->
+  <section class="pool-section off">
+    <div class="lc-container">
+      <div class="section-head center">
+        <p class="kicker">Implantation</p>
+        <h2>Hors-sol, semi-enterrée ou enterrée.</h2>
+        <p>Le bon choix dépend du terrain, de l’esthétique recherchée et du niveau des espaces existants.</p>
+      </div>
+
+      <div class="compare-grid">
+        <article>
+          <span>01</span>
+          <h3>Hors-sol</h3>
+          <p>Une solution simple lorsque le terrain et le projet s’y prêtent, avec une structure visible valorisée par l’habillage.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Semi-enterrée</h3>
+          <p>Très intéressante pour absorber une différence de niveau ou créer une piscine qui accompagne naturellement la pente.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Enterrée</h3>
+          <p>Pour une intégration maximale avec terrasse et jardin, avec une attention particulière portée au drainage et aux protections.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINITIONS -->
+  <section class="pool-section dark" id="finitions">
+    <div class="lc-container">
+      <div class="section-head center">
+        <p class="kicker">Finitions visibles</p>
+        <h2>Même structure. Trois ambiances très différentes.</h2>
+        <p>Les parties visibles peuvent être adaptées à l’architecture de la maison et au style du jardin.</p>
+      </div>
+
+      <div class="finish-grid">
+        <article class="finish-card">
+          <img src="./finition-bois.jpg" alt="Piscine avec bardage bois">
+          <div class="finish-copy">
+            <span>01</span>
+            <h3>Bardage bois</h3>
+            <p>Chaleureux, naturel et parfaitement cohérent avec une terrasse ou un jardin paysager.</p>
+          </div>
+        </article>
+
+        <article class="finish-card">
+          <img src="./finition-pierre-beige.jpg" alt="Piscine avec finition pierre beige">
+          <div class="finish-copy">
+            <span>02</span>
+            <h3>Pierre beige</h3>
+            <p>Un rendu lumineux et minéral, particulièrement adapté aux ambiances méditerranéennes.</p>
+          </div>
+        </article>
+
+        <article class="finish-card">
+          <img src="./finition-pierre-grise.jpg" alt="Piscine avec finition pierre grise">
+          <div class="finish-copy">
+            <span>03</span>
+            <h3>Pierre grise</h3>
+            <p>Plus contemporaine et graphique, idéale avec des liners gris et des terrasses modernes.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL TECHNIQUE -->
+  <section class="pool-section">
+    <div class="lc-container">
+      <div class="section-head">
+        <p class="kicker">Local technique</p>
+        <h2>Le local technique s’adapte au projet.</h2>
+        <p>
+          Il n’existe pas une seule bonne solution : l’implantation dépend de la distance au bassin, de l’espace disponible,
+          de l’accès pour l’entretien et de l’intégration souhaitée.
+        </p>
+      </div>
+
+      <div class="technical-grid">
+        <article>
+          <div class="tech-card-photo"><img src="./local-technique-lc.jpg" alt="Local technique fourni par LC Création"></div>
+          <span>01</span>
+          <h3>Solution fournie par LC Création</h3>
+          <p>Une solution organisée pour recevoir la filtration et les équipements prévus au devis.</p>
+        </article>
+
+        <article>
+          <div class="tech-card-photo"><img src="./local-technique-deporte.jpg" alt="Local technique déporté piscine"></div>
+          <span>02</span>
+          <h3>Local déporté</h3>
+          <p>Garage, annexe ou local existant lorsque l’implantation hydraulique et l’accès le permettent.</p>
+        </article>
+
+        <article>
+          <div class="tech-card-photo"><img src="./local-technique-client.jpg" alt="Local technique réalisé par le client"></div>
+          <span>03</span>
+          <h3>Local préparé par le client</h3>
+          <p>Possible lorsque les dimensions, ventilations, alimentations et accès nécessaires sont validés avant le chantier.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPEMENTS -->
+  <section class="pool-section off">
+    <div class="lc-container">
+      <div class="section-head center">
+        <p class="kicker">Équipements</p>
+        <h2>Ce qui fait fonctionner votre piscine au quotidien.</h2>
+      </div>
+
+      <div class="equipment-grid">
+        <article>
+          <span>01</span>
+          <h3>Filtration</h3>
+          <p>Dimensionnée selon le bassin et organisée pour rester accessible lors de l’entretien.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Pompe à chaleur</h3>
+          <p>Pour prolonger la saison et maintenir une température plus confortable lorsque les conditions le permettent.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Volet</h3>
+          <p>Protection du bassin, limitation des pertes thermiques et confort d’utilisation selon la configuration choisie.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Éclairage</h3>
+          <p>Pour profiter du bassin en soirée et mettre en valeur l’intégration dans le jardin.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONFORT DU BASSIN -->
+  <section class="pool-section off">
+    <div class="lc-container split-tech comfort-block">
+      <div class="tech-photo comfort-photo">
+        <img src="./marches-integrees.jpg" alt="Marches intégrées dans une piscine LC Création">
+      </div>
+
+      <div>
+        <p class="kicker">Confort du bassin</p>
+        <h2>Des marches intégrées, pas une échelle ajoutée après coup.</h2>
+        <p class="tech-lead">
+          Selon le projet, l’accès peut être intégré directement dans le bassin pour offrir une entrée plus naturelle,
+          plus confortable et visuellement plus cohérente.
+        </p>
+
+        <div class="tech-points">
+          <div><strong>Escalier intégré</strong><span>Accès confortable et directement intégré au volume du bassin.</span></div>
+          <div><strong>Largeur adaptée</strong><span>Les marches peuvent être pensées selon l’espace disponible et l’usage recherché.</span></div>
+          <div><strong>Rendu propre sous l’eau</strong><span>Le liner épouse les formes et conserve une continuité visuelle avec le bassin.</span></div>
         </div>
-      </details>
-    </article>
-
-    <!-- 3) Traitement & entretien -->
-    <article class="opt-card">
-      <h3>Traitement & entretien</h3>
-      <ul>
-        <li>Filtration adaptée (sable / vitesse variable)</li>
-        <li>Traitement : pompe doseuse / sel (selon projet)</li>
-        <li>Accès maintenance simplifié</li>
-      </ul>
-
-      <details class="opt-more">
-        <summary>Voir plus</summary>
-        <div class="opt-body">
-          <ul>
-            <li>Optimisation implantation local technique</li>
-            <li>Conseils d’entretien + produits recommandés</li>
-          </ul>
-        </div>
-      </details>
-    </article>
-
-    <!-- 4) Couvertures & sécurité -->
-    <article class="opt-card">
-      <h3>Couvertures & sécurité</h3>
-      <ul>
-        <li>Bâche / couverture selon usage</li>
-        <li>Sécurisation accès (selon configuration)</li>
-        <li>Conseil conformité & solutions fiables</li>
-      </ul>
-
-      <details class="opt-more">
-        <summary>Voir plus</summary>
-        <div class="opt-body">
-          <ul>
-            <li>Volet (si compatible) / solutions sur mesure</li>
-            <li>Barrière / garde-corps selon environnement</li>
-          </ul>
-        </div>
-      </details>
-    </article>
-
-  </div>
-
-  <div class="options-cta">
-    <p>Vous hésitez ? On vous conseille selon votre terrain, votre budget et votre usage.</p>
-    <a class="btn-ghost" href="#contact">Parler de mon projet</a>
-  </div>
-</section>
- <div class="projection-items">
-    <div class="projection-item">
-      <h3>Un jardin qui devient un lieu de vie</h3>
-      <p>Un espace pensé pour se détendre, partager et profiter, du printemps à la fin de l’été.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="projection-item">
-      <h3>Une intégration élégante et durable</h3>
-      <p>Bois, lignes soignées, finitions personnalisées — la piscine s’intègre naturellement à votre extérieur.</p>
+  <!-- ECOLAGE -->
+  <section class="training">
+    <div class="training-bg">
+      <img src="./ecolage-piscine.jpg" alt="Explications et mise en service piscine LC Création">
     </div>
+    <div class="training-shade"></div>
+    <div class="lc-container training-content">
+      <p class="kicker">Mise en service & écolage</p>
+      <h2>Vous ne repartez pas avec une piscine que vous ne savez pas utiliser.</h2>
+      <p>
+        À la mise en service, nous vous expliquons le fonctionnement du bassin et les gestes utiles pour être autonome.
+      </p>
 
-    <div class="projection-item">
-      <h3>Un projet simple, maîtrisé de A à Z</h3>
-      <p>Un interlocuteur unique, un chantier propre et un résultat conforme à ce qui a été imaginé.</p>
+      <div class="training-list">
+        <span>Filtration & vannes</span>
+        <span>Traitement de l’eau</span>
+        <span>Pompe à chaleur</span>
+        <span>Volet</span>
+        <span>Nettoyage</span>
+        <span>Hivernage & remise en route</span>
+      </div>
     </div>
-  </div>
-<section class="piscines-section piscines-cta-projet" id="bloc-devis-piscine">
-  <div class="cta-projet-card">
-    <h2>Parlons de votre projet</h2>
-    <p>Terrain, implantation, finitions et budget — on vous conseille et on vous répond rapidement.</p>
+  </section>
 
-    <div class="cta-actions">
-      <a href="/contact.html" class="btn-primary">Demander un devis</a>
-      <a href="tel:+32474693800" class="btn-ghost">Appeler : 0474 / 69 38 00</a>
+  <!-- AVANT / APRÈS -->
+  <section class="pool-section">
+    <div class="lc-container">
+      <div class="section-head">
+        <p class="kicker">Transformation</p>
+        <h2>Du terrain à la baignade.</h2>
+        <p>Un chantier complet, du terrassement à la mise en eau.</p>
+      </div>
+
+      <div class="before-after">
+        <figure>
+          <img src="./avant-piscine-page.jpg" alt="Terrain avant construction d'une piscine LC Création">
+          <figcaption>Avant</figcaption>
+        </figure>
+        <figure>
+          <img src="./apres-piscine-page.jpg" alt="Piscine terminée par LC Création">
+          <figcaption>Après</figcaption>
+        </figure>
+      </div>
     </div>
+  </section>
 
-    <div class="cta-proof">
-      <span>✅ Réponse rapide</span>
-      <span>✅ Conseils personnalisés</span>
-      <span>✅ Chantier propre</span>
+  <!-- ENTRETIEN -->
+  <section class="pool-section dark">
+    <div class="lc-container split-copy">
+      <div>
+        <p class="kicker">Après le chantier</p>
+        <h2>Une piscine doit rester simple à vivre.</h2>
+      </div>
+      <div>
+        <p>
+          Nous expliquons les opérations courantes dès la mise en service : filtration, eau, nettoyage, couverture,
+          hivernage et remise en route. L’objectif est que vous compreniez votre installation plutôt que de dépendre
+          d’un technicien pour chaque réglage.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- FAQ -->
+  <section class="pool-section off">
+    <div class="lc-container">
+      <div class="section-head">
+        <p class="kicker">Questions fréquentes</p>
+        <h2>Les questions qu’on nous pose avant de signer.</h2>
+      </div>
 
-<section class="piscines-section trust-section" id="process">
-  <h2>Un projet simple, maîtrisé de A à Z</h2>
-  <p class="trust-sub">Vous savez où vous allez, ce qui est inclus, et comment se passe le chantier.</p>
+      <div class="faq-list">
+        <details>
+          <summary>Une piscine bois peut-elle être enterrée ?</summary>
+          <p>Oui, selon la structure, le terrain et les protections prévues. L’intégration enterrée demande notamment une bonne gestion du drainage et des interfaces avec les terres.</p>
+        </details>
 
-  <div class="trust-grid">
-    <article class="trust-card">
-      <h3>1) Visite & conseil</h3>
-      <p>On valide le terrain, l’implantation, les accès et les options utiles. Vous repartez avec une vision claire.</p>
-    </article>
+        <details>
+          <summary>Le bois demande-t-il beaucoup d’entretien ?</summary>
+          <p>L’entretien dépend surtout des parties visibles et de la finition choisie. Les zones non visibles sont traitées dans la conception de l’intégration au terrain.</p>
+        </details>
 
-    <article class="trust-card">
-      <h3>2) Pose propre</h3>
-      <p>Planning annoncé, chantier propre, finitions soignées. Intégration paysagère maîtrisée.</p>
-    </article>
+        <details>
+          <summary>Puis-je réaliser moi-même le terrassement ou le local technique ?</summary>
+          <p>Oui dans certains projets, à condition de valider les dimensions, niveaux, accès et exigences techniques avant le début de notre intervention.</p>
+        </details>
 
-    <article class="trust-card">
-      <h3>3) Mise en service & suivi</h3>
-      <p>On vous explique l’entretien, on vérifie le fonctionnement, et on reste disponible.</p>
-    </article>
-  </div>
+        <details>
+          <summary>Combien de temps dure un chantier ?</summary>
+          <p>La durée varie avec l’accès, le terrassement, la configuration et les finitions. Le planning est précisé dans le cadre de l’étude du projet.</p>
+        </details>
 
-  <div class="trust-badges">
-    <div class="trust-badge">✅ Garantie structure 8 ans</div>
-    <div class="trust-badge">✅ Options premium sélectionnées</div>
-    <div class="trust-badge">✅ Brabant Wallon & environs</div>
-  </div>
-</section>
+        <details>
+          <summary>Que se passe-t-il après la mise en service ?</summary>
+          <p>Nous vous expliquons le fonctionnement de l’installation et les opérations d’entretien essentielles afin que vous puissiez utiliser le bassin en autonomie.</p>
+        </details>
+      </div>
+    </div>
+  </section>
 
-
-
+  <!-- CTA FINAL -->
+  <section class="pool-final">
+    <div class="lc-container pool-final-inner">
+      <p class="kicker">Votre projet</p>
+      <h2>Votre terrain.<br>Votre piscine.</h2>
+      <p>
+        Envoyez-nous les grandes lignes du projet. Nous vous orientons vers la configuration la plus cohérente
+        avec votre terrain, vos attentes et votre budget.
+      </p>
+      <div class="pool-actions">
+        <a class="btn btn-light" href="./configurateur-piscine.html">Configurer ma piscine</a>
+        <a class="btn btn-outline" href="./contact.html">Demander une étude</a>
+        <a class="btn btn-outline" href="tel:0474693800">0474 / 69.38.00</a>
+      </div>
+    </div>
+  </section>
 
 </main>
-<script>
-document.addEventListener('click', (e) => {
-  const pill = e.target.closest('.pill');
-  if (!pill) return;
 
-  // ✅ Ne gérer ici QUE les pills qui sont dans les cartes packs
-  const card = pill.closest('.formule-card--auto');
-  if (!card) return; // <-- IMPORTANT : évite de casser les pills de #finitions
+<footer class="lc-footer">
+  <div class="lc-container footer-inner">
+    <div>© LC Création SRL · 0474 / 69.38.00</div>
+    <div>Brabant Wallon & Bruxelles · Piscines & aménagements extérieurs</div>
+  </div>
+</footer>
 
-  const img = card.querySelector('.formule-img');
-  const src = pill.getAttribute('data-img');
-
-  card.querySelectorAll('.pill').forEach(p => p.classList.remove('is-active'));
-  pill.classList.add('is-active');
-
-  if (src && img) img.src = src;
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-
-  const pills = document.querySelectorAll('#finitions .pill');
-  const img = document.getElementById('finishPreviewImg');
-  const badge = document.getElementById('finishBadge');
-  const note = document.getElementById('finishNote');
-
-  if(!pills.length || !img) return;
-
-  const notes = {
-    bois:  "<strong>Bois naturel :</strong> chaleureux, intemporel, parfaitement intégré au jardin.",
-    blanc: "<strong>Signature LC Création :</strong> Blanc minéral — rendu architectural & lumineux.",
-    gris:  "<strong>Gris clair :</strong> look contemporain, très design et facile à harmoniser.",
-    anthra:"<strong>Anthracite :</strong> contraste premium, moderne, effet haut de gamme."
-  };
-
-  pills.forEach(btn => {
-    btn.addEventListener('click', function(){
-
-      pills.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-
-      const src = btn.getAttribute('data-img');
-      const label = btn.textContent.trim();
-      const key = btn.dataset.finish;
-
-      if(src){
-        img.src = src;
-        img.alt = label;
-      }
-
-      if(badge) badge.textContent = label;
-      if(note && notes[key]) note.innerHTML = notes[key];
-    });
-  });
-
-});
-</script>
-
+</body>
+</html>
 
