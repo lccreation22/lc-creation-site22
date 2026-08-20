@@ -34,31 +34,31 @@ body.pool-v2{
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .pool-v2 .lc-header-inner{
-  min-height:108px;
+  min-height:148px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:28px;
+  gap:40px;
 }
-
 .pool-v2 .lc-brand{
-  flex:0 0 400px;
-  width:400px;
-  max-width:44vw;
+  flex:0 0 560px;
+  width:560px;
+  max-width:53vw;
 }
-
-.pool-v2 .lc-brand img{
-  width:100%;
-  height:auto;
-  object-fit:contain;
-}
-
+.pool-v2 .lc-brand img{width:100%;height:auto}
 .pool-v2 .lc-nav{
-  gap:8px 24px;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px 27px;
 }
-
 .pool-v2 .lc-nav a{
-  font-size:.88rem;
+  color:#fff;
+  font-size:.91rem;
+  font-weight:520;
+  padding:10px 0;
+  transition:opacity .18s ease;
 }
 .pool-v2 .lc-nav a:hover{opacity:.62}
 .pool-v2 .lc-nav a.active{color:#9ac653}
@@ -814,5 +814,145 @@ body.pool-v2{
   }
   .pool-v2 .pool-main-offer-actions .btn{
     width:100%;
+  }
+}
+
+
+/* =========================================================
+   AJUSTEMENTS VISUELS — OFFRE 490 + CADRAGE PHOTOS
+   ========================================================= */
+
+/* Offre 25 900 € / 490 € : affiche nettement plus grande */
+.pool-v2 .pool-main-offer .lc-container{
+  width:min(1500px,calc(100% - 48px));
+}
+
+.pool-v2 .pool-main-offer-grid{
+  grid-template-columns:minmax(360px,.68fr) minmax(620px,1.32fr);
+  gap:56px;
+  align-items:center;
+}
+
+.pool-v2 .pool-main-offer-copy{
+  max-width:560px;
+}
+
+.pool-v2 .pool-main-offer-visual{
+  width:100%;
+  max-width:880px;
+  justify-self:end;
+  box-shadow:0 34px 100px rgba(0,0,0,.18);
+}
+
+.pool-v2 .pool-main-offer-visual img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* Timeline : photos légèrement plus grandes */
+.pool-v2 .step-photo{
+  height:340px;
+}
+
+/* 01 — implantation / terrassement */
+.pool-v2 .timeline .step:nth-child(1) .step-photo img{
+  object-position:center 50%;
+}
+
+/* 02 — structure */
+.pool-v2 .timeline .step:nth-child(2) .step-photo img{
+  object-position:center 52%;
+}
+
+/* 03 — feutre : remonter fortement le cadrage pour voir les personnes */
+.pool-v2 .timeline .step:nth-child(3) .step-photo img{
+  object-position:center 18%;
+}
+
+/* 04 — liner */
+.pool-v2 .timeline .step:nth-child(4) .step-photo img{
+  object-position:center 44%;
+}
+
+/* 05 — local technique */
+.pool-v2 .timeline .step:nth-child(5) .step-photo img{
+  object-position:center 64%;
+}
+
+/* 06 — écolage */
+.pool-v2 .timeline .step:nth-child(6) .step-photo img{
+  object-position:center 30%;
+}
+
+/* 07 — finition */
+.pool-v2 .timeline .step:nth-child(7) .step-photo img{
+  object-position:center 50%;
+}
+
+@media(max-width:1200px){
+  .pool-v2 .pool-main-offer-grid{
+    grid-template-columns:minmax(330px,.78fr) minmax(500px,1.22fr);
+    gap:42px;
+  }
+
+  .pool-v2 .pool-main-offer-visual{
+    max-width:760px;
+  }
+}
+
+@media(max-width:1050px){
+  .pool-v2 .pool-main-offer .lc-container{
+    width:min(100% - 32px,900px);
+  }
+
+  .pool-v2 .pool-main-offer-grid{
+    grid-template-columns:1fr;
+    gap:42px;
+  }
+
+  .pool-v2 .pool-main-offer-copy{
+    max-width:760px;
+  }
+
+  .pool-v2 .pool-main-offer-visual{
+    max-width:820px;
+    justify-self:center;
+  }
+
+  .pool-v2 .step-photo{
+    height:380px;
+  }
+}
+
+@media(max-width:820px){
+  .pool-v2 .step-photo{
+    height:330px;
+  }
+
+  .pool-v2 .timeline .step:nth-child(3) .step-photo img{
+    object-position:center 15%;
+  }
+
+  .pool-v2 .timeline .step:nth-child(6) .step-photo img{
+    object-position:center 26%;
+  }
+}
+
+@media(max-width:560px){
+  .pool-v2 .pool-main-offer .lc-container{
+    width:min(100% - 24px,900px);
+  }
+
+  .pool-v2 .pool-main-offer-visual{
+    max-width:none;
+  }
+
+  .pool-v2 .step-photo{
+    height:290px;
+  }
+
+  .pool-v2 .timeline .step:nth-child(3) .step-photo img{
+    object-position:center 12%;
   }
 }
