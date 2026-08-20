@@ -680,41 +680,139 @@ body.pool-v2{
     width:100%;
   }
 }
+
+
 /* =========================================================
-   CADRAGE PHOTOS — ÉTAPES CHANTIER
+   OFFRE UNIQUE — 25 900 € TVAC OU 490 € / MOIS
    ========================================================= */
+.pool-v2 .pool-main-offer{background:#fff}
 
-/* 01 — implantation */
-.timeline .step:nth-child(1) .step-photo img{
-  object-position:center 50%;
+.pool-v2 .pool-main-offer-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  gap:70px;
+  align-items:center;
 }
 
-/* 02 — structure */
-.timeline .step:nth-child(2) .step-photo img{
-  object-position:center 55%;
+.pool-v2 .pool-main-offer-copy h2{
+  max-width:760px;
+  margin:0;
+  font-size:clamp(2.8rem,4.8vw,5.4rem);
+  line-height:.98;
+  letter-spacing:-.055em;
+  font-weight:620;
 }
 
-/* 03 — feutre / protection intérieure */
-.timeline .step:nth-child(3) .step-photo img{
-  object-position:center 28%;
+.pool-v2 .pool-dual-price{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  margin:30px 0 24px;
 }
 
-/* 04 — liner */
-.timeline .step:nth-child(4) .step-photo img{
-  object-position:center 46%;
+.pool-v2 .pool-total-price{
+  color:#111;
+  font-size:clamp(2.35rem,4.2vw,4.7rem);
+  line-height:.95;
+  font-weight:690;
+  letter-spacing:-.05em;
 }
 
-/* 05 — local technique */
-.timeline .step:nth-child(5) .step-photo img{
-  object-position:center 68%;
+.pool-v2 .pool-price-or{
+  margin:12px 0 8px;
+  color:#8c8c8c;
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
 }
 
-/* 06 — écolage */
-.timeline .step:nth-child(6) .step-photo img{
-  object-position:center 38%;
+.pool-v2 .pool-monthly-price{
+  color:#111;
+  font-size:clamp(4.2rem,7.2vw,8rem);
+  line-height:.86;
+  font-weight:730;
+  letter-spacing:-.07em;
 }
 
-/* 07 — finitions */
-.timeline .step:nth-child(7) .step-photo img{
-  object-position:center 50%;
+.pool-v2 .pool-monthly-price small{
+  color:#777;
+  font-size:.22em;
+  font-weight:650;
+  letter-spacing:0;
+}
+
+.pool-v2 .pool-offer-lead{
+  max-width:680px;
+  margin:0 0 30px;
+  color:#686868;
+  font-size:1.04rem;
+  line-height:1.72;
+}
+
+.pool-v2 .pool-main-specs{
+  border-top:1px solid rgba(17,17,17,.14);
+}
+
+.pool-v2 .pool-main-specs div{
+  display:flex;
+  gap:18px;
+  padding:13px 0;
+  border-bottom:1px solid rgba(17,17,17,.14);
+}
+
+.pool-v2 .pool-main-specs span{
+  color:#7da43c;
+  font-size:.72rem;
+  font-weight:800;
+}
+
+.pool-v2 .pool-main-specs strong{
+  color:#171717;
+  font-size:.97rem;
+}
+
+.pool-v2 .pool-main-offer-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.pool-v2 .pool-main-offer-visual{
+  overflow:hidden;
+  box-shadow:0 28px 80px rgba(0,0,0,.14);
+}
+
+.pool-v2 .pool-main-offer-visual img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* CTA toujours lisibles */
+.pool-v2 .pool-main-offer a.btn-green{
+  background:#9ac653 !important;
+  color:#0e1708 !important;
+}
+
+.pool-v2 .pool-main-offer a.btn-dark{
+  background:#080808 !important;
+  color:#fff !important;
+}
+
+@media(max-width:1050px){
+  .pool-v2 .pool-main-offer-grid{
+    grid-template-columns:1fr;
+    gap:42px;
+  }
+}
+
+@media(max-width:560px){
+  .pool-v2 .pool-main-offer-actions{
+    flex-direction:column;
+  }
+  .pool-v2 .pool-main-offer-actions .btn{
+    width:100%;
+  }
 }
