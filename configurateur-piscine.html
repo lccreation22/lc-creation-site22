@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Configuration piscine bois — Estimation en ligne | LC Création</title>
-  <meta name="description" content="Configurez votre piscine en bois en quelques étapes : pack Essentiel, Confort ou Luxe, options principales et obtenez une estimation indicative par e-mail.">
+  <meta name="description" content="Configurez votre piscine en bois en quelques étapes : pack Essentiel, Confort ou Luxe, options principales et obtenez une estimation indicative à l’écran.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="./styles.css?v=36">
@@ -577,16 +577,35 @@ html, body {
 </noscript>
 <!-- End Meta Pixel Code -->
 
+
+  <link rel="canonical" href="https://www.lc-creation.be/configurateur-piscine.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:site_name" content="LC Création">
+  <meta property="og:title" content="Configuration piscine bois — Estimation en ligne | LC Création">
+  <meta property="og:description" content="Configurez votre piscine en bois en quelques étapes : pack Essentiel, Confort ou Luxe, options principales et obtenez une estimation indicative à l’écran.">
+  <meta property="og:url" content="https://www.lc-creation.be/configurateur-piscine.html">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=lc-officiel-20260924">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-lc-creation-512.png?v=lc-officiel-20260924">
+  <link rel="apple-touch-icon" href="/favicon-lc-creation-512.png?v=lc-officiel-20260924">
+  <meta property="og:image" content="https://www.lc-creation.be/LC_Creation_Logo_Noir_WEB_1200.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="486">
+  <meta property="og:image:alt" content="LC Création — Piscines et aménagements extérieurs">
+  <meta name="twitter:image" content="https://www.lc-creation.be/LC_Creation_Logo_Noir_WEB_1200.png">
+  <link rel="stylesheet" href="./identite-lc.css?v=20260924">
 </head>
 <body class="page-config">
 
 <header>
   <div class="topbar container">
     <div class="brand">
-      <img src="./logo-amenagement-cropped.png" alt="LC Création">
+      <img src="./LC_Creation_Logo_Noir_WEB_1200.png" alt="LC Création" width="1200" height="486">
     </div>
     <nav>
-      <a href="./index.html">Aménagements extérieurs</a>
+      <a href="/">Aménagements extérieurs</a>
       <a href="./piscines.html">Piscines bois</a>
       <a href="./contact.html">Contact</a>
     </nav>
@@ -600,9 +619,10 @@ html, body {
     <div class="config-hero-inner">
       <div class="config-badge">Configuration piscine bois</div>
       <h1>Configurez votre piscine bois et obtenez une estimation indicative</h1>
+      <p>Pour l’offre spécifique 6 × 3 m, <a href="./contact.html?projet=offre-6x3">demandez votre étude ici</a>. Les formats ci-dessous constituent une gamme distincte.</p>
       <p>
         En quelques étapes, choisissez votre pack (Essentiel, Confort, Luxe) et les options principales.
-        Nous vous affichons une estimation indicative et vous la recevrez par e-mail, sans engagement.
+        Obtenez une estimation indicative à l’écran et transmettez votre projet à LC Création, sans engagement.
       </p>
       <p class="config-note">
         Les montants restent indicatifs. Le prix final est confirmé après visite sur place et étude de votre terrain.
@@ -1094,7 +1114,7 @@ html, body {
         <div class="config-group">
           <label for="config-email">E-mail *</label>
           <input type="email" id="config-email" class="config-input" placeholder="exemple@domaine.be">
-          <small>Nous vous envoyons votre configuration détaillée par e-mail et affichons l’estimation à l’écran.</small>
+          <small>Votre e-mail nous permet de vous recontacter au sujet de cette configuration. L’estimation s’affiche à l’écran.</small>
         </div>
         <div class="config-group">
           <label for="config-tel">Téléphone</label>
@@ -1738,6 +1758,12 @@ if (!estimationUnlocked) {
       alert("Merci de compléter au minimum votre prénom, nom et e-mail pour afficher votre estimation.");
       return false;
     }
+    var emailInput = document.getElementById("config-email");
+    if (!emailInput.checkValidity()) {
+      emailInput.reportValidity();
+      emailInput.focus();
+      return false;
+    }
     return true;
   }
 
@@ -1757,7 +1783,9 @@ if (!estimationUnlocked) {
         return;
       }
 
-      if (!validateStep4()) return;
+      if (nextBtn.disabled || !validateStep4()) return;
+      nextBtn.disabled = true;
+      nextBtn.textContent = "Envoi en cours…";
 
       estimationUnlocked = true;
       updateSummary();
@@ -1817,10 +1845,14 @@ if (!estimationUnlocked) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       })
-        .then(function (res) { return res.json(); })
+        .then(function (res) { if (!res.ok) throw new Error("HTTP " + res.status); return res.json(); })
         .then(function (data) {
           if (!data.ok) {
             throw new Error(data.error || "Erreur inconnue");
+          }
+          // Enregistrer uniquement la confirmation du serveur, sans coordonnées personnelles.
+          if (window.gtag) {
+            window.gtag("event", "generate_lead", { form_name: "configurateur_piscine" });
           }
           // ✅ Meta Pixel: Lead (uniquement si l'envoi a réussi)
 if (window.fbq) {
@@ -1831,6 +1863,10 @@ if (window.fbq) {
 nextBtn.disabled = true;
 nextBtn.textContent = "Envoi en cours…";
 
+// Garder uniquement le montant indicatif pour la confirmation, sans coordonnées.
+try {
+  sessionStorage.setItem("lc-estimation", JSON.stringify({ montant: estimationText, date: Date.now() }));
+} catch (storageError) { /* La confirmation reste accessible sans stockage. */ }
 // ✅ petite pause puis redirection
 setTimeout(function () {
   window.location.href = "/merci-configurateur.html";
@@ -1839,7 +1875,9 @@ setTimeout(function () {
         })
         .catch(function (err) {
           console.error(err);
-          alert("Oups, problème d’envoi. Merci de réessayer ou de nous appeler.");
+          nextBtn.disabled = false;
+          nextBtn.textContent = "Réessayer l’envoi";
+          alert("Votre demande n’a pas été envoyée. Réessayez, appelez le 0474 69 38 00 ou écrivez à lecocqcedric@outlook.be.");
         });
     });
   }

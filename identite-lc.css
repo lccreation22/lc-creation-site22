@@ -1,0 +1,19 @@
+/* Identité officielle LC Création : image originale, proportions conservées. */
+.lc-official-brand{display:inline-block!important;width:min(100%,340px);max-width:100%;margin:0!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;line-height:0;text-decoration:none}
+.lc-official-logo{display:block;width:100%;height:auto;max-width:100%;aspect-ratio:auto!important;object-fit:contain;filter:none}
+body.page-config header .brand,body.page-urbaine header .brand{flex:0 0 360px;width:360px;max-width:45vw}
+.lc-identity-strip{background:#111;padding:18px 24px;text-align:center}
+.lc-identity-strip a:focus-visible,.lc-official-brand:focus-visible{outline:3px solid #b9c879;outline-offset:5px}
+.lc-offer-art{background:#111;color:#fff;border:1px solid #5f654f;overflow:hidden;border-radius:14px;text-align:left}
+.lc-offer-art .lc-offer-brand{padding:16px 22px}
+.lc-offer-art .lc-offer-brand img{display:block!important;width:min(100%,310px)!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;border:0!important;border-radius:0!important}
+.lc-offer-art .lc-offer-photo{display:block!important;width:100%!important;height:280px!important;object-fit:cover!important;border:0!important;border-radius:0!important}
+.lc-offer-art .lc-offer-copy{padding:20px 24px}
+.lc-offer-art p{color:#fff;margin:0 0 8px;opacity:1}
+.lc-offer-art .lc-offer-title{font:600 26px/1.25 Arial,sans-serif;letter-spacing:0;text-transform:none}
+.lc-offer-art .lc-offer-price{font:700 34px/1.2 Arial,sans-serif;color:#c4d390}
+.lc-offer-art .lc-offer-caption{font:12px/1.5 Arial,sans-serif;color:#c7c7c7}
+.lc-offer-art .lc-offer-cta{font:600 15px/1.4 Arial,sans-serif;color:#fff}
+.home-v2 .finance-visual{min-height:0;background:transparent;align-self:center}
+@media(max-width:700px){body.page-config header .brand,body.page-urbaine header .brand{flex:0 0 auto;width:min(100%,340px);max-width:100%}}
+@media(max-width:600px){.lc-offer-art .lc-offer-photo{height:210px!important}.lc-offer-art .lc-offer-copy{padding:18px}.lc-official-brand{width:min(100%,300px)}}
