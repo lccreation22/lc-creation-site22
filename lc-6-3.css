@@ -1,0 +1,38 @@
+/* LC 6.3: styles scoped to this model page. */
+.lc-model .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.lc-model .model-hero{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:5%;align-items:center;padding-block:64px 72px}
+.lc-model .model-intro{max-width:490px}
+.lc-model .model-intro .lc-eyebrow{margin-bottom:18px}
+.lc-model .model-intro h1{font-size:clamp(58px,6.4vw,94px);line-height:1;letter-spacing:-.055em;margin:0 0 28px}
+.lc-model .model-price{display:block;font-size:clamp(30px,3.1vw,44px);letter-spacing:-.035em;margin-top:16px;white-space:nowrap}
+.lc-model .model-price small{font-size:14px;letter-spacing:0;font-weight:400;margin-left:5px}
+.lc-model .model-subtitle{font-size:clamp(21px,2.2vw,29px);line-height:1.3;letter-spacing:-.02em;margin:0 0 22px}
+.lc-model .model-benefits{font-size:15px;color:var(--lc-muted);line-height:1.85;margin:0 0 28px;max-width:420px}
+.lc-model .model-conditions{font-size:12px;line-height:1.65;color:var(--lc-muted);margin:16px 0 0}
+.lc-model .model-visual{min-width:0}
+.lc-model .model-visual img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 18%}
+.lc-model .model-visual figcaption{font-size:11px;color:var(--lc-muted);margin:10px 0 0}
+.lc-model .model-promise h2{max-width:1080px;font-size:clamp(28px,3.3vw,47px);line-height:1.3;margin-bottom:0;letter-spacing:-.025em;color:#b9c0ba}
+.lc-model .model-promise h2 span{color:white}
+.lc-model .model-section-head{margin-bottom:48px}
+.lc-model .model-section-head h2{margin-bottom:20px}
+.lc-model .model-section-head .lc-lead{margin-bottom:0;max-width:740px}
+.lc-model .model-included,.lc-model .model-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px}
+.lc-model .model-included>div,.lc-model .model-options>article{border-top:1px solid #aeb6a7;padding-top:25px}
+.lc-model .model-included h3,.lc-model .model-options h3{font-size:24px;line-height:1.25;letter-spacing:-.025em;min-height:60px;margin-bottom:16px}
+.lc-model .model-included ul,.lc-model .model-transparency ul{list-style:none;margin:0;padding:0}
+.lc-model .model-included li{padding:13px 0;border-bottom:1px solid var(--lc-line);font-size:15px;line-height:1.65}
+.lc-model .model-reasons{display:grid;grid-template-columns:1fr 1fr;gap:58px 10%}
+.lc-model .model-reasons article{border-top:1px solid #bbc3b4;padding-top:22px}
+.lc-model .model-number{display:block;font-size:12px;color:var(--lc-accent);margin-bottom:24px}
+.lc-model .model-reasons h2{font-size:clamp(27px,2.7vw,36px);line-height:1.18;max-width:470px;margin-bottom:20px}
+.lc-model .model-reasons p,.lc-model .model-options p,.lc-model .model-transparency p{color:var(--lc-muted);font-size:16px;margin:0;max-width:520px}
+.lc-model .model-transparency{display:grid;grid-template-columns:1fr 1fr;gap:10%}
+.lc-model .model-transparency h2{margin-bottom:28px}
+.lc-model .model-transparency p+p{margin-top:18px}
+.lc-model .model-transparency li{padding:14px 0;border-bottom:1px solid var(--lc-line);font-size:15px}
+.lc-model .model-transparency li:first-child{border-top:1px solid var(--lc-line)}
+.lc-model .model-close h2{max-width:860px}
+@media(max-width:1100px){.lc-model .model-hero{gap:4%;padding-block:50px}.lc-model .model-included,.lc-model .model-options{gap:26px}.lc-model .model-included h3,.lc-model .model-options h3{font-size:22px}}
+@media(max-width:800px){.lc-model .model-hero{grid-template-columns:1fr;padding-top:36px;padding-bottom:45px;gap:32px}.lc-model .model-intro{max-width:610px}.lc-model .model-intro h1{font-size:64px;margin-bottom:22px}.lc-model .model-price{font-size:34px;margin-top:12px}.lc-model .model-subtitle{font-size:23px;margin-bottom:18px}.lc-model .model-benefits{max-width:560px;margin-bottom:22px}.lc-model .model-visual img{aspect-ratio:16/11;object-position:55% 10%}.lc-model .model-included,.lc-model .model-options{grid-template-columns:1fr;gap:32px}.lc-model .model-included h3,.lc-model .model-options h3{min-height:0;font-size:25px}.lc-model .model-options br{display:none}.lc-model .model-reasons{gap:36px 6%}.lc-model .model-transparency{grid-template-columns:1fr;gap:30px}}
+@media(max-width:560px){.lc-model .model-hero{gap:28px}.lc-model .model-intro .lc-eyebrow{font-size:10px}.lc-model .model-intro h1{font-size:58px}.lc-model .model-price{font-size:32px}.lc-model .model-subtitle{font-size:22px}.lc-model .model-benefits{font-size:14px}.lc-model .model-hero .lc-button,.lc-model .model-close .lc-button{width:100%}.lc-model .model-visual{margin-inline:calc(-1 * var(--lc-gutter))}.lc-model .model-visual figcaption{padding-inline:var(--lc-gutter)}.lc-model .model-reasons{grid-template-columns:1fr;gap:36px}.lc-model .model-section-head{margin-bottom:34px}.lc-model .model-promise h2{font-size:29px}.lc-model .model-number{margin-bottom:18px}}
