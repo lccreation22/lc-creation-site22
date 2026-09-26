@@ -1,0 +1,128 @@
+/* Scoped to the pool landing page; preserve the rest of the site and its forms. */
+.pool-photo-refresh .lc-header-inner {
+  min-height: 104px;
+  gap: 28px;
+  padding-block: 8px;
+}
+.pool-photo-refresh .lc-brand {
+  flex: 0 0 225px;
+  width: 225px;
+  max-width: none;
+}
+.pool-photo-refresh .lc-nav { gap: 8px 24px; }
+.pool-photo-refresh .lc-nav a { font-size: .85rem; }
+.lc-photo-hero {
+  background: #f4f3ee;
+  color: #1b2b24;
+  padding: 42px 32px 34px;
+}
+.lc-photo-layout {
+  max-width: 1376px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 40px;
+}
+.lc-photo-copy { padding-block: 24px; }
+.lc-photo-eyebrow {
+  color: #4c614e;
+  font-size: .69rem;
+  font-weight: 750;
+  letter-spacing: .15em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+.lc-photo-copy h1 {
+  color: #1b2b24;
+  font-size: clamp(40px, 4.1vw, 60px);
+  font-weight: 580;
+  letter-spacing: -.055em;
+  line-height: 1.04;
+  margin: 0 0 28px;
+}
+.lc-photo-lead {
+  max-width: 430px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #49554c;
+  margin: 0 0 28px;
+}
+.lc-photo-lead strong { display: block; color: #1b2b24; font-weight: 650; }
+.pool-photo-refresh .lc-photo-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 54px;
+  padding: 16px 23px;
+  background: #354d3b;
+  color: #fff;
+  border: 1px solid #354d3b;
+  border-radius: 3px;
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 700;
+  text-decoration: none;
+}
+.pool-photo-refresh .lc-photo-cta:hover { background: #263b2d; }
+.lc-photo-cta span { font-size: 21px; line-height: 1; }
+.lc-photo-note { font-size: 12px; line-height: 1.5; color: #59635c; margin: 14px 0 0; }
+.lc-photo-proof { margin: 0; min-width: 0; }
+.lc-photo-proof picture { display: block; background: #d6d2c6; }
+.lc-photo-proof img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  filter: none;
+  border-radius: 0;
+}
+.lc-photo-proof figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 18px;
+  margin-top: 13px;
+  color: #4c584e;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.lc-photo-proof figcaption strong { color: #293e2d; font-size: 12px; font-weight: 650; }
+.pool-photo-refresh :is(.lc-photo-cta, .lc-nav a, .lc-brand):focus-visible {
+  outline: 3px solid #71934b;
+  outline-offset: 5px;
+}
+@media (max-width: 1100px) {
+  .pool-photo-refresh .lc-header-inner { flex-direction: row; }
+  .pool-photo-refresh .lc-nav { width: auto; justify-content: flex-end; gap: 4px 18px; }
+}
+@media (max-width: 900px) {
+  .lc-photo-hero { padding: 34px 20px 30px; }
+  .lc-photo-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .lc-photo-copy { padding: 0; }
+  .lc-photo-copy h1 { font-size: clamp(38px, 7vw, 54px); margin-bottom: 20px; }
+  .lc-photo-eyebrow { margin-bottom: 18px; }
+  .lc-photo-lead { max-width: 560px; margin-bottom: 22px; font-size: 16px; }
+  .pool-photo-refresh .lc-header-inner { flex-wrap: wrap; justify-content: center; gap: 4px; padding-block: 9px 12px; }
+  .pool-photo-refresh .lc-brand { flex: 0 0 175px; width: 175px; }
+  .pool-photo-refresh .lc-nav { width: 100%; justify-content: center; gap: 4px 16px; }
+  .pool-photo-refresh .lc-nav a { font-size: .75rem; padding-block: 8px; }
+  .pool-photo-refresh .lc-nav .nav-cta { display: none; }
+}
+@media (max-width: 480px) {
+  .pool-photo-refresh .lc-header-inner { width: calc(100% - 32px); }
+  .pool-photo-refresh .lc-nav { gap: 4px 14px; }
+  .lc-photo-hero { padding-top: 26px; }
+  .lc-photo-copy h1 { font-size: clamp(36px, 9.75vw, 45px); }
+  .lc-photo-lead { font-size: 15px; }
+  .lc-photo-proof figcaption { display: block; }
+  .lc-photo-proof figcaption span { display: block; margin-top: 3px; }
+  .lc-photo-note { font-size: 11px; }
+}
+@media (max-width: 360px) {
+  .pool-photo-refresh .lc-nav { gap: 4px 12px; }
+  .pool-photo-refresh .lc-nav a { font-size: .67rem; }
+}
