@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
 <title>Piscine Bali – LC Création</title>
 
 <style>
@@ -240,10 +240,11 @@ label {
   <meta property="og:image:alt" content="LC Création — Piscines et aménagements extérieurs">
   <meta name="twitter:image" content="https://www.lc-creation.be/LC_Creation_Logo_Noir_WEB_1200.png">
   <link rel="stylesheet" href="./identite-lc.css?v=20260924">
+<link rel="stylesheet" href="./lc-charte.css?v=20260926">
 </head>
 
-<body>
-<div class="lc-identity-strip"><a class="lc-official-brand" href="/" aria-label="LC Création — Accueil"><img class="lc-official-logo" src="./LC_Creation_Logo_Noir_WEB_1200.png" alt="LC Création SRL — Piscines et aménagements extérieurs" width="1200" height="486"></a></div>
+<body class="lc-design lc-bali"><a class="lc-skip" href="#contenu">Aller au contenu</a><header class="lc-site-header"><div class="lc-shell lc-header-row"><a class="lc-logo" href="/" aria-label="LC Création — Accueil"><img src="./LC_Creation_Logo_Noir_WEB_1200.png" width="1200" height="486" alt="LC Création SRL — Piscines et aménagements extérieurs"></a><button class="lc-menu-toggle" type="button" aria-expanded="false" aria-controls="lc-menu">Menu<span class="lc-menu-lines" aria-hidden="true"></span></button><nav class="lc-navigation" id="lc-menu" aria-label="Navigation principale"><a href="./piscines.html">Nos piscines</a><a href="/#realisations">Réalisations</a><a href="/#amenagements">Aménagements</a><a href="./contact.html">Contact</a><a class="lc-button" href="./configurateur-piscine.html">Configurer ma piscine</a></nav></div></header><main id="contenu">
+
 
 <div class="hero">
   <h1>Un coin de Bali.<br>Chez vous.</h1>
@@ -252,8 +253,8 @@ label {
   <p style="font-size:14px; opacity:0.8;">
     Base 6 x 3 m – PAC et volet inclus
   </p>
-  <a href="#formulaire" class="btn">Réserver ma place</a>
-  <p style="margin-top:10px;">6 réalisations – juillet & août 2026</p>
+  <a href="#formulaire" class="btn">Étudier mon projet Bali</a>
+  <p style="margin-top:10px;">Collection été 2026 · Disponibilité à confirmer</p>
 </div>
 
 <div class="section">
@@ -306,78 +307,72 @@ label {
 
 <section class="bali-rarete">
   <div class="rarete-inner">
-    <h2>Accès limité</h2>
+    <h2>Une collection à étudier ensemble.</h2>
     <div class="gold-line center"></div>
 
     <p class="rarete-main">
-      6 réalisations uniquement pour l’été 2026
+      Collection présentée pour l’été 2026
     </p>
 
     <p class="rarete-sub">
-      Installations prévues exclusivement en juillet et août.<br>
-      Une fois les créneaux remplis → liste d’attente.
+      Créneaux initialement prévus en juillet et août.<br>Contactez-nous pour confirmer les possibilités de votre projet.
     </p>
 
     <a href="#formulaire" class="rarete-btn">
-      Réserver ma place
+      Étudier mon projet Bali
     </a>
   </div>
 </section>
 
 <div class="section" id="formulaire">
-  <h2>Réserver ma place</h2>
+  <h2>Étudier mon projet Bali</h2>
 
   <div class="form">
     <form id="bali-form">
 
-      <input type="text" id="bali-nom" placeholder="Nom" required>
-      <input type="text" id="bali-prenom" placeholder="Prénom" required>
-      <input type="tel" id="bali-telephone" placeholder="Téléphone" required>
-      <input type="email" id="bali-email" placeholder="Email" required>
+      <label for="bali-nom">Nom</label><input type="text" id="bali-nom" placeholder="Nom" required>
+      <label for="bali-prenom">Prénom</label><input type="text" id="bali-prenom" placeholder="Prénom" required>
+      <label for="bali-telephone">Téléphone</label><input type="tel" id="bali-telephone" placeholder="Téléphone" required>
+      <label for="bali-email">Email</label><input type="email" id="bali-email" placeholder="Email" required>
 
-      <input type="text" id="bali-adresse" placeholder="Rue + numéro" required>
-      <input type="text" id="bali-code-postal" placeholder="Code postal" required>
-      <input type="text" id="bali-ville" placeholder="Ville" required>
+      <label for="bali-adresse">Rue + numéro</label><input type="text" id="bali-adresse" placeholder="Rue + numéro" required>
+      <label for="bali-code-postal">Code postal</label><input type="text" id="bali-code-postal" placeholder="Code postal" required>
+      <label for="bali-ville">Ville</label><input type="text" id="bali-ville" placeholder="Ville" required>
 
-      <label>Localisation du projet</label>
-      <select id="bali-distance" required>
+      <label for="bali-distance">Localisation du projet</label><select id="bali-distance" required>
         <option value="">Choisir</option>
         <option value="Moins de 30 min">Moins de 30 min</option>
         <option value="30 à 60 min">30 à 60 min</option>
         <option value="Plus de 1h">Plus de 1h</option>
       </select>
 
-      <label>Budget</label>
-      <select id="bali-budget" required>
+      <label for="bali-budget">Budget</label><select id="bali-budget" required>
         <option value="">Choisir</option>
         <option value="Je confirme un budget cohérent (+30k)">Je confirme un budget cohérent (+30k)</option>
         <option value="Je m’adapte à cette base">Je m’adapte à cette base</option>
       </select>
 
-      <label>Disponibilité</label>
-      <select id="bali-disponibilite" required>
+      <label for="bali-disponibilite">Disponibilité</label><select id="bali-disponibilite" required>
         <option value="">Choisir</option>
         <option value="Disponible juillet / août 2026">Disponible juillet / août 2026</option>
       </select>
 
-      <label>Terrain</label>
-      <select id="bali-terrain" required>
+      <label for="bali-terrain">Terrain</label><select id="bali-terrain" required>
         <option value="">Choisir</option>
         <option value="Plat">Plat</option>
         <option value="Pente">Pente</option>
         <option value="Accès difficile">Accès difficile</option>
       </select>
 
-      <label>Engagement</label>
-      <select id="bali-engagement" required>
+      <label for="bali-engagement">Engagement</label><select id="bali-engagement" required>
         <option value="">Choisir</option>
         <option value="Prêt à avancer rapidement">Prêt à avancer rapidement</option>
         <option value="Projet concret">Projet concret</option>
       </select>
 
-      <textarea id="bali-message" placeholder="Précisions utiles sur votre projet"></textarea>
+      <label for="bali-message">Précisions sur votre projet</label><textarea id="bali-message" placeholder="Précisions utiles sur votre projet"></textarea>
 
-      <button type="submit" class="submit" id="bali-submit">Réserver ma place</button>
+      <button type="submit" class="submit" id="bali-submit">Étudier mon projet Bali</button>
     </form>
   </div>
 </div>
@@ -443,5 +438,7 @@ label {
 })();
 </script>
 
+</main><footer class="lc-site-footer"><div class="lc-shell"><div class="lc-footer-grid"><div><h2>LC CRÉATION</h2><p>Piscines clé en main en Wallonie.<br>Bois Premium · Béton sur mesure.<br>Piscines et aménagements extérieurs.</p></div><div><p>Parlons de votre projet</p><a href="tel:+32474693800">0474 / 69 38 00</a><a href="mailto:lecocqcedric@outlook.be">lecocqcedric@outlook.be</a></div><nav aria-label="Liens utiles"><a href="./piscines.html">Nos piscines</a><a href="./piscines.html#offre-6x3">L’offre bois 6 × 3 m</a><a href="/#realisations">Nos réalisations</a><a href="./contact.html">Contact</a></nav></div><div class="lc-footer-bottom"><span>© LC Création SRL</span><a href="./politique-confidentialite.html">Politique de confidentialité</a></div></div></footer>
+<script src="./lc-navigation.js?v=20260926" defer></script>
 </body>
 </html>
