@@ -137,6 +137,14 @@ export default async function handler(req, res) {
       ].join("\n");
     }
 
+    // Additive tracking metadata: failure here must never prevent delivery.
+    let tracking = null;
+    try {
+      const helper = await import('../lc-lead-tracking.js');
+      tracking = helper.prepareLeadTracking(body);
+      if (tracking) text += tracking.emailSuffix;
+    } catch (_) { /* Keep the original email and routing fully operational. */ }
+
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -158,7 +166,9 @@ export default async function handler(req, res) {
       throw new Error(json?.message || JSON.stringify(json));
     }
 
-    return res.status(200).json({ ok: true, id: json.id });
+    return res.status(200).json({ ok: true, id: json.id,
+      ...(tracking ? { tracking: { event_id: tracking.event_id, qualified: tracking.qualified, rule: tracking.rule, parameters: tracking.parameters } } : {})
+    });
   } catch (err) {
     console.error("send-lead error:", err);
     return res.status(500).json({ ok: false, error: err.message || "Server error" });
