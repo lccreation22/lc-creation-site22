@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Votre projet piscine LC 6.3 ou béton | LC Création</title>
+<meta name="description" content="Présentez votre projet LC 6.3 à 25 900 € TVAC ou votre piscine béton sur mesure. Dimensions, terrain, budget et délai : LC Création étudie votre demande.">
+<link rel="canonical" href="https://www.lc-creation.be/configurateur-projet.html">
+<link rel="icon" href="/favicon-32x32.png"><link rel="stylesheet" href="./lc-charte.css?v=20260926">
+<link rel="stylesheet" href="./lc-tracking.css?v=1"><link rel="stylesheet" href="./lc-projet.css?v=2">
+<script src="./lc-tracking.js?v=2" defer></script><script src="./lc-projet.js?v=2" defer></script>
+</head><body class="lc-design"><a class="lc-skip" href="#contenu">Aller au contenu</a><header class="lc-site-header"><div class="lc-shell lc-header-row"><a class="lc-logo" href="/" aria-label="LC Création — Accueil"><img src="./LC_Creation_Logo_Noir_WEB_1200.png" width="1200" height="486" alt="LC Création SRL — Piscines et aménagements extérieurs"></a><button class="lc-menu-toggle" type="button" aria-expanded="false" aria-controls="lc-menu">Menu<span class="lc-menu-lines" aria-hidden="true"></span></button><nav class="lc-navigation" id="lc-menu" aria-label="Navigation principale"><a href="./piscines.html">Nos piscines</a><a href="/#realisations">Réalisations</a><a href="/#amenagements">Aménagements</a><a href="./contact.html" aria-current="page">Contact</a><a class="lc-button" href="#contenu">Configurer ma piscine</a></nav></div></header>
+<main id="contenu" class="lc-project lc-shell">
+<p class="lc-eyebrow">LC Création · Piscines en Wallonie</p><h1>Votre projet commence ici.</h1>
+<p class="lc-lead">Quelques informations pour étudier votre piscine et vous recontacter.</p>
+<form id="lc-project-form" class="config-step">
+<label for="project-offer">Votre piscine</label><select id="project-offer" required>
+<option value="">Choisir votre projet</option><option value="LC_6_3">LC 6.3 — piscine bois premium 6 × 3</option><option value="concrete">Piscine béton sur mesure</option></select>
+<section id="lc63-details" class="project-offer" hidden><h2>LC 6.3 — 25 900 € TVAC</h2><p>Volet solaire inclus · Escalier intégré · Finitions LC Création</p><p>Filtration à vitesse variable, deux LED, pose et mise en service. <strong>Pompe à chaleur en option, en supplément.</strong></p><p class="project-small">Prix en conditions standards de chantier. Évacuation des terres, accès difficiles, soutènements et adaptations sont étudiés séparément. <a href="./piscine-bois-25900.html#conditions">Voir les conditions complètes</a>.</p></section>
+<section id="concrete-details" class="project-offer" hidden><h2>Une piscine béton adaptée à votre terrain.</h2><p>Dimensions, implantation, escalier et finitions feront l’objet d’une étude personnalisée. Aucun prix définitif n’est calculé ici.</p></section>
+<fieldset id="concrete-dimensions" hidden disabled><legend>Dimensions souhaitées</legend><div class="project-grid"><div><label for="project-length">Longueur (m)</label><input id="project-length" type="number" min="2" max="25" step="0.1" required inputmode="decimal"></div><div><label for="project-width">Largeur (m)</label><input id="project-width" type="number" min="2" max="15" step="0.1" required inputmode="decimal"></div></div></fieldset>
+<fieldset><legend>Votre terrain et votre budget</legend><div class="project-grid">
+<div><label for="project-postal">Code postal du chantier</label><input id="project-postal" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required autocomplete="postal-code"></div>
+<div><label for="project-terrain">État du terrain</label><select id="project-terrain" required><option value="">À sélectionner</option><option>Plat</option><option>En pente</option><option>À étudier</option></select></div>
+<div><label for="project-budget">Budget global envisagé (€ TVAC)</label><input id="project-budget" type="number" min="1" max="2000000" step="1" required inputmode="numeric"><p class="project-small">Indiquez votre budget réel. Toute demande est transmise, même si le budget reste à ajuster.</p></div>
+<div><label for="project-timing">Quand souhaitez-vous réaliser le projet ?</label><select id="project-timing" required><option value="">À sélectionner</option><option>Dans les 3 à 6 mois</option><option>Dans les 6 à 12 mois</option><option>Pour la saison suivante</option><option>Je découvre les prix pour l’instant</option></select></div>
+</div></fieldset>
+<fieldset><legend>Vos coordonnées</legend><div class="project-grid">
+<div><label for="project-first">Prénom</label><input id="project-first" required maxlength="100" autocomplete="given-name"></div><div><label for="project-last">Nom</label><input id="project-last" required maxlength="100" autocomplete="family-name"></div>
+<div><label for="project-email">E-mail</label><input id="project-email" type="email" required maxlength="254" autocomplete="email"></div><div><label for="project-phone">Téléphone</label><input id="project-phone" type="tel" required maxlength="30" autocomplete="tel"></div></div>
+<label for="project-message">Précisions sur votre projet (facultatif)</label><textarea id="project-message" rows="4" maxlength="3000"></textarea></fieldset>
+<div class="project-honeypot" aria-hidden="true"><label for="project-website">Site web</label><input id="project-website" tabindex="-1" autocomplete="off"></div>
+<p class="project-small">Vos coordonnées servent à traiter votre demande. <a href="./politique-confidentialite.html">Confidentialité</a>. Le formulaire fonctionne quel que soit votre choix de cookies.</p>
+<button type="submit" class="lc-button" id="project-submit">Envoyer mon projet</button><p id="project-status" role="status" tabindex="-1"></p>
+</form>
+<p class="project-other">Vous cherchez d’autres dimensions en bois ? <a href="./configurateur-piscine.html">Explorer les autres packs bois</a>.</p>
+<noscript><p>Activez JavaScript pour utiliser le formulaire, ou appelez LC Création au <a href="tel:+32474693800">0474 69 38 00</a>.</p></noscript>
+</main><footer class="lc-site-footer"><div class="lc-shell"><div class="lc-footer-grid"><div><h2>LC CRÉATION</h2><p>Piscines clé en main en Wallonie.<br>Bois Premium · Béton sur mesure.<br>Piscines et aménagements extérieurs.</p></div><div><p>Parlons de votre projet</p><a href="tel:+32474693800">0474 / 69 38 00</a><a href="mailto:lecocqcedric@outlook.be">lecocqcedric@outlook.be</a></div><nav aria-label="Liens utiles"><a href="./piscines.html">Nos piscines</a><a href="./piscines.html#offre-6x3">L’offre bois 6 × 3 m</a><a href="/#realisations">Nos réalisations</a><a href="./contact.html">Contact</a></nav></div><div class="lc-footer-bottom"><span>© LC Création SRL</span><a href="./politique-confidentialite.html">Politique de confidentialité</a></div></div></footer><script src="./lc-navigation.js?v=20260926" defer></script></body></html>
+

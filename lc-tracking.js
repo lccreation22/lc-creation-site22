@@ -27,7 +27,7 @@
   }
   function cleanValue(k, v) {
     if (typeof v !== 'string') return '';
-    if (UTM.indexOf(k) >= 0) return /^[a-zA-Z0-9_. -]{1,100}$/.test(v) && !/\d{7}/.test(v) ? v : '';
+    if (UTM.indexOf(k) >= 0) return /^[\p{L}0-9_. -]{1,100}$/u.test(v) && !/^\+?[\d .-]{7,20}$/.test(v) ? v : '';
     return /^[a-zA-Z0-9_.-]{1,500}$/.test(v) ? v : '';
   }
   var incoming = {}, search = new URLSearchParams(location.search);
@@ -50,6 +50,7 @@
     save();
   }
   function pageOffer() {
+    if (/configurateur-projet\.html/.test(location.pathname)) return location.hash === '#lc-6-3' ? 'LC_6_3' : location.hash === '#beton' ? 'concrete' : null;
     if (/piscine-bois-25900/.test(location.pathname)) return 'LC_6_3';
     if (location.hash === '#piscine-beton' || location.hash === '#beton') return 'concrete';
     if (/piscines\.html|piscine-bali|piscine-urbaine/.test(location.pathname) || location.pathname === '/' || /index\.html$/.test(location.pathname)) return 'general_pool';
@@ -115,12 +116,14 @@
   function params() {
     function val(id) { var e = d.getElementById(id); return e ? e.value : ''; }
     var size = d.querySelector('input[name="taille"]:checked');
-    var timing = val('config-delai');
-    return { form_name: 'configurateur_piscine', source_offer: state.offer,
-      pool_type: d.getElementById('config-next') ? 'wood' : 'undecided',
-      budget_band: ({ '15-20k': '15_20k', '20-30k': '20_30k', '30-40k': '30_40k', '40k+': '40k_plus' })[val('config-budget')] || 'unknown',
+    var timing = val('project-timing') || val('config-delai');
+    var projectOffer = val('project-offer'), budget = Number(val('project-budget'));
+    var projectBand = budget > 0 ? budget >= 40000 ? '40k_plus' : budget >= 30000 ? '30_40k' : budget >= 20000 ? '20_30k' : budget >= 15000 ? '15_20k' : 'under_15k' : 'unknown';
+    return { form_name: 'configurateur_piscine', source_offer: projectOffer || state.offer,
+      pool_type: projectOffer === 'concrete' ? 'concrete' : projectOffer === 'LC_6_3' || d.getElementById('config-next') ? 'wood' : 'undecided',
+      budget_band: d.getElementById('project-budget') ? projectBand : ({ '15-20k': '15_20k', '20-30k': '20_30k', '30-40k': '30_40k', '40k+': '40k_plus' })[val('config-budget')] || 'unknown',
       project_timing: ({ 'Dans les 3 à 6 mois': '3_6_months', 'Dans les 6 à 12 mois': '6_12_months', 'Pour la saison suivante': 'next_season' })[timing] || 'research',
-      dimension_band: ({ Compacte: '5x3_2', Familiale: '6x4_2', Grande: '8_35x4_9' })[size && size.value] || 'unknown' };
+      dimension_band: projectOffer === 'LC_6_3' ? '6x3' : projectOffer === 'concrete' && Number(val('project-length')) >= 2 && Number(val('project-width')) >= 2 ? 'custom' : ({ Compacte: '5x3_2', Familiale: '6x4_2', Grande: '8_35x4_9' })[size && size.value] || 'unknown' };
   }
   function dispatch(name, p, id) {
     var map = { page_pool_view: ['trackSingle', 'ViewContent'], configurator_start: ['trackSingleCustom', 'configurator_start'], configurator_step_progress: ['trackSingleCustom', 'configurator_step_progress'], configurator_complete: ['trackSingle', 'Lead'], qualified_lead: ['trackSingleCustom', 'qualified_lead'] };
@@ -210,7 +213,7 @@
     d.addEventListener('input', function (e) { if (e.isTrusted && e.target.closest('.config-step')) safe(start)(); });
     d.addEventListener('click', function (e) {
       var a = e.target.closest('a[href]');
-      if (a && /configurateur-piscine\.html/.test(a.getAttribute('href'))) { if (offer) state.offer = offer; save(); }
+      if (a && /configurateur-(?:piscine|projet)\.html/.test(a.getAttribute('href'))) { if (offer) state.offer = offer; save(); }
     });
   }
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', safe(ready)); else safe(ready)();
