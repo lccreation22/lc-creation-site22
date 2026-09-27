@@ -12,21 +12,7 @@
   <!-- CSS propre à la nouvelle page d'accueil -->
   
 
-  <!-- Analytics : chargé uniquement lorsque le site est en ligne, jamais en local -->
-  <script>
-    if (location.protocol === 'http:' || location.protocol === 'https:') {
-      const gtagScript = document.createElement('script');
-      gtagScript.async = true;
-      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-YLJL7PN7V3';
-      document.head.appendChild(gtagScript);
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-YLJL7PN7V3');
-    }
-  </script>
 
   <link rel="canonical" href="https://www.lc-creation.be/">
   <meta property="og:type" content="website">
@@ -48,6 +34,8 @@
   
   
 <link rel="stylesheet" href="./lc-charte.css?v=20260926">
+<link rel="stylesheet" href="/lc-tracking.css?v=1">
+<script src="/lc-tracking.js?v=1" defer></script>
 </head>
 
 <body class="home-v2 lc-design lc-editorial">

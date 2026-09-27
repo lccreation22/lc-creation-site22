@@ -547,35 +547,7 @@ html, body {
 
   </style>
    
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLJL7PN7V3">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-YLJL7PN7V3');
-</script>
-  <!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1565202944499059');
-  fbq('track', 'PageView');
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1565202944499059&ev=PageView&noscript=1"
-  />
-</noscript>
-<!-- End Meta Pixel Code -->
 
 
   <link rel="canonical" href="https://www.lc-creation.be/configurateur-piscine.html">
@@ -597,6 +569,8 @@ html, body {
   <meta name="twitter:image" content="https://www.lc-creation.be/LC_Creation_Logo_Noir_WEB_1200.png">
   <link rel="stylesheet" href="./identite-lc.css?v=20260924">
 <link rel="stylesheet" href="./lc-charte.css?v=20260926">
+<link rel="stylesheet" href="/lc-tracking.css?v=1">
+<script src="/lc-tracking.js?v=1" defer></script>
 </head>
 <body class="page-config lc-design ">
 
@@ -1273,6 +1247,7 @@ html, body {
   }
 
   function showStep(step) {
+    if (window.LCTracking) window.LCTracking.step(step);
     currentStep = step;
 
     for (var i = 0; i < stepEls.length; i++) {
@@ -1830,6 +1805,9 @@ if (!estimationUnlocked) {
         // honeypot anti-bots (champ vide) website: ""
       };
 
+      // Optional metadata; sending the lead remains independent of tracking.
+      try { if (window.LCTracking) payload.tracking = window.LCTracking.prepare(); } catch (_) {}
+
       fetch("/api/send-piscine-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -1840,14 +1818,8 @@ if (!estimationUnlocked) {
           if (!data.ok) {
             throw new Error(data.error || "Erreur inconnue");
           }
-          // Enregistrer uniquement la confirmation du serveur, sans coordonnées personnelles.
-          if (window.gtag) {
-            window.gtag("event", "generate_lead", { form_name: "configurateur_piscine" });
-          }
-          // ✅ Meta Pixel: Lead (uniquement si l'envoi a réussi)
-if (window.fbq) {
-  fbq("track", "Lead");
-}
+          // Success-only, guarded and deduplicated analytics; no contact details.
+          try { if (window.LCTracking) window.LCTracking.complete(data); } catch (_) {}
 
 // Optionnel : bloquer le bouton immédiatement
 nextBtn.disabled = true;
