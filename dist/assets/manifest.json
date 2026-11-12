@@ -1,0 +1,128 @@
+{
+  "hero": "assets/hero-piscine-terrasse.webp",
+  "pool": "assets/piscine-lc-6-3.webp",
+  "detail": "assets/detail-pierre-bois.webp",
+  "terrace": "assets/terrasse-paysagere.webp",
+  "bali": "assets/bali-illustration.webp",
+  "before": "assets/avant-terrassement.webp",
+  "after": "assets/apres-piscine-terrasse.webp",
+  "technical": "assets/local-technique.webp",
+  "structure": "assets/structure-bois.webp",
+  "finishWood": "assets/finition-bois.webp",
+  "finishBeige": "assets/finition-pierre-beige.webp",
+  "finishGrey": "assets/finition-pierre-grise.webp",
+  "logo": "assets/logo.webp",
+  "steps": [
+    {
+      "title": "Implantation et terrassement",
+      "image": "assets/avant-terrassement.webp",
+      "alt": "Préparation du terrain avec une pelle mécanique, à côté de la terrasse existante."
+    },
+    {
+      "title": "Support et structure",
+      "image": "assets/structure-bois.webp",
+      "alt": "Montage de la structure bois sur son support préparé."
+    },
+    {
+      "title": "Protection intérieure",
+      "image": "assets/etape-protection.webp",
+      "alt": "Équipe LC Création posant la protection intérieure du bassin."
+    },
+    {
+      "title": "Pose du liner",
+      "image": "assets/etape-liner.webp",
+      "alt": "Pose du liner bleu dans la structure de la piscine bois."
+    },
+    {
+      "title": "Local technique et réglages",
+      "image": "assets/local-technique.webp",
+      "alt": "Filtration, tuyauteries et commandes installées dans le local technique."
+    },
+    {
+      "title": "Mise en service et prise en main",
+      "image": "assets/etape-mise-en-service.webp",
+      "alt": "Explications et contrôle de l’installation dans le local technique."
+    },
+    {
+      "title": "Finitions et détails",
+      "image": "assets/finitions-detail-lc-creation.webp",
+      "alt": "Finitions LC Création : margelles bois, parement pierre, escalier extérieur éclairé et plaque de signature."
+    }
+  ],
+  "gallery": [
+    {
+      "asset": "poolDay",
+      "category": "pool",
+      "title": "Pierre et bois, de jour",
+      "image": "assets/piscine-pierre-bois-jour.webp",
+      "alt": "Vue d’ensemble d’une piscine avec parement pierre, margelles bois et terrasse.",
+      "width": 1600,
+      "height": 965
+    },
+    {
+      "asset": "poolEvening",
+      "category": "pool",
+      "title": "À la tombée du jour",
+      "image": "assets/piscine-pierre-bois-soir.webp",
+      "alt": "La même piscine à la tombée du jour, avec éclairage des marches et du parement pierre.",
+      "width": 1600,
+      "height": 1028
+    },
+    {
+      "asset": "stepDetail",
+      "category": "detail",
+      "title": "L’entrée dans l’eau",
+      "image": "assets/escalier-integre.webp",
+      "alt": "Escalier intégré d’angle sous l’eau et margelles bois.",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "asset": "amenagementHero",
+      "category": "terrace",
+      "title": "Une terrasse pour vivre dehors",
+      "image": "assets/amenagement-terrasse-gres-cerame.webp",
+      "alt": "Terrasse en dalles grises avec espace repas devant une façade blanche.",
+      "width": 1536,
+      "height": 2048
+    },
+    {
+      "title": "Cour rénovée",
+      "city": "Nivelles",
+      "image": "assets/cour-nivelles.webp",
+      "alt": "Cour rénovée à Nivelles, avec pavés, massifs et espace de terrasse.",
+      "source": "https://www.lc-creation.be/",
+      "category": "landscape"
+    },
+    {
+      "title": "Allée et clôture",
+      "city": "Braine-l’Alleud",
+      "image": "assets/allee-braine.webp",
+      "alt": "Allée et clôture réalisées devant une habitation à Braine-l’Alleud.",
+      "source": "https://www.lc-creation.be/",
+      "category": "landscape"
+    }
+  ],
+  "baliCaption": "Illustration de projet — ambiance Bali. Ce visuel commercial ne représente pas une réalisation photographiée.",
+  "baliContainsText": true,
+  "baliEmbeddedPrice": "29 990 €",
+  "poolPanorama": "assets/piscine-pierre-panorama.webp",
+  "heroAlt": "Réalisation LC Création : piscine bois avec volet et terrasse intégrée dans le jardin.",
+  "stepsCaption": "Notre méthode en images. Photographies de plusieurs interventions LC Création.",
+  "heroMobile": "assets/hero-piscine-800.webp",
+  "heroSrcset": "assets/hero-piscine-800.webp 800w, assets/hero-piscine-1200.webp 1200w, assets/hero-piscine-terrasse.webp 2000w",
+  "poolSrcset": "assets/piscine-lc-6-3-800.webp 800w, assets/piscine-lc-6-3.webp 1600w",
+  "amenagementHero": "assets/amenagement-terrasse-gres-cerame.webp",
+  "poolDay": "assets/piscine-pierre-bois-jour.webp",
+  "poolDayWidth": 1600,
+  "poolDayHeight": 965,
+  "poolDaySrcset": "assets/piscine-pierre-bois-jour-800.webp 800w, assets/piscine-pierre-bois-jour-1200.webp 1200w, assets/piscine-pierre-bois-jour.webp 1600w",
+  "poolEvening": "assets/piscine-pierre-bois-soir.webp",
+  "poolEveningWidth": 1600,
+  "poolEveningHeight": 1028,
+  "poolEveningSrcset": "assets/piscine-pierre-bois-soir-800.webp 800w, assets/piscine-pierre-bois-soir-1200.webp 1200w, assets/piscine-pierre-bois-soir.webp 1600w",
+  "stepDetail": "assets/escalier-integre.webp",
+  "stepDetailWidth": 1600,
+  "stepDetailHeight": 1200,
+  "stepDetailSrcset": "assets/escalier-integre-800.webp 800w, assets/escalier-integre-1200.webp 1200w, assets/escalier-integre.webp 1600w"
+}

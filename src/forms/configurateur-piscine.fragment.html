@@ -1,0 +1,632 @@
+<main id="contenu" class="lc-form-page lc-wood-config">
+
+  <!-- HERO CONFIG -->
+  <section class="config-hero">
+    <div class="config-hero-inner">
+      <div class="config-badge">Configurateur · Bois Premium</div>
+      <h1>Configurez votre piscine bois.</h1>
+      <p>Pour LC 6.3 — 25 900 € TVAC, volet PVC manuel et pompe à chaleur inclus, <a href="./configurateur-projet.html#lc-6-3">configurez votre LC 6.3 ici</a>. Les formats ci-dessous constituent une gamme distincte.</p>
+      <p>
+        Piscine seule, terrasse ou jardin complet : précisez votre projet, choisissez votre pack et vos options.
+        Obtenez une estimation indicative à l’écran et transmettez votre projet à LC Création, sans engagement.
+      </p>
+      <p class="config-note">
+        Les montants restent indicatifs. Le prix final est confirmé après visite sur place et étude de votre terrain.
+      </p>
+         
+    </div>
+  </section>
+
+  <!-- CONTENU -->
+  <section class="config-wrapper">
+
+    <!-- COLONNE GAUCHE : FORMULAIRE / ÉTAPES -->
+    <form class="config-card" id="config-form" novalidate>
+
+      <div class="config-steps-header">
+        <h2>Votre projet</h2>
+        <div class="config-step-indicator">
+          Étape <strong id="config-step-current">1</strong> / <span id="config-step-total">4</span>
+        </div>
+      </div>
+
+      <nav class="config-steps" aria-label="Étapes de la configuration">
+        <button type="button" class="config-step-pill active" data-step-pill="1"><span>1</span> Projet</button>
+        <button type="button" class="config-step-pill" data-step-pill="2"><span>2</span> Pack</button>
+        <button type="button" class="config-step-pill" data-step-pill="3"><span>3</span> Options</button>
+        <button type="button" class="config-step-pill" data-step-pill="4"><span>4</span> Coordonnées</button>
+      </nav>
+
+   <!-- ETAPE 1 : PROFIL & TERRAIN -->
+<div class="config-step active" data-step="1" role="group" aria-label="Étape 1 : votre projet" tabindex="-1">
+
+  <!-- Type de projet -->
+  <div class="config-group">
+    <p class="lc-field-label" id="type-projet-label">Type de projet</p>
+    <div class="config-radio-group" id="config-type-projet" role="radiogroup" aria-labelledby="type-projet-label">
+
+      <label class="config-radio-option active">
+        <input type="radio" name="type_projet" value="Piscine seule" checked>
+        <div>
+          <div class="config-radio-title">Piscine seule</div>
+          <div class="config-radio-desc">
+            Vous voulez d’abord installer la piscine, le reste pourra suivre plus tard.
+          </div>
+        </div>
+      </label>
+
+      <label class="config-radio-option">
+        <input type="radio" name="type_projet" value="Piscine + terrasse / plage">
+        <div>
+          <div class="config-radio-title">Piscine + terrasse / plage</div>
+          <div class="config-radio-desc">
+            Nous réfléchissons aussi à l’espace autour (terrasse, plage, margelles).
+          </div>
+        </div>
+      </label>
+
+      <label class="config-radio-option">
+        <input type="radio" name="type_projet" value="Piscine + réaménagement complet du jardin">
+        <div>
+          <div class="config-radio-title">Piscine + réaménagement complet du jardin</div>
+          <div class="config-radio-desc">
+            Projet global : piscine, circulations, plantations, éclairage, etc.
+          </div>
+        </div>
+      </label>
+
+    </div>
+  </div>
+
+  <!-- Terrain -->
+  <div class="config-group">
+    <label for="config-terrain">Votre terrain est plutôt…</label>
+    <select id="config-terrain" class="config-select">
+      <option value="Plat" selected>Plat</option>
+      <option value="Légèrement en pente">Légèrement en pente</option>
+      <option value="Fortement en pente / accès complexe">Fortement en pente / accès complexe</option>
+    </select>
+    <small>Cette information nous aide à estimer la complexité du terrassement.</small>
+  </div>
+
+  <!-- Code postal -->
+  <div class="config-group">
+    <label for="config-code-postal">Code postal du chantier</label>
+    <input
+      type="text"
+      id="config-code-postal" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="postal-code"
+      class="config-input"
+      placeholder="Ex. 1400"
+    >
+    <small>Votre projet en Wallonie. Indiquez le code postal du chantier.</small>
+  </div>
+
+  <!-- Pose souhaitée (BIEN DANS STEP 1) -->
+  <div class="config-group">
+    <label>Pose souhaitée</label>
+    <div class="config-radio-group" id="config-pose">
+
+      <label class="config-radio-option active">
+        <input type="radio" name="pose" value="Hors-sol" checked>
+        <div>
+          <div class="config-radio-title">Hors-sol</div>
+          <div class="config-radio-desc">Pose rapide, chantier léger.</div>
+        </div>
+      </label>
+
+      <label class="config-radio-option">
+        <input type="radio" name="pose" value="Semi-enterrée">
+        <div>
+          <div class="config-radio-title">Semi-enterrée</div>
+          <div class="config-radio-desc">Terrassement partiel, rendu plus intégré.</div>
+        </div>
+      </label>
+
+      <label class="config-radio-option">
+        <input type="radio" name="pose" value="Enterrée">
+        <div>
+          <div class="config-radio-title">Enterrée</div>
+          <div class="config-radio-desc">Terrassement complet et drainage.</div>
+        </div>
+      </label>
+
+    </div>
+
+    <small>Les prix semi-enterrés et enterrés s’entendent hors évacuation des terres.</small>
+  </div>
+
+</div>
+<!-- FIN ETAPE 1 -->
+
+    
+
+          <!-- ETAPE 2 : PACK -->
+<div class="config-step" data-step="2" role="group" aria-label="Étape 2 : votre pack" tabindex="-1" hidden>
+  <!-- Taille -->
+<div class="config-group">
+  <label>Choisissez votre taille</label>
+  <div class="config-radio-group" id="config-taille">
+<label class="config-radio-option active">
+  <input type="radio" name="taille" value="Compacte" checked>
+  <div>
+    <div class="config-radio-title">Compacte</div>
+    <div class="config-radio-desc">
+      5,0 × 3,2 m — format idéal pour un premier projet. À partir de 15 990 € TVAC (Essentiel).
+    </div>
+  </div>
+</label>
+
+<label class="config-radio-option">
+  <input type="radio" name="taille" value="Familiale">
+  <div>
+    <div class="config-radio-title">Familiale</div>
+    <div class="config-radio-desc">
+      6,0 × 4,2 m — le format le plus demandé. À partir de 18 990 € TVAC (Essentiel).
+    </div>
+  </div>
+</label>
+
+<label class="config-radio-option">
+  <input type="radio" name="taille" value="Grande">
+  <div>
+    <div class="config-radio-title">Grande</div>
+    <div class="config-radio-desc">
+      8,35 × 4,9 m — pour maximiser l’espace baignade. À partir de 21 990 € TVAC (Essentiel).
+    </div>
+  </div>
+</label>
+
+    
+  </div>
+</div>
+
+<!-- Pack (niveau de confort) -->
+<div class="config-group">
+  <label>Choisissez votre niveau de confort</label>
+  <div class="config-radio-group" id="config-pack">
+
+    <label class="config-radio-option active">
+      <input type="radio" name="pack" value="Essentiel" checked>
+      <div>
+        <div class="config-radio-title">Essentiel</div>
+        <div class="config-radio-desc">Le standard LC : prêt à profiter, simple et efficace.</div>
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="pack" value="Confort">
+      <div>
+        <div class="config-radio-title">Confort</div>
+        <div class="config-radio-desc">
+  Volet manuel à lames PVC + margelles bois + pompe à chaleur incluse.
+</div>
+
+      </div>
+    </label>
+
+    <label class="config-radio-option">
+      <input type="radio" name="pack" value="Luxe">
+      <div>
+        <div class="config-radio-title">Luxe</div>
+        <div class="config-radio-desc">
+  Volet motorisé à lames polycarbonate + margelles bois exotique + pompe à chaleur incluse + robot + pompe doseuse + LED RGB.
+</div>
+
+      </div>
+    </label>
+
+  </div>
+</div>
+
+
+  <div class="config-group">
+    <label for="config-budget">Budget global envisagé</label>
+    <select id="config-budget" class="config-select">
+      <option value="15-20k">15 000 – 20 000 €</option>
+      <option value="20-30k" selected>20 000 – 30 000 €</option>
+      <option value="30-40k">30 000 – 40 000 €</option>
+      <option value="40k+">Plus de 40 000 €</option>
+    </select>
+  </div>
+</div> <!-- fin .config-step 2 -->
+
+
+                 <!-- ETAPE 3 : OPTIONS -->
+      <div class="config-step" data-step="3" role="group" aria-label="Étape 3 : vos options" tabindex="-1" hidden>
+
+        <!-- Couleur du liner -->
+        <div class="config-group">
+          <label>Couleur du liner</label>
+          <div class="config-radio-group" id="config-liner">
+            <label class="config-radio-option active">
+              <input type="radio" name="liner_color" value="Blue" checked>
+              <div>
+                <div class="config-radio-title">Blue</div>
+                <div class="config-radio-desc">
+                  Liner bleu classique, rendu lumineux de l’eau (inclus dans le prix de base).
+                </div>
+              </div>
+            </label>
+
+            <label class="config-radio-option">
+              <input type="radio" name="liner_color" value="Sand">
+              <div>
+                <div class="config-radio-title">Sand (+<span data-liner-price></span>)</div>
+                <div class="config-radio-desc">
+                  Liner sable, ambiance « méditerranéenne » très douce.
+                </div>
+              </div>
+            </label>
+
+            <label class="config-radio-option">
+              <input type="radio" name="liner_color" value="Grey">
+              <div>
+                <div class="config-radio-title">Grey (+<span data-liner-price></span>)</div>
+                <div class="config-radio-desc">
+                  Liner gris, rendu contemporain, eau plus profonde visuellement.
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <small>Les liners Sand et Grey entraînent un supplément de <span data-liner-price></span> TVAC.</small>
+        </div>
+        
+
+        <!-- Chauffage -->
+        <div class="config-group">
+          <label>Chauffage de l’eau</label>
+          <div class="config-radio-group" id="config-chauffage">
+            <label class="config-radio-option active">
+              <input type="radio" name="chauffage" value="Pas de chauffage" checked>
+              <div>
+                <div class="config-radio-title">Pas de chauffage</div>
+                <div class="config-radio-desc">Usage surtout en été, sans pompe à chaleur.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="chauffage" value="Pompe à chaleur">
+              <div>
+                <div class="config-radio-title">Pompe à chaleur</div>
+                <div class="config-radio-desc">Pour prolonger la saison de baignade et stabiliser la température.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Traitement -->
+        <div class="config-group">
+          <label>Traitement / automatisation</label>
+          <div class="config-radio-group" id="config-traitement">
+            <label class="config-radio-option active">
+              <input type="radio" name="traitement" value="Traitement manuel" checked>
+              <div>
+                <div class="config-radio-title">Traitement manuel</div>
+                <div class="config-radio-desc">Contrôle manuel du chlore et du pH, solution la plus simple.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="traitement" value="Électrolyseur sel">
+              <div>
+                <div class="config-radio-title">Électrolyseur au sel</div>
+                <div class="config-radio-desc">Plus de confort au quotidien, moins de produits à manipuler.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="traitement" value="Électrolyseur + régulation pH">
+              <div>
+                <div class="config-radio-title">Électrolyseur + régulation pH</div>
+                <div class="config-radio-desc">Pilotage plus automatisé, confort d’entretien maximal.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="traitement" value="Pompe doseuse">
+              <div>
+                <div class="config-radio-title">Pompe doseuse</div>
+                <div class="config-radio-desc">Pompe doseuse automatique (pH / chlore liquide) pour stabiliser l’eau au quotidien.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+
+        <!-- Entretien -->
+        <div class="config-group">
+          <label>Entretien</label>
+          <div class="config-radio-group" id="config-entretien">
+            <label class="config-radio-option active">
+              <input type="radio" name="entretien" value="Sans robot" checked>
+              <div>
+                <div class="config-radio-title">Sans robot</div>
+                <div class="config-radio-desc">Entretien manuel classique.</div>
+              </div>
+            </label>
+            <label class="config-radio-option">
+              <input type="radio" name="entretien" value="Avec robot nettoyeur">
+              <div>
+                <div class="config-radio-title">Avec robot nettoyeur</div>
+                <div class="config-radio-desc">Robot autonome pour faciliter l’entretien du bassin.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+<div class="config-group">
+  <label>Pack Sérénité — le suivi après votre installation</label>
+  <div class="config-check-group" id="config-serenite">
+    <label class="config-check-option">
+      <input type="checkbox" name="serenite" value="Pack Sérénité">
+      <div>
+        <div class="config-check-option-title">Pack Sérénité — <span data-serenite-price></span>/an</div>
+        <div class="config-check-option-desc">
+          Suivi annuel de votre piscine. Prestations et conditions précisées dans votre offre.
+          <strong>Inclus dans le pack Luxe.</strong>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+
+        <!-- Confort & loisirs -->
+        <div class="config-group">
+          <label>Confort & loisirs</label>
+          <div class="config-check-group" id="config-loisir">
+            <label class="config-check-option">
+              <input type="checkbox" name="loisir" value="Spot LED couleur (RGB)">
+              <div>
+                <div class="config-check-option-title">Spot LED couleur</div>
+                <div class="config-check-option-desc">
+                  Spots LED RGB pour changer l’ambiance du bassin.
+                  Éclairage blanc inclus en Confort ; LED RGB incluses en Luxe.
+                </div>
+              </div>
+            </label>
+            <label class="config-check-option">
+  <input type="checkbox" name="loisir" value="Bandeau LED sous margelles (Halo)">
+  <div>
+    <div class="config-check-option-title">
+      Bandeau LED sous margelles <span class="tag-premium">Signature</span>
+    </div>
+    <div class="config-check-option-desc">
+      Effet “halo” tout autour de la piscine pour un rendu spectaculaire le soir.
+      Chiffrage personnalisé (selon longueur, passages de câbles et alimentation).
+    </div>
+  </div>
+</label>
+
+            <label class="config-check-option">
+              <input type="checkbox" name="loisir" value="Douche solaire extérieure">
+              <div>
+                <div class="config-check-option-title">Douche solaire extérieure</div>
+                <div class="config-check-option-desc">Douche solaire pratique avant et après la baignade.</div>
+              </div>
+            </label>
+            <label class="config-check-option">
+              <input type="checkbox" name="loisir" value="Nage à contre-courant">
+              <div>
+                <div class="config-check-option-title">Nage à contre-courant</div>
+                <div class="config-check-option-desc">Équipement sportif pour transformer votre bassin en couloir de nage.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Évacuation des terres (cas par cas) -->
+        <div class="config-group" id="config-evac-block" style="margin-top:1.5rem;">
+          <label>Évacuation des terres</label>
+
+          <div class="config-radio-group" id="config-evac">
+            <label class="config-radio-option active">
+              <input type="radio" name="evacuation" value="Non" checked>
+              <div>
+                <div class="config-radio-title">Pas d’évacuation</div>
+                <div class="config-radio-desc">Les terres peuvent être étalées sur place.</div>
+              </div>
+            </label>
+
+            <label class="config-radio-option">
+              <input type="radio" name="evacuation" value="Oui">
+              <div>
+                <div class="config-radio-title">Évacuation nécessaire</div>
+                <div class="config-radio-desc">Selon le terrain et l’accès, un volume peut être évacué.</div>
+              </div>
+            </label>
+          </div>
+
+          <div id="config-evac-volume-row" style="display:none; margin-top:0.8rem;">
+            <label for="config-evac-m3">Volume estimé (m³)</label>
+            <input type="number" id="config-evac-m3" class="config-input"
+                   min="0" max="10000" step="1" value="0">
+            <small>Volume indicatif selon dimensions et pose. Vous pouvez le corriger ; il sera confirmé après visite.</small>
+          </div>
+        </div>
+
+        <!-- Terrasse / plage autour -->
+        <div class="config-group" id="config-plage-block">
+          <label>Plage / terrasse autour de la piscine</label>
+
+          <div class="config-radio-group" id="config-plage-materiau">
+            <label class="config-radio-option active">
+              <input type="radio" name="plage_materiau" value="Aucune" checked>
+              <div>
+                <div class="config-radio-title">Pas de plage / terrasse</div>
+                <div class="config-radio-desc">Je souhaite uniquement la piscine.</div>
+              </div>
+            </label>
+
+            <label class="config-radio-option">
+              <input type="radio" name="plage_materiau" value="Bois">
+              <div>
+                <div class="config-radio-title">Terrasse en bois</div>
+                <div class="config-radio-desc">Bois traité classe IV, rendu naturel et chaleureux.</div>
+              </div>
+            </label>
+
+            <label class="config-radio-option">
+              <input type="radio" name="plage_materiau" value="Composite">
+              <div>
+                <div class="config-radio-title">Composite imitation bois</div>
+                <div class="config-radio-desc">Aspect bois, entretien limité et finitions contemporaines.</div>
+              </div>
+            </label>
+
+            <label class="config-radio-option">
+              <input type="radio" name="plage_materiau" value="Gres cerame">
+              <div>
+                <div class="config-radio-title">Grès cérame imitation pierre bleue</div>
+                <div class="config-radio-desc">Style contemporain, durable, antidérapant.</div>
+              </div>
+            </label>
+          </div>
+
+          <div class="config-group" style="margin-top:12px;">
+            <label for="config-plage-surface">Surface estimée de la terrasse (m²)</label>
+            <input type="number" id="config-plage-surface" class="config-input" min="0" max="10000" step="0.1" value="0">
+            <small>Par défaut, nous calculons un pourtour de ±1 m autour du bassin, ajustable selon votre projet.</small>
+          </div>
+        </div>
+
+      </div> <!-- FIN ETAPE 3 -->
+
+            <!-- ETAPE 4 : COORDONNÉES -->
+      <div class="config-step" data-step="4" role="group" aria-label="Étape 4 : vos coordonnées" tabindex="-1" hidden>
+        <div class="config-group">
+          <label for="config-prenom">Prénom *</label>
+          <input type="text" id="config-prenom" required autocomplete="given-name" maxlength="100" class="config-input" placeholder="Votre prénom">
+        </div>
+        <div class="config-group">
+          <label for="config-nom">Nom *</label>
+          <input type="text" id="config-nom" required autocomplete="family-name" maxlength="100" class="config-input" placeholder="Votre nom">
+        </div>
+        <div class="config-group">
+          <label for="config-email">E-mail *</label>
+          <input type="email" id="config-email" required autocomplete="email" maxlength="254" class="config-input" placeholder="exemple@domaine.be">
+          <small>Votre e-mail nous permet de vous recontacter au sujet de cette configuration. L’estimation s’affiche à l’écran.</small>
+        </div>
+        <div class="config-group">
+          <label for="config-tel">Téléphone</label>
+          <input type="tel" id="config-tel" autocomplete="tel" maxlength="30" class="config-input" placeholder="Optionnel, mais pratique pour vous rappeler.">
+        </div>
+
+        <div class="config-group">
+          <label for="config-delai">Quand souhaitez-vous réaliser votre projet&nbsp;?</label>
+          <select id="config-delai" class="config-select">
+            <option value="Je découvre les prix pour l’instant">Je découvre les prix pour l’instant</option>
+            <option value="Dans les 3 à 6 mois">Dans les 3 à 6 mois</option>
+            <option value="Dans les 6 à 12 mois">Dans les 6 à 12 mois</option>
+            <option value="Pour la saison suivante">Pour la saison suivante</option>
+          </select>
+        </div>
+
+        <div class="config-group">
+          <label for="config-contact-pref">Comment préférez-vous que l’on vous contacte&nbsp;?</label>
+          <select id="config-contact-pref" class="config-select">
+            <option value="E-mail uniquement">E-mail uniquement</option>
+            <option value="Téléphone (en journée)">Téléphone (en journée)</option>
+            <option value="Téléphone (en soirée)">Téléphone (en soirée)</option>
+            <option value="E-mail + téléphone si besoin">E-mail + téléphone si besoin</option>
+          </select>
+        </div>
+
+        <div class="config-group">
+          <label for="config-message">Précisions sur votre projet</label>
+          <textarea id="config-message" maxlength="5000" class="config-input" rows="3"
+            placeholder="Ex. : accès par le côté, terrain légèrement en pente, envie de plage autour de la piscine…"></textarea>
+        </div>
+
+        <div class="config-group">
+          <small>* Champs obligatoires pour transmettre votre configuration. Votre estimation indicative s’affichera aussi à l’écran.</small>
+        </div>
+      </div> <!-- FIN ETAPE 4 -->
+
+      <!-- NAVIGATION ENTRE ETAPES -->
+      <div class="config-nav">
+        <div class="config-nav-left">
+          <button type="button" class="btn btn-text" id="config-back" disabled>
+            &larr; Étape précédente
+          </button>
+        </div>
+        <div class="config-nav-right">
+          <button type="button" class="btn btn-secondary" id="config-cancel">
+            Réinitialiser
+          </button>
+          <button type="submit" class="btn btn-primary" id="config-next">
+            Étape suivante
+          </button>
+        </div>
+      </div>
+    <div id="config-status" class="lc-form-status" role="status" aria-live="polite" tabindex="-1"></div>
+    </form> <!-- fin .config-card -->
+
+    <!-- COLONNE DROITE : RÉCAP & ESTIMATION -->
+    <aside class="config-summary-card" id="config-summary">
+      <h2>Récapitulatif & estimation</h2>
+      <p>
+        À chaque étape, nous mettons à jour ce récapitulatif pour vous donner une vision claire de votre projet.
+        L’estimation reste indicative et sera validée après visite sur place.
+      </p>
+
+      <div class="config-summary-section">
+        <strong>Projet :</strong>
+        <ul class="config-summary-list">
+          <li id="summary-type-projet">Piscine seule</li>
+          <li id="summary-terrain">Terrain : plat</li>
+          <li id="summary-code-postal">Code postal : à préciser</li>
+          <li id="summary-pose">Pose : hors-sol</li>
+
+        </ul>
+      </div>
+
+      <div class="config-summary-section">
+        <strong>Pack choisi :</strong>
+        <ul class="config-summary-list">
+          <li id="summary-pack">Essentiel</li>
+          <li id="summary-budget">Budget envisagé : 20 000 – 30 000 €</li>
+          <li id="summary-taille">Taille : Compacte</li>
+          <li id="summary-margelles">Margelles : bois</li>
+
+        </ul>
+      </div>
+
+            <div class="config-summary-section">
+        <strong>Options :</strong>
+        <ul class="config-summary-list">
+          <li id="summary-chauffage">Chauffage : pas de chauffage</li>
+          <li id="summary-traitement">Traitement : manuel</li>
+          
+          <li id="summary-couverture">Couverture : à définir</li>
+          <li id="summary-entretien">Entretien : sans robot</li>
+          <li id="summary-loisir">Loisirs : aucun équipement spécifique</li>
+          <li id="summary-liner">Couleur du liner : blue</li>
+          <li id="summary-evac">Évacuation : non</li>
+          <li id="summary-serenite">Pack Sérénité : non</li>
+
+          <li id="summary-plage">Plage/terrasse : aucune</li>
+
+        </ul>
+      </div>
+
+<div class="config-summary-section">
+  <strong>Coordonnées & projet :</strong>
+  <ul class="config-summary-list">
+    <li id="summary-delai">Délai souhaité : à préciser</li>
+    <li id="summary-contact-pref">Contact : à préciser</li>
+  </ul>
+</div>
+
+      <div class="config-price-zone">
+        <div class="config-price-label">Estimation indicative TVAC</div>
+        <div class="config-price-value" id="summary-price">Après validation</div><p id="summary-annual" class="config-price-note"></p>
+        <div class="config-price-note">
+          Estimation basée sur le pack et les options sélectionnées, hors contraintes spécifiques de terrain
+          (accès, niveau de terrassement, particularités techniques).
+        </div>
+      </div>
+
+      <div class="config-legal">
+        En envoyant votre configuration, vous demandez à LC Création de vous recontacter au sujet de votre projet.
+        Sans engagement. <a href="./politique-confidentialite.html">Protection de vos données</a>.
+      </div>
+    </aside>
+  </section>
+
+</main>

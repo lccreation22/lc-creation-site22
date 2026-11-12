@@ -1,0 +1,102 @@
+/* Formulaires : palette bleu nuit, actions dorées et surfaces arrondies.
+   Tous les styles restent limités au périmètre .lc-form-page. */
+.lc-form-page{--form-accent:#e3bd49;--form-accent-hover:#f0cf6e;--form-ink:#eff3f7;--form-muted:#acb8c8;--form-line:#2b3b50;--form-tint:#101e30;--form-field:#0b1726;--form-selected:#1b2a3a;--form-focus:#e3bd4933;color-scheme:dark;color:var(--form-ink);font-family:inherit;font-weight:400;font-size:1rem;line-height:1.65;padding-bottom:4rem}
+.lc-form-page *{box-sizing:border-box}
+.lc-form-page [hidden]{display:none!important}
+.lc-form-page :focus-visible{outline:3px solid var(--form-accent);outline-offset:4px}
+.lc-form-page .lc-form-heading,.lc-form-page .config-hero-inner{max-width:1200px;margin:0 auto;padding:clamp(2.5rem,6vw,5rem) 24px 2.5rem}
+.lc-form-page .lc-form-heading>p:not(.lc-eyebrow),.lc-form-page .config-hero-inner>p{max-width:760px;color:var(--form-muted);font-size:1.06rem;line-height:1.7}
+.lc-form-page .lc-form-heading h1,.lc-form-page .config-hero h1{font-size:clamp(2.25rem,4.6vw,4.2rem);line-height:1.06;letter-spacing:-.045em;max-width:950px;margin:.65rem 0 1.2rem;font-weight:400}
+.lc-form-page .lc-form-heading h2{font-size:clamp(2rem,4vw,3rem);line-height:1.15;letter-spacing:-.035em}
+.lc-form-page .lc-eyebrow,.lc-form-page .config-badge{font-size:.72rem;text-transform:uppercase;letter-spacing:.17em;font-weight:700;color:var(--form-accent);margin:0 0 .7rem}
+.lc-form-page a{color:inherit;text-underline-offset:4px}
+.lc-form-page .lc-form-back{font-size:.9rem;font-weight:600}
+.lc-form-page .lc-project-layout,.lc-form-page .config-wrapper{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:36px;align-items:start}
+.lc-form-page .lc-project-form{min-width:0}
+.lc-form-page .lc-form-section{padding:28px 0 30px;margin:0 0 20px;border:0;border-top:1px solid var(--form-line);min-width:0}
+.lc-form-page .lc-form-section>legend{float:left;width:100%;margin:0 0 24px;padding:0;font-size:1.45rem;line-height:1.25;font-weight:500;letter-spacing:-.025em}
+.lc-form-page .lc-form-section>legend+*{clear:both}
+.lc-form-page .lc-step-number{color:var(--form-accent);font-weight:500;font-size:.85rem;letter-spacing:.08em;vertical-align:middle;margin-right:14px}
+.lc-form-page label:not(.lc-option):not(.config-radio-option):not(.config-check-option),.lc-form-page .lc-field-label{display:block;font-size:.9rem;font-weight:600;margin:18px 0 8px}
+.lc-form-page input:not([type=radio]):not([type=checkbox]),.lc-form-page select,.lc-form-page textarea{display:block;width:100%;max-width:100%;min-height:50px;border:1px solid #3b4d64;border-radius:10px;background:var(--form-field);color:var(--form-ink);padding:12px 14px;font:inherit;font-size:1rem;line-height:1.5;transition:border-color .15s,box-shadow .15s}
+.lc-form-page input:not([type=radio]):not([type=checkbox]):focus,.lc-form-page select:focus,.lc-form-page textarea:focus{border-color:var(--form-accent);box-shadow:0 0 0 3px var(--form-focus);outline:none}
+.lc-form-page input[type=radio],.lc-form-page input[type=checkbox]{flex-shrink:0;width:18px;height:18px;accent-color:var(--form-accent);margin:4px 0 0}
+.lc-form-page input:disabled,.lc-form-page select:disabled{background:#162332;color:var(--form-muted);opacity:.65;cursor:not-allowed}
+.lc-form-page [aria-invalid=true]{border-color:#e2877b!important}
+.lc-form-page textarea{resize:vertical;min-height:110px}
+.lc-form-page input::placeholder,.lc-form-page textarea::placeholder{color:#8393a8;opacity:1}
+.lc-form-page option{background:var(--form-field);color:var(--form-ink)}
+.lc-form-page .lc-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+.lc-form-page .lc-inner-fieldset{padding:24px 0 0;margin:8px 0 0;border:0;min-width:0}
+.lc-form-page .lc-inner-fieldset>legend{font-size:1rem;font-weight:600;padding:0;transform:translateY(12px)}
+.lc-form-page .lc-inner-fieldset small{font-weight:400}
+.lc-form-page .lc-option-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.lc-form-page .lc-option,.lc-form-page .config-radio-option,.lc-form-page .config-check-option{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--form-line);padding:18px;margin:0;border-radius:14px;cursor:pointer;background:var(--form-field);line-height:1.45;min-width:0;transition:border-color .15s,background .15s}
+.lc-form-page .lc-option:hover,.lc-form-page .config-radio-option:hover,.lc-form-page .config-check-option:hover{border-color:#71839a}
+.lc-form-page .lc-option.active,.lc-form-page .config-radio-option.active,.lc-form-page .config-check-option.active{border-color:var(--form-accent);background:var(--form-selected);box-shadow:inset 0 0 0 1px var(--form-accent)}
+.lc-form-page .lc-option:has(:focus-visible),.lc-form-page .config-radio-option:has(:focus-visible),.lc-form-page .config-check-option:has(:focus-visible){outline:3px solid var(--form-accent);outline-offset:3px}
+.lc-form-page .lc-option span{font-weight:600}
+.lc-form-page .lc-option small{display:block;color:var(--form-muted);font-size:.78rem;line-height:1.55;margin-top:4px;font-weight:400}
+.lc-form-page .lc-form-help,.lc-form-page .config-note,.lc-form-page .config-group>small,.lc-form-page .config-price-note,.lc-form-page .config-legal{font-size:.8rem;line-height:1.65;color:var(--form-muted);display:block;margin:8px 0 0}
+.lc-form-page .lc-offer-detail{background:var(--form-tint);border-left:3px solid var(--form-accent);padding:22px 24px;margin:20px 0;border-radius:0 18px 18px 0}
+.lc-form-page .lc-offer-detail h2{font-size:2.4rem;letter-spacing:-.04em;line-height:1.15;margin:.25rem 0 1rem}
+.lc-form-page .lc-offer-detail h2 small{font-size:.8rem;letter-spacing:0;font-weight:400}
+.lc-form-page .lc-offer-detail p{margin:.75rem 0}
+.lc-form-page .lc-project-recap,.lc-form-page .config-summary-card{position:sticky;top:104px;background:var(--form-tint);border:1px solid var(--form-line);padding:28px;border-radius:22px}
+.lc-form-page .lc-project-recap h2,.lc-form-page .config-summary-card h2{font-size:1.55rem;line-height:1.25;margin:0 0 18px;letter-spacing:-.025em}
+.lc-form-page .lc-project-recap dt{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--form-muted);margin:21px 0 3px}
+.lc-form-page .lc-project-recap dd{margin:0;font-size:.93rem;line-height:1.5}
+.lc-form-page .lc-form-phone{display:block;padding-top:20px;font-size:.87rem;font-weight:600}
+.lc-form-page .lc-form-submit{padding:0 0 24px}
+.lc-form-page .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 22px;border:1px solid transparent;border-radius:10px;font:inherit;font-size:.92rem;font-weight:600;line-height:1.35;text-align:center;cursor:pointer;white-space:normal;text-decoration:none}
+.lc-form-page .btn-primary{background:var(--form-accent);color:#101722;border-color:var(--form-accent)}
+.lc-form-page .btn-primary:hover{background:var(--form-accent-hover);border-color:var(--form-accent-hover)}
+.lc-form-page .btn-secondary{border-color:#3b4d64;background:var(--form-field);color:var(--form-ink)}
+.lc-form-page .btn-secondary:hover{background:#1a2a3d;border-color:#71839a}
+.lc-form-page .btn-text{background:transparent;color:var(--form-ink);padding-left:0}
+.lc-form-page .btn:disabled{opacity:.55;cursor:default}
+.lc-form-page .lc-form-submit>.btn{margin-top:18px;width:100%}
+.lc-form-page .lc-form-status{font-size:.92rem;margin:16px 0 0;scroll-margin-top:115px;white-space:normal}
+.lc-form-page .lc-form-status:empty{display:none}
+.lc-form-page .lc-form-status.is-error{padding:16px;border-radius:10px;background:#301b25;border-left:3px solid #e2877b;color:#ffd0c9}
+.lc-form-page .lc-form-status.is-preview,.lc-form-page .lc-form-status.is-success{padding:20px;border-radius:14px;background:#142837;border:1px solid #506a83;color:#e6f0f8}
+.lc-form-page .lc-form-status>p{font-size:.85rem;line-height:1.6}
+.lc-form-page .lc-local-recap{display:grid;grid-template-columns:minmax(90px,.5fr) 1fr;gap:10px 18px;padding-top:12px;margin:14px 0 0;border-top:1px solid #3b5268;font-size:.85rem}
+.lc-form-page .lc-local-recap dt{font-weight:600}
+.lc-form-page .lc-local-recap dd{margin:0;white-space:pre-line;overflow-wrap:anywhere}
+.lc-form-page .lc-form-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.lc-form-page .lc-form-other{max-width:1200px;padding:0 24px;margin:28px auto;font-size:.9rem}
+.lc-form-page .config-card{border:1px solid var(--form-line);border-radius:22px;background:var(--form-tint);padding:28px;scroll-margin-top:105px;min-width:0}
+.lc-form-page .config-steps-header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.lc-form-page .config-steps-header h2{font-size:1.6rem;margin:0}
+.lc-form-page .config-step-indicator{font-size:.78rem;color:var(--form-muted);white-space:nowrap}
+.lc-form-page .config-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border-bottom:1px solid var(--form-line);padding:24px 0;margin-bottom:24px}
+.lc-form-page .config-step-pill{appearance:none;border:0;border-radius:9px;background:#1a2a3d;padding:11px 5px;color:var(--form-muted);font:inherit;font-size:.78rem;font-weight:600;cursor:pointer}
+.lc-form-page .config-step-pill span{display:inline-block;margin-right:3px;font-size:.7rem}
+.lc-form-page .config-step-pill.active{background:var(--form-accent);color:#101722}
+.lc-form-page .config-group{margin:0 0 26px}
+.lc-form-page .config-radio-group,.lc-form-page .config-check-group{display:grid;gap:10px}
+.lc-form-page .config-radio-title,.lc-form-page .config-check-option-title{font-weight:600;font-size:.95rem}
+.lc-form-page .config-radio-desc,.lc-form-page .config-check-option-desc{font-size:.81rem;line-height:1.65;color:var(--form-muted);margin-top:4px}
+.lc-form-page .config-radio-desc strong,.lc-form-page .config-check-option-desc strong{color:var(--form-ink)}
+.lc-form-page .is-included{cursor:default}
+.lc-form-page .is-included.active::after{content:'Inclus';margin-left:auto;flex-shrink:0;font-size:.65rem;color:var(--form-accent);padding:3px 5px;background:#28303a;border-radius:6px}
+.lc-form-page .tag-premium{display:inline-block;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;background:#050a10;color:var(--form-accent);padding:3px 7px;margin-left:4px}
+.lc-form-page .config-hint{padding:14px;border-left:3px solid var(--form-accent);font-size:.83rem;background:var(--form-tint);margin:12px 0 0}
+.lc-form-page .config-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--form-line);padding-top:24px;margin-top:28px}
+.lc-form-page .config-nav-right{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px}
+.lc-form-page .config-nav .btn{font-size:.8rem;padding:12px 14px}
+.lc-form-page .config-summary-card>p{font-size:.83rem;color:var(--form-muted);line-height:1.65}
+.lc-form-page .config-summary-section{padding:17px 0;border-bottom:1px solid var(--form-line)}
+.lc-form-page .config-summary-section>strong{font-size:.8rem}
+.lc-form-page .config-summary-list{margin:5px 0 0;padding:0;list-style:none;font-size:.78rem;line-height:1.7}
+.lc-form-page .config-summary-list li{margin:4px 0}
+.lc-form-page .config-price-zone{padding:22px 0 10px}
+.lc-form-page .config-price-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;color:var(--form-muted)}
+.lc-form-page .config-price-value{font-size:1.85rem;letter-spacing:-.04em;font-weight:600;margin:5px 0}
+.lc-bali-form-section{max-width:980px;margin:0 auto;padding:20px 24px 60px}
+.lc-bali-form-section .lc-form-heading{padding-left:0;padding-right:0}
+@media(max-width:1000px){.lc-form-page .lc-project-layout,.lc-form-page .config-wrapper{grid-template-columns:minmax(0,1fr) 290px;gap:24px}.lc-form-page .config-card{padding:22px}.lc-form-page .lc-project-recap,.lc-form-page .config-summary-card{padding:22px}.lc-form-page .config-nav{flex-direction:column;align-items:stretch}.lc-form-page .config-nav-right{justify-content:stretch}.lc-form-page #config-next{flex:1}}
+@media(max-width:800px){.lc-form-page .lc-project-layout,.lc-form-page .config-wrapper{grid-template-columns:1fr}.lc-form-page .lc-project-recap,.lc-form-page .config-summary-card{position:static;order:1}.lc-form-page .lc-form-heading h1,.lc-form-page .config-hero h1{font-size:clamp(2.2rem,7vw,3.5rem)}.lc-form-page .config-steps{position:sticky;top:76px;z-index:5;background:var(--form-tint);box-shadow:0 -12px 0 var(--form-tint);padding:12px 0}.lc-form-page .config-nav{position:sticky;bottom:0;z-index:6;background:var(--form-tint);padding:12px 0;margin-bottom:-4px}.lc-form-page .config-nav-left{display:none}.lc-form-page .config-nav-right{display:grid;grid-template-columns:auto 1fr}.lc-form-page .config-card{scroll-margin-top:90px}}
+@media(max-width:540px){.lc-form-page .lc-form-heading,.lc-form-page .config-hero-inner{padding:36px 18px 28px}.lc-form-page .lc-project-layout,.lc-form-page .config-wrapper{padding:0 18px}.lc-form-page .lc-form-grid,.lc-form-page .lc-option-grid{grid-template-columns:1fr;gap:0}.lc-form-page .lc-option-grid{gap:9px}.lc-form-page .lc-form-section>legend{font-size:1.3rem}.lc-form-page .lc-offer-detail{padding:20px}.lc-form-page .config-card{padding:16px}.lc-form-page .config-steps{gap:4px}.lc-form-page .config-step-pill{font-size:.7rem}.lc-form-page .config-step-pill span{display:block;margin:0 0 2px}.lc-form-page .config-steps-header h2{font-size:1.35rem}.lc-form-page .config-radio-option,.lc-form-page .config-check-option{padding:14px}.lc-form-page .config-nav .btn{font-size:.76rem;padding:12px}.lc-form-page .lc-local-recap{grid-template-columns:1fr;gap:3px}.lc-form-page .lc-local-recap dd{margin-bottom:12px}.lc-bali-form-section{padding:0 18px 40px}.lc-bali-form-section .lc-form-heading{padding-left:0;padding-right:0}.lc-form-page .is-included.active::after{display:none}}
+@media(prefers-reduced-motion:reduce){.lc-form-page *{scroll-behavior:auto!important;transition:none!important}}

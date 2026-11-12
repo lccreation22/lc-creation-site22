@@ -1,0 +1,80 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "node build.mjs --production",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/amenagements",
+      "destination": "/amenagements.html"
+    },
+    {
+      "source": "/configurateur-piscine",
+      "destination": "/configurateur-piscine.html"
+    },
+    {
+      "source": "/configurateur-projet",
+      "destination": "/configurateur-projet.html"
+    },
+    {
+      "source": "/configurer",
+      "destination": "/configurer.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/merci-bali",
+      "destination": "/merci-bali.html"
+    },
+    {
+      "source": "/merci-configurateur",
+      "destination": "/merci-configurateur.html"
+    },
+    {
+      "source": "/piscine-bali",
+      "destination": "/piscine-bali.html"
+    },
+    {
+      "source": "/piscine-beton",
+      "destination": "/piscine-beton.html"
+    },
+    {
+      "source": "/piscine-bois-25900",
+      "destination": "/piscine-bois-25900.html"
+    },
+    {
+      "source": "/piscine-urbaine",
+      "destination": "/piscine-urbaine.html"
+    },
+    {
+      "source": "/piscines",
+      "destination": "/piscines.html"
+    },
+    {
+      "source": "/politique-confidentialite",
+      "destination": "/politique-confidentialite.html"
+    },
+    {
+      "source": "/realisations",
+      "destination": "/realisations.html"
+    },
+    {
+      "source": "/serenite-garanties",
+      "destination": "/serenite-garanties.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/piscine-urbaine-form.html",
+      "destination": "/piscine-urbaine.html",
+      "permanent": true
+    },
+    {
+      "source": "/piscine-urbaine-form",
+      "destination": "/piscine-urbaine.html",
+      "permanent": true
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+<section id="formulaire" class="lc-form-page lc-bali-form-section" aria-labelledby="bali-form-heading">
+  <div class="lc-form-heading">
+    <p class="lc-eyebrow">Votre projet Bali</p>
+    <h2 id="bali-form-heading">Donnons vie à votre extérieur.</h2>
+    <p>Présentez-nous votre terrain et vos envies. Nous vérifierons ensemble la faisabilité, le budget et le planning de votre projet.</p>
+  </div>
+  <form id="bali-form" class="lc-project-form config-step" novalidate>
+    <fieldset class="lc-form-section">
+      <legend><span class="lc-step-number">01</span> Votre projet et votre terrain</legend>
+      <div class="lc-form-grid">
+        <div><label for="bali-budget">Budget envisagé *</label><select id="bali-budget" required><option value="">Choisir</option><option value="Je confirme un budget cohérent (+30k)">Je prévois un budget à partir de 30 000 €</option><option value="Je m’adapte à cette base">Mon budget est à préciser sur cette base</option></select><p class="lc-form-help">Bali à partir de 29 990 € TVAC. L’aménagement et les adaptations seront détaillés dans votre offre.</p></div>
+        <div><label for="bali-disponibilite">Période souhaitée *</label><select id="bali-disponibilite" required><option value="">Choisir</option><option value="Printemps 2027 — à confirmer">Printemps 2027</option><option value="Été 2027 — à confirmer">Été 2027</option><option value="Après l’été 2027 — à confirmer">Après l’été 2027</option><option value="Date à définir">Date à définir ensemble</option></select><p class="lc-form-help">Votre souhait de planning sera confirmé après étude et selon les disponibilités.</p></div>
+        <div><label for="bali-terrain">Terrain *</label><select id="bali-terrain" required><option value="">Choisir</option><option value="Plat">Plat</option><option value="Pente">En pente</option><option value="Accès difficile">Accès difficile</option></select></div>
+        <div><label for="bali-engagement">Où en est votre projet ? *</label><select id="bali-engagement" required><option value="">Choisir</option><option value="Prêt à avancer rapidement">Je suis prêt à avancer rapidement</option><option value="Projet concret">J’ai un projet concret à préciser</option></select></div>
+      </div>
+      <label for="bali-scope">Que souhaitez-vous nous confier ?</label><select id="bali-scope"><option value="Piscine seule">La piscine Bali</option><option value="Piscine + terrasse">La piscine et la terrasse</option><option value="Piscine + aménagement complet">La piscine et l’aménagement complet de mon extérieur</option></select>
+      <label class="lc-option" style="margin-top:20px"><input id="bali-serenite" type="checkbox" value="Pack Sérénité"><span>Pack Sérénité — 399 €/an<small>Suivi annuel de votre piscine. Prestations et conditions précisées dans votre offre.</small></span></label>
+    </fieldset>
+    <fieldset class="lc-form-section">
+      <legend><span class="lc-step-number">02</span> Localisons le chantier</legend>
+      <label for="bali-adresse">Rue et numéro *</label><input type="text" id="bali-adresse" required autocomplete="street-address" maxlength="250">
+      <div class="lc-form-grid">
+        <div><label for="bali-code-postal">Code postal *</label><input type="text" id="bali-code-postal" required inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="postal-code"></div>
+        <div><label for="bali-ville">Ville *</label><input type="text" id="bali-ville" required autocomplete="address-level2" maxlength="100"></div>
+      </div>
+      <label for="bali-distance">Temps de trajet estimé par rapport à LC Création *</label><select id="bali-distance" required><option value="">Choisir</option><option value="Moins de 30 min">Moins de 30 min</option><option value="30 à 60 min">30 à 60 min</option><option value="Plus de 1h">Plus de 1 h</option></select>
+    </fieldset>
+    <fieldset class="lc-form-section">
+      <legend><span class="lc-step-number">03</span> Comment vous recontacter ?</legend>
+      <div class="lc-form-grid">
+        <div><label for="bali-prenom">Prénom *</label><input type="text" id="bali-prenom" required autocomplete="given-name" maxlength="100"></div>
+        <div><label for="bali-nom">Nom *</label><input type="text" id="bali-nom" required autocomplete="family-name" maxlength="100"></div>
+        <div><label for="bali-email">E-mail *</label><input type="email" id="bali-email" required autocomplete="email" maxlength="254"></div>
+        <div><label for="bali-telephone">Téléphone *</label><input type="tel" id="bali-telephone" required autocomplete="tel" maxlength="30"></div>
+      </div>
+      <label for="bali-message">Vos précisions <small>(facultatif)</small></label><textarea id="bali-message" rows="4" maxlength="3000" placeholder="Accès au jardin, terrasse souhaitée, plantations, contraintes particulières…"></textarea>
+    </fieldset>
+    <div class="lc-form-submit">
+      <p class="lc-form-help">* Champs obligatoires. Votre demande sert à étudier le projet ; elle ne réserve pas un créneau de chantier. <a href="./politique-confidentialite.html">Confidentialité</a>.</p>
+      <button type="submit" class="btn btn-primary" id="bali-submit">Envoyer mon projet Bali</button>
+      <div id="bali-status" class="lc-form-status" role="status" aria-live="polite" tabindex="-1"></div>
+    </div>
+  </form>
+  <noscript><p>Activez JavaScript pour transmettre votre projet ou appelez le <a href="tel:+32474693800">0474 69 38 00</a>.</p></noscript>
+</section>
