@@ -42,13 +42,14 @@
   async function send(payload, options) {
     var button = options.button, node = options.status;
     if (active.has(button) || completed.has(button)) return false;
+    var decorated = w.LCBlackFriday ? w.LCBlackFriday.decorateSubmission(payload, options.rows || []) : { rows: options.rows || [], promotion: null };
     var originalLabel = button.textContent;
     if (!production) {
       status(node, 'Prévisualisation : demande non envoyée.', 'preview');
       var note = d.createElement('p');
       note.textContent = 'Voici votre récapitulatif local. Aucune demande ni donnée de suivi n’a été transmise.';
       node.appendChild(note);
-      recap(node, options.rows || []);
+      recap(node, decorated.rows);
       node.focus();
       return false;
     }
@@ -69,6 +70,7 @@
       track('complete', data);
       button.textContent = 'Demande envoyée';
       status(node, options.successText || 'Votre demande a bien été envoyée. LC Création vous recontactera pour étudier votre projet.', 'success');
+      if (decorated.promotion) recap(node, [['Votre avantage Black Friday', decorated.promotion.condition]]);
       node.focus();
       if (options.saveEstimate) {
         try { w.sessionStorage.setItem('lc-estimation', JSON.stringify({ montant: payload.estimationText, date: Date.now() })); } catch (_) {}

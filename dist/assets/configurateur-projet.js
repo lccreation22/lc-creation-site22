@@ -5,6 +5,8 @@
   function field(id) { return d.getElementById('project-' + id); }
   function value(id) { return field(id).value.trim(); }
   function options() { return Array.from(form.querySelectorAll('input[name="project-option"]:checked')).map(function (input) { return input.value; }).filter(function (name) { return !(offer.value === 'LC_6_3' && name === 'Pompe à chaleur'); }); }
+  function promotionActive() { return !!(w.LCBlackFriday && w.LCBlackFriday.isActive()); }
+  function optionLabel(name) { return promotionActive() && name === 'Traitement automatique' ? 'Dosage automatique — offert sous conditions Black Friday' : name; }
   var offer = field('offer'), previousOffer = '', savedPac = false;
   function update() {
     var concrete = offer.value === 'concrete', lc63 = offer.value === 'LC_6_3';
@@ -22,7 +24,7 @@
     field('summary-scope').textContent = value('scope');
     field('summary-serenite').textContent = field('serenite').checked ? 'Pack Sérénité : 399 €/an, hors montant du chantier' : 'Pack Sérénité non sélectionné';
     field('serenite-help').hidden = !lc63;
-    field('summary-options').textContent = options().join(', ') || 'À préciser ensemble';
+    field('summary-options').textContent = options().map(optionLabel).join(', ') || 'À préciser ensemble';
     field('summary-price').textContent = offer.value ? concrete ? 'Sur étude personnalisée' : '25 900 € TVAC + options à chiffrer' : 'Choisissez une piscine';
     form.querySelectorAll('.lc-option').forEach(function (label) { label.classList.toggle('active', label.querySelector('input').checked); });
   }
@@ -33,10 +35,13 @@
   if (scope === 'terrace') field('scope').value = 'Piscine + terrasse';
   if (scope === 'complete') field('scope').value = 'Piscine + aménagement complet';
   update(); form.addEventListener('change', update); form.addEventListener('input', update); api.bindValidation(form);
+  if (typeof w.addEventListener === 'function') w.addEventListener('lc:black-friday-change', update);
   form.addEventListener('submit', async function (event) {
     event.preventDefault(); if (field('submit').disabled || !api.valid(form)) return;
     var concrete = offer.value === 'concrete', amount = Number(value('budget')), selected = options();
-    var additional = (concrete ? '' : 'LC 6.3 : volet PVC manuel et pompe à chaleur inclus dans 25 900 € TVAC.\n') + 'Périmètre souhaité : ' + value('scope') + '\nOptions souhaitées (à chiffrer) : ' + (selected.join(', ') || 'à préciser ensemble');
+    var promotional = promotionActive(), chargeable = selected.filter(function (name) { return !(promotional && name === 'Traitement automatique'); });
+    var additional = (concrete ? '' : 'LC 6.3 : volet PVC manuel et pompe à chaleur inclus dans 25 900 € TVAC.\n') + 'Périmètre souhaité : ' + value('scope') + '\n' + (promotional ? 'Autres options souhaitées (à chiffrer)' : 'Options souhaitées (à chiffrer)') + ' : ' + (chargeable.join(', ') || 'aucune autre option sélectionnée');
+    if (promotional && selected.indexOf('Traitement automatique') >= 0) additional += '\nDosage automatique sélectionné : offert, pose comprise, sous conditions Black Friday précisées au devis.';
     additional += '\nPack Sérénité : ' + (field('serenite').checked ? '399 €/an, hors montant du chantier' : 'non sélectionné');
     if (!concrete) additional += '\nLe suivi annuel Sérénité est distinct du premier contrôle LC 6.3.';
     var payload = {
@@ -49,11 +54,11 @@
       couvertureTxt: concrete ? 'Couverture : à définir dans l’étude' : 'Volet PVC manuel inclus',
       estimationText: concrete ? 'Sur étude personnalisée — aucun prix calculé' : '25 900 €',
       message: [value('message'), additional].filter(Boolean).join('\n\n'), website: value('website'),
-      projectScope: value('scope'), serenite: field('serenite').checked, sereniteAnnuel: field('serenite').checked ? 399 : 0, selectedOptions: selected, includedEquipment: concrete ? [] : ['Volet PVC manuel', 'Pompe à chaleur'], optionsPricing: 'Sur étude, en supplément du prix de base'
+      projectScope: value('scope'), serenite: field('serenite').checked, sereniteAnnuel: field('serenite').checked ? 399 : 0, selectedOptions: selected, includedEquipment: concrete ? [] : ['Volet PVC manuel', 'Pompe à chaleur'], optionsPricing: promotional ? 'Dosage automatique offert sous conditions Black Friday ; autres options sur étude, en supplément du prix de base.' : 'Sur étude, en supplément du prix de base'
     };
     await api.send(payload, {
       button: field('submit'), status: field('status'), requireId: true, sourceOffer: offer.value,
-      rows: [['Piscine', payload.taille], ['Équipements inclus', concrete ? 'À définir dans l’étude' : 'Volet PVC manuel et pompe à chaleur'], ['Périmètre', payload.projectScope], ['Options à chiffrer', selected.join(', ') || 'À préciser ensemble'], ['Base de l’offre', concrete ? 'Sur étude personnalisée' : '25 900 € TVAC, volet PVC manuel et PAC inclus, conditions standards, autres options et adaptations en supplément'], ['Suivi annuel', field('serenite').checked ? 'Pack Sérénité — 399 €/an, hors montant du chantier' : 'Non sélectionné'], ['Budget global envisagé', api.money(amount)], ['Délai', value('timing')], ['Votre message', value('message')]]
+      rows: [['Piscine', payload.taille], ['Équipements inclus', concrete ? 'À définir dans l’étude' : 'Volet PVC manuel et pompe à chaleur'], ['Périmètre', payload.projectScope], [promotional ? 'Envies sélectionnées' : 'Options à chiffrer', selected.map(optionLabel).join(', ') || 'À préciser ensemble'], ['Base de l’offre', concrete ? 'Sur étude personnalisée' : '25 900 € TVAC, volet PVC manuel et PAC inclus, conditions standards, autres options et adaptations en supplément'], ['Suivi annuel', field('serenite').checked ? 'Pack Sérénité — 399 €/an, hors montant du chantier' : 'Non sélectionné'], ['Budget global envisagé', api.money(amount)], ['Délai', value('timing')], ['Votre message', value('message')]]
     });
   });
 })(window, document);

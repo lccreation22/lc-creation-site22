@@ -35,7 +35,7 @@ export default function createPages(A = {}) {
     ['La réalisation', ['Terrassement standard et dalle', 'Pose par LC Création', 'Mise en service et explication du fonctionnement', 'Premier contrôle Sérénité offert']]
   ];
   const inclusions = () => '<div class="grid-3 lc-inclusions">' + includedLC.map(([title, items], i) => '<article><span class="lc-block-number">0' + (i + 1) + '</span><h3>' + title + '</h3>' + list(items) + '</article>').join('') + '</div>';
-  const modelConditions = '<p>Le prix de 25 900 € TVAC s’applique en conditions standards de chantier. L’accès, les niveaux, la nature du terrain et les raccordements sont vérifiés lors de l’étude.</p>' + list(['Terrassement complexe, évacuation des terres et soutènements : chiffrage selon le projet.', 'Accès machine difficile ou raccordements anormalement éloignés : adaptations à étudier.', 'Traitement automatique, terrasse et aménagements périphériques : en supplément selon le devis.']);
+  const modelConditions = '<p>Le prix de 25 900 € TVAC s’applique en conditions standards de chantier. L’accès, les niveaux, la nature du terrain et les raccordements sont vérifiés lors de l’étude.</p>' + list(['Terrassement complexe, évacuation des terres et soutènements : chiffrage selon le projet.', 'Accès machine difficile ou raccordements anormalement éloignés : adaptations à étudier.', 'Terrasse et aménagements périphériques : en supplément selon le devis.', 'Traitement automatique : en supplément au tarif habituel. <span data-bf-active hidden>Pendant l’offre Black Friday, le dosage automatique est offert, pose comprise, pour tout devis signé au plus tard le 30 novembre 2026. <a href="black-friday.html#conditions">Voir les conditions</a>.</span>']);
 
   const pages = {};
 

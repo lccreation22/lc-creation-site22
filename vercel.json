@@ -5,6 +5,10 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
+      "source": "/black-friday",
+      "destination": "/black-friday.html"
+    },
+    {
       "source": "/amenagements",
       "destination": "/amenagements.html"
     },

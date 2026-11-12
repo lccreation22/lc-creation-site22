@@ -4,12 +4,13 @@ import {fileURLToPath} from 'node:url';
 import {renderPage} from './src/layout.mjs';
 import createHome from './src/home.mjs';
 import createPages from './src/pages.mjs';
+import createBlackFriday, {blackFridayNotice} from './src/black-friday.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const production = process.argv.includes('--production');
 const read = file => fs.readFile(path.join(root, file), 'utf8');
 const A = JSON.parse(await read('dist/assets/manifest.json'));
-const pages = {'index.html': createHome(A), ...createPages(A)};
+const pages = {'index.html': createHome(A), ...createPages(A), 'black-friday.html': createBlackFriday(A)};
 const commonScripts = ['assets/lc-tracking-production.js'];
 const forms = 'src/forms/';
 const commonFormScripts = [...commonScripts, 'assets/forms-runtime.js'];
@@ -17,7 +18,7 @@ const commonFormScripts = [...commonScripts, 'assets/forms-runtime.js'];
 function unwrapMain(html) {
   const match = html.trim().match(/^<main\b([^>]*)>([\s\S]*)<\/main>\s*$/i);
   if (!match) throw new Error('Expected exactly one outer main element in form fragment');
-  return {body: match[2], mainClass: match[1].match(/class="([^"]+)"/)?.[1] || ''};
+  return {body: match[2].replace('<!--BLACK_FRIDAY_NOTICE-->', blackFridayNotice), mainClass: match[1].match(/class="([^"]+)"/)?.[1] || ''};
 }
 pages['configurateur-projet.html'] = {
   title: 'Configurer ma piscine et mon aménagement extérieur',
@@ -34,7 +35,7 @@ pages['configurateur-piscine.html'] = {
   scripts: [...commonFormScripts, 'assets/pool-pricing.js', 'assets/configurateur-piscine.js']
 };
 // The surrounding page already owns the destination id="formulaire".
-const baliForm = (await read(forms + 'bali-form.fragment.html')).replace('id="formulaire"', 'id="bali-form-section"');
+const baliForm = (await read(forms + 'bali-form.fragment.html')).replace('id="formulaire"', 'id="bali-form-section"').replace('<!--BLACK_FRIDAY_NOTICE-->', blackFridayNotice);
 pages['piscine-bali.html'].body = pages['piscine-bali.html'].body.replace('<!--BALI_FORM-->', baliForm);
 pages['piscine-bali.html'].css = ['assets/forms.css', 'assets/lc-tracking.css'];
 pages['piscine-bali.html'].scripts = [...commonFormScripts, 'assets/bali-form.js'];
@@ -62,7 +63,7 @@ pages['piscine-urbaine.html'] = {
 };
 
 await fs.mkdir(path.join(root, 'dist/assets'), {recursive:true});
-for (const name of ['site.css', 'pages.css', 'luxury.css', 'site.js']) await fs.copyFile(path.join(root, 'src', name), path.join(root, 'dist/assets', name));
+for (const name of ['site.css', 'pages.css', 'luxury.css', 'site.js', 'black-friday.js']) await fs.copyFile(path.join(root, 'src', name), path.join(root, 'dist/assets', name));
 for (const name of await fs.readdir(path.join(root, forms))) {
   if (/\.(css|js)$/.test(name)) await fs.copyFile(path.join(root, forms, name), path.join(root, 'dist/assets', name));
 }

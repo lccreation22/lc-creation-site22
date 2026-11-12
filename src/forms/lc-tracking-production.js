@@ -41,6 +41,7 @@
   if (search.get('projet') === 'offre-6x3') cleanSearch.set('projet', 'offre-6x3');
   if (['pool', 'terrace', 'complete'].indexOf(search.get('scope')) >= 0) cleanSearch.set('scope', search.get('scope'));
   if (search.get('serenite') === '1') cleanSearch.set('serenite', '1');
+  if (search.get('offre') === 'black-friday-2026') cleanSearch.set('offre', 'black-friday-2026');
   if (debug) cleanSearch.set('lc_debug', '1');
   var cleaned = location.pathname + (cleanSearch.toString() ? '?' + cleanSearch.toString() : '') + (/^#[a-zA-Z0-9_-]+$/.test(location.hash) ? location.hash : '');
   try { if (cleaned !== location.pathname + location.search + location.hash) history.replaceState(null, '', cleaned); } catch (_) {}

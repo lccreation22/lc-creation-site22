@@ -245,3 +245,48 @@ body[data-page="realisations.html"] .lc-page-hero-photo .lc-page-visual img,body
 
 /* Photographie de finitions choisie par le client. */
 img[src$="/finitions-detail-lc-creation.webp"]{object-position:50% 60%}
+
+/* Black Friday: the existing midnight-blue, photographic and gold identity. */
+.lc-bf-document-title{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+[data-bf-active][hidden],[data-bf-ended][hidden]{display:none!important}
+.lc-bf-banner{background:#03070d;border-bottom:1px solid #343329;color:#ecf1f7}
+.lc-bf-banner>a{max-width:var(--max);margin:auto;padding:14px var(--gutter);display:flex;justify-content:center;align-items:center;gap:10px 23px;flex-wrap:wrap;font-size:12px;line-height:1.5;text-align:center;text-decoration:none}
+.lc-bf-banner>a>span:first-child{color:var(--gold-hover);font-size:11px;letter-spacing:.15em;text-transform:uppercase}
+.lc-bf-banner strong{font-weight:500}
+.lc-bf-banner>a>span:nth-child(3){color:#b7c2d2;font-size:11px}
+.lc-bf-banner .lc-bf-banner-link{display:inline-flex;gap:8px;align-items:center;color:var(--gold-hover);white-space:nowrap}
+.lc-bf-banner .icon-arrow{width:15px;height:15px}
+.lc-bf-banner a:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
+.lc-bf-hero .lc-page-hero-copy h2{font-size:clamp(38px,4.7vw,66px);font-weight:500;line-height:1.05;letter-spacing:-.035em;color:#fff;max-width:15ch;margin:18px 0 28px}
+.lc-bf-hero .lc-page-hero-copy{max-width:650px}
+.lc-bf-offer{font-size:clamp(29px,3.4vw,46px);line-height:1.08;letter-spacing:-.025em;color:#fff;margin:0 0 14px}
+.lc-bf-offer strong{color:var(--gold-hover);font-weight:500}
+.lc-bf-value{font-size:18px;color:#e7edf6;margin:0 0 25px}
+.lc-bf-value strong{font-weight:500}
+.lc-bf-hero .lc-page-visual img{object-position:65% 64%}
+.lc-bf-hero .lc-smallprint a{text-decoration:underline;text-underline-offset:3px}
+.lc-bf-intro .lc-section-heading{max-width:760px}
+.lc-bf-paths{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:55px}
+.lc-bf-paths article{border-top:1px solid var(--line);padding-top:25px}
+.lc-bf-paths article>span{color:var(--gold-hover);font-size:12px}
+.lc-bf-paths h3{font-size:25px;font-weight:400;line-height:1.3;margin:18px 0 13px}
+.lc-bf-paths p{max-width:45ch;color:var(--muted);line-height:1.7}
+.lc-bf-paths .link-arrow{margin-top:15px}
+.lc-bf-conditions{max-width:1000px}
+.lc-bf-conditions dl{margin:40px 0 30px}
+.lc-bf-conditions dl>div{display:grid;grid-template-columns:230px minmax(0,1fr);gap:35px;border-top:1px solid var(--line);padding:23px 0}
+.lc-bf-conditions dt{font-size:15px;color:#eef3f8}
+.lc-bf-conditions dd{font-size:14px;line-height:1.8;color:#bfcbdc;margin:0}
+.lc-bf-small{color:var(--muted);font-size:12px;line-height:1.7}
+.lc-bf-notice{margin:0 0 35px;padding:28px 30px;background:#111f32;border:1px solid #3e3c2b;border-left:3px solid var(--gold);border-radius:0 18px 18px 0;color:#d8e2ed}
+.lc-form-page>.lc-bf-notice{max-width:1152px;margin:0 auto 35px;width:calc(100% - 64px)}
+.lc-bali-form-section>.lc-bf-notice{width:100%;margin:0 0 30px}
+.lc-bf-notice .eyebrow{color:var(--gold-hover);font-size:10px;margin:0 0 12px}
+.lc-bf-notice h2{color:#fff;font-size:27px;font-weight:400;line-height:1.25;letter-spacing:-.02em;margin:0 0 15px}
+.lc-bf-notice>p:not(.eyebrow){font-size:13px;line-height:1.65;max-width:85ch}
+.lc-bf-notice>p.lc-bf-small{font-size:11px;color:#adbbcd}
+.lc-bf-notice .link-arrow{font-size:12px;color:var(--gold-hover)}
+.lc-bf-ended .container{max-width:1000px}
+.lc-bf-ended .intro{max-width:60ch}
+@media(max-width:800px){.lc-bf-banner>a{padding:13px 24px;gap:4px 14px}.lc-bf-banner>a>span:nth-child(3){flex-basis:100%;order:3}.lc-bf-banner .lc-bf-banner-link{font-size:11px}.lc-bf-hero .lc-page-hero-copy{padding-bottom:190px}.lc-bf-hero .lc-page-hero-copy h2{font-size:clamp(36px,7vw,52px);margin-bottom:24px}.lc-bf-offer{font-size:34px}.lc-bf-value{font-size:16px}.lc-bf-hero .lc-page-visual img{object-position:61% 68%}.lc-bf-paths{grid-template-columns:1fr;gap:30px;margin-top:35px}.lc-bf-conditions dl>div{grid-template-columns:1fr;gap:8px;padding:21px 0}.lc-bf-notice{padding:23px}.lc-bf-notice h2{font-size:24px}.lc-form-page>.lc-bf-notice{width:calc(100% - 36px)}.lc-bali-form-section>.lc-bf-notice{width:100%}}
+@media(max-width:480px){.lc-bf-banner>a{justify-content:flex-start;text-align:left;gap:4px 12px}.lc-bf-banner strong{flex-basis:100%;font-size:12px}.lc-bf-banner .lc-bf-banner-link{margin-left:auto}.lc-bf-banner>a>span:nth-child(3){font-size:10px}.lc-bf-hero .lc-page-hero-grid{min-height:880px}.lc-bf-hero .lc-page-hero-copy h2{font-size:36px}.lc-bf-offer{font-size:32px}.lc-bf-hero .lc-page-hero-copy{padding-top:35px}.lc-bf-hero .lc-smallprint{font-size:11px}}
