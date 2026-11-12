@@ -66,11 +66,14 @@ for(const [label,payload] of cases){
   assert.ok(payload.message.length>3000);
   const result=await run(payload);results[label]=result;
   assert.equal(result.status,200,label);assert.equal(result.data.ok,true,label);assert.equal(result.data.id,'local-mocked-email-id');
-  assert.equal(result.emails.length,1);assert.equal(result.emails[0].bcc,'opportunite+695292@vertuoza.com');
+  assert.equal(result.emails.length,1);
+  assert.equal(result.emails[0].to,process.env.RESEND_TO,'LC Création recipient retained for '+label);
+  assert.ok(!Object.hasOwn(result.emails[0],'bcc'),'No CRM blind copy for '+label);
+  assert.ok(!Object.hasOwn(result.emails[0],'cc'),'No CRM copy for '+label);
   assert.ok(result.emails[0].text.includes(payload.message),'Message not preserved in '+label);
   assert.equal(result.data.tracking.event_id,submissionId);
   assert.ok(!result.emails[0].text.includes('local-test-click'),'Marketing attribution without consent');
-  console.log('OK real handler: '+label+'; complete message and tracking retained');
+  console.log('OK real handler: '+label+'; LC Création only, complete message and tracking retained');
 }
 assert.equal(results['LC6.3'].data.tracking.parameters.source_offer,'LC_6_3');
 assert.equal(results['LC6.3'].data.tracking.qualified,true);

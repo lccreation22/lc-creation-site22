@@ -23,7 +23,7 @@ Les tests du service d'envoi utilisent exclusivement un transport simulé : aucu
 
 ## Demandes clients
 
-Les formulaires utilisent `POST /api/send-piscine-lead`. Les fonctions, leurs variables d'environnement, le routage Resend et la copie Vertuoza existants sont conservés. Les nouveaux champs de configuration sont également repris dans `message`. Le configurateur bois transmet les anciens noms de champs pour l'évacuation et la terrasse afin de garder le récapitulatif serveur exact.
+Les formulaires utilisent `POST /api/send-piscine-lead`. Resend transmet les demandes uniquement au destinataire LC Création défini par `RESEND_TO`, sans copie vers Vertuoza. La liaison automatique entre configurateur et Vertuoza a été retirée à la demande de LC Création le 12 novembre 2026 ; l'entrée dans le CRM intervient à une étape ultérieure. Les noms de variables d'environnement restent identiques. Les nouveaux champs de configuration sont également repris dans `message`. Le configurateur bois transmet les anciens noms de champs pour l'évacuation et la terrasse afin de garder le récapitulatif serveur exact.
 
 Les envois et le suivi fonctionnent exclusivement sur `lc-creation.be` et `www.lc-creation.be`. Les domaines de prévisualisation affichent un récapitulatif sans transmission. Le suivi existant conserve les identifiants GA4 et Meta, avec consentement.
 

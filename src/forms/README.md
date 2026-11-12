@@ -85,7 +85,7 @@ Dernière vérification visuelle conseillée après intégration parent : grand 
 
 ## Intégration au backend de production
 
-Le handler existant `api/send-piscine-lead.js` a été inspecté et testé localement par `node qa/production-handler-contract.mjs`. Ce test exécute le vrai handler avec des variables d’environnement factices et un `fetch` simulé ; les transports HTTP/HTTPS sont bloqués. Le backend, ses noms de variables d’environnement et son routage Resend avec copie Vertuoza sont conservés.
+Le handler existant `api/send-piscine-lead.js` a été inspecté et testé localement par `node qa/production-handler-contract.mjs`. Ce test exécute le vrai handler avec des variables d’environnement factices et un `fetch` simulé ; les transports HTTP/HTTPS sont bloqués. Resend transmet les demandes au destinataire LC Création défini par `RESEND_TO`, sans copie vers Vertuoza. La copie CRM a été retirée le 12 novembre 2026 à la demande de LC Création. Les noms de variables d’environnement sont conservés. Le test vérifie le destinataire et l’absence de `bcc` et `cc` pour chaque parcours.
 
 Les parcours LC 6.3, béton, Bali et bois passent ce contrôle. Le handler ne filtre pas les disponibilités Bali par une liste de valeurs : `Été 2027 — à confirmer` et `Date à définir` sont acceptés et repris dans le texte de l’e-mail. Il n’impose pas de limite applicative à `message` et ne rejette pas les clés supplémentaires ; le test vérifie qu’un message client de 3 000 caractères accompagné de la synthèse est conservé intégralement. Cela ne supprime pas les limites de taille de requête propres à l’hébergement ou au fournisseur d’e-mail.
 
