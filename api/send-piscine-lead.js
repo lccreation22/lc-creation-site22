@@ -1,3 +1,5 @@
+import { leadSubmissionId, queueLeadBackup } from '../lc-lead-backup.js';
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ ok: false, error: "Method not allowed" });
@@ -24,9 +26,7 @@ export default async function handler(req, res) {
     const from = process.env.RESEND_FROM;
     const to = process.env.RESEND_TO;
 
-    if (!apiKey || !from || !to) {
-      throw new Error("Missing env vars: RESEND_API / RESEND_FROM / RESEND_TO");
-    }
+    const submissionId = leadSubmissionId(body);
 
     const {
       source,
@@ -145,31 +145,37 @@ export default async function handler(req, res) {
       if (tracking) text += tracking.emailSuffix;
     } catch (_) { /* Keep the original email and routing fully operational. */ }
 
-    const r = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${apiKey}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        from,
-        to,
-        subject,
-        text
-      })
-    });
+    let mailId = null;
+    try {
+      if (!apiKey || !from || !to) throw new Error('Missing mail configuration');
+      const r = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        signal: AbortSignal.timeout(10000),
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ from, to, subject, text })
+      });
+      const json = await r.json();
 
-    const json = await r.json();
-
-    if (!r.ok) {
-      throw new Error(json?.message || JSON.stringify(json));
+      if (!r.ok || !json.id) throw new Error('Mail not acknowledged');
+      mailId = json.id;
+    } catch (_) {
+      console.error('lead-mail unavailable', { submission_id: submissionId });
     }
 
-    return res.status(200).json({ ok: true, id: json.id,
+    const backup = await queueLeadBackup(body, { id: submissionId, subject, text, mailId, tracking });
+    if (!mailId && backup.status !== 'queued') {
+      return res.status(500).json({ ok: false, error: 'Transmission non confirmée. Réessayez ou contactez LC Création.' });
+    }
+
+    return res.status(200).json({ ok: true, id: mailId || submissionId,
+      submission_id: submissionId, email_status: mailId ? 'accepted' : 'failed', backup_status: backup.status,
       ...(tracking ? { tracking: { event_id: tracking.event_id, qualified: tracking.qualified, rule: tracking.rule, parameters: tracking.parameters } } : {})
     });
   } catch (err) {
-    console.error("send-lead error:", err);
-    return res.status(500).json({ ok: false, error: err.message || "Server error" });
+    console.error('send-lead invalid request');
+    return res.status(500).json({ ok: false, error: 'Transmission non confirmée.' });
   }
 }

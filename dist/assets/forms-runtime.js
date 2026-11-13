@@ -3,6 +3,7 @@
   var production = /^(www\.)?lc-creation\.be$/i.test(w.location.hostname);
   var active = new WeakSet();
   var completed = new WeakSet();
+  var attempts = new WeakMap();
 
   function track(method, data) {
     if (!production) return null;
@@ -60,6 +61,17 @@
       if (options.sourceOffer) tracking.source_offer = options.sourceOffer;
       payload.tracking = tracking;
     }
+    // Reuse an identifier only while retrying the same project. An edited project
+    // gets a new identifier so a corrected request is never discarded as a retry.
+    var signature = JSON.stringify(Object.keys(payload).sort().filter(function (key) { return key !== 'tracking' && key !== 'submission_id'; }).map(function (key) { return [key, payload[key]]; }));
+    var attempt = attempts.get(button);
+    if (!attempt || attempt.signature !== signature) {
+      var uuid = w.crypto && w.crypto.randomUUID ? w.crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); });
+      attempt = { signature: signature, id: 'lc-' + uuid };
+      attempts.set(button, attempt);
+    }
+    payload.submission_id = attempt.id;
+    if (tracking) tracking.submission_id = attempt.id;
     try {
       var response = await w.fetch('/api/send-piscine-lead', {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
@@ -68,8 +80,9 @@
       if (!response.ok || data.ok !== true || data.skipped || (options.requireId && !data.id)) throw new Error('Envoi non confirmé');
       completed.add(button);
       track('complete', data);
-      button.textContent = 'Demande envoyée';
-      status(node, options.successText || 'Votre demande a bien été envoyée. LC Création vous recontactera pour étudier votre projet.', 'success');
+      var savedOnly = data.email_status === 'failed' && data.backup_status === 'queued';
+      button.textContent = savedOnly ? 'Demande enregistrée' : 'Demande envoyée';
+      status(node, savedOnly ? 'Votre demande a bien été enregistrée. LC Création vous recontactera pour étudier votre projet.' : (options.successText || 'Votre demande a bien été envoyée. LC Création vous recontactera pour étudier votre projet.'), 'success');
       if (decorated.promotion) recap(node, [['Votre avantage Black Friday', decorated.promotion.condition]]);
       node.focus();
       if (options.saveEstimate) {
